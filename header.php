@@ -22,6 +22,18 @@
 
 <body <?php body_class(); ?>>
 
+<div class="mobile__menu nav__wrap">
+    <div class="mobile__close__button">
+        <button class="circle" data-animation="showShadow" data-remove="3000"></button>
+    </div>
+	<?php
+        wp_nav_menu(array(
+            "menu" => "Primary Menu",
+            'container'=> false
+        ));
+	?>
+</div>
+
 <header>
     <div class="row align-right meta__header">
         <div class="col search__form">

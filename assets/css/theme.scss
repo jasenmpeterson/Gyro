@@ -1,3 +1,4 @@
+@import "normalize.scss";
 @import "../fonts/fonts.scss";
 @import "variables.scss";
 @import "grid.scss";
@@ -21,6 +22,14 @@ body {
 body {
   font-family: $text-font-family;
   color: $color-text;
+}
+
+.content__wrapper {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
 }
 
 // header
@@ -79,8 +88,7 @@ header .row {
 // primary nav
 
 .col.primary_nav {
-  width: 50%;
-  @media screen and (max-width: 1400px) {
+  @media screen and (min-width: 1076px) {
     width: 60%;
   }
   @media screen and (max-width: 1075px) {
@@ -280,3 +288,393 @@ input.search {
   transform: rotate(-45deg);
   transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
+
+// mobile menu
+
+.mobile__menu {
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  transform: translateY(-400px);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  z-index: $z-over-all;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mobile__menu.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile__menu ul {
+  flex-direction: column;
+  padding: 0;
+}
+
+.mobile__menu li,
+.mobile__menu li a {
+  display: block;
+}
+
+.mobile__menu li:first-of-type {
+  border-top: 1px solid $color-gray;
+}
+
+.mobile__menu li {
+  border-bottom: 1px solid $color-gray;
+}
+
+.mobile__menu li a {
+  padding: 20px;
+  transition: all 400ms ease-out;
+}
+
+.mobile__menu li a:hover {
+  background-color: $color-red;
+  color: #ffffff;
+}
+
+.mobile__close__button {
+  text-align: right;
+}
+
+.mobile__close__button .circle {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 4px solid $color-red;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px 20px;
+  transition: cubic-bezier(0.175, 0.885, 0.52, 1.775) 200ms;
+  border: 0px solid white;
+}
+
+.mobile__close__button .circle:before,
+.mobile__close__button .circle:after {
+  transition: cubic-bezier(0.175, 0.885, 0.52, 1.775) 200ms;
+}
+
+.mobile__close__button .circle:before {
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -2px;
+  width: 24px;
+  height: 4px;
+  background-color: $color-red;
+  content: "";
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.mobile__close__button .circle:after {
+  width: 24px;
+  height: 4px;
+  background-color: $color-red;
+  content: "";
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -2px;
+  position: absolute;
+  transform: rotate(-45deg);
+}
+
+.mobile__close__button  .circle:hover {
+  box-shadow: 0px 0px 0px 6px $color-red inset;
+}
+
+.circle[data-animation="showShadow"]:not(.showShadow):hover:before {
+  transform: scale(0.7) rotate(45deg);
+  transition-delay: 100ms;
+}
+
+.circle:hover:after {
+  transform: scale(0.7) rotate(-45deg);
+  transition-delay: 100ms;
+}
+
+// rotating banner
+
+.rotating__banner {
+  background: url("assets/images/raw/banner_hp.jpg") no-repeat left center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  @media screen and (min-width: 1440px) {
+    height: 650px;
+  }
+  @media screen and (min-width: 320px) {
+    height: 400px;
+  }
+}
+
+.rotating__banner:after,
+.rotating__banner:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  display: block;
+  @media screen and (min-width: 1024px) {
+    clip-path: polygon(0 0, 100% 0, 83% 99%, 0 100%);
+  }
+  @media screen and (min-width: 320px) {
+    clip-path: none;
+  }
+  height: 100%;
+}
+
+.rotating__banner:before {
+  background-color: rgba(255,255,255,0.5);
+  @media screen and (min-width: 1440px) {
+    width: 55%;
+  }
+  @media screen and (min-width: 320px) {
+    width: 100%;
+  }
+}
+
+.rotating__banner:after {
+  background-color: rgba(255,255,255,0.2);
+  @media screen and (min-width: 1440px) {
+    width: 45%;
+  }
+  @media screen and (min-width: 320px) {
+    width: 100%;
+  }
+}
+
+.rotating__banner .row {
+  height: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.rotating__banner .row:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255,255,255,0.2);
+  height: 100%;
+  width: 100%;
+  @media screen and (min-width: 1024px) {
+    clip-path: polygon(0 0, 100% 77%, 100% 100%, 54% 100%, 0 100%);
+  }
+  @media screen and (min-width: 320px) {
+    clip-path: none;
+  }
+}
+
+.rotating__banner .row:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(255,255,255,0.2);
+  height: 100%;
+  width: 20%;
+  @media screen and (min-width: 1024px) {
+    display: block;
+    clip-path: polygon(55% 0, 100% 0, 100% 100%, 82% 100%);
+  }
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
+}
+
+.rotating__banner .col {
+  padding: 30px;
+  @media screen and (min-width: 1024px) {
+    width: 650px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
+  @media screen and (min-width: 320px) {
+    width: 320px;
+  }
+}
+
+.rotating__banner .content__wrap {
+  @media screen and (min-width: 1440px) {
+    margin-top: -125px;
+  }
+  @media screen and (min-width: 320px) {
+    margin-top: -75px;
+  }
+  position: relative;
+  z-index: 20;
+}
+
+// content slider
+
+.content__slider .col {
+  @media screen and (min-width: 1024px) {
+    width: 50%;
+    padding: 0 50px;
+  }
+  @media screen and (min-width: 320px) {
+    width: 100%;
+    padding: 0 35px;
+  }
+}
+
+.content__slider .row {
+  align-items: center;
+}
+
+.content__slider {
+  color: #747D86;
+}
+
+.content__slider h4 {
+  font-weight: 700;
+}
+
+.content__slider img {
+  display: block;
+  margin: 0 auto;
+}
+
+.content__slider .content__wrap {
+  padding-left: 20px;
+  position: relative;
+}
+
+.content__slider .content__wrap:before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 65px;
+  background-color: $color-red;
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+
+// Buttons
+
+.button {
+  font-size: $button-font-size-small;
+  height: $button-height;
+  padding: $button-padding-tb $button-padding-large-rl;
+  color: #4A525B;
+  border: 1px solid $border-color-yellow;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  line-height: 22px;
+  vertical-align: middle;
+}
+
+// Blueprint Wrap
+
+.blueprint__wrap {
+  background: url("assets/images/raw/blueprint.svg") no-repeat left center;
+  background-size: 110%;
+}
+
+// Typography
+
+// -- headers
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  color: $color-headings;
+}
+
+h1 {
+  @media screen and (min-width: 1440px) {
+    font-size: 50px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 40px;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 30px;
+  }
+  @media screen and (min-width: 320px) {
+    font-size: 25px;
+  }
+}
+
+h2 {
+  @media screen and (min-width: 1440px) {
+    font-size: 40px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 30px;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 320px) {
+    font-size: 20px;
+  }
+}
+
+// -- title
+
+.title:before {
+  content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjE3OC40NjkgODM5LjgwNiA0Ni40MiA2LjE5NCI+PGRlZnM+PHN0eWxlPi5he2ZpbGw6I2ViMDAyOTt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik0xMi4wMzQsNUg1Ni4yMjJMNTMuOTkxLDExLjJIOS44WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTY4LjY2NiA4MzQuODAyKSIvPjwvc3ZnPg==);
+  display: block;
+  margin-bottom: 40px;
+  width: 46px;
+  height: 6px;
+}
+
+// ul icons list
+
+.icon__list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.icon__list li {
+  border-top: 1px solid #EB0029;
+  padding: 20px 0;
+}
+
+.icon__list .wrap {
+  display: flex;
+  align-items: center;
+}
+
+.icon__list img {
+  height: auto;
+  @media screen and (min-width: 1200px) {
+    width: 50px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 30px;
+  }
+  @media screen and (min-width: 320px) {
+    width: 25px;
+  }
+}
+
+.icon__list figure {
+  margin: 0 15px 0 0;
+}
+
+// background image
+
+.background__image {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+@import "technology-and-services.scss";
