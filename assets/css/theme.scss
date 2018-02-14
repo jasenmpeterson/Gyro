@@ -576,6 +576,9 @@ input.search {
   vertical-align: middle;
 }
 
+.button.white {
+  color: #ffffff;
+}
 // Blueprint Wrap
 
 .blueprint__wrap {
@@ -625,6 +628,10 @@ h2 {
   @media screen and (min-width: 320px) {
     font-size: 20px;
   }
+}
+
+p:not(:last-child) {
+  margin-bottom: 40px;
 }
 
 // -- helpers
@@ -697,5 +704,51 @@ h2 {
   background-color: rgba(0,0,0,.5);
 }
 
+// footer
+
+footer {
+  background-color: #E5E6E6;
+  font-size: 12px;
+}
+
+footer.component {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+footer,
+footer a {
+  color: #B2B2B2;
+}
+
+footer .row {
+  align-items: center;
+}
+
+footer .col  {
+  flex: 0 0 auto;
+   @media screen and (min-width: 605px) {
+     width: auto;
+     padding: 0;
+   }
+  @media screen and (min-width: 320px) {
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+
+footer .col.footer__logo a {
+  display: block;
+}
+
+.copyright.component {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #ffffff;
+  background-color: #4A525B;
+  font-size: 12px;
+}
+
 @import "technology-and-services";
 @import "news-posts";
+@import "history";

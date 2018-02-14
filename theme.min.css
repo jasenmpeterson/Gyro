@@ -110,8 +110,10 @@ input.search{background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.o
 .content__slider .content__wrap{padding-left:20px;position:relative}
 .content__slider .content__wrap:before{content:'';display:block;width:4px;height:65px;background-color:#eb0029;position:absolute;top:50px;left:0}
 .button{font-size:13px;height:40px;padding:8px 36px;color:#4a525b;border:1px solid #ffb100;text-decoration:none;display:inline-block;text-align:center;line-height:22px;vertical-align:middle}
+.button.white{color:#fff}
 .blueprint__wrap{background:url("assets/images/raw/blueprint.svg") no-repeat left center;background-size:110%}
 h1,h2,h3,h4,h5,h6{font-weight:300;color:#4a525b}
+p:not(:last-child){margin-bottom:40px}
 .text__align__center{text-align:center}
 .title:before{content:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjE3OC40NjkgODM5LjgwNiA0Ni40MiA2LjE5NCI+PGRlZnM+PHN0eWxlPi5he2ZpbGw6I2ViMDAyOTt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik0xMi4wMzQsNUg1Ni4yMjJMNTMuOTkxLDExLjJIOS44WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTY4LjY2NiA4MzQuODAyKSIvPjwvc3ZnPg==);display:block;margin-bottom:40px;width:46px;height:6px}
 .icon__list{list-style-type:none;padding:0}
@@ -121,6 +123,13 @@ h1,h2,h3,h4,h5,h6{font-weight:300;color:#4a525b}
 .icon__list figure{margin:0 15px 0 0}
 .background__image{background-size:cover !important;background-repeat:no-repeat !important}
 .tint:before{content:"";display:block;position:absolute;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,0.5)}
+footer{background-color:#e5e6e6;font-size:12px}
+footer.component{padding-top:30px;padding-bottom:30px}
+footer,footer a{color:#b2b2b2}
+footer .row{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
+footer .col{-webkit-box-flex:0;-webkit-flex:0 0 auto;-ms-flex:0 0 auto;flex:0 0 auto}
+footer .col.footer__logo a{display:block}
+.copyright.component{padding-top:15px;padding-bottom:15px;color:#fff;background-color:#4a525b;font-size:12px}
 .technology__and__services{background:url("assets/images/raw/tech_services_bg.jpg") no-repeat left center;-webkit-clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);padding:120px 0;margin:50px 0;position:relative}
 .technology__and__services .row{-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end}
 .technology__and__services .content__wrap{position:relative}
@@ -140,6 +149,11 @@ h1,h2,h3,h4,h5,h6{font-weight:300;color:#4a525b}
 .news__posts a:hover h3{-webkit-transform:translateY(-60px);-ms-transform:translateY(-60px);transform:translateY(-60px)}
 .news__posts .content__wrap{margin-top:auto;position:relative;z-index:2}
 .news__posts .col.text__align__center{width:100%}
+.history .row{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
+.history.background__image{background:url("assets/images/raw/history.jpg") no-repeat left center;height:100%;width:100%;position:relative}
+.history{padding-top:120px;padding-bottom:120px;margin-top:50px}
+.history .content__wrap{position:relative;z-index:2}
+.history h1,.history{color:#fff}
 @media screen and (min-width:320px){.rotating__banner{height:400px}
 .rotating__banner:after,.rotating__banner:before{-webkit-clip-path:none;clip-path:none}
 .rotating__banner:before{width:100%}
@@ -152,14 +166,18 @@ h1,h2,h3,h4,h5,h6{font-weight:300;color:#4a525b}
 h1{font-size:25px}
 h2{font-size:20px}
 .icon__list img{width:25px}
+footer .col{width:100%;padding:10px 0}
 .technology__and__services .col{width:100%}
 .technology__and__services .content__wrap{left:0;padding:0 20px}
 .background__image.secondary{display:none}
 .news__posts .col{width:100%}
+.history .col{width:100%}
+}@media screen and (min-width:605px){footer .col{width:auto;padding:0}
 }@media screen and (min-width:700px){.technology__and__services .col{width:65%}
 .technology__and__services .content__wrap{left:20px;padding:0 100px}
 .background__image.secondary{display:block}
 }@media screen and (min-width:767px){.news__posts .col{width:33.3%}
+.history .col{width:40%}
 }@media screen and (min-width:768px){.rotating__banner .col{width:500px}
 }@media screen and (min-width:1024px){.rotating__banner:after,.rotating__banner:before{-webkit-clip-path:polygon(0 0,100% 0,83% 99%,0 100%);clip-path:polygon(0 0,100% 0,83% 99%,0 100%)}
 .rotating__banner .row:before{-webkit-clip-path:polygon(0 0,100% 77%,100% 100%,54% 100%,0 100%);clip-path:polygon(0 0,100% 77%,100% 100%,54% 100%,0 100%)}
