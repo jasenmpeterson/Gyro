@@ -1,0 +1,88 @@
+.news__posts .col {
+  padding: 10px;
+  @media screen and (min-width: 767px) {
+    width: 33.3%;
+  }
+  @media screen and (min-width: 320px) {
+    width: 100%;
+  }
+}
+
+.news__posts article {
+  position: relative;
+  overflow: hidden;
+}
+
+.news__posts article a {
+  display: flex;
+  padding: 30px;
+  height: 250px;
+  text-decoration: none;
+  position: relative;
+}
+
+.news__posts a h3:before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 0;
+  opacity: 0;
+  background-color: #fff;
+  margin-bottom: 5px;
+  transition: width 300ms ease-out 150ms, opacity 600ms ease-in-out 230ms;
+}
+
+.news__posts a p {
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 600ms ease-out 200ms, transform 300ms ease-out 250ms;
+}
+
+.news__posts .background__image {
+  background: url("assets/images/raw/banner_hp.jpg") no-repeat left center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 50px);
+  height: 100%;
+  transition: transform 300ms ease-out, background-color 400ms ease-in-out 50ms, filter 400ms ease-in-out;
+}
+
+.news__posts a:hover .tint:before {
+  background-color: rgba(255,177,0,0.9);
+}
+
+.news__posts a:hover p {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+
+.news__posts a:hover h3:before {
+  width: 60%;
+  opacity: 1;
+}
+
+.news__posts a:hover .background__image {
+  transform: scale(1.2);
+  filter: blur(3px);
+}
+
+.news__posts a h3 {
+  color: #ffffff;
+  font-weight: 700;
+  transition: all 300ms ease-out;
+}
+
+.news__posts a:hover h3 {
+  transform: translateY(-60px);
+}
+
+.news__posts .content__wrap {
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.news__posts .col.text__align__center {
+  width: 100%;
+}

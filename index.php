@@ -14,6 +14,7 @@ get_header();
 	<?php get_template_part("template-home"); ?>
 	<?php get_template_part("components/content-slider"); ?>
 	<?php get_template_part("components/technology-and-services"); ?>
+	<?php get_template_part("components/news-posts"); ?>
 </div>
 
 

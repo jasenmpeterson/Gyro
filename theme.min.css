@@ -47,6 +47,7 @@ html{box-sizing:border-box}
 html,body{padding:0;margin:0}
 body{font-family:"Work Sans",Arial,"Helvetica Neue",Helvetica,sans-serif;color:#5d6771}
 .content__wrapper{overflow-x:hidden}
+.component{padding:0 40px}
 img{max-width:100%}
 header .row{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
 .primary__header{background-color:#e5e6e6}
@@ -101,7 +102,6 @@ input.search{background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.o
 .rotating__banner .row{height:100%;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;position:relative}
 .rotating__banner .row:before{content:'';display:block;position:absolute;top:0;left:0;background-color:rgba(255,255,255,0.2);height:100%;width:100%}
 .rotating__banner .row:after{content:'';position:absolute;top:0;right:0;background-color:rgba(255,255,255,0.2);height:100%;width:20%}
-.rotating__banner .col{padding:30px}
 .rotating__banner .content__wrap{position:relative;z-index:20}
 .content__slider .row{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
 .content__slider{color:#747d86}
@@ -112,6 +112,7 @@ input.search{background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.o
 .button{font-size:13px;height:40px;padding:8px 36px;color:#4a525b;border:1px solid #ffb100;text-decoration:none;display:inline-block;text-align:center;line-height:22px;vertical-align:middle}
 .blueprint__wrap{background:url("assets/images/raw/blueprint.svg") no-repeat left center;background-size:110%}
 h1,h2,h3,h4,h5,h6{font-weight:300;color:#4a525b}
+.text__align__center{text-align:center}
 .title:before{content:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjE3OC40NjkgODM5LjgwNiA0Ni40MiA2LjE5NCI+PGRlZnM+PHN0eWxlPi5he2ZpbGw6I2ViMDAyOTt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik0xMi4wMzQsNUg1Ni4yMjJMNTMuOTkxLDExLjJIOS44WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTY4LjY2NiA4MzQuODAyKSIvPjwvc3ZnPg==);display:block;margin-bottom:40px;width:46px;height:6px}
 .icon__list{list-style-type:none;padding:0}
 .icon__list li{border-top:1px solid #eb0029;padding:20px 0}
@@ -119,11 +120,26 @@ h1,h2,h3,h4,h5,h6{font-weight:300;color:#4a525b}
 .icon__list img{height:auto}
 .icon__list figure{margin:0 15px 0 0}
 .background__image{background-size:cover !important;background-repeat:no-repeat !important}
+.tint:before{content:"";display:block;position:absolute;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,0.5)}
 .technology__and__services{background:url("assets/images/raw/tech_services_bg.jpg") no-repeat left center;-webkit-clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);padding:120px 0;margin:50px 0;position:relative}
 .technology__and__services .row{-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end}
 .technology__and__services .content__wrap{position:relative}
 .technology__and__services,.technology__and__services h2{color:#fff}
 .background__image.secondary{background:url("assets/images/raw/banner_hp.jpg") no-repeat left center;position:absolute;top:0;left:0;width:50%;height:100%;-webkit-clip-path:polygon(0 0,100% 1%,69% 100%,0 100%);clip-path:polygon(0 0,100% 1%,69% 100%,0 100%)}
+.news__posts .col{padding:10px}
+.news__posts article{position:relative;overflow:hidden}
+.news__posts article a{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:30px;height:250px;text-decoration:none;position:relative}
+.news__posts a h3:before{content:"";display:block;height:1px;width:0;opacity:0;background-color:#fff;margin-bottom:5px;-webkit-transition:width 300ms ease-out 150ms,opacity 600ms ease-in-out 230ms;transition:width 300ms ease-out 150ms,opacity 600ms ease-in-out 230ms}
+.news__posts a p{color:#fff;opacity:0;-webkit-transition:opacity 600ms ease-out 200ms,-webkit-transform 300ms ease-out 250ms;transition:opacity 600ms ease-out 200ms,-webkit-transform 300ms ease-out 250ms;transition:opacity 600ms ease-out 200ms,transform 300ms ease-out 250ms;transition:opacity 600ms ease-out 200ms,transform 300ms ease-out 250ms,-webkit-transform 300ms ease-out 250ms}
+.news__posts .background__image{background:url("assets/images/raw/banner_hp.jpg") no-repeat left center;position:absolute;top:0;left:0;width:calc(100% + 50px);height:100%;-webkit-transition:background-color 400ms ease-in-out 50ms,-webkit-transform 300ms ease-out,-webkit-filter 400ms ease-in-out;transition:background-color 400ms ease-in-out 50ms,-webkit-transform 300ms ease-out,-webkit-filter 400ms ease-in-out;transition:transform 300ms ease-out,background-color 400ms ease-in-out 50ms,filter 400ms ease-in-out;transition:transform 300ms ease-out,background-color 400ms ease-in-out 50ms,filter 400ms ease-in-out,-webkit-transform 300ms ease-out,-webkit-filter 400ms ease-in-out}
+.news__posts a:hover .tint:before{background-color:rgba(255,177,0,0.9)}
+.news__posts a:hover p{opacity:1;-webkit-transform:translateY(-20px);-ms-transform:translateY(-20px);transform:translateY(-20px)}
+.news__posts a:hover h3:before{width:60%;opacity:1}
+.news__posts a:hover .background__image{-webkit-transform:scale(1.2);-ms-transform:scale(1.2);transform:scale(1.2);-webkit-filter:blur(3px);filter:blur(3px)}
+.news__posts a h3{color:#fff;font-weight:700;-webkit-transition:all 300ms ease-out;transition:all 300ms ease-out}
+.news__posts a:hover h3{-webkit-transform:translateY(-60px);-ms-transform:translateY(-60px);transform:translateY(-60px)}
+.news__posts .content__wrap{margin-top:auto;position:relative;z-index:2}
+.news__posts .col.text__align__center{width:100%}
 @media screen and (min-width:320px){.rotating__banner{height:400px}
 .rotating__banner:after,.rotating__banner:before{-webkit-clip-path:none;clip-path:none}
 .rotating__banner:before{width:100%}
@@ -132,22 +148,24 @@ h1,h2,h3,h4,h5,h6{font-weight:300;color:#4a525b}
 .rotating__banner .row:after{display:none}
 .rotating__banner .col{width:320px}
 .rotating__banner .content__wrap{margin-top:-75px}
-.content__slider .col{width:100%;padding:0 35px}
+.content__slider .col{width:100%}
 h1{font-size:25px}
 h2{font-size:20px}
 .icon__list img{width:25px}
 .technology__and__services .col{width:100%}
 .technology__and__services .content__wrap{left:0;padding:0 20px}
 .background__image.secondary{display:none}
+.news__posts .col{width:100%}
 }@media screen and (min-width:700px){.technology__and__services .col{width:65%}
 .technology__and__services .content__wrap{left:20px;padding:0 100px}
 .background__image.secondary{display:block}
+}@media screen and (min-width:767px){.news__posts .col{width:33.3%}
 }@media screen and (min-width:768px){.rotating__banner .col{width:500px}
 }@media screen and (min-width:1024px){.rotating__banner:after,.rotating__banner:before{-webkit-clip-path:polygon(0 0,100% 0,83% 99%,0 100%);clip-path:polygon(0 0,100% 0,83% 99%,0 100%)}
 .rotating__banner .row:before{-webkit-clip-path:polygon(0 0,100% 77%,100% 100%,54% 100%,0 100%);clip-path:polygon(0 0,100% 77%,100% 100%,54% 100%,0 100%)}
 .rotating__banner .row:after{display:block;-webkit-clip-path:polygon(55% 0,100% 0,100% 100%,82% 100%);clip-path:polygon(55% 0,100% 0,100% 100%,82% 100%)}
 .rotating__banner .col{width:650px}
-.content__slider .col{width:50%;padding:0 50px}
+.content__slider .col{width:50%}
 h1{font-size:30px}
 h2{font-size:20px}
 .icon__list img{width:30px}
