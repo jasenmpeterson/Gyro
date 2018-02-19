@@ -28,14 +28,14 @@
   width: 0;
   opacity: 0;
   background-color: #fff;
-  margin-bottom: 5px;
-  transition: width 300ms ease-out 150ms, opacity 600ms ease-in-out 230ms;
+  margin-bottom: 15px;
+  transition: width 600ms ease-out 400ms, opacity 600ms ease-out 500ms;
 }
 
 .news__posts a p {
   color: #ffffff;
   opacity: 0;
-  transition: opacity 600ms ease-out 200ms, transform 300ms ease-out 250ms;
+  transition: opacity 600ms ease-out 300ms, transform 300ms ease-out 350ms;
 }
 
 .news__posts .background__image {
@@ -45,7 +45,7 @@
   left: 0;
   width: calc(100% + 50px);
   height: 100%;
-  transition: transform 300ms ease-out, background-color 400ms ease-in-out 50ms, filter 400ms ease-in-out;
+  transition: transform 300ms ease-out, background-color 400ms ease-out 50ms, filter 400ms ease-out;
 }
 
 .news__posts a:hover .tint:before {
@@ -54,12 +54,19 @@
 
 .news__posts a:hover p {
   opacity: 1;
-  transform: translateY(-20px);
+  transition: opacity 600ms ease-out 300ms, transform 300ms ease-out 350ms;
+  @media screen and (min-width: 991px) {
+    transform: translateY(-35px);
+  }
+  @media screen and (min-width: 320px) {
+    transform: translateY(-15px);
+  }
 }
 
 .news__posts a:hover h3:before {
-  width: 60%;
+  width: 75px;
   opacity: 1;
+  transition: width 600ms ease-out 400ms, opacity 600ms ease-out 500ms;
 }
 
 .news__posts a:hover .background__image {
@@ -70,17 +77,24 @@
 .news__posts a h3 {
   color: #ffffff;
   font-weight: 700;
-  transition: all 300ms ease-out;
+  transition: all 300ms ease-out 300ms;
 }
 
 .news__posts a:hover h3 {
-  transform: translateY(-60px);
+  @media screen and (min-width: 991px) {
+    transform: translateY(-35px);
+  }
+  @media screen and (min-width: 320px) {
+    transform: translateY(-15px);
+  }
+  transition: all 300ms ease-out 300ms;
 }
 
 .news__posts .content__wrap {
   margin-top: auto;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .news__posts .col.text__align__center {

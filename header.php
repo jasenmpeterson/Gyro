@@ -28,8 +28,9 @@
     </div>
 	<?php
         wp_nav_menu(array(
-            "menu" => "Primary Menu",
-            'container'=> false
+	        "menu" => "Primary Menu",
+	        "container" => false,
+	        "walker" => new Gyro_Walker()
         ));
 	?>
 </div>
@@ -73,7 +74,8 @@
                 <?php
                     wp_nav_menu(array(
                         "menu" => "Primary Menu",
-                        'container'=> false
+                        "container" => false,
+                        "walker" => new Gyro_Walker()
                     ));
                 ?>
                 <div class="hamburger__menu">

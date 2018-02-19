@@ -19,6 +19,7 @@
 					<div class="content__wrap">
 						<h3>News Title</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <span class="read__more">Read More</span>
 					</div>
 				</a>
 			</article>
@@ -30,6 +31,7 @@
 					<div class="content__wrap">
 						<h3>News Title</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <span class="read__more">Read More</span>
 					</div>
 				</a>
 			</article>
@@ -41,6 +43,7 @@
 					<div class="content__wrap">
 						<h3>News Title</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <span class="read__more">Read More</span>
 					</div>
 				</a>
 			</article>
@@ -52,6 +55,7 @@
 					<div class="content__wrap">
 						<h3>News Title</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <span class="read__more">Read More</span>
 					</div>
 				</a>
 			</article>
@@ -63,6 +67,7 @@
 					<div class="content__wrap">
 						<h3>News Title</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <span class="read__more">Read More</span>
 					</div>
 				</a>
 			</article>
@@ -74,6 +79,7 @@
 					<div class="content__wrap">
 						<h3>News Title</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <span class="read__more">Read More</span>
 					</div>
 				</a>
 			</article>

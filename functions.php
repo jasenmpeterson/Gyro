@@ -7,6 +7,7 @@
  */
 
 define("THEME_DIR", get_template_directory_uri());
+define("THEME_URI", get_site_url());
 /*--- REMOVE GENERATOR META TAG ---*/
 remove_action('wp_head', 'wp_generator');
 
@@ -77,3 +78,7 @@ register_nav_menus( array(
 	'secondary_menu' => 'Secondary Menu',
 	'footer_menu' => 'Footer Menu'
 ) );
+
+// Custom Walker
+
+include("walker.php");
