@@ -967,6 +967,20 @@ input.search {
 
 // content slider
 
+.content__slider {
+  padding: 0;
+  color: #747D86;
+  opacity: 0;
+}
+
+.content__slider.flickity-enabled {
+  opacity: 1;
+}
+
+.content__slider .content__wrap {
+  padding: 40px;
+}
+
 .content__slider .col {
   @media screen and (min-width: 1024px) {
     width: 50%;
@@ -978,10 +992,6 @@ input.search {
 
 .content__slider .row {
   align-items: center;
-}
-
-.content__slider {
-  color: #747D86;
 }
 
 .content__slider h4 {
@@ -998,18 +1008,59 @@ input.search {
   position: relative;
 }
 
-.content__slider .content__wrap:before {
+.content__slider .content__wrap.last:before {
   content: '';
   display: block;
   width: 4px;
-  height: 65px;
+  height: 0;
+  opacity: 0;
   background-color: $color-red;
   position: absolute;
   top: 50px;
   left: 0;
+  transition: opacity 300ms ease-out, height 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 450ms;
 }
 
-// flickity
+// content slider transition animations
+
+.content__slider h3 {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 300ms ease-out, transform 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 250ms;
+}
+
+.content__slider p {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 300ms ease-out 300ms, transform 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 450ms;
+}
+
+.content__slider .is-selected h3,
+.content__slider .is-selected p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content__slider .is-selected .button {
+  transition-delay: 600ms;
+}
+
+.content__slider .title:before {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 1s ease-out 300ms, transform 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 450ms;
+}
+
+.content__slider .is-selected .title:before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.content__slider .is-selected .content__wrap.last:before {
+  opacity: 1;
+  height: 65px;
+}
+  // flickity
 
 .flickity-page-dots {
   left: 0;
@@ -1045,12 +1096,31 @@ input.search {
 .is-selected .button {
   transform: translateY(0);
   opacity: 1;
-  transition: transform 300ms ease-out 300ms, opacity 300ms ease-out 300ms;
+  transition: transform 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 300ms, opacity 300ms ease-out 300ms;
 }
 
 // flickity text splitting
 
 .is-selected .char {
+   animation: slide-in 1.75s cubic-bezier(0,.75,0,1) 0s both, will-change 2s linear;
+   animation-delay: calc(1s * var(--char-percent));
+   opacity: 0.99;
+
+   @keyframes slide-in {
+     0% {
+       opacity: 0;
+       transform: translateX(150%) scaleX(0.5);
+     }
+   }
+
+   @keyframes will-change {
+     0% { will-change: transform; }
+     100% { will-change: auto; }
+   }
+
+ }
+
+.is-selected .word {
   animation: slide-in 1.75s cubic-bezier(0,.75,0,1) 0s both, will-change 2s linear;
   animation-delay: calc(1s * var(--char-percent));
   opacity: 0.99;
