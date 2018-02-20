@@ -87,7 +87,7 @@
 	</div>
 	<div class="row">
 		<div class="col text__align__center">
-			<a href=#"" class="button">Read More Articles</a>
+			<a href="#" class="button" data-text="Read More Articles"><span>Read More Articles</span></a>
 		</div>
 	</div>
 </section>

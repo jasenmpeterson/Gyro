@@ -96,3 +96,7 @@ closeIconElem.addEventListener("click", function (e) {
         searchInputElem.value = "";
     }
 });
+"use strict";
+
+// text splitting
+Splitting.chars("[data-technology-splitting-chars]");

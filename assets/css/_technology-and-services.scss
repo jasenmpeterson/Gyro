@@ -72,3 +72,33 @@
     display: none;
   }
 }
+
+// splitting text
+
+.technology__and__services .wrap:hover article .char {
+  animation: slide-in 1.75s cubic-bezier(0,.75,0,1) 0s both, will-change 2s linear;
+  animation-delay: calc(1s * var(--char-percent));
+  opacity: 0.99;
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      transform: translateX(150%) scaleX(0.5);
+    }
+  }
+
+  @keyframes will-change {
+    0% { will-change: transform; }
+    100% { will-change: auto; }
+  }
+}
+
+// on hover transitions
+
+.technology__and__services .wrap figure {
+  transition: transform 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.technology__and__services .wrap:hover figure {
+  transform: scale(1.2);
+}

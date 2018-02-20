@@ -120,6 +120,9 @@ header .row {
 $nav-padding: 20px;
 
 .primary_nav {
+  @media screen and (min-width: 1401px) {
+    width: 70%;
+  }
   @media screen and (min-width: 1076px) {
     width: 60%;
   }
@@ -147,10 +150,6 @@ $nav-padding: 20px;
 
 .primary_nav li.menu-item-has-children {
   position: relative;
-}
-
-.primary_nav li.parent__nav__item {
-  padding: 25px 0;
 }
 
 .primary_nav ul.parent__sub__menu {
@@ -330,15 +329,26 @@ $nav-padding: 20px;
 
 .primary_nav li.parent__nav__item {
   position: relative;
-  padding-left: 33px;
+  @media screen and (min-width: 1600px) {
+    padding: 25px 0 25px 30px;
+  }
+  @media screen and (min-width: 1076px) {
+    padding: 25px 10px 25px 20px;
+  }
 }
 
 .primary_nav li.parent__nav__item:before {
   position: absolute;
-  font-size: 18px;
   display: block;
   top: 25px;
-  left: 10px;
+  @media screen and (min-width: 1600px) {
+    font-size: 18px;
+    left: 10px;
+  }
+  @media screen and (min-width: 1076px) {
+    font-size: 16px;
+    left: 0;
+  }
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
@@ -1077,7 +1087,12 @@ input.search {
   height: 13px;
   margin: 0;
   position: relative;
-  top: 2px;
+  @media screen and (min-width: 1077px) {
+   top: 2px;
+  }
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
 }
 
 .dot.is-selected {
@@ -1278,12 +1293,12 @@ p:not(:last-child) {
 
 .icon__list li {
   border-top: 1px solid #EB0029;
-  padding: 20px 0;
 }
 
 .icon__list .wrap {
   display: flex;
   align-items: center;
+  padding: 20px 0;
 }
 
 .icon__list img {

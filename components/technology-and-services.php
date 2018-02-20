@@ -18,31 +18,31 @@
                     <li>
                         <div class="wrap">
                             <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/wellbore_icon.svg" alt=""></figure>
-                            <article>Wellbore Placement</article>
+                            <article data-technology-splitting-chars>Wellbore Placement</article>
                         </div>
                     </li>
                     <li>
                         <div class="wrap">
                             <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/drilling_icon.svg" alt=""></figure>
-                            <article>Drilling Solutions</article>
+                            <article data-technology-splitting-chars>Drilling Solutions</article>
                         </div>
                     </li>
                     <li>
                         <div class="wrap">
                             <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/cased_hole.svg" alt=""></figure>
-                            <article>Cased Hole Logging</article>
+                            <article data-technology-splitting-chars>Cased Hole Logging</article>
                         </div>
                     </li>
                     <li>
                         <div class="wrap">
                             <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/value_added_icon.svg" alt=""></figure>
-                            <article>Value Added Services</article>
+                            <article data-technology-splitting-chars>Value Added Services</article>
                         </div>
                     </li>
                     <li>
                         <div class="wrap">
                             <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/equipment_rental_icon.svg" alt=""></figure>
-                            <article>Equipment Rental</article>
+                            <article data-technology-splitting-chars>Equipment Rental</article>
                         </div>
                     </li>
                 </ul>
