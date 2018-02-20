@@ -2,6 +2,7 @@
 @import "../fonts/fonts";
 @import "variables";
 @import "grid";
+@import "flickity";
 
 // layout
 
@@ -62,6 +63,30 @@ header .row {
 .meta__header .nav__wrap a {
   color: #fff;
   font-size: 14px;
+}
+
+.meta__header .nav__wrap a:before, .meta__header .nav__wrap a:after {
+  display: inline-block;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.2s;
+}
+
+.meta__header .nav__wrap a:before {
+  margin-right: 10px;
+  content: '[';
+  transform: translateX(20px);
+}
+
+.meta__header .nav__wrap a:after {
+  margin-left: 10px;
+  content: ']';
+  transform: translateX(-20px);
+}
+
+.meta__header .nav__wrap a:hover:before,
+.meta__header .nav__wrap a:hover:after {
+  transform: translateX(0px);
+  opacity: 1;
 }
 
 .meta__header form {
@@ -472,6 +497,32 @@ input.search {
   align-items: center;
   color: #4A525B;
   font-size: 14px;
+  position: relative;
+  transition: box-shadow 0.2s ease-out;
+}
+
+.social__media__wrap a:hover {
+  box-shadow: 0 0 0 5px rgba(255,255,255,0.5);
+  color: #fff;
+}
+
+.social__media__wrap a:after {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  content: '';
+  top: 0;
+  left: 0;
+  padding: 0;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.05);
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.social__media__wrap a:hover:after {
+  transform: scale(0.85);
+  opacity: 0.5;
 }
 
 // hamburger menu
@@ -650,8 +701,7 @@ input.search {
 // rotating banner
 
 .rotating__banner {
-  background: url("assets/images/raw/banner_hp.jpg") no-repeat left center;
-  background-size: cover;
+  padding: 0;
   position: relative;
   overflow: hidden;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
@@ -711,11 +761,11 @@ input.search {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.5);
   height: 100%;
   width: 100%;
   @media screen and (min-width: 1024px) {
-    clip-path: polygon(0 0, 100% 77%, 100% 100%, 54% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 45%, 100% 100%, 54% 100%, 0 100%);
   }
   @media screen and (min-width: 320px) {
     clip-path: none;
@@ -752,6 +802,8 @@ input.search {
 }
 
 .rotating__banner .content__wrap {
+  padding: 40px;
+  margin-left: 40px;
   @media screen and (min-width: 1440px) {
     margin-top: -125px;
   }
@@ -760,6 +812,39 @@ input.search {
   }
   position: relative;
   z-index: 20;
+}
+
+.rotating__banner .carousel__cell {
+  width: 100%;
+  height: 100%;
+  background: url("assets/images/raw/banner_hp.jpg") no-repeat left center;
+  background-size: cover;
+}
+
+.rotating__banner .flickity-prev-next-button {
+  z-index: 2;
+}
+
+.rotating__banner .flickity-page-dots {
+  left: 0;
+  min-width: 200px;
+  bottom: 125px;
+  width: auto;
+  z-index: 2;
+}
+
+.rotating__banner .flickity-page-dots .dot {
+  border-radius: 0;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ijc0NjMuNDY5IDc3NTIuOTk4IDE3LjY0OSAxMy4wMDIiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiNlYjAwMjk7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJhIiBkPSJNMTQuNDg3LDVIMjcuNDUybC00LjY4NCwxM0g5LjhaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3NDUzLjY2NiA3NzQ3Ljk5NSkiLz48L3N2Zz4=) no-repeat;
+  width: 18px;
+  height: 13px;
+  margin: 0;
+  position: relative;
+  top: 2px;
+}
+
+.rotating__banner .dot.is-selected {
+  opacity: 1;
 }
 
 // content slider
