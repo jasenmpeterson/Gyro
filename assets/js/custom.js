@@ -54,3 +54,24 @@ var flkty = new Flickity(elem, {
 	selectedAttraction: 0.01,
 	friction: 0.15
 });
+"use strict";
+
+var searchInputElem = document.querySelector("input.search");
+var searchIconElem = document.querySelector(".icon__search");
+var closeIconElem = document.querySelector(".icon__close");
+
+searchInputElem.addEventListener("focus", function (e) {
+    searchIconElem.classList.add("inactive");
+    closeIconElem.classList.add("active");
+});
+
+searchInputElem.addEventListener("blur", function (e) {
+    searchIconElem.classList.remove("inactive");
+    closeIconElem.classList.remove("active");
+});
+
+closeIconElem.addEventListener("click", function (e) {
+    if (searchInputElem.value !== "") {
+        searchInputElem.value = "";
+    }
+});
