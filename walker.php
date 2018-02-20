@@ -33,7 +33,7 @@ if ( ! class_exists( 'Gyro_Walker' ) ) {
 
 			// set classes
 
-			$output .= ($depth == 0 ? "<li class='parent__nav__item". implode(" ", $item->classes) . "'>" : "<li class='child__nav__item". implode(" ", $item->classes) . "'>");
+			$output .= ($depth == 0 ? "<li class='parent__nav__item ". implode(" ", $item->classes) . "'>" : "<li class='child__nav__item". implode(" ", $item->classes) . "'>");
 
 			// add span if no permalink
 

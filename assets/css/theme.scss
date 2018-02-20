@@ -300,6 +300,54 @@ $nav-padding: 20px;
   color: #ffffff;
 }
 
+// primary nav icons (the actual icons are in fonts/fonts.scss)
+
+.primary_nav li.parent__nav__item {
+  position: relative;
+  padding-left: 33px;
+}
+
+.primary_nav li.parent__nav__item:before {
+  position: absolute;
+  font-size: 18px;
+  display: block;
+  top: 25px;
+  left: 10px;
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: .3;
+  transition: color 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 200ms;
+}
+
+.primary_nav li.parent__nav__item:hover:before {
+  color: $color-red;
+  opacity: 1;
+}
+
+.icon-applications:before {
+  content: "\e900";
+}
+.icon-contact:before {
+  content: "\e901";
+}
+.icon-our-company:before {
+  content: "\e902";
+}
+.icon-resources:before {
+  content: "\e903";
+}
+.icon-technology-and-solutions:before {
+  content: "\e904";
+}
+
 // secondary nav
 
 .secondary__nav {

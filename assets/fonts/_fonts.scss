@@ -37,3 +37,15 @@
   url('/wp-content/themes/gyro/assets/fonts/work-sans-v3-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
   url('/wp-content/themes/gyro/assets/fonts/work-sans-v3-latin-700.svg#WorkSans') format('svg'); /* Legacy iOS */
 }
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('/wp-content/themes/gyro/assets/fonts/icomoon.eot?sy4ycb');
+  src:  url('/wp-content/themes/gyro/assets/fonts/icomoon.eot?sy4ycb#iefix') format('embedded-opentype'),
+  url('/wp-content/themes/gyro/assets/fonts/icomoon.ttf?sy4ycb') format('truetype'),
+  url('/wp-content/themes/gyro/assets/fonts/icomoon.woff?sy4ycb') format('woff'),
+  url('/wp-content/themes/gyro/assets/fonts/icomoon.svg?sy4ycb#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
