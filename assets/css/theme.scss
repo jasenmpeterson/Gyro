@@ -3,6 +3,7 @@
 @import "variables";
 @import "grid";
 @import "flickity";
+@import "splitting";
 
 // layout
 
@@ -835,12 +836,18 @@ input.search {
   position: relative;
   overflow: hidden;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  opacity: 0;
+  transition: opacity 0.4s;
   @media screen and (min-width: 1440px) {
     height: 650px;
   }
   @media screen and (min-width: 320px) {
     height: 400px;
   }
+}
+
+.rotating__banner.flickity-enabled {
+  opacity: 1;
 }
 
 .rotating__banner:after,
@@ -895,7 +902,7 @@ input.search {
   height: 100%;
   width: 100%;
   @media screen and (min-width: 1024px) {
-    clip-path: polygon(0 0, 100% 45%, 100% 100%, 54% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 60%, 100% 100%, 54% 100%, 0 100%);
   }
   @media screen and (min-width: 320px) {
     clip-path: none;
@@ -945,7 +952,6 @@ input.search {
 }
 
 .rotating__banner .carousel__cell {
-  width: 100%;
   height: 100%;
   background: url("assets/images/raw/banner_hp.jpg") no-repeat left center;
   background-size: cover;
@@ -955,26 +961,8 @@ input.search {
   z-index: 2;
 }
 
-.rotating__banner .flickity-page-dots {
-  left: 0;
-  min-width: 200px;
-  bottom: 125px;
-  width: auto;
+.rotating__banner .flickity-viewport {
   z-index: 2;
-}
-
-.rotating__banner .flickity-page-dots .dot {
-  border-radius: 0;
-  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ijc0NjMuNDY5IDc3NTIuOTk4IDE3LjY0OSAxMy4wMDIiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiNlYjAwMjk7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJhIiBkPSJNMTQuNDg3LDVIMjcuNDUybC00LjY4NCwxM0g5LjhaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3NDUzLjY2NiA3NzQ3Ljk5NSkiLz48L3N2Zz4=) no-repeat;
-  width: 18px;
-  height: 13px;
-  margin: 0;
-  position: relative;
-  top: 2px;
-}
-
-.rotating__banner .dot.is-selected {
-  opacity: 1;
 }
 
 // content slider
@@ -1021,6 +1009,66 @@ input.search {
   left: 0;
 }
 
+// flickity
+
+.flickity-page-dots {
+  left: 0;
+  min-width: 200px;
+  bottom: 125px;
+  width: auto;
+  z-index: 2;
+}
+
+.flickity-page-dots .dot {
+  border-radius: 0;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ijc0NjMuNDY5IDc3NTIuOTk4IDE3LjY0OSAxMy4wMDIiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiNlYjAwMjk7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJhIiBkPSJNMTQuNDg3LDVIMjcuNDUybC00LjY4NCwxM0g5LjhaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3NDUzLjY2NiA3NzQ3Ljk5NSkiLz48L3N2Zz4=) no-repeat;
+  width: 18px;
+  height: 13px;
+  margin: 0;
+  position: relative;
+  top: 2px;
+}
+
+.dot.is-selected {
+  opacity: 1;
+}
+
+.carousel__cell {
+  width: 100%;
+}
+
+.carousel__cell .button {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.is-selected .button {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 300ms ease-out 300ms, opacity 300ms ease-out 300ms;
+}
+
+// flickity text splitting
+
+.is-selected .char {
+  animation: slide-in 1.75s cubic-bezier(0,.75,0,1) 0s both, will-change 2s linear;
+  animation-delay: calc(1s * var(--char-percent));
+  opacity: 0.99;
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      transform: translateX(150%) scaleX(0.5);
+    }
+  }
+
+  @keyframes will-change {
+    0% { will-change: transform; }
+    100% { will-change: auto; }
+  }
+
+}
+
 // Buttons
 
 .button {
@@ -1034,6 +1082,47 @@ input.search {
   text-align: center;
   line-height: 22px;
   vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+}
+
+.button > span {
+  vertical-align: middle;
+  display: block;
+}
+.button > span,
+.button:before {
+  transition: transform 0.3s cubic-bezier(0.75, 0, 0.125, 1);
+}
+
+.button:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffb100;
+  transform: translate3d(-100%, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.button:hover:before {
+  transform: translate3d(0, 0, 0);
+  color: #ffffff;
+
+}
+
+.button:hover > span {
+  transform: translate3d(0, 110%, 0);
+}
+
+.button:hover > span,
+.button:hover:before {
+  transition: transform 0.3s cubic-bezier(0.75, 0, 0.125, 1);
 }
 
 .button.white {

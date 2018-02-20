@@ -1,5 +1,14 @@
 "use strict";
 
+var contentSlider = document.querySelector(".content__slider");
+var flktyContentSlider = new Flickity(contentSlider, {
+    prevNextButtons: false,
+    pageDots: true,
+    selectedAttraction: 0.01,
+    friction: 0.15
+});
+"use strict";
+
 var hamburgerMenu = document.querySelector(".hamburger__menu");
 var hamburgerMenuClose = document.querySelector(".mobile__close__button .circle");
 var mobileMenu = document.querySelector(".mobile__menu");
@@ -47,13 +56,24 @@ try {
 }
 "use strict";
 
-var elem = document.querySelector(".rotating__banner");
-var flkty = new Flickity(elem, {
+Splitting.chars("[data-splitting-chars]");
+
+var rotatingBanner = document.querySelector(".rotating__banner");
+rotatingBanner.classList.remove("is-hidden");
+rotatingBanner.offsetHeight;
+
+var flkty = new Flickity(rotatingBanner, {
 	prevNextButtons: false,
 	pageDots: true,
 	selectedAttraction: 0.01,
 	friction: 0.15
 });
+
+// flkty.on("settle", function() {
+//     let activeHeader = document.querySelector(".is-selected h1");
+//     console.log(activeHeader);
+//     activeHeader.classList.add("active");
+// });
 "use strict";
 
 var searchInputElem = document.querySelector("input.search");
