@@ -10,9 +10,14 @@ var flktyContentSlider = new Flickity(contentSlider, {
     selectedAttraction: 0.01,
     friction: 0.15
 });
+"use strict";
 
-// text splitting
-Splitting.chars("[data-content-slider-splitting-chars]");
+// emeergence
+
+emergence.init({
+    offsetTop: 250,
+    elemCushion: 0.5
+});
 "use strict";
 
 var hamburgerMenu = document.querySelector(".hamburger__menu");

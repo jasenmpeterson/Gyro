@@ -8,6 +8,3 @@ let flktyContentSlider = new Flickity(contentSlider, {
     selectedAttraction: 0.01,
     friction: 0.15
 });
-
-// text splitting
-Splitting.chars("[data-content-slider-splitting-chars]");

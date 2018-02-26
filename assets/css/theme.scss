@@ -157,22 +157,23 @@ $nav-padding: 20px;
   top: 60px;
   left: 50%;
   margin-left: -200px;
-  z-index: 100;
   background-color: #fff;
   padding: 20px 0;
   border-radius: 4px;
   width: 420px;
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
-  transition: opacity 400ms 100ms ease-out, transform 300ms 150ms ease-in-out;
+  transition: z-index 600ms ease-out, opacity 400ms 100ms ease-out, transform 300ms 150ms ease-in-out;
   opacity: 0;
   transform: translateY(50px);
   pointer-events: none;
+  z-index: -1;
 }
 
 .primary_nav .nav__wrap li.parent__nav__item:hover .parent__sub__menu {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+  z-index: 100;
 }
 
 .primary_nav .parent__sub__menu:before,
@@ -860,80 +861,10 @@ input.search {
   opacity: 1;
 }
 
-.rotating__banner:after,
-.rotating__banner:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: '';
-  display: block;
-  @media screen and (min-width: 1024px) {
-    clip-path: polygon(0 0, 100% 0, 83% 99%, 0 100%);
-  }
-  @media screen and (min-width: 320px) {
-    clip-path: none;
-  }
-  height: 100%;
-}
-
-.rotating__banner:before {
-  background-color: rgba(255,255,255,0.5);
-  @media screen and (min-width: 1440px) {
-    width: 55%;
-  }
-  @media screen and (min-width: 320px) {
-    width: 100%;
-  }
-}
-
-.rotating__banner:after {
-  background-color: rgba(255,255,255,0.2);
-  @media screen and (min-width: 1440px) {
-    width: 45%;
-  }
-  @media screen and (min-width: 320px) {
-    width: 100%;
-  }
-}
-
 .rotating__banner .row {
   height: 100%;
   align-items: center;
   position: relative;
-}
-
-.rotating__banner .row:before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(255,255,255,0.5);
-  height: 100%;
-  width: 100%;
-  @media screen and (min-width: 1024px) {
-    clip-path: polygon(0 0, 100% 60%, 100% 100%, 54% 100%, 0 100%);
-  }
-  @media screen and (min-width: 320px) {
-    clip-path: none;
-  }
-}
-
-.rotating__banner .row:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: rgba(255,255,255,0.2);
-  height: 100%;
-  width: 20%;
-  @media screen and (min-width: 1024px) {
-    display: block;
-    clip-path: polygon(55% 0, 100% 0, 100% 100%, 82% 100%);
-  }
-  @media screen and (min-width: 320px) {
-    display: none;
-  }
 }
 
 .rotating__banner .col {
@@ -967,12 +898,43 @@ input.search {
   background-size: cover;
 }
 
-.rotating__banner .flickity-prev-next-button {
-  z-index: 2;
+.rotating__banner .carousel__cell:after {
+  content: "";
+  clip-path: polygon(0 0, 100% 65%, 100% 100%, 0% 100%);
+  display: block;
+  background-color: rgba(255,255,255,0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
 }
 
-.rotating__banner .flickity-viewport {
-  z-index: 2;
+.rotating__banner .carousel__cell .row:before {
+  content: "";
+  clip-path: polygon(0 0, 100% 0, 65% 100%, 0% 100%);
+  display: block;
+  background-color: rgba(255,255,255,0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100%;
+  width: 900px;
+}
+
+.rotating__banner .carousel__cell .row:after {
+  content: "";
+  clip-path: polygon(0 0, 100% 0, 65% 100%, 0% 100%);
+  display: block;
+  background-color: rgba(255,255,255,0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100%;
+  width: 1050px;
 }
 
 // content slider
@@ -992,16 +954,29 @@ input.search {
 }
 
 .content__slider .col {
-  @media screen and (min-width: 1024px) {
-    width: 50%;
-  }
   @media screen and (min-width: 320px) {
     width: 100%;
   }
 }
 
+.content__slider .carousel__cell .row .col:first-child {
+  @media screen and (min-width: 1024px) {
+    width: 50%;
+  }
+}
+
+.content__slider .carousel__cell .row .col:last-child {
+  @media screen and (min-width: 1024px) {
+    width: 40%;
+  }
+}
+
 .content__slider .row {
   align-items: center;
+}
+
+.content__slider h1 {
+  padding-left: 60px;
 }
 
 .content__slider h4 {
@@ -1026,7 +1001,7 @@ input.search {
   opacity: 0;
   background-color: $color-red;
   position: absolute;
-  top: 50px;
+  top: 110px;
   left: 0;
   transition: opacity 300ms ease-out, height 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 450ms;
 }
@@ -1070,14 +1045,16 @@ input.search {
   opacity: 1;
   height: 65px;
 }
-  // flickity
+
+
+// flickity
 
 .flickity-page-dots {
   left: 0;
   min-width: 200px;
   bottom: 125px;
   width: auto;
-  z-index: 2;
+  z-index: 20;
 }
 
 .flickity-page-dots .dot {
@@ -1087,12 +1064,6 @@ input.search {
   height: 13px;
   margin: 0;
   position: relative;
-  @media screen and (min-width: 1077px) {
-   top: 2px;
-  }
-  @media screen and (min-width: 320px) {
-    display: none;
-  }
 }
 
 .dot.is-selected {
@@ -1115,44 +1086,25 @@ input.search {
 }
 
 // flickity text splitting
+// TODO: ANIMATE PSEUDO BLURRED ELEMENT (FADE OUT) FOR BETTER PERFORMANCE.
 
 .is-selected .char {
-   animation: slide-in 1.75s cubic-bezier(0,.75,0,1) 0s both, will-change 2s linear;
-   animation-delay: calc(1s * var(--char-percent));
-   opacity: 0.99;
-
-   @keyframes slide-in {
-     0% {
-       opacity: 0;
-       transform: translateX(150%) scaleX(0.5);
-     }
-   }
-
-   @keyframes will-change {
-     0% { will-change: transform; }
-     100% { will-change: auto; }
-   }
-
- }
-
-.is-selected .word {
-  animation: slide-in 1.75s cubic-bezier(0,.75,0,1) 0s both, will-change 2s linear;
+  animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   animation-delay: calc(1s * var(--char-percent));
   opacity: 0.99;
 
-  @keyframes slide-in {
+  @keyframes text-focus-in {
     0% {
+      filter: blur(12px);
       opacity: 0;
-      transform: translateX(150%) scaleX(0.5);
+    }
+    100% {
+      filter: blur(0px);
+      opacity: 1;
     }
   }
-
-  @keyframes will-change {
-    0% { will-change: transform; }
-    100% { will-change: auto; }
-  }
-
 }
+
 
 // Buttons
 
@@ -1177,7 +1129,7 @@ input.search {
 }
 .button > span,
 .button:before {
-  transition: transform 0.3s cubic-bezier(0.75, 0, 0.125, 1);
+  transition: transform 0.3s cubic-bezier(0.75, 0, 0.125, 1), color cubic-bezier(0.75, 0, 0.125, 1) 0.6s;
 }
 
 .button:before {
@@ -1262,6 +1214,25 @@ h2 {
   @media screen and (min-width: 320px) {
     font-size: 20px;
   }
+}
+
+h3 {
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size:20px;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 320px) {
+    font-size: 16px;
+  }
+}
+
+p {
+  line-height: 30px;
 }
 
 p:not(:last-child) {

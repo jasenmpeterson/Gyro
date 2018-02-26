@@ -45,7 +45,7 @@
   left: 0;
   width: calc(100% + 50px);
   height: 100%;
-  transition: transform 300ms ease-out, background-color 400ms ease-out 50ms, filter 400ms ease-out;
+  transition: transform 300ms ease-out, background-color 300ms ease-out 50ms, filter 300ms ease-out;
 }
 
 .news__posts a:hover .tint:before {
@@ -66,7 +66,7 @@
 .news__posts a:hover h3:before {
   width: 75px;
   opacity: 1;
-  transition: width 600ms ease-out 400ms, opacity 600ms ease-out 500ms;
+  transition: width 600ms ease-out 200ms, opacity 600ms ease-out 400ms;
 }
 
 .news__posts a:hover .background__image {
