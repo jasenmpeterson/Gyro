@@ -4,6 +4,7 @@
 @import "grid";
 @import "flickity";
 @import "splitting";
+@import "segmenter";
 
 // layout
 
@@ -1064,6 +1065,7 @@ input.search {
   height: 13px;
   margin: 0;
   position: relative;
+  transition: opacity 300ms ease-out;
 }
 
 .dot.is-selected {

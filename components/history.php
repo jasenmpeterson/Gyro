@@ -7,7 +7,8 @@
  */
 ?>
 
-<section class="history component background__image">
+<section class="history component" data-emergence="hidden">
+    <div class="background__image segmenter"></div>
 	<div class="row align-center">
 		<div class="col">
 			<div class="content__wrap">

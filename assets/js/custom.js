@@ -1,5 +1,19 @@
 "use strict";
 
+var segmenter = new Segmenter(document.querySelector(".segmenter"), {
+    pieces: 7,
+    animation: {
+        duration: 1500,
+        easing: 'easeOutQuad',
+        delay: 600,
+        translateZ: { min: 10, max: 65 }
+    },
+    parallax: true,
+    parallaxMovement: { min: 5, max: 10 },
+    positions: [{ top: 10, left: 20, width: 20, height: 30 }, { top: 8, left: 35, width: 30, height: 20 }, { top: 25, left: 18, width: 14, height: 25 }, { top: 23, left: 50, width: 20, height: 10 }, { top: 30, left: 65, width: 10, height: 30 }, { top: 48, left: 20, width: 10, height: 13 }, { top: 50, left: 67, width: 10, height: 20 }]
+});
+"use strict";
+
 var contentSlider = document.querySelector(".content__slider");
 contentSlider.classList.remove("is-hidden");
 contentSlider.offsetHeight;
@@ -16,7 +30,15 @@ var flktyContentSlider = new Flickity(contentSlider, {
 
 emergence.init({
     offsetTop: 250,
-    elemCushion: 0.5
+    elemCushion: 0.5,
+    reset: false,
+    callback: function callback(element, state) {
+        if (state === 'visible') {
+            if (element.classList.contains("history")) {
+                segmenter.animate();
+            }
+        }
+    }
 });
 "use strict";
 
@@ -103,5 +125,51 @@ closeIconElem.addEventListener("click", function (e) {
 });
 "use strict";
 
-// text splitting
-Splitting.chars("[data-technology-splitting-chars]");
+var technologyLinks = document.querySelectorAll(".technology__and__services a");
+
+function animateLink(translateX, target) {
+    anime.remove(target);
+    anime({
+        targets: target,
+        translateX: translateX,
+        duration: 600
+    });
+}
+
+function enterLink(target) {
+    animateLink("50%", target);
+}
+
+function leaveLink(target) {
+    animateLink("0%", target);
+}
+
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+    for (var _iterator = technologyLinks[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var link = _step.value;
+
+        link.addEventListener("mouseenter", function (e) {
+            enterLink(e.target);
+        });
+        link.addEventListener("mouseleave", function (e) {
+            leaveLink(e.target);
+        });
+    }
+} catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+        }
+    } finally {
+        if (_didIteratorError) {
+            throw _iteratorError;
+        }
+    }
+}
