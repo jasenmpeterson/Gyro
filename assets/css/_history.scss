@@ -34,3 +34,31 @@
 .history {
   color: #ffffff;
 }
+
+.history h1 .word,
+.history p,
+.history .button {
+  opacity: 0;
+}
+
+.history p {
+  animation-delay: 1s;
+}
+
+.history .button {
+  animation-delay: 1.2s;
+}
+
+.history h1.title-slide-in .word {
+  opacity: 1;
+}
+
+.history h1.title:before {
+  right: -200px;
+  opacity: 0;
+}
+
+.history h1.title.title-slide-in:before {
+  right: 0;
+  opacity: 1;
+}

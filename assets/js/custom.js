@@ -36,10 +36,17 @@ emergence.init({
         if (state === 'visible') {
             if (element.classList.contains("history")) {
                 segmenter.animate();
+                document.querySelector(".history h1").classList.add("title-slide-in");
+                document.querySelector(".history p").classList.add("fade-in");
+                document.querySelector(".history .button").classList.add("fade-in");
             }
+            // history
         }
     }
 });
+"use strict";
+
+Splitting.chars("[data-history-splitting-chars]");
 "use strict";
 
 var hamburgerMenu = document.querySelector(".hamburger__menu");
@@ -125,23 +132,41 @@ closeIconElem.addEventListener("click", function (e) {
 });
 "use strict";
 
+// TODO: NEED TO MAKE THIS A LITTLE LESS SPECIFIC SO IT WORKS WITH ICON LIST IN GENERAL.
+
 var technologyLinks = document.querySelectorAll(".technology__and__services a");
 
-function animateLink(translateX, target) {
-    anime.remove(target);
+function animateLink(translateX, translateY, target, opacity, scale) {
+    anime.remove(target.querySelector("article"), target.querySelector("span"), target.querySelector("figure"));
     anime({
-        targets: target,
+        targets: [target.querySelector("article")],
         translateX: translateX,
-        duration: 600
+        translateY: translateY,
+        duration: 400,
+        easing: 'easeOutQuad'
+    });
+    anime({
+        targets: [target.querySelector("span")],
+        opacity: opacity,
+        duration: 400,
+        delay: 50,
+        easing: 'easeOutQuad'
+    });
+    anime({
+        targets: [target.querySelector("figure")],
+        scale: scale,
+        duration: 400,
+        delay: 50,
+        easing: 'easeOutQuad'
     });
 }
 
 function enterLink(target) {
-    animateLink("50%", target);
+    animateLink("+=145", 0, target, 1, 0.5);
 }
 
 function leaveLink(target) {
-    animateLink("0%", target);
+    animateLink("0", 0, target, 0, 1);
 }
 
 var _iteratorNormalCompletion = true;

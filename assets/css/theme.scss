@@ -1,9 +1,11 @@
 @import "normalize";
+@import "animista";
 @import "../fonts/fonts";
 @import "variables";
 @import "grid";
 @import "flickity";
 @import "splitting";
+@import "splitting-animations";
 @import "segmenter";
 
 // layout
@@ -1087,27 +1089,6 @@ input.search {
   transition: transform 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 300ms, opacity 300ms ease-out 300ms;
 }
 
-// flickity text splitting
-// TODO: ANIMATE PSEUDO BLURRED ELEMENT (FADE OUT) FOR BETTER PERFORMANCE.
-
-.is-selected .char {
-  animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation-delay: calc(1s * var(--char-percent));
-  opacity: 0.99;
-
-  @keyframes text-focus-in {
-    0% {
-      filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      filter: blur(0px);
-      opacity: 1;
-    }
-  }
-}
-
-
 // Buttons
 
 .button {
@@ -1255,6 +1236,8 @@ p:not(:last-child) {
   margin-bottom: 40px;
   width: 46px;
   height: 6px;
+  transition: all 200ms ease-out;
+  position: relative;
 }
 
 // ul icons list

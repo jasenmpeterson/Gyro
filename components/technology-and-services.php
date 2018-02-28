@@ -19,7 +19,7 @@
                         <div class="wrap">
                             <a href="#">
                                 <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/wellbore_icon.svg" alt=""></figure>
-                                <article data-technology-splitting-chars>Wellbore Placement</article>
+                                <span>Learn More About</span> <article> Wellbore Placement</article>
                             </a>
                         </div>
                     </li>
@@ -27,7 +27,7 @@
                         <div class="wrap">
                             <a href="#">
                                 <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/drilling_icon.svg" alt=""></figure>
-                                <article data-technology-splitting-chars>Drilling Solutions</article>
+                                <span>Learn More About</span> <article>Drilling Solutions</article>
                             </a>
                         </div>
                     </li>
@@ -35,7 +35,7 @@
                         <div class="wrap">
                             <a href="#">
                                 <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/cased_hole.svg" alt=""></figure>
-                                <article data-technology-splitting-chars>Cased Hole Logging</article>
+                                <span>Learn More About</span> <article>Cased Hole Logging</article>
                             </a>
                         </div>
                     </li>
@@ -43,7 +43,7 @@
                         <div class="wrap">
                             <a href="#">
                                 <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/value_added_icon.svg" alt=""></figure>
-                                <article data-technology-splitting-chars>Value Added Services</article>
+                                <span>Learn More About</span> <article>Value Added Services</article>
                             </a>
                         </div>
                     </li>
@@ -51,7 +51,7 @@
                         <div class="wrap">
                             <a href="#">
                                 <figure><img src="<?php echo get_template_directory_uri() ;?>/assets/images/raw/equipment_rental_icon.svg" alt=""></figure>
-                                <article data-technology-splitting-chars>Equipment Rental</article>
+                                <span>Learn More About</span> <article>Equipment Rental</article>
                             </a>
                         </div>
                     </li>
