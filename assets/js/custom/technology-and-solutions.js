@@ -3,7 +3,7 @@
 let technologyLinks = document.querySelectorAll(".technology__and__services a");
 
 function animateLink(translateX, translateY, target, opacity, scale) {
-    anime.remove( target.querySelector("article"), target.querySelector("span"), target.querySelector("figure"));
+    anime.remove( target.querySelector("article"), target.querySelector("span"));
     anime({
         targets: [target.querySelector("article")],
         translateX: translateX,
@@ -14,13 +14,6 @@ function animateLink(translateX, translateY, target, opacity, scale) {
     anime({
         targets: [target.querySelector("span")],
         opacity: opacity,
-        duration: 400,
-        delay: 50,
-        easing: 'easeOutQuad'
-    });
-    anime({
-        targets: [target.querySelector("figure")],
-        scale: scale,
         duration: 400,
         delay: 50,
         easing: 'easeOutQuad'

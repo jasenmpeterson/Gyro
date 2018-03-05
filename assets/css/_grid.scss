@@ -6,6 +6,7 @@
 
 .col {
   width: 100%;
+  position: relative;
 }
 
 .row.gutters, .row.gutters > .row {
@@ -30,4 +31,8 @@
 
 .align-middle {
   align-items: center;
+}
+
+.row.reverse {
+  flex-direction: row-reverse;
 }

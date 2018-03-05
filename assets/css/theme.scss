@@ -1104,6 +1104,8 @@ input.search {
   vertical-align: middle;
   position: relative;
   overflow: hidden;
+  background-color: transparent;
+  background: none;
 }
 
 .button > span {
@@ -1169,6 +1171,11 @@ h6 {
   color: $color-headings;
 }
 
+h1:first-child,
+h2:first-child  {
+  margin-top: 0;
+}
+
 h1 {
   @media screen and (min-width: 1440px) {
     font-size: 50px;
@@ -1216,6 +1223,10 @@ h3 {
 
 p {
   line-height: 30px;
+}
+
+p:last-child {
+  margin-bottom: 0;
 }
 
 p:not(:last-child) {
@@ -1368,3 +1379,5 @@ a .read__more:before {
 @import "technology-and-services";
 @import "news-posts";
 @import "history";
+@import "page";
+@import "aboutPage/about";

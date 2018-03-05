@@ -1,6 +1,6 @@
 "use strict";
 
-var segmenter = new Segmenter(document.querySelector(".segmenter"), {
+var segmenter = document.querySelector(".segmenter") !== null ? new Segmenter(document.querySelector(".segmenter"), {
     pieces: 7,
     animation: {
         duration: 1500,
@@ -11,19 +11,35 @@ var segmenter = new Segmenter(document.querySelector(".segmenter"), {
     parallax: true,
     parallaxMovement: { min: 5, max: 10 },
     positions: [{ top: 10, left: 20, width: 20, height: 30 }, { top: 8, left: 35, width: 30, height: 20 }, { top: 25, left: 18, width: 14, height: 25 }, { top: 23, left: 50, width: 20, height: 10 }, { top: 30, left: 65, width: 10, height: 30 }, { top: 48, left: 20, width: 10, height: 13 }, { top: 50, left: 67, width: 10, height: 20 }]
+}) : '';
+
+var historyBlocks = document.querySelectorAll(".history__blocks .wrap");
+
+var animateHistoryBlock = function animateHistoryBlock(el) {
+    historyBlocks.forEach(function (el) {
+        return el.classList.remove("active");
+    });
+    el.target.classList.add("active");
+};
+
+historyBlocks.forEach(function (el) {
+    return el.addEventListener("click", animateHistoryBlock);
 });
 "use strict";
 
-var contentSlider = document.querySelector(".content__slider");
-contentSlider.classList.remove("is-hidden");
-contentSlider.offsetHeight;
+if (document.querySelector(".content__slider") !== null) {
 
-var flktyContentSlider = new Flickity(contentSlider, {
-    prevNextButtons: false,
-    pageDots: true,
-    selectedAttraction: 0.01,
-    friction: 0.15
-});
+    var contentSlider = document.querySelector(".content__slider");
+    contentSlider.classList.remove("is-hidden");
+    contentSlider.offsetHeight;
+
+    var flktyContentSlider = new Flickity(contentSlider, {
+        prevNextButtons: false,
+        pageDots: true,
+        selectedAttraction: 0.01,
+        friction: 0.15
+    });
+}
 "use strict";
 
 // emeergence
@@ -96,19 +112,21 @@ try {
 }
 "use strict";
 
-var rotatingBanner = document.querySelector(".rotating__banner");
-rotatingBanner.classList.remove("is-hidden");
-rotatingBanner.offsetHeight;
+if (document.querySelector(".rotating__banner") !== null) {
+    var rotatingBanner = document.querySelector(".rotating__banner");
+    rotatingBanner.classList.remove("is-hidden");
+    rotatingBanner.offsetHeight;
 
-var flkty = new Flickity(rotatingBanner, {
-	prevNextButtons: false,
-	pageDots: true,
-	selectedAttraction: 0.01,
-	friction: 0.15
-});
+    var flkty = new Flickity(rotatingBanner, {
+        prevNextButtons: false,
+        pageDots: true,
+        selectedAttraction: 0.01,
+        friction: 0.15
+    });
 
-// text splitting
-Splitting.chars("[data-banner-splitting-chars]");
+    // text splitting
+    Splitting.chars("[data-banner-splitting-chars]");
+}
 "use strict";
 
 var searchInputElem = document.querySelector("input.search");
@@ -137,7 +155,7 @@ closeIconElem.addEventListener("click", function (e) {
 var technologyLinks = document.querySelectorAll(".technology__and__services a");
 
 function animateLink(translateX, translateY, target, opacity, scale) {
-    anime.remove(target.querySelector("article"), target.querySelector("span"), target.querySelector("figure"));
+    anime.remove(target.querySelector("article"), target.querySelector("span"));
     anime({
         targets: [target.querySelector("article")],
         translateX: translateX,
@@ -148,13 +166,6 @@ function animateLink(translateX, translateY, target, opacity, scale) {
     anime({
         targets: [target.querySelector("span")],
         opacity: opacity,
-        duration: 400,
-        delay: 50,
-        easing: 'easeOutQuad'
-    });
-    anime({
-        targets: [target.querySelector("figure")],
-        scale: scale,
         duration: 400,
         delay: 50,
         easing: 'easeOutQuad'
