@@ -1,0 +1,1 @@
+Splitting.chars("[data-history-splitting-chars]");
