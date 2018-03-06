@@ -15,6 +15,7 @@ get_header();
 		<?php get_template_part("components/static-banner"); ?>
 		<?php get_template_part("components/aboutPage/our-vision"); ?>
 		<?php get_template_part("components/aboutPage/core-values"); ?>
+		<?php get_template_part("components/aboutPage/history"); ?>
 	</div>
 
 

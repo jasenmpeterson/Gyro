@@ -173,6 +173,10 @@
 
 // history block animation
 
+.history__blocks .wrap.active {
+  cursor: default;
+}
+
 .history__blocks .wrap.active .content__front {
   opacity: 0;
 }
@@ -197,5 +201,81 @@
 }
 
 .history__blocks .wrap:hover .tint__primary {
-  background-color: rgba(0,0,0,.8);
+  background-color: rgba(0, 0, 0, .8);
+}
+
+// our history chart
+
+.our__history.about__page {
+  background-color: #18191A;
+  position: relative;
+  min-height: 100vh;
+}
+
+.our__history .svg__wrap {
+  padding: 40px 0;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.our__history svg {
+  padding-top: 40px;
+}
+
+.our__history .cls-1 {
+  fill: #fff
+}
+
+.our__history .cls-4 {
+  fill: none;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: .181px
+}
+
+.our__history circle {
+  cursor: pointer;
+}
+
+.our__history circle,
+.our__history path {
+  opacity: 0;
+}
+
+.history__chart__content {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 650px;
+  max-width: 100%;
+  text-align: center;
+  opacity: 0;
+}
+
+.history__chart__content.active {
+  opacity: 1;
+}
+
+.history__chart__content h1.title {
+  position: relative;
+}
+
+.history__chart__content h1.title:before {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.history__chart__content .content__wrap * {
+  color: #fff;
+  opacity: 0;
+}
+
+.history__chart__content h1 {
+  font-size: 75px;
+  margin-bottom: 0;
 }
