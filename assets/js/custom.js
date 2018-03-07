@@ -34,8 +34,8 @@ emergence.init({
             // history chart - our company - history page
             if (element.classList.contains("history__chart")) {
 
-                // document.querySelector(".history__chart__content h2").classList.add("fade-in");
-                // document.querySelector(".history__chart__content p").classList.add("fade-in");
+                var nextArrow = document.querySelector(".our__history .next__arrow");
+                var prevArrow = document.querySelector(".our__history .prev__arrow");
 
                 // anime js
                 var circles = document.querySelectorAll(".our__history circle");
@@ -81,7 +81,7 @@ emergence.init({
                             complete: setAnimatedCircle
                         });
                         anime({
-                            targets: '.history__chart__content h1',
+                            targets: '.our__history .date',
                             opacity: 1,
                             translateY: "-20",
                             delay: 800
@@ -97,6 +97,16 @@ emergence.init({
                             opacity: 1,
                             translateY: "-20",
                             delay: 1200
+                        });
+                        anime({
+                            targets: prevArrow,
+                            opacity: 1,
+                            delay: 1400
+                        });
+                        anime({
+                            targets: nextArrow,
+                            opacity: 1,
+                            delay: 1400
                         });
                         animationFlag = true;
                     }
@@ -126,6 +136,44 @@ var segmenter = document.querySelector(".segmenter") !== null ? new Segmenter(do
     parallaxMovement: { min: 5, max: 10 },
     positions: [{ top: 10, left: 20, width: 20, height: 30 }, { top: 8, left: 35, width: 30, height: 20 }, { top: 25, left: 18, width: 14, height: 25 }, { top: 23, left: 50, width: 20, height: 10 }, { top: 30, left: 65, width: 10, height: 30 }, { top: 48, left: 20, width: 10, height: 13 }, { top: 50, left: 67, width: 10, height: 20 }]
 }) : '';
+
+// year
+
+var year = document.querySelector(".our__history .date h1");
+
+// animate year - credit: https://stackoverflow.com/a/16994725
+
+function animateYear(elem, start, end, duration) {
+    // assumes integer values for start and end
+
+    var obj = elem;
+    var range = end - start;
+    // no timer shorter than 50ms (not really visible any way)
+    var minTimer = 50;
+    // calc step time to show all interediate values
+    var stepTime = Math.abs(Math.floor(duration / range));
+
+    // never go below minTimer
+    stepTime = Math.max(stepTime, minTimer);
+
+    // get current time and calculate desired end time
+    var startTime = new Date().getTime();
+    var endTime = startTime + duration;
+    var timer = void 0;
+
+    function run() {
+        var now = new Date().getTime();
+        var remaining = Math.max((endTime - now) / duration, 0);
+        var value = Math.round(end - remaining * range);
+        obj.innerHTML = value;
+        if (value == end) {
+            clearInterval(timer);
+        }
+    }
+
+    timer = setInterval(run, stepTime);
+    run();
+}
 
 // our company history blocks components
 
@@ -201,6 +249,8 @@ var circleDeselect = function circleDeselect() {
 };
 
 var circleSelect = function circleSelect(el) {
+    // previous year
+    var previousYear = document.querySelector(".our__history .date h1").innerHTML;
     // circles
     var currCircle = el.target;
     if (!currCircle.classList.contains("animated")) {
@@ -223,6 +273,9 @@ var circleSelect = function circleSelect(el) {
             delay: 500,
             begin: function begin() {
                 currSection.classList.add("active");
+                // set date
+                var currYear = document.querySelector(".history__chart__content.active").dataset.date;
+                animateYear(year, previousYear, currYear, 250);
             }
         });
     }
@@ -236,18 +289,17 @@ targets.forEach(function (el) {
 
 var nextArrow = document.querySelector(".our__history .next__arrow");
 var prevArrow = document.querySelector(".our__history .prev__arrow");
-var historyContentSections = document.querySelectorAll(".history__chart__content");
 
 var nextArrowFunction = function nextArrowFunction() {
     var currSection = document.querySelector(".history__chart__content.active");
-    var nextSectionID = parseInt(currSection.dataset.content) + 1;
+    var nextSectionID = parseInt(currSection.dataset.content) === 14 ? 0 : parseInt(currSection.dataset.content) + 1;
     var nextSection = document.querySelector("circle[data-id='" + nextSectionID + "']");
     triggerEvent(nextSection, "click");
 };
 
 var prevArrowFunction = function prevArrowFunction() {
     var currSection = document.querySelector(".history__chart__content.active");
-    var prevSectionID = parseInt(currSection.dataset.content) === 0 ? 0 : parseInt(currSection.dataset.content) - 1;
+    var prevSectionID = parseInt(currSection.dataset.content) === 0 ? 14 : parseInt(currSection.dataset.content) - 1;
     var prevSection = document.querySelector("[data-id='" + prevSectionID + "']");
     triggerEvent(prevSection, "click");
 };
@@ -257,8 +309,10 @@ var triggerEvent = function triggerEvent(elem, event) {
     elem.dispatchEvent(clickEvent);
 };
 
-nextArrow.addEventListener("click", nextArrowFunction);
-prevArrow.addEventListener("click", prevArrowFunction);
+if (nextArrow !== null) {
+    nextArrow.addEventListener("click", nextArrowFunction);
+    prevArrow.addEventListener("click", prevArrowFunction);
+}
 "use strict";
 
 var hamburgerMenu = document.querySelector(".hamburger__menu");

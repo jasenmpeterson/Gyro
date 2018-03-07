@@ -252,6 +252,31 @@
   fill: #FFF;
 }
 
+.our__history .date {
+  position: absolute;
+  bottom: 65%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 152px;
+  max-width: 100%;
+  opacity: 0;
+}
+
+.our__history h1.title {
+  position: relative;
+  color: #fff;
+  font-size: 70px;
+}
+
+.our__history h1.title:before {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
 .our__history .arrow__controls {
   width: 990px;
   max-width: 100%;
@@ -284,18 +309,6 @@
   visibility: visible;
 }
 
-.history__chart__content h1.title {
-  position: relative;
-}
-
-.history__chart__content h1.title:before {
-  position: absolute;
-  bottom: 50px;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
 .history__chart__content .content__wrap * {
   color: #fff;
   opacity: 0;
@@ -304,4 +317,12 @@
 .history__chart__content h1 {
   font-size: 75px;
   margin-bottom: 0;
+}
+
+.our__history .arrow  {
+  opacity: 0;
+}
+
+.our__history .arrow:hover path {
+  fill: #ffb100;
 }

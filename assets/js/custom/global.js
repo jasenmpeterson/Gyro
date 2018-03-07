@@ -17,8 +17,8 @@ emergence.init({
             // history chart - our company - history page
             if(element.classList.contains("history__chart")) {
 
-                // document.querySelector(".history__chart__content h2").classList.add("fade-in");
-                // document.querySelector(".history__chart__content p").classList.add("fade-in");
+                let nextArrow = document.querySelector(".our__history .next__arrow");
+                let prevArrow = document.querySelector(".our__history .prev__arrow");
 
                 // anime js
                 let circles = document.querySelectorAll(".our__history circle");
@@ -62,7 +62,7 @@ emergence.init({
                             complete: setAnimatedCircle
                         });
                         anime({
-                            targets: '.history__chart__content h1',
+                            targets: '.our__history .date',
                             opacity: 1,
                             translateY: "-20",
                             delay: 800
@@ -78,6 +78,16 @@ emergence.init({
                             opacity: 1,
                             translateY: "-20",
                             delay: 1200
+                        });
+                        anime({
+                            targets: prevArrow,
+                            opacity: 1,
+                            delay: 1400
+                        });
+                        anime({
+                            targets: nextArrow,
+                            opacity: 1,
+                            delay: 1400
                         });
                         animationFlag = true;
                     }

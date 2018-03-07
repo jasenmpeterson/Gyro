@@ -1,4 +1,5 @@
 <section class="our__history about__page history__chart" data-emergence="hidden">
+    <section class="date"><h1 class="title">1982</h1></section>
 	<div class="svg__wrap">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="2316.999 3222.411 1561.501 783.277">
             <g id="Group_185" data-name="Group 185" transform="translate(2327.3 3222.411)">
@@ -19,7 +20,6 @@
                     <circle id="Ellipse_13" data-id="12" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-33.7 1280.782 -2143.95)"></circle>
                     <circle id="Ellipse_14" data-id="13" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-22.552 1946.415 -3463.001)"></circle>
                     <circle id="Ellipse_15" data-id="14" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-11.168 3966.722 -7473.518)"></circle>
-                    <circle id="Ellipse_16" data-id="15" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-11.168 3966.722 -7473.518)"></circle>
                     <g id="Group_20" data-name="Group 20" transform="translate(-14.022 607.856)">
                         <g id="Group_19" data-name="Group 19">
                             <path id="Path_552" data-name="Path 552" d="M27.974 402.413a11.929 11.929 0 0 1 3.506.351c9.817 2.1 16.479 11.57 14.375 21.388a18.319 18.319 0 0 1-17.882 14.726 11.93 11.93 0 0 1-3.506-.351c-9.817-2.1-16.479-11.57-14.375-21.388a18.319 18.319 0 0 1 17.882-14.726m0-7.013A25.481 25.481 0 0 0 3.08 415.736a24.209 24.209 0 0 0 3.857 18.933 25.882 25.882 0 0 0 16.128 10.869 23.142 23.142 0 0 0 4.909.351 25.481 25.481 0 0 0 24.894-20.336 24.209 24.209 0 0 0-3.857-18.933 25.883 25.883 0 0 0-16.128-10.869 21.558 21.558 0 0 0-4.909-.351z" transform="translate(-2.548 -395.4)" fill="none"></path>
@@ -429,22 +429,150 @@
             </g>
         </svg>
 	</div>
-    <div class="history__chart__content active" data-content="0">
+    <div class="history__chart__content active" data-content="0" data-date="1982">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h1 class="title">1980</h1>
                     <h2>Founding of GyroData</h2>
                     <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="1">
+    <div class="history__chart__content" data-content="1" data-date="1983">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h1 class="title">1982</h1>
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="2" data-date="1984">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="3" data-date="1985">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="4" data-date="1986">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="5" data-date="1987">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="6" data-date="1988">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="7" data-date="1999">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="8" data-date="2000">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="9" data-date="2001">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="10" data-date="2002">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="11" data-date="2003">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="12" data-date="2004">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="13" data-date="2005">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
+                    <h2>Founding of GyroData</h2>
+                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history__chart__content" data-content="14" data-date="2006">
+        <div class="row align-center align-middle">
+            <div class="col">
+                <div class="content__wrap">
                     <h2>Founding of GyroData</h2>
                     <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
                 </div>

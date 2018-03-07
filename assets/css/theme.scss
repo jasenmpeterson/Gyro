@@ -1390,6 +1390,10 @@ a .read__more:before {
   cursor: pointer;
 }
 
+.arrow path {
+  transition: all 300ms ease-out;
+}
+
 .prev__arrow {
   transform: rotate(90deg);
 }

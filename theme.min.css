@@ -259,6 +259,7 @@ a .read__more{display:block;text-align:right;color:#fff;opacity:0;-webkit-transi
 a:hover .read__more{opacity:1;-webkit-transition:opacity 500ms ease-out 500ms;transition:opacity 500ms ease-out 500ms}
 a .read__more:before{content:"";display:inline-block;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ijc0NjMuNDY5IDc3NTIuOTk4IDE3LjY0OSAxMy4wMDIiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiNlYjAwMjk7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJhIiBkPSJNMTQuNDg3LDVIMjcuNDUybC00LjY4NCwxM0g5LjhaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3NDUzLjY2NiA3NzQ3Ljk5NSkiLz48L3N2Zz4=);width:18px;height:13px;margin-right:5px;position:relative;top:2px}
 .arrow{display:block;cursor:pointer}
+.arrow path{-webkit-transition:all 300ms ease-out;transition:all 300ms ease-out}
 .prev__arrow{-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}
 .next__arrow{-webkit-transform:rotate(-90deg);-ms-transform:rotate(-90deg);transform:rotate(-90deg);margin-left:auto}
 .technology__and__services{background:url("assets/images/raw/tech_services_bg.jpg") no-repeat left center;-webkit-clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);padding:120px 0;margin:50px 0;position:relative}
@@ -340,14 +341,17 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 .our__history circle,.our__history path{opacity:0}
 .our__history svg.arrow{width:40px;padding:0}
 .our__history svg.arrow path{opacity:1;fill:#FFF}
+.our__history .date{position:absolute;bottom:65%;left:0;right:0;margin:auto;width:152px;max-width:100%;opacity:0}
+.our__history h1.title{position:relative;color:#fff;font-size:70px}
+.our__history h1.title:before{position:absolute;bottom:50px;left:0;right:0;margin:auto}
 .our__history .arrow__controls{width:990px;max-width:100%;position:absolute;bottom:50%;left:0;right:0;margin:auto}
 .our__history .arrow__controls .col{width:50%}
 .history__chart__content{position:absolute;bottom:50%;left:0;right:0;margin:auto;width:650px;max-width:100%;text-align:center;opacity:0;visibility:hidden}
 .history__chart__content.active{opacity:1;visibility:visible}
-.history__chart__content h1.title{position:relative}
-.history__chart__content h1.title:before{position:absolute;bottom:50px;left:0;right:0;margin:auto}
 .history__chart__content .content__wrap *{color:#fff;opacity:0}
 .history__chart__content h1{font-size:75px;margin-bottom:0}
+.our__history .arrow{opacity:0}
+.our__history .arrow:hover path{fill:#ffb100}
 @media screen and (min-width:320px){.rotating__banner{height:400px}
 .rotating__banner .col{width:320px}
 .rotating__banner .content__wrap{margin-top:-75px}

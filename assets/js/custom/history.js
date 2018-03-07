@@ -22,6 +22,44 @@ let segmenter =  document.querySelector(".segmenter") !== null ? new Segmenter(d
     ]
 }) : '';
 
+// year
+
+let year = document.querySelector(".our__history .date h1");
+
+// animate year - credit: https://stackoverflow.com/a/16994725
+
+function animateYear(elem, start, end, duration) {
+    // assumes integer values for start and end
+
+    let obj = elem;
+    let range = end - start;
+    // no timer shorter than 50ms (not really visible any way)
+    let minTimer = 50;
+    // calc step time to show all interediate values
+    let stepTime = Math.abs(Math.floor(duration / range));
+
+    // never go below minTimer
+    stepTime = Math.max(stepTime, minTimer);
+
+    // get current time and calculate desired end time
+    let startTime = new Date().getTime();
+    let endTime = startTime + duration;
+    let timer;
+
+    function run() {
+        let now = new Date().getTime();
+        let remaining = Math.max((endTime - now) / duration, 0);
+        let value = Math.round(end - (remaining * range));
+        obj.innerHTML = value;
+        if (value == end) {
+            clearInterval(timer);
+        }
+    }
+
+    timer = setInterval(run, stepTime);
+    run();
+}
+
 // our company history blocks components
 
 let historyBlocks = document.querySelectorAll(".history__blocks .wrap");
@@ -65,6 +103,8 @@ let circleDeselect = () => {
 };
 
 let circleSelect = (el) => {
+    // previous year
+    let previousYear = document.querySelector(".our__history .date h1").innerHTML;
     // circles
     let currCircle = el.target;
     if(!currCircle.classList.contains("animated")) {
@@ -87,9 +127,13 @@ let circleSelect = (el) => {
             delay: 500,
             begin: function () {
                 currSection.classList.add("active");
+                // set date
+                let currYear = document.querySelector(".history__chart__content.active").dataset.date;
+                animateYear(year, previousYear, currYear, 250);
             }
         });
     }
+
 };
 
 targets.forEach(el => el.addEventListener("click", circleSelect));
@@ -98,18 +142,17 @@ targets.forEach(el => el.addEventListener("click", circleSelect));
 
 let nextArrow = document.querySelector(".our__history .next__arrow");
 let prevArrow = document.querySelector(".our__history .prev__arrow");
-let historyContentSections = document.querySelectorAll(".history__chart__content");
 
 let nextArrowFunction = () => {
     let currSection = document.querySelector(".history__chart__content.active");
-    let nextSectionID = parseInt(currSection.dataset.content) + 1;
+    let nextSectionID = parseInt(currSection.dataset.content)  === 14 ? 0 : parseInt(currSection.dataset.content) + 1;
     let nextSection = document.querySelector("circle[data-id='"+nextSectionID+"']");
     triggerEvent(nextSection, "click");
 };
 
 let prevArrowFunction = () => {
     let currSection = document.querySelector(".history__chart__content.active");
-    let prevSectionID = parseInt(currSection.dataset.content) === 0 ? 0 : parseInt(currSection.dataset.content) - 1;
+    let prevSectionID = parseInt(currSection.dataset.content) === 0 ? 14 : parseInt(currSection.dataset.content) - 1;
     let prevSection = document.querySelector("[data-id='"+prevSectionID+"']");
     triggerEvent(prevSection, "click");
 };
@@ -119,5 +162,7 @@ let triggerEvent = (elem, event) => {
     elem.dispatchEvent(clickEvent);
 };
 
-nextArrow.addEventListener("click", nextArrowFunction);
-prevArrow.addEventListener("click", prevArrowFunction);
+if(nextArrow !== null) {
+    nextArrow.addEventListener("click", nextArrowFunction);
+    prevArrow.addEventListener("click", prevArrowFunction);
+}
