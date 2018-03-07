@@ -242,6 +242,30 @@
   opacity: 0;
 }
 
+.our__history svg.arrow {
+  width: 40px;
+  padding: 0;
+}
+
+.our__history svg.arrow path {
+  opacity: 1;
+  fill: #FFF;
+}
+
+.our__history .arrow__controls {
+  width: 990px;
+  max-width: 100%;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.our__history .arrow__controls .col {
+  width: 50%;
+}
+
 .history__chart__content {
   position: absolute;
   bottom: 50%;
@@ -252,10 +276,12 @@
   max-width: 100%;
   text-align: center;
   opacity: 0;
+  visibility: hidden;
 }
 
 .history__chart__content.active {
   opacity: 1;
+  visibility: visible;
 }
 
 .history__chart__content h1.title {

@@ -41,7 +41,6 @@ emergence.init({
                 var circles = document.querySelectorAll(".our__history circle");
                 var path = document.querySelector("#Path_553");
                 var paths = document.querySelectorAll(".our__history #Group_154 path");
-
                 var hasAnimationPlayed = function hasAnimationPlayed() {
 
                     if (!animationFlag) {
@@ -49,8 +48,7 @@ emergence.init({
                             anime({
                                 targets: '.our__history circle.animated',
                                 r: 15,
-                                fill: "#FFB100",
-                                delay: 300
+                                fill: "#FFB100"
                             });
                         };
                         anime({
@@ -193,10 +191,11 @@ var circleDeselect = function circleDeselect() {
     anime({
         targets: prevSection,
         opacity: 0,
+        translateY: "20",
+        color: "#18191a",
         delay: 200,
-        begin: function begin() {
+        run: function run() {
             prevSection.classList.remove("active");
-            console.log("off");
         }
     });
 };
@@ -216,14 +215,14 @@ var circleSelect = function circleSelect(el) {
         });
         // set current section to active
         var id = el.target.dataset.id;
-        var currSection = document.querySelector("[data-content='" + id + "'");
+        var currSection = document.querySelector("[data-content='" + id + "']");
         anime({
             targets: currSection,
             opacity: 1,
+            translateY: "-20",
             delay: 500,
             begin: function begin() {
                 currSection.classList.add("active");
-                console.log("on");
             }
         });
     }
@@ -232,6 +231,34 @@ var circleSelect = function circleSelect(el) {
 targets.forEach(function (el) {
     return el.addEventListener("click", circleSelect);
 });
+
+// left/right functionality
+
+var nextArrow = document.querySelector(".our__history .next__arrow");
+var prevArrow = document.querySelector(".our__history .prev__arrow");
+var historyContentSections = document.querySelectorAll(".history__chart__content");
+
+var nextArrowFunction = function nextArrowFunction() {
+    var currSection = document.querySelector(".history__chart__content.active");
+    var nextSectionID = parseInt(currSection.dataset.content) + 1;
+    var nextSection = document.querySelector("circle[data-id='" + nextSectionID + "']");
+    triggerEvent(nextSection, "click");
+};
+
+var prevArrowFunction = function prevArrowFunction() {
+    var currSection = document.querySelector(".history__chart__content.active");
+    var prevSectionID = parseInt(currSection.dataset.content) === 0 ? 0 : parseInt(currSection.dataset.content) - 1;
+    var prevSection = document.querySelector("[data-id='" + prevSectionID + "']");
+    triggerEvent(prevSection, "click");
+};
+
+var triggerEvent = function triggerEvent(elem, event) {
+    var clickEvent = new Event(event);
+    elem.dispatchEvent(clickEvent);
+};
+
+nextArrow.addEventListener("click", nextArrowFunction);
+prevArrow.addEventListener("click", prevArrowFunction);
 "use strict";
 
 var hamburgerMenu = document.querySelector(".hamburger__menu");

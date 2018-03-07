@@ -24,7 +24,6 @@ emergence.init({
                 let circles = document.querySelectorAll(".our__history circle");
                 let path = document.querySelector("#Path_553");
                 let paths = document.querySelectorAll(".our__history #Group_154 path");
-
                 let hasAnimationPlayed = () => {
 
                     if(!animationFlag) {
@@ -32,8 +31,7 @@ emergence.init({
                             anime({
                                 targets: '.our__history circle.animated',
                                 r: 15,
-                                fill: "#FFB100",
-                                delay: 300
+                                fill: "#FFB100"
                             });
                         };
                         anime({

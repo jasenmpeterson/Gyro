@@ -1383,6 +1383,22 @@ a .read__more:before {
   top: 2px;
 }
 
+// arrows
+
+.arrow {
+  display: block;
+  cursor: pointer;
+}
+
+.prev__arrow {
+  transform: rotate(90deg);
+}
+
+.next__arrow {
+  transform: rotate(-90deg);
+  margin-left: auto;
+}
+
 @import "technology-and-services";
 @import "news-posts";
 @import "history";

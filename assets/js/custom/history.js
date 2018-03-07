@@ -55,10 +55,11 @@ let circleDeselect = () => {
     anime({
         targets: prevSection,
         opacity: 0,
+        translateY: "20",
+        color: "#18191a",
         delay: 200,
-        begin: function () {
+        run: function () {
             prevSection.classList.remove("active");
-            console.log("off");
         }
     });
 };
@@ -78,17 +79,45 @@ let circleSelect = (el) => {
         });
         // set current section to active
         let id = el.target.dataset.id;
-        let currSection = document.querySelector("[data-content='"+id+"'");
+        let currSection = document.querySelector("[data-content='"+id+"']");
         anime({
             targets: currSection,
             opacity: 1,
+            translateY: "-20",
             delay: 500,
             begin: function () {
                 currSection.classList.add("active");
-                console.log("on");
             }
         });
     }
 };
 
 targets.forEach(el => el.addEventListener("click", circleSelect));
+
+// left/right functionality
+
+let nextArrow = document.querySelector(".our__history .next__arrow");
+let prevArrow = document.querySelector(".our__history .prev__arrow");
+let historyContentSections = document.querySelectorAll(".history__chart__content");
+
+let nextArrowFunction = () => {
+    let currSection = document.querySelector(".history__chart__content.active");
+    let nextSectionID = parseInt(currSection.dataset.content) + 1;
+    let nextSection = document.querySelector("circle[data-id='"+nextSectionID+"']");
+    triggerEvent(nextSection, "click");
+};
+
+let prevArrowFunction = () => {
+    let currSection = document.querySelector(".history__chart__content.active");
+    let prevSectionID = parseInt(currSection.dataset.content) === 0 ? 0 : parseInt(currSection.dataset.content) - 1;
+    let prevSection = document.querySelector("[data-id='"+prevSectionID+"']");
+    triggerEvent(prevSection, "click");
+};
+
+let triggerEvent = (elem, event) => {
+    let clickEvent = new Event(event);
+    elem.dispatchEvent(clickEvent);
+};
+
+nextArrow.addEventListener("click", nextArrowFunction);
+prevArrow.addEventListener("click", prevArrowFunction);
