@@ -215,8 +215,6 @@ var circleDeselect = function circleDeselect() {
 };
 
 var circleSelect = function circleSelect(el) {
-    // previous year
-    var previousYear = document.querySelector(".our__history .date h1").innerHTML;
     // circles
     var currCircle = el.target;
     if (!currCircle.classList.contains("animated")) {

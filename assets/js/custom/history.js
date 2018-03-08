@@ -70,8 +70,6 @@ let circleDeselect = () => {
 };
 
 let circleSelect = (el) => {
-    // previous year
-    let previousYear = document.querySelector(".our__history .date h1").innerHTML;
     // circles
     let currCircle = el.target;
     if(!currCircle.classList.contains("animated")) {

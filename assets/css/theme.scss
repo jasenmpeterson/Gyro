@@ -1403,6 +1403,29 @@ a .read__more:before {
   margin-left: auto;
 }
 
+// video wrap
+
+.video__wrap {
+  position: relative;
+}
+
+.video__wrap img {
+  box-shadow: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
+  display: block;
+}
+
+.video__wrap .play__button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 75px;
+  z-index: 2;
+  fill: #fff;
+}
+
 @import "technology-and-services";
 @import "news-posts";
 @import "history";

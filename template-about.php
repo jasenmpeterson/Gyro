@@ -16,6 +16,7 @@ get_header();
 		<?php get_template_part("components/aboutPage/our-vision"); ?>
 		<?php get_template_part("components/aboutPage/core-values"); ?>
 		<?php get_template_part("components/aboutPage/history"); ?>
+		<?php get_template_part("components/aboutPage/culture-video"); ?>
 	</div>
 
 
