@@ -8,7 +8,7 @@
 ?>
 
 <section class="history history__home component" data-emergence="hidden">
-    <div class="background__image segmenter"></div>
+    <div class="background__image"></div>
 	<div class="row align-center">
 		<div class="col">
 			<div class="content__wrap">

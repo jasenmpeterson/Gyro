@@ -7,7 +7,7 @@
  */
 ?>
 
-<section class="technology__and__services component background__image" >
+<section class="technology__and__services component background__image" data-emergence="hidden">
     <div class="background__image secondary"></div>
     <div class="row">
         <div class="col">

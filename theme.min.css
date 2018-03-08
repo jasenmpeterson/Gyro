@@ -265,7 +265,7 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 .video__wrap{position:relative}
 .video__wrap img{box-shadow:0 15px 24px rgba(0,0,0,0.22),0 19px 76px rgba(0,0,0,0.3);display:block}
 .video__wrap .play__button{position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;width:75px;z-index:2;fill:#fff}
-.technology__and__services{background:url("assets/images/raw/tech_services_bg.jpg") no-repeat left center;-webkit-clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);padding:120px 0;margin:50px 0;position:relative}
+.technology__and__services{background:url("assets/images/raw/tech_services_bg.jpg") no-repeat left center;-webkit-clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);clip-path:polygon(49% 9%,100% 0,100% 100%,35% 92%,0 100%,0 0);padding:120px 0;margin-top:50px;position:relative;z-index:2}
 .technology__and__services .row{-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end}
 .technology__and__services .content__wrap{padding:0 40px;width:525px;max-width:100%}
 .technology__and__services .icon__list .wrap{padding:0}
@@ -289,7 +289,7 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 .news__posts .col.text__align__center{width:100%}
 .history .row{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
 .history{padding-top:120px;padding-bottom:120px;margin-top:50px;position:relative}
-.history .background__image{background-image:url("assets/images/raw/history.jpg");position:absolute;top:0;left:0}
+.history .background__image{background-image:url("assets/images/raw/history.jpg");position:absolute;top:0;left:0;width:100%;height:100%}
 .history .content__wrap{position:relative;z-index:2}
 .history h1,.history{color:#fff}
 .history h1 .word,.history p,.history .button{opacity:0}
@@ -361,6 +361,7 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 .our__culture__video .col:first-child{width:40%}
 .our__culture__video .col:last-child{width:60%}
 .our__culture__video .clippy{-webkit-clip-path:polygon(100% 23%,0 100%,100% 100%);clip-path:polygon(100% 23%,0 100%,100% 100%);position:absolute;right:0;bottom:0;width:100%;height:1024px;background-color:#2a3036}
+#map{height:900px;position:relative;top:-90px}
 @media screen and (min-width:320px){.rotating__banner{height:400px}
 .rotating__banner .col{width:320px}
 .rotating__banner .content__wrap{margin-top:-75px}
@@ -436,8 +437,8 @@ h3{font-size:24px}
 100%{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}
 }@keyframes slide-in-bottom{0%{-webkit-transform:translateY(5%);transform:translateY(5%);opacity:0}
 100%{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}
-}@-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px)}
-100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}
-}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px)}
-100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}
+}@-webkit-keyframes text-focus-in{0%{text-shadow:0 0 8px #000}
+100%{text-shadow:none;opacity:1}
+}@keyframes text-focus-in{0%{text-shadow:0 0 8px #000}
+100%{text-shadow:none;opacity:1}
 }

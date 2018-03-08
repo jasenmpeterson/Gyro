@@ -2,8 +2,9 @@
   background: url("assets/images/raw/tech_services_bg.jpg") no-repeat left center;
   clip-path: polygon(49% 9%, 100% 0, 100% 100%, 35% 92%, 0 100%, 0 0);
   padding: 120px 0;
-  margin: 50px 0;
+  margin-top: 50px;
   position: relative;
+  z-index: 2;
 }
 
 .technology__and__services .row {

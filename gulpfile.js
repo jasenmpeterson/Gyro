@@ -247,8 +247,14 @@ gulp.task( 'vendorsJs', function() {
  *     3. Renames the JS file with suffix .min.js
  *     4. Uglifes/Minifies the JS file and generates custom.min.js
  */
+var webpack = require('webpack-stream');
 gulp.task( 'customJS', function() {
     gulp.src( jsCustomSRC )
+        .pipe(webpack({
+            output: {
+                filename: 'site.js'
+            }
+        }))
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['env']
@@ -266,7 +272,6 @@ gulp.task( 'customJS', function() {
         .pipe( gulp.dest( jsCustomDestination ) )
         .pipe( notify( { message: 'TASK: "customJs" Completed! 💯', onLast: true } ) );
 });
-
 
 /**
  * Task: `images`.

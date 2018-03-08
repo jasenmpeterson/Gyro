@@ -7,7 +7,7 @@
  */
 ?>
 
-<section class="news__posts component">
+<section class="news__posts component" data-emergence="hidden">
 	<div class="row">
 		<div class="col"><h2 class="title">News</h2></div>
 	</div>

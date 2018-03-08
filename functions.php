@@ -47,9 +47,18 @@ function enqueue_scripts() {
 	wp_localize_script('theme-script', 'pageParams', $pageParams);
 
 	wp_enqueue_script( 'theme-script' );
-
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
+
+// Add async and defer attributes
+function google_maps_script_attributes( $tag, $handle) {
+	if ( 'google-maps' !== $handle ) {
+		return $tag;
+	}
+
+	return str_replace( ' src', ' async="async" defer src', $tag );
+}
+add_filter('script_loader_tag', 'google_maps_script_attributes', 10, 2);
 
 // REMOVE CONTENT EDITOR FROM PAGES
 

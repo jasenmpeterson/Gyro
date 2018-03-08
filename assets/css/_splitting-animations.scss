@@ -8,10 +8,10 @@
 
   @keyframes text-focus-in {
     0% {
-      filter: blur(12px);
+      text-shadow: 0 0 8px #000;
     }
     100% {
-      filter: blur(0px);
+      text-shadow: none;
       opacity: 1;
     }
   }

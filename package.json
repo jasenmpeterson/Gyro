@@ -25,8 +25,13 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.5.3",
     "gulp-uglifycss": "^1.0.6",
-    "gulp-wp-pot": "^1.2.2"
+    "gulp-wp-pot": "^1.2.2",
+    "webpack-stream": "^4.0.2"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "google-maps": "^3.2.1"
+  }
 }

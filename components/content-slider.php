@@ -8,7 +8,7 @@
 
 ?>
 
-<section class="content__slider blueprint__wrap component">
+<section class="content__slider blueprint__wrap component" data-emergence="hidden">
     <div class="carousel__cell">
         <div class="row">
             <div class="col">
