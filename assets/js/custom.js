@@ -141,40 +141,6 @@ var segmenter = document.querySelector(".segmenter") !== null ? new Segmenter(do
 
 var year = document.querySelector(".our__history .date h1");
 
-// animate year - credit: https://stackoverflow.com/a/16994725
-
-function animateYear(elem, start, end, duration) {
-    // assumes integer values for start and end
-
-    var obj = elem;
-    var range = end - start;
-    // no timer shorter than 50ms (not really visible any way)
-    var minTimer = 50;
-    // calc step time to show all interediate values
-    var stepTime = Math.abs(Math.floor(duration / range));
-
-    // never go below minTimer
-    stepTime = Math.max(stepTime, minTimer);
-
-    // get current time and calculate desired end time
-    var startTime = new Date().getTime();
-    var endTime = startTime + duration;
-    var timer = void 0;
-
-    function run() {
-        var now = new Date().getTime();
-        var remaining = Math.max((endTime - now) / duration, 0);
-        var value = Math.round(end - remaining * range);
-        obj.innerHTML = value;
-        if (value == end) {
-            clearInterval(timer);
-        }
-    }
-
-    timer = setInterval(run, stepTime);
-    run();
-}
-
 // our company history blocks components
 
 var historyBlocks = document.querySelectorAll(".history__blocks .wrap");
@@ -263,6 +229,25 @@ var circleSelect = function circleSelect(el) {
                 currCircle.classList.add("animated");
             }
         });
+
+        // set date
+        var setDate = function setDate() {
+            var currYear = document.querySelector(".history__chart__content.active").dataset.date;
+            var obj = { date: document.querySelector(".our__history .date h1").innerHTML };
+
+            anime({
+                targets: obj,
+                date: currYear.toString(),
+                round: 1,
+                easing: 'linear',
+                duration: 200,
+                update: function update() {
+                    var el = document.querySelector(".our__history .date h1");
+                    el.innerHTML = obj.date;
+                }
+            });
+        };
+
         // set current section to active
         var id = el.target.dataset.id;
         var currSection = document.querySelector("[data-content='" + id + "']");
@@ -273,9 +258,7 @@ var circleSelect = function circleSelect(el) {
             delay: 500,
             begin: function begin() {
                 currSection.classList.add("active");
-                // set date
-                var currYear = document.querySelector(".history__chart__content.active").dataset.date;
-                animateYear(year, previousYear, currYear, 250);
+                setDate();
             }
         });
     }

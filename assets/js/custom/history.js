@@ -26,39 +26,6 @@ let segmenter =  document.querySelector(".segmenter") !== null ? new Segmenter(d
 
 let year = document.querySelector(".our__history .date h1");
 
-// animate year - credit: https://stackoverflow.com/a/16994725
-
-function animateYear(elem, start, end, duration) {
-    // assumes integer values for start and end
-
-    let obj = elem;
-    let range = end - start;
-    // no timer shorter than 50ms (not really visible any way)
-    let minTimer = 50;
-    // calc step time to show all interediate values
-    let stepTime = Math.abs(Math.floor(duration / range));
-
-    // never go below minTimer
-    stepTime = Math.max(stepTime, minTimer);
-
-    // get current time and calculate desired end time
-    let startTime = new Date().getTime();
-    let endTime = startTime + duration;
-    let timer;
-
-    function run() {
-        let now = new Date().getTime();
-        let remaining = Math.max((endTime - now) / duration, 0);
-        let value = Math.round(end - (remaining * range));
-        obj.innerHTML = value;
-        if (value == end) {
-            clearInterval(timer);
-        }
-    }
-
-    timer = setInterval(run, stepTime);
-    run();
-}
 
 // our company history blocks components
 
@@ -117,6 +84,25 @@ let circleSelect = (el) => {
                 currCircle.classList.add("animated");
             }
         });
+
+        // set date
+        let setDate = () => {
+            let currYear = document.querySelector(".history__chart__content.active").dataset.date;
+            let obj = { date: document.querySelector(".our__history .date h1").innerHTML };
+
+            anime({
+                targets: obj,
+                date: currYear.toString(),
+                round: 1,
+                easing: 'linear',
+                duration: 200,
+                update: function () {
+                    let el = document.querySelector(".our__history .date h1");
+                    el.innerHTML = obj.date;
+                }
+            })
+        };
+
         // set current section to active
         let id = el.target.dataset.id;
         let currSection = document.querySelector("[data-content='"+id+"']");
@@ -127,9 +113,7 @@ let circleSelect = (el) => {
             delay: 500,
             begin: function () {
                 currSection.classList.add("active");
-                // set date
-                let currYear = document.querySelector(".history__chart__content.active").dataset.date;
-                animateYear(year, previousYear, currYear, 250);
+                setDate();
             }
         });
     }
