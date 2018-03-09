@@ -382,143 +382,278 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var GoogleMapsLoader = __webpack_require__(8);
 
     GoogleMapsLoader.load(function (google) {
-        var el = document.querySelector("#map");
-        var myLatLng = { lat: 29.76328, lng: -95.36327 };
-        var icon = {
-            url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
-            scaledSize: new google.maps.Size(20, 20) // scaled size
-        };
-        var map = new google.maps.Map(el, {
-            center: myLatLng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            zoom: 3,
-            styles: [{
-                "elementType": "labels",
-                "stylers": [{
-                    "visibility": "off"
-                }]
-            }, {
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#f5f5f5"
-                }]
-            }, {
-                "elementType": "labels.icon",
-                "stylers": [{
-                    "visibility": "off"
-                }]
-            }, {
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#616161"
-                }]
-            }, {
-                "elementType": "labels.text.stroke",
-                "stylers": [{
-                    "color": "#f5f5f5"
-                }]
-            }, {
-                "featureType": "administrative.land_parcel",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#bdbdbd"
-                }]
-            }, {
-                "featureType": "poi",
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#eeeeee"
-                }]
-            }, {
-                "featureType": "poi",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#757575"
-                }]
-            }, {
-                "featureType": "poi.park",
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#e5e5e5"
-                }]
-            }, {
-                "featureType": "poi.park",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#9e9e9e"
-                }]
-            }, {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#ffffff"
-                }]
-            }, {
-                "featureType": "road.arterial",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#757575"
-                }]
-            }, {
-                "featureType": "road.highway",
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#dadada"
-                }]
-            }, {
-                "featureType": "road.highway",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#616161"
-                }]
-            }, {
-                "featureType": "road.local",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#9e9e9e"
-                }]
-            }, {
-                "featureType": "transit.line",
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#e5e5e5"
-                }]
-            }, {
-                "featureType": "transit.station",
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#eeeeee"
-                }]
-            }, {
-                "featureType": "water",
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#c9c9c9"
-                }]
-            }, {
-                "featureType": "water",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#9e9e9e"
-                }]
-            }]
-        });
-        var locations = [['Houston', 29.76328, -95.36327], ['Miami', 25.77427, -80.19366], ['Ajdabiya', 30.75545, 20.22625]];
+        if (document.getElementById("map")) {
+            (function () {
+                var el = document.querySelector("#map");
+                var myLatLng = { lat: 29.76328, lng: -95.36327 };
+                var currentTemp = void 0;
+                var currentHumidity = void 0;
+                var currentPrecipitation = void 0;
+                var currentSummary = void 0;
+                var currentWind = void 0;
+                var currentTime = void 0;
+                var icon = {
+                    url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
+                    scaledSize: new google.maps.Size(20, 20) // scaled size
+                };
+                var map = new google.maps.Map(el, {
+                    center: myLatLng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    zoom: 3,
+                    styles: [{
+                        "elementType": "labels",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    }, {
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#f5f5f5"
+                        }]
+                    }, {
+                        "elementType": "labels.icon",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    }, {
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#616161"
+                        }]
+                    }, {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [{
+                            "color": "#f5f5f5"
+                        }]
+                    }, {
+                        "featureType": "administrative.land_parcel",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#bdbdbd"
+                        }]
+                    }, {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#eeeeee"
+                        }]
+                    }, {
+                        "featureType": "poi",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#757575"
+                        }]
+                    }, {
+                        "featureType": "poi.park",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#e5e5e5"
+                        }]
+                    }, {
+                        "featureType": "poi.park",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#9e9e9e"
+                        }]
+                    }, {
+                        "featureType": "road",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#ffffff"
+                        }]
+                    }, {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#757575"
+                        }]
+                    }, {
+                        "featureType": "road.highway",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#dadada"
+                        }]
+                    }, {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#616161"
+                        }]
+                    }, {
+                        "featureType": "road.local",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#9e9e9e"
+                        }]
+                    }, {
+                        "featureType": "transit.line",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#e5e5e5"
+                        }]
+                    }, {
+                        "featureType": "transit.station",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#eeeeee"
+                        }]
+                    }, {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#c9c9c9"
+                        }]
+                    }, {
+                        "featureType": "water",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#9e9e9e"
+                        }]
+                    }]
+                });
+                var locations = [{ name: "Houston", latitude: 29.76328, longitude: -95.36327 }, { name: "Miami", latitude: 25.77427, longitude: -80.193667 }, { name: "Ajdabiya", latitude: 30.75545, longitude: 20.22625 }];
 
-        var _loop = function _loop(i) {
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                map: map,
-                icon: icon
-            });
-            marker.addListener("click", function () {
-                map.setZoom(8);
-                map.setCenter(marker.getPosition());
-            });
-        };
+                var regions = [{ name: "North America", latitude: 54.525961, longitude: -105.255119 }, { name: "Asia & Middle East", latitude: 34.047863, longitude: 100.619655 }, { name: "Europe, Africa & Caspian", latitude: 54.525961, longitude: 15.255119 }, { name: "Latin America", latitude: -4.442039, longitude: -61.326854 }];
 
-        for (var i = 0; i < locations.length; i++) {
-            _loop(i);
+                var locationModule = document.querySelector(".location__module.locations");
+                var regionsModule = document.querySelector(".location__module.regions");
+
+                var _loop = function _loop(location) {
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(location.latitude, location.longitude),
+                        map: map,
+                        icon: icon,
+                        title: location.name
+                    });
+                    marker.addListener("click", function () {
+                        map.setZoom(5);
+                        map.setCenter(marker.getPosition());
+                        setTemp(parseInt(marker.getPosition().lat()), parseInt(marker.getPosition().lng()), marker.title);
+                        // marker.setIcon({
+                        //     url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
+                        //     scaledSize: new google.maps.Size(30, 30)
+                        // })'
+                    });
+                };
+
+                var _iteratorNormalCompletion = true;
+                var _didIteratorError = false;
+                var _iteratorError = undefined;
+
+                try {
+                    for (var _iterator = locations[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                        var location = _step.value;
+
+                        _loop(location);
+                    }
+                } catch (err) {
+                    _didIteratorError = true;
+                    _iteratorError = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion && _iterator.return) {
+                            _iterator.return();
+                        }
+                    } finally {
+                        if (_didIteratorError) {
+                            throw _iteratorError;
+                        }
+                    }
+                }
+
+                var setTemp = function setTemp(lat, lng, location) {
+                    fetch('https://api.darksky.net/forecast/c17289827bd62ef9aab0884abfe6f5fd/' + lat + ',' + lng).then(function (response) {
+                        return response.json();
+                    }).then(function (myJSON) {
+                        console.log(myJSON);
+                        currentTemp = myJSON.currently.apparentTemperature;
+                        currentHumidity = myJSON.currently.humidity;
+                        currentPrecipitation = myJSON.currently.precipIntensity;
+                        currentSummary = myJSON.currently.summary;
+                        currentWind = myJSON.currently.windSpeed;
+                        currentTime = myJSON.currently.time;
+                        document.querySelector("span.temperature").innerHTML = currentTemp;
+                        document.querySelector("span.humidity").innerHTML = currentHumidity;
+                        document.querySelector("span.precipitation").innerHTML = currentPrecipitation;
+                        document.querySelector("span.wind").innerHTML = currentWind;
+                        document.querySelector("span.day").innerHTML = currentTime;
+                        document.querySelector("span.summary").innerHTML = currentSummary;
+                        document.querySelector("span.city").innerHTML = location;
+                    });
+                };
+
+                locationModule.innerHTML = '<div class="locations__button__wrap">\n        ' + locations.map(function (location) {
+                    return '<button class="location__button maps__button" data-name="' + location.name + '" data-lat="' + location.latitude + '" data-lng="' + location.longitude + '">' + location.name + '</button>';
+                }).join('') + '\n    </div>';
+
+                regionsModule.innerHTML = '<div class="locations__button__wrap">\n        ' + regions.map(function (region) {
+                    return '<button class="region__button maps__button" data-name="' + region.name + '" data-lat="' + region.latitude + '" data-lng="' + region.longitude + '">' + region.name + '</button>';
+                }).join('') + '\n    </div>';
+
+                var locationButtons = document.querySelectorAll(".location__button");
+                var _iteratorNormalCompletion2 = true;
+                var _didIteratorError2 = false;
+                var _iteratorError2 = undefined;
+
+                try {
+                    for (var _iterator2 = locationButtons[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                        var locationButton = _step2.value;
+
+                        locationButton.addEventListener("click", function (e) {
+                            var longitude = e.target.dataset.lng;
+                            var latitude = e.target.dataset.lat;
+                            var location = e.target.dataset.name;
+                            map.setZoom(8);
+                            map.setCenter({ lat: parseInt(latitude), lng: parseInt(longitude) });
+                            setTemp(parseInt(latitude), parseInt(longitude), location);
+                        });
+                    }
+                } catch (err) {
+                    _didIteratorError2 = true;
+                    _iteratorError2 = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                            _iterator2.return();
+                        }
+                    } finally {
+                        if (_didIteratorError2) {
+                            throw _iteratorError2;
+                        }
+                    }
+                }
+
+                var regionButtons = document.querySelectorAll(".region__button");
+                var _iteratorNormalCompletion3 = true;
+                var _didIteratorError3 = false;
+                var _iteratorError3 = undefined;
+
+                try {
+                    for (var _iterator3 = regionButtons[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                        var regionButton = _step3.value;
+
+                        regionButton.addEventListener("click", function (e) {
+                            var longitude = e.target.dataset.lng;
+                            var latitude = e.target.dataset.lat;
+                            map.setZoom(3);
+                            map.setCenter({ lat: parseInt(latitude), lng: parseInt(longitude) });
+                        });
+                    }
+                } catch (err) {
+                    _didIteratorError3 = true;
+                    _iteratorError3 = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                            _iterator3.return();
+                        }
+                    } finally {
+                        if (_didIteratorError3) {
+                            throw _iteratorError3;
+                        }
+                    }
+                }
+            })();
         }
     });
 
@@ -792,28 +927,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             });
         };
 
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
+        var _iteratorNormalCompletion4 = true;
+        var _didIteratorError4 = false;
+        var _iteratorError4 = undefined;
 
         try {
-            for (var _iterator = activeCircles[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                var circle = _step.value;
+            for (var _iterator4 = activeCircles[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                var circle = _step4.value;
 
                 _loop2(circle);
             }
             // previous content section
         } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
+            _didIteratorError4 = true;
+            _iteratorError4 = err;
         } finally {
             try {
-                if (!_iteratorNormalCompletion && _iterator.return) {
-                    _iterator.return();
+                if (!_iteratorNormalCompletion4 && _iterator4.return) {
+                    _iterator4.return();
                 }
             } finally {
-                if (_didIteratorError) {
-                    throw _iteratorError;
+                if (_didIteratorError4) {
+                    throw _iteratorError4;
                 }
             }
         }
@@ -938,13 +1073,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     var drillDownButton = document.querySelectorAll(".sub__menu__child__title");
 
-    var _iteratorNormalCompletion2 = true;
-    var _didIteratorError2 = false;
-    var _iteratorError2 = undefined;
+    var _iteratorNormalCompletion5 = true;
+    var _didIteratorError5 = false;
+    var _iteratorError5 = undefined;
 
     try {
-        for (var _iterator2 = drillDownButton[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            var drillDown = _step2.value;
+        for (var _iterator5 = drillDownButton[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+            var drillDown = _step5.value;
 
             drillDown.addEventListener("click", function (e) {
                 e.target.classList.toggle("active");
@@ -955,16 +1090,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         /***/
     } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
+        _didIteratorError5 = true;
+        _iteratorError5 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                _iterator2.return();
+            if (!_iteratorNormalCompletion5 && _iterator5.return) {
+                _iterator5.return();
             }
         } finally {
-            if (_didIteratorError2) {
-                throw _iteratorError2;
+            if (_didIteratorError5) {
+                throw _iteratorError5;
             }
         }
     }
@@ -1048,13 +1183,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         animateLink("0", 0, target, 0, 1);
     }
 
-    var _iteratorNormalCompletion3 = true;
-    var _didIteratorError3 = false;
-    var _iteratorError3 = undefined;
+    var _iteratorNormalCompletion6 = true;
+    var _didIteratorError6 = false;
+    var _iteratorError6 = undefined;
 
     try {
-        for (var _iterator3 = technologyLinks[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-            var link = _step3.value;
+        for (var _iterator6 = technologyLinks[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+            var link = _step6.value;
 
             link.addEventListener("mouseenter", function (e) {
                 enterLink(e.target);
@@ -1066,16 +1201,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         /***/
     } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
+        _didIteratorError6 = true;
+        _iteratorError6 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                _iterator3.return();
+            if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                _iterator6.return();
             }
         } finally {
-            if (_didIteratorError3) {
-                throw _iteratorError3;
+            if (_didIteratorError6) {
+                throw _iteratorError6;
             }
         }
     }

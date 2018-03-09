@@ -3,3 +3,38 @@
   position: relative;
   top: -90px;
 }
+
+.map__wrapper {
+  position: relative;
+}
+
+.location__module__wrapper {
+  position: absolute;
+  top: 0;
+  right: 45px;
+  bottom: 0;
+  margin: auto;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.location__module {
+  background-color: #F2F2F2;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+  padding: 35px;
+  width: 100%;
+}
+
+.maps__button {
+  display: block;
+}
+
+.weather__container .col {
+  width: 33.3333%;
+}
+
+.weather__container span {
+  display: block;
+}

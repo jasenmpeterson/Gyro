@@ -362,6 +362,12 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 .our__culture__video .col:last-child{width:60%}
 .our__culture__video .clippy{-webkit-clip-path:polygon(100% 23%,0 100%,100% 100%);clip-path:polygon(100% 23%,0 100%,100% 100%);position:absolute;right:0;bottom:0;width:100%;height:1024px;background-color:#2a3036}
 #map{height:900px;position:relative;top:-90px}
+.map__wrapper{position:relative}
+.location__module__wrapper{position:absolute;top:0;right:45px;bottom:0;margin:auto;z-index:2;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}
+.location__module{background-color:#f2f2f2;box-shadow:0 3px 12px rgba(0,0,0,0.23),0 3px 12px rgba(0,0,0,0.16);padding:35px;width:100%}
+.maps__button{display:block}
+.weather__container .col{width:33.3333%}
+.weather__container span{display:block}
 @media screen and (min-width:320px){.rotating__banner{height:400px}
 .rotating__banner .col{width:320px}
 .rotating__banner .content__wrap{margin-top:-75px}
