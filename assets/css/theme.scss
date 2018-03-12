@@ -1246,6 +1246,14 @@ p:not(:last-child) {
   text-align: center;
 }
 
+.text__align__right {
+  text-align: right;
+}
+
+.span__block {
+  display: block;
+}
+
 // -- title
 
 .title:before {

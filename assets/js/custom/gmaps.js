@@ -7,9 +7,12 @@ GoogleMapsLoader.load(function(google) {
         let currentTemp;
         let currentHumidity;
         let currentPrecipitation;
-        let currentSummary;
         let currentWind;
         let currentTime;
+        let d = new Date();
+        let dayNames = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+        let currentDay = dayNames[d.getDay()-1];
+        console.log(currentDay);
         let icon = {
             url:  '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
             scaledSize: new google.maps.Size(20, 20), // scaled size
@@ -188,9 +191,9 @@ GoogleMapsLoader.load(function(google) {
             ]
         });
         let locations = [
-            { name: "Houston", latitude: 29.76328, longitude: -95.36327  },
-            { name: "Miami", latitude: 25.77427, longitude: -80.193667  },
-            { name: "Ajdabiya", latitude: 30.75545, longitude: 20.22625  }
+            { name: "Houston, TX", latitude: 29.76328, longitude: -95.36327, region: "North America", country: "United States" },
+            { name: "Miami, FL", latitude: 25.77427, longitude: -80.193667, region: "North America", country: "United States"  },
+            { name: "Ajdabiya", latitude: 30.75545, longitude: 20.22625, region: "Europe, Africa & Caspian"  }
         ];
 
         let regions = [
@@ -200,7 +203,7 @@ GoogleMapsLoader.load(function(google) {
             { name: "Latin America", latitude: -4.442039, longitude: -61.326854 }
         ];
 
-        let locationModule = document.querySelector(".location__module.locations");
+        let locationModule = document.querySelector(".location__module.locations .locations__wrap");
         let regionsModule = document.querySelector(".location__module.regions");
 
         for(let location of locations) {
@@ -208,12 +211,14 @@ GoogleMapsLoader.load(function(google) {
                 position: new google.maps.LatLng(location.latitude, location.longitude),
                 map: map,
                 icon: icon,
-                title: location.name
+                title: location.name,
+                region: location.region,
+                country: location.country
             });
             marker.addListener("click", function () {
                 map.setZoom(5);
                 map.setCenter(marker.getPosition());
-                setTemp(parseInt(marker.getPosition().lat()),parseInt(marker.getPosition().lng()), marker.title);
+                setTemp(parseInt(marker.getPosition().lat()),parseInt(marker.getPosition().lng()), marker.title, marker.region);
                 // marker.setIcon({
                 //     url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
                 //     scaledSize: new google.maps.Size(30, 30)
@@ -221,58 +226,78 @@ GoogleMapsLoader.load(function(google) {
             });
         }
 
-        let  setTemp = (lat,lng, location) => {
+        let  setTemp = (lat,lng, location, region) => {
             fetch(`https://api.darksky.net/forecast/c17289827bd62ef9aab0884abfe6f5fd/${lat},${lng}`)
                 .then(function (response) {
                     return response.json();
                 })
                 .then(function (myJSON) {
                     console.log(myJSON);
-                    currentTemp = myJSON.currently.apparentTemperature;
-                    currentHumidity = myJSON.currently.humidity;
-                    currentPrecipitation = myJSON.currently.precipIntensity;
-                    currentSummary = myJSON.currently.summary;
-                    currentWind = myJSON.currently.windSpeed;
-                    currentTime = myJSON.currently.time;
-                    document.querySelector("span.temperature").innerHTML = currentTemp;
+                    currentTemp = Math.round(myJSON.currently.apparentTemperature);
+                    currentHumidity = myJSON.currently.humidity + "%";
+                    currentHumidity = currentHumidity.replace(/^[0\.]+/, "");
+                    currentPrecipitation = Math.round(myJSON.currently.precipIntensity) + "%";
+                    currentWind = Math.round(myJSON.currently.windSpeed) + " mph";
+                    currentTime = new Date( myJSON.currently.time * 1000);
+                    let hours = currentTime.getHours();
+                    let minutes = currentTime.getMinutes();
+                    let formattedCurrentTime = (hours > 12) ? (hours-12 + ':' + minutes +' PM') : (hours + ':' + minutes +' AM');
+                    document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
                     document.querySelector("span.humidity").innerHTML = currentHumidity;
                     document.querySelector("span.precipitation").innerHTML = currentPrecipitation;
                     document.querySelector("span.wind").innerHTML = currentWind;
-                    document.querySelector("span.day").innerHTML = currentTime;
-                    document.querySelector("span.summary").innerHTML = currentSummary;
-                    document.querySelector("span.city").innerHTML = location
+                    document.querySelector("span.day").innerHTML = currentDay + " " + formattedCurrentTime;
+                    document.querySelector("span.city").innerHTML = location;
+                    document.querySelector("span.region").innerHTML = region;
                 });
         };
-
-        locationModule.innerHTML = `<div class="locations__button__wrap">
-        ${locations.map(location => `<button class="location__button maps__button" data-name="${location.name}" data-lat="${location.latitude}" data-lng="${location.longitude}">${location.name}</button>`).join('')}
-    </div>`;
 
         regionsModule.innerHTML = `<div class="locations__button__wrap">
         ${regions.map(region => `<button class="region__button maps__button" data-name="${region.name}" data-lat="${region.latitude}" data-lng="${region.longitude}">${region.name}</button>`).join('')}
     </div>`;
-
-        let locationButtons = document.querySelectorAll(".location__button");
-        for(let locationButton of locationButtons) {
-            locationButton.addEventListener("click", (e) => {
-                let longitude = e.target.dataset.lng;
-                let latitude = e.target.dataset.lat;
-                let location = e.target.dataset.name;
-                map.setZoom(8);
-                map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
-                setTemp(parseInt(latitude),parseInt(longitude), location);
-            });
-
-        }
 
         let regionButtons = document.querySelectorAll(".region__button");
         for(let regionButton of regionButtons) {
             regionButton.addEventListener("click", (e) => {
                 let longitude = e.target.dataset.lng;
                 let latitude = e.target.dataset.lat;
+                let region = e.target.dataset.name;
+                let locationsModule = document.querySelector(".location__module.locations");
                 map.setZoom(3);
                 map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
+                let prevActiveRegion = document.querySelector(".region__button.active");
+                (prevActiveRegion !== null) ? prevActiveRegion.classList.remove("active") : "";
+                e.target.classList.add("active");
+                loadLocations(region);
+                locationsModule.classList.add("active");
+                let regionTitle = document.querySelector(".region__title");
+                regionTitle.innerHTML = region;
             })
+        }
+
+        function loadLocations (region) {
+            locationModule.innerHTML =
+            `<div class="locations__button__wrap">
+                ${
+                    locations.map(location => (location.region === region ? `<button class="location__button maps__button" data-country="${location.country}" data-name="${location.name}" data-region="${location.region}" data-lat="${location.latitude}" data-lng="${location.longitude}">${location.name}</button>` : "")).join('')
+                }
+            </div>`;
+
+            let locationButtons = document.querySelectorAll(".location__button");
+            for(let locationButton of locationButtons) {
+                locationButton.addEventListener("click", (e) => {
+                    let longitude = e.target.dataset.lng;
+                    let latitude = e.target.dataset.lat;
+                    let location = e.target.dataset.name;
+                    let region = e.target.dataset.region;
+                    let localModule = document.querySelector(".location__module.local");
+                    map.setZoom(8);
+                    map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
+                    setTemp(parseInt(latitude),parseInt(longitude), location, region);
+                    localModule.classList.add("active");
+                });
+
+            }
         }
     }
 });

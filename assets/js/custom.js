@@ -384,14 +384,59 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     GoogleMapsLoader.load(function (google) {
         if (document.getElementById("map")) {
             (function () {
+                var loadLocations = function loadLocations(region) {
+                    locationModule.innerHTML = '<div class="locations__button__wrap">\n                ' + locations.map(function (location) {
+                        return location.region === region ? '<button class="location__button maps__button" data-country="' + location.country + '" data-name="' + location.name + '" data-region="' + location.region + '" data-lat="' + location.latitude + '" data-lng="' + location.longitude + '">' + location.name + '</button>' : "";
+                    }).join('') + '\n            </div>';
+
+                    var locationButtons = document.querySelectorAll(".location__button");
+                    var _iteratorNormalCompletion3 = true;
+                    var _didIteratorError3 = false;
+                    var _iteratorError3 = undefined;
+
+                    try {
+                        for (var _iterator3 = locationButtons[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                            var locationButton = _step3.value;
+
+                            locationButton.addEventListener("click", function (e) {
+                                var longitude = e.target.dataset.lng;
+                                var latitude = e.target.dataset.lat;
+                                var location = e.target.dataset.name;
+                                var region = e.target.dataset.region;
+                                var localModule = document.querySelector(".location__module.local");
+                                map.setZoom(8);
+                                map.setCenter({ lat: parseInt(latitude), lng: parseInt(longitude) });
+                                setTemp(parseInt(latitude), parseInt(longitude), location, region);
+                                localModule.classList.add("active");
+                            });
+                        }
+                    } catch (err) {
+                        _didIteratorError3 = true;
+                        _iteratorError3 = err;
+                    } finally {
+                        try {
+                            if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                                _iterator3.return();
+                            }
+                        } finally {
+                            if (_didIteratorError3) {
+                                throw _iteratorError3;
+                            }
+                        }
+                    }
+                };
+
                 var el = document.querySelector("#map");
                 var myLatLng = { lat: 29.76328, lng: -95.36327 };
                 var currentTemp = void 0;
                 var currentHumidity = void 0;
                 var currentPrecipitation = void 0;
-                var currentSummary = void 0;
                 var currentWind = void 0;
                 var currentTime = void 0;
+                var d = new Date();
+                var dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+                var currentDay = dayNames[d.getDay() - 1];
+                console.log(currentDay);
                 var icon = {
                     url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
                     scaledSize: new google.maps.Size(20, 20) // scaled size
@@ -511,11 +556,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                         }]
                     }]
                 });
-                var locations = [{ name: "Houston", latitude: 29.76328, longitude: -95.36327 }, { name: "Miami", latitude: 25.77427, longitude: -80.193667 }, { name: "Ajdabiya", latitude: 30.75545, longitude: 20.22625 }];
+                var locations = [{ name: "Houston, TX", latitude: 29.76328, longitude: -95.36327, region: "North America", country: "United States" }, { name: "Miami, FL", latitude: 25.77427, longitude: -80.193667, region: "North America", country: "United States" }, { name: "Ajdabiya", latitude: 30.75545, longitude: 20.22625, region: "Europe, Africa & Caspian" }];
 
                 var regions = [{ name: "North America", latitude: 54.525961, longitude: -105.255119 }, { name: "Asia & Middle East", latitude: 34.047863, longitude: 100.619655 }, { name: "Europe, Africa & Caspian", latitude: 54.525961, longitude: 15.255119 }, { name: "Latin America", latitude: -4.442039, longitude: -61.326854 }];
 
-                var locationModule = document.querySelector(".location__module.locations");
+                var locationModule = document.querySelector(".location__module.locations .locations__wrap");
                 var regionsModule = document.querySelector(".location__module.regions");
 
                 var _loop = function _loop(location) {
@@ -523,12 +568,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                         position: new google.maps.LatLng(location.latitude, location.longitude),
                         map: map,
                         icon: icon,
-                        title: location.name
+                        title: location.name,
+                        region: location.region,
+                        country: location.country
                     });
                     marker.addListener("click", function () {
                         map.setZoom(5);
                         map.setCenter(marker.getPosition());
-                        setTemp(parseInt(marker.getPosition().lat()), parseInt(marker.getPosition().lng()), marker.title);
+                        setTemp(parseInt(marker.getPosition().lat()), parseInt(marker.getPosition().lng()), marker.title, marker.region);
                         // marker.setIcon({
                         //     url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
                         //     scaledSize: new google.maps.Size(30, 30)
@@ -561,51 +608,57 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     }
                 }
 
-                var setTemp = function setTemp(lat, lng, location) {
+                var setTemp = function setTemp(lat, lng, location, region) {
                     fetch('https://api.darksky.net/forecast/c17289827bd62ef9aab0884abfe6f5fd/' + lat + ',' + lng).then(function (response) {
                         return response.json();
                     }).then(function (myJSON) {
                         console.log(myJSON);
-                        currentTemp = myJSON.currently.apparentTemperature;
-                        currentHumidity = myJSON.currently.humidity;
-                        currentPrecipitation = myJSON.currently.precipIntensity;
-                        currentSummary = myJSON.currently.summary;
-                        currentWind = myJSON.currently.windSpeed;
-                        currentTime = myJSON.currently.time;
-                        document.querySelector("span.temperature").innerHTML = currentTemp;
+                        currentTemp = Math.round(myJSON.currently.apparentTemperature);
+                        currentHumidity = myJSON.currently.humidity + "%";
+                        currentHumidity = currentHumidity.replace(/^[0\.]+/, "");
+                        currentPrecipitation = Math.round(myJSON.currently.precipIntensity) + "%";
+                        currentWind = Math.round(myJSON.currently.windSpeed) + " mph";
+                        currentTime = new Date(myJSON.currently.time * 1000);
+                        var hours = currentTime.getHours();
+                        var minutes = currentTime.getMinutes();
+                        var formattedCurrentTime = hours > 12 ? hours - 12 + ':' + minutes + ' PM' : hours + ':' + minutes + ' AM';
+                        document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
                         document.querySelector("span.humidity").innerHTML = currentHumidity;
                         document.querySelector("span.precipitation").innerHTML = currentPrecipitation;
                         document.querySelector("span.wind").innerHTML = currentWind;
-                        document.querySelector("span.day").innerHTML = currentTime;
-                        document.querySelector("span.summary").innerHTML = currentSummary;
+                        document.querySelector("span.day").innerHTML = currentDay + " " + formattedCurrentTime;
                         document.querySelector("span.city").innerHTML = location;
+                        document.querySelector("span.region").innerHTML = region;
                     });
                 };
-
-                locationModule.innerHTML = '<div class="locations__button__wrap">\n        ' + locations.map(function (location) {
-                    return '<button class="location__button maps__button" data-name="' + location.name + '" data-lat="' + location.latitude + '" data-lng="' + location.longitude + '">' + location.name + '</button>';
-                }).join('') + '\n    </div>';
 
                 regionsModule.innerHTML = '<div class="locations__button__wrap">\n        ' + regions.map(function (region) {
                     return '<button class="region__button maps__button" data-name="' + region.name + '" data-lat="' + region.latitude + '" data-lng="' + region.longitude + '">' + region.name + '</button>';
                 }).join('') + '\n    </div>';
 
-                var locationButtons = document.querySelectorAll(".location__button");
+                var regionButtons = document.querySelectorAll(".region__button");
                 var _iteratorNormalCompletion2 = true;
                 var _didIteratorError2 = false;
                 var _iteratorError2 = undefined;
 
                 try {
-                    for (var _iterator2 = locationButtons[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                        var locationButton = _step2.value;
+                    for (var _iterator2 = regionButtons[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                        var regionButton = _step2.value;
 
-                        locationButton.addEventListener("click", function (e) {
+                        regionButton.addEventListener("click", function (e) {
                             var longitude = e.target.dataset.lng;
                             var latitude = e.target.dataset.lat;
-                            var location = e.target.dataset.name;
-                            map.setZoom(8);
+                            var region = e.target.dataset.name;
+                            var locationsModule = document.querySelector(".location__module.locations");
+                            map.setZoom(3);
                             map.setCenter({ lat: parseInt(latitude), lng: parseInt(longitude) });
-                            setTemp(parseInt(latitude), parseInt(longitude), location);
+                            var prevActiveRegion = document.querySelector(".region__button.active");
+                            prevActiveRegion !== null ? prevActiveRegion.classList.remove("active") : "";
+                            e.target.classList.add("active");
+                            loadLocations(region);
+                            locationsModule.classList.add("active");
+                            var regionTitle = document.querySelector(".region__title");
+                            regionTitle.innerHTML = region;
                         });
                     }
                 } catch (err) {
@@ -619,37 +672,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     } finally {
                         if (_didIteratorError2) {
                             throw _iteratorError2;
-                        }
-                    }
-                }
-
-                var regionButtons = document.querySelectorAll(".region__button");
-                var _iteratorNormalCompletion3 = true;
-                var _didIteratorError3 = false;
-                var _iteratorError3 = undefined;
-
-                try {
-                    for (var _iterator3 = regionButtons[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                        var regionButton = _step3.value;
-
-                        regionButton.addEventListener("click", function (e) {
-                            var longitude = e.target.dataset.lng;
-                            var latitude = e.target.dataset.lat;
-                            map.setZoom(3);
-                            map.setCenter({ lat: parseInt(latitude), lng: parseInt(longitude) });
-                        });
-                    }
-                } catch (err) {
-                    _didIteratorError3 = true;
-                    _iteratorError3 = err;
-                } finally {
-                    try {
-                        if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                            _iterator3.return();
-                        }
-                    } finally {
-                        if (_didIteratorError3) {
-                            throw _iteratorError3;
                         }
                     }
                 }
