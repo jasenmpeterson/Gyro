@@ -24,7 +24,7 @@
 .location__module {
   background-color: #F2F2F2;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
-  padding: 35px;
+  padding: 25px;
   width: 100%;
 }
 
@@ -51,7 +51,7 @@
 .maps__button {
   background-color: transparent;
   border: none;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   color: #5D6771;
   cursor: pointer;
 }
@@ -98,14 +98,27 @@
 }
 
 .location__module.locations,
-.location__module.local {
+.location__module.local,
+.location__module.contact{
   opacity: 0;
+  z-index: -1;
   transition: all 300ms ease-out;
 }
 
 .location__module.locations.active,
-.location__module.local.active {
+.location__module.local.active,
+.location__module.contact.active {
   opacity: 1;
+  z-index: 1;
+}
+
+.location__module.locations,
+.location__module.local {
+  background-color: #E5E6E6;
+}
+
+.location__module.contact {
+  background-color: #E2E2E2;
 }
 
 span.temperature {
@@ -131,6 +144,45 @@ span.day {
   color: #960000;
 }
 
-.region__title {
-  margin-bottom: 15px;
+.module__title h1 {
+  background-color: #960000;
+  color: #ffffff;
+  font-size: 16px;
+  display: inline-block;
+  width: 250px;
+  max-width: 100%;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  left: -45px;
+  margin-bottom: 25px;
+  &:before {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    display: block;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 12% 99%);
+    background-color: #960000;
+  }
+}
+
+.module__title span {
+  position: relative;
+  z-index: 2;
+}
+
+.cities h4 {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 0;
+  color: #960000;
+}
+
+.location__module.contact address p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
 }

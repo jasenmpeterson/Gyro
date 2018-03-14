@@ -1,11 +1,16 @@
 <section class="map__wrapper">
     <div class="location__module__wrapper">
         <div class="location__module regions">
-
+            <div class="regions__title module__title"><h1><span>Regions</span></h1></div>
+            <div class="regions__wrap"></div>
         </div>
         <div class="location__module locations">
-            <div class="region__title"></div>
-            <div class="locations__wrap"></div>
+            <div class="region__title module__title"><h1><span></span></h1></div>
+            <div class="locations__wrap">
+                <div class="locations__button__wrap cities">
+
+                </div>
+            </div>
         </div>
         <div class="location__module local">
             <div class="weather__container row">
@@ -22,6 +27,11 @@
                     <p>Humidity: <span class="humidity"></span></p>
                     <p>Wind: <span class="wind"></span></p>
                 </div>
+            </div>
+        </div>
+        <div class="location__module contact">
+            <div class="row">
+                <div class="col"></div>
             </div>
         </div>
     </div>

@@ -366,12 +366,12 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 #map{height:900px;position:relative;top:-90px}
 .map__wrapper{position:relative}
 .location__module__wrapper{position:absolute;top:0;right:45px;bottom:0;margin:auto;z-index:2;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-width:450px}
-.location__module{background-color:#f2f2f2;box-shadow:0 3px 12px rgba(0,0,0,0.23),0 3px 12px rgba(0,0,0,0.16);padding:35px;width:100%}
+.location__module{background-color:#f2f2f2;box-shadow:0 3px 12px rgba(0,0,0,0.23),0 3px 12px rgba(0,0,0,0.16);padding:25px;width:100%}
 .maps__button{display:block;padding:0}
 .weather__container .col{width:auto;padding:10px}
 .weather__container .col:last-child{font-size:12px;color:#960000}
 .weather__container p{margin:0;line-height:18px}
-.maps__button{background-color:transparent;border:0;margin-bottom:15px;color:#5d6771;cursor:pointer}
+.maps__button{background-color:transparent;border:0;margin-bottom:25px;color:#5d6771;cursor:pointer}
 .maps__button:last-child{margin-bottom:0}
 .maps__button:focus{outline:0}
 .weather__container,.maps__button{font-size:14px}
@@ -379,14 +379,20 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 .region__button:before{display:block;content:"";border-radius:50%;background-color:#b2b2b2;border:3px solid transparent;width:20px;height:20px;position:absolute;top:0;left:0;-webkit-transition:all 300ms ease-out;transition:all 300ms ease-out}
 .region__button.active:before{background-color:#ffb100;border:3px solid #2a3036}
 .location__button{margin-bottom:5px}
-.location__module.locations,.location__module.local{opacity:0;-webkit-transition:all 300ms ease-out;transition:all 300ms ease-out}
-.location__module.locations.active,.location__module.local.active{opacity:1}
+.location__module.locations,.location__module.local,.location__module.contact{opacity:0;z-index:-1;-webkit-transition:all 300ms ease-out;transition:all 300ms ease-out}
+.location__module.locations.active,.location__module.local.active,.location__module.contact.active{opacity:1;z-index:1}
+.location__module.locations,.location__module.local{background-color:#e5e6e6}
+.location__module.contact{background-color:#e2e2e2}
 span.temperature{font-size:60px}
 span.temperature sup{font-size:12px;vertical-align:super}
 span.city{font-size:18px;margin:5px 0}
 span.region{font-size:12px}
 span.region,span.day{color:#960000}
-.region__title{margin-bottom:15px}
+.module__title h1{background-color:#960000;color:#fff;font-size:16px;display:inline-block;width:250px;max-width:100%;padding:15px;text-align:center;position:relative;left:-45px;margin-bottom:25px}
+.module__title h1:before{position:absolute;left:-30px;top:0;height:100%;width:100%;content:"";display:block;-webkit-clip-path:polygon(0 0,100% 0,100% 100%,12% 99%);clip-path:polygon(0 0,100% 0,100% 100%,12% 99%);background-color:#960000}
+.module__title span{position:relative;z-index:2}
+.cities h4{font-size:14px;margin-bottom:5px;margin-top:0;color:#960000}
+.location__module.contact address p{margin:0;font-size:14px;line-height:20px}
 @media screen and (min-width:320px){.rotating__banner{height:400px}
 .rotating__banner .col{width:320px}
 .rotating__banner .content__wrap{margin-top:-75px}

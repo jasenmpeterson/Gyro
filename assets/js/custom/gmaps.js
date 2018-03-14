@@ -1,3 +1,4 @@
+import {format} from "date-fns";
 let GoogleMapsLoader = require('google-maps');
 
 GoogleMapsLoader.load(function(google) {
@@ -12,7 +13,8 @@ GoogleMapsLoader.load(function(google) {
         let d = new Date();
         let dayNames = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
         let currentDay = dayNames[d.getDay()-1];
-        console.log(currentDay);
+        let locationsModule = document.querySelector(".location__module.locations");
+        let localModule = document.querySelector(".location__module.local");
         let icon = {
             url:  '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
             scaledSize: new google.maps.Size(20, 20), // scaled size
@@ -191,9 +193,40 @@ GoogleMapsLoader.load(function(google) {
             ]
         });
         let locations = [
-            { name: "Houston, TX", latitude: 29.76328, longitude: -95.36327, region: "North America", country: "United States" },
-            { name: "Miami, FL", latitude: 25.77427, longitude: -80.193667, region: "North America", country: "United States"  },
-            { name: "Ajdabiya", latitude: 30.75545, longitude: 20.22625, region: "Europe, Africa & Caspian"  }
+            {
+                name: "United States",
+                region: "North America",
+                cities: [
+                    {
+                        name: "Houston, TX",
+                        latitude: 29.76328,
+                        longitude: -95.36327,
+                        region: "North America",
+                        contact: {
+                            name: "GyroData Global - North American Headquarters",
+                            street: "4245 Cadillac Lane",
+                            city: "Houston, TX",
+                            zip: "77581",
+                            tel: "911",
+                            fax: "911"
+                        }
+                    },
+                    {
+                        name: "Miami, FL",
+                        latitude: 25.77427,
+                        longitude: -80.193667,
+                        region: "North America",
+                        contact: {
+                            name: "GyroData Global - North American Headquarters",
+                            street: "4245 Cadillac Lane",
+                            city: "Miami, Fl",
+                            zip: "77581",
+                            tel: "911",
+                            fax: "911"
+                        }
+                    }
+                ],
+            }
         ];
 
         let regions = [
@@ -203,27 +236,31 @@ GoogleMapsLoader.load(function(google) {
             { name: "Latin America", latitude: -4.442039, longitude: -61.326854 }
         ];
 
-        let locationModule = document.querySelector(".location__module.locations .locations__wrap");
-        let regionsModule = document.querySelector(".location__module.regions");
+        let regionsModule = document.querySelector(".location__module.regions .regions__wrap");
 
         for(let location of locations) {
-            let marker = new google.maps.Marker({
-                position: new google.maps.LatLng(location.latitude, location.longitude),
-                map: map,
-                icon: icon,
-                title: location.name,
-                region: location.region,
-                country: location.country
-            });
-            marker.addListener("click", function () {
-                map.setZoom(5);
-                map.setCenter(marker.getPosition());
-                setTemp(parseInt(marker.getPosition().lat()),parseInt(marker.getPosition().lng()), marker.title, marker.region);
-                // marker.setIcon({
-                //     url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
-                //     scaledSize: new google.maps.Size(30, 30)
-                // })'
-            });
+            for(let city of location.cities) {
+                let marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(city.latitude, city.longitude),
+                    map: map,
+                    icon: icon,
+                    title: city.name,
+                    region: city.region,
+                });
+                // marker.addListener("click", function () {
+                //     map.setZoom(5);
+                //     map.setCenter(marker.getPosition());
+                //     setTemp(parseInt(marker.getPosition().lat()),parseInt(marker.getPosition().lng()), marker.title, marker.region);
+                //     locationsModule.classList.add("active");
+                //     document.querySelector(".region__title").innerHTML = marker.region;
+                //     loadLocations(marker.region);
+                //     localModule.classList.add("active");
+                //     // marker.setIcon({
+                //     //     url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
+                //     //     scaledSize: new google.maps.Size(30, 30)
+                //     // })'
+                // });
+            }
         }
 
         let  setTemp = (lat,lng, location, region) => {
@@ -239,9 +276,7 @@ GoogleMapsLoader.load(function(google) {
                     currentPrecipitation = Math.round(myJSON.currently.precipIntensity) + "%";
                     currentWind = Math.round(myJSON.currently.windSpeed) + " mph";
                     currentTime = new Date( myJSON.currently.time * 1000);
-                    let hours = currentTime.getHours();
-                    let minutes = currentTime.getMinutes();
-                    let formattedCurrentTime = (hours > 12) ? (hours-12 + ':' + minutes +' PM') : (hours + ':' + minutes +' AM');
+                    let formattedCurrentTime = format(new Date(currentTime), "h:mm A");
                     document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
                     document.querySelector("span.humidity").innerHTML = currentHumidity;
                     document.querySelector("span.precipitation").innerHTML = currentPrecipitation;
@@ -250,6 +285,14 @@ GoogleMapsLoader.load(function(google) {
                     document.querySelector("span.city").innerHTML = location;
                     document.querySelector("span.region").innerHTML = region;
                 });
+        };
+
+        let setContact = (city) => {
+            let contactModule = document.querySelector(".location__module.contact");
+            let module = document.querySelector(".location__module.contact .col");
+            //module.innerHTML =  `${locations.map(location => location.cities.map(currentCity => console.log(currentCity.contact)) ).join('')}`;
+            module.innerHTML =  `${locations.map(location => location.cities.map(currentCity => (currentCity.contact.city === city ? `<h4>${currentCity.contact.name}</h4><address><p>${currentCity.contact.street}</p><p>${currentCity.contact.city} ${currentCity.contact.zip}</p><p>Tel: ${currentCity.contact.tel}</p><p>Fax: ${currentCity.contact.fax}</p></address> `  : "")).join('') )}`;
+            contactModule.classList.add("active");
         };
 
         regionsModule.innerHTML = `<div class="locations__button__wrap">
@@ -262,26 +305,25 @@ GoogleMapsLoader.load(function(google) {
                 let longitude = e.target.dataset.lng;
                 let latitude = e.target.dataset.lat;
                 let region = e.target.dataset.name;
-                let locationsModule = document.querySelector(".location__module.locations");
                 map.setZoom(3);
                 map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
                 let prevActiveRegion = document.querySelector(".region__button.active");
                 (prevActiveRegion !== null) ? prevActiveRegion.classList.remove("active") : "";
                 e.target.classList.add("active");
+                let citiesModule = document.querySelector(".locations__button__wrap.cities");
                 loadLocations(region);
                 locationsModule.classList.add("active");
-                let regionTitle = document.querySelector(".region__title");
+                let regionTitle = document.querySelector(".region__title h1 span");
                 regionTitle.innerHTML = region;
             })
         }
 
         function loadLocations (region) {
-            locationModule.innerHTML =
-            `<div class="locations__button__wrap">
+            let buttonsWrap = document.querySelector(".locations__button__wrap.cities");
+            buttonsWrap.innerHTML +=`
                 ${
-                    locations.map(location => (location.region === region ? `<button class="location__button maps__button" data-country="${location.country}" data-name="${location.name}" data-region="${location.region}" data-lat="${location.latitude}" data-lng="${location.longitude}">${location.name}</button>` : "")).join('')
-                }
-            </div>`;
+                    locations.map(location => (location.region === region ? `<h4>${location.name}</h4>${location.cities.map(location => `<button class="location__button maps__button" data-name="${location.name}" data-region="${location.region}" data-lat="${location.latitude}" data-lng="${location.longitude}">${location.name}</button> `).join('')}` : "")).join('')
+                }`;
 
             let locationButtons = document.querySelectorAll(".location__button");
             for(let locationButton of locationButtons) {
@@ -290,10 +332,10 @@ GoogleMapsLoader.load(function(google) {
                     let latitude = e.target.dataset.lat;
                     let location = e.target.dataset.name;
                     let region = e.target.dataset.region;
-                    let localModule = document.querySelector(".location__module.local");
                     map.setZoom(8);
                     map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
                     setTemp(parseInt(latitude),parseInt(longitude), location, region);
+                    setContact(e.target.dataset.name);
                     localModule.classList.add("active");
                 });
 

@@ -32,6 +32,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "date-fns": "^1.29.0",
     "google-maps": "^3.2.1"
   }
 }
