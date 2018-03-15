@@ -33,6 +33,16 @@
   padding: 0;
 }
 
+.weather__container {
+  opacity: 0;
+  position: relative;
+  transition: opacity 300ms ease-out;
+}
+
+.weather__container.active {
+  opacity: 1;
+}
+
 .weather__container .col {
   width: auto;
   padding: 10px;
@@ -102,7 +112,16 @@
 .location__module.contact{
   opacity: 0;
   z-index: -1;
-  transition: all 300ms ease-out;
+  transform: translateY(50px);
+  transition: all 400ms ease-out;
+}
+
+.location__module.local {
+  position: relative;
+}
+
+.location__module.contact {
+  transition-delay: 200ms;
 }
 
 .location__module.locations.active,
@@ -110,6 +129,7 @@
 .location__module.contact.active {
   opacity: 1;
   z-index: 1;
+  transform: translateY(0);
 }
 
 .location__module.locations,
@@ -185,4 +205,22 @@ span.day {
   margin: 0;
   font-size: 14px;
   line-height: 20px;
+  font-style: normal;
+}
+
+.location__module .loader {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  width: 44px;
+  height: 44px;
+  opacity: 1;
+  transition: opacity 300ms ease-out;
+}
+
+.location__module .loader.inactive {
+  opacity: 0;
 }

@@ -13,6 +13,7 @@
             </div>
         </div>
         <div class="location__module local">
+            <div class="loader"><img src="<?php echo get_template_directory_uri();?>/assets/images/raw/puff.svg"></div>
             <div class="weather__container row">
                 <div class="col">
                     <span class="region span__block"></span>

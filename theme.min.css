@@ -351,7 +351,7 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 .our__history h1.title:before{position:absolute;bottom:50px;left:0;right:0;margin:auto}
 .our__history .arrow__controls{width:990px;max-width:100%;position:absolute;bottom:50%;left:0;right:0;margin:auto}
 .our__history .arrow__controls .col{width:50%}
-.history__chart__content{position:absolute;bottom:50%;left:0;right:0;margin:auto;width:650px;max-width:100%;text-align:center;opacity:0;visibility:hidden}
+.history__chart__content{position:absolute;bottom:45%;left:0;right:0;margin:auto;width:650px;max-width:100%;text-align:center;opacity:0;visibility:hidden}
 .history__chart__content.active{opacity:1;visibility:visible}
 .history__chart__content .content__wrap *{color:#fff;opacity:0}
 .history__chart__content h1{font-size:75px;margin-bottom:0}
@@ -368,6 +368,8 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 .location__module__wrapper{position:absolute;top:0;right:45px;bottom:0;margin:auto;z-index:2;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-width:450px}
 .location__module{background-color:#f2f2f2;box-shadow:0 3px 12px rgba(0,0,0,0.23),0 3px 12px rgba(0,0,0,0.16);padding:25px;width:100%}
 .maps__button{display:block;padding:0}
+.weather__container{opacity:0;position:relative;-webkit-transition:opacity 300ms ease-out;transition:opacity 300ms ease-out}
+.weather__container.active{opacity:1}
 .weather__container .col{width:auto;padding:10px}
 .weather__container .col:last-child{font-size:12px;color:#960000}
 .weather__container p{margin:0;line-height:18px}
@@ -379,8 +381,10 @@ a .read__more:before{content:"";display:inline-block;background-image:url(data:i
 .region__button:before{display:block;content:"";border-radius:50%;background-color:#b2b2b2;border:3px solid transparent;width:20px;height:20px;position:absolute;top:0;left:0;-webkit-transition:all 300ms ease-out;transition:all 300ms ease-out}
 .region__button.active:before{background-color:#ffb100;border:3px solid #2a3036}
 .location__button{margin-bottom:5px}
-.location__module.locations,.location__module.local,.location__module.contact{opacity:0;z-index:-1;-webkit-transition:all 300ms ease-out;transition:all 300ms ease-out}
-.location__module.locations.active,.location__module.local.active,.location__module.contact.active{opacity:1;z-index:1}
+.location__module.locations,.location__module.local,.location__module.contact{opacity:0;z-index:-1;-webkit-transform:translateY(50px);-ms-transform:translateY(50px);transform:translateY(50px);-webkit-transition:all 400ms ease-out;transition:all 400ms ease-out}
+.location__module.local{position:relative}
+.location__module.contact{-webkit-transition-delay:200ms;transition-delay:200ms}
+.location__module.locations.active,.location__module.local.active,.location__module.contact.active{opacity:1;z-index:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 .location__module.locations,.location__module.local{background-color:#e5e6e6}
 .location__module.contact{background-color:#e2e2e2}
 span.temperature{font-size:60px}
@@ -392,7 +396,9 @@ span.region,span.day{color:#960000}
 .module__title h1:before{position:absolute;left:-30px;top:0;height:100%;width:100%;content:"";display:block;-webkit-clip-path:polygon(0 0,100% 0,100% 100%,12% 99%);clip-path:polygon(0 0,100% 0,100% 100%,12% 99%);background-color:#960000}
 .module__title span{position:relative;z-index:2}
 .cities h4{font-size:14px;margin-bottom:5px;margin-top:0;color:#960000}
-.location__module.contact address p{margin:0;font-size:14px;line-height:20px}
+.location__module.contact address p{margin:0;font-size:14px;line-height:20px;font-style:normal}
+.location__module .loader{position:absolute;right:0;left:0;bottom:0;top:0;margin:auto;width:44px;height:44px;opacity:1;-webkit-transition:opacity 300ms ease-out;transition:opacity 300ms ease-out}
+.location__module .loader.inactive{opacity:0}
 @media screen and (min-width:320px){.rotating__banner{height:400px}
 .rotating__banner .col{width:320px}
 .rotating__banner .content__wrap{margin-top:-75px}

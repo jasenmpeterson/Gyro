@@ -15,6 +15,8 @@ GoogleMapsLoader.load(function(google) {
         let currentDay = dayNames[d.getDay()-1];
         let locationsModule = document.querySelector(".location__module.locations");
         let localModule = document.querySelector(".location__module.local");
+        let loader = document.querySelector(".location__module .loader");
+        let weatherModule = document.querySelector(".weather__container");
         let icon = {
             url:  '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
             scaledSize: new google.maps.Size(20, 20), // scaled size
@@ -219,7 +221,7 @@ GoogleMapsLoader.load(function(google) {
                         contact: {
                             name: "GyroData Global - North American Headquarters",
                             street: "4245 Cadillac Lane",
-                            city: "Miami, Fl",
+                            city: "Miami, FL",
                             zip: "77581",
                             tel: "911",
                             fax: "911"
@@ -264,12 +266,15 @@ GoogleMapsLoader.load(function(google) {
         }
 
         let  setTemp = (lat,lng, location, region) => {
+            weatherModule.classList.remove("active");
+            loader.classList.remove("inactive");
             fetch(`https://api.darksky.net/forecast/c17289827bd62ef9aab0884abfe6f5fd/${lat},${lng}`)
                 .then(function (response) {
                     return response.json();
                 })
                 .then(function (myJSON) {
-                    console.log(myJSON);
+                    weatherModule.classList.add("active");
+                    loader.classList.add("inactive");
                     currentTemp = Math.round(myJSON.currently.apparentTemperature);
                     currentHumidity = myJSON.currently.humidity + "%";
                     currentHumidity = currentHumidity.replace(/^[0\.]+/, "");
@@ -310,11 +315,12 @@ GoogleMapsLoader.load(function(google) {
                 let prevActiveRegion = document.querySelector(".region__button.active");
                 (prevActiveRegion !== null) ? prevActiveRegion.classList.remove("active") : "";
                 e.target.classList.add("active");
-                let citiesModule = document.querySelector(".locations__button__wrap.cities");
-                loadLocations(region);
-                locationsModule.classList.add("active");
-                let regionTitle = document.querySelector(".region__title h1 span");
-                regionTitle.innerHTML = region;
+                if(!document.querySelector(".location__button[data-region='"+region+"']")) {
+                    loadLocations(region);
+                    locationsModule.classList.add("active");
+                    let regionTitle = document.querySelector(".region__title h1 span");
+                    regionTitle.innerHTML = region;
+                }
             })
         }
 

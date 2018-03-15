@@ -4,8 +4,6 @@ import { historyChartAnimation} from "./historyChartAnimation";
 import {technologyHomeAnimation} from "./technologyHomeAnimation";
 import {newsHomeAnimation} from "./newsHomeAnimation";
 
-export let animationFlag = false;
-
 // emergence
 
 emergence.init({

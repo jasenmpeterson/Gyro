@@ -1,4 +1,4 @@
-import {animationFlag} from "./global";
+let animationFlag = false;
 
 export function historyChartAnimation(element) {
     // history chart - our company - history page
