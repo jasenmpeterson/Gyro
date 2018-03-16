@@ -1,11 +1,12 @@
 // animations
-import { historyHomeAnimation } from "./historyHomeAnimation";
-import { historyChartAnimation} from "./historyChartAnimation";
+import {historyHomeAnimation } from "./historyHomeAnimation";
+import {historyChartAnimation} from "./historyChartAnimation";
 import {technologyHomeAnimation} from "./technologyHomeAnimation";
 import {newsHomeAnimation} from "./newsHomeAnimation";
+import {coreValuesAnimation} from "./coreValuesAnimations";
+import {historyBlocksAnimation} from "./aboutHistoryBlocksAnimation";
 
 // emergence
-
 emergence.init({
     offsetTop: 250,
     elemCushion: 0.5,
@@ -20,6 +21,10 @@ emergence.init({
             technologyHomeAnimation(element);
             // news -- home page
             newsHomeAnimation(element);
+            // core values -- history/about page
+            coreValuesAnimation(element);
+            // history blocks -- history/about page
+            historyBlocksAnimation(element);
         }
     }
 });

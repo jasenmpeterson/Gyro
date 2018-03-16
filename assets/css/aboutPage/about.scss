@@ -4,6 +4,14 @@
 
 .our__vision .background__image.secondary {
   clip-path: polygon(0 0, 92% 0, 100% 100%, 0 100%);
+  opacity: 0;
+  transform: translateX(-200px);
+}
+
+.our__vision h2.title,
+.our__vision p {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .our__vision .col:first-child {
@@ -73,7 +81,8 @@
   content: '';
   display: block;
   width: 1px;
-  height: 100%;
+  height: 0;
+  opacity: 0;
   background-color: rgba(255,255,255,.2);
 }
 
@@ -83,9 +92,20 @@
 
 .core__values h2 {
   align-self: flex-start;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.core__values .content__wrap {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 // history blocks
+
+.history__blocks {
+  background-color: #18191a;
+}
 
 .history__blocks h3 {
   margin-top: 0;
@@ -99,6 +119,8 @@
   position: relative;
   height: 375px;
   cursor: pointer;
+  opacity: 0;
+  transform: translateY(200px);
 }
 
 .history__blocks .wrap * {

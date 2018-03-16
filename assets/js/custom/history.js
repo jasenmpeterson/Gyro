@@ -1,31 +1,9 @@
 // home page history component
 Splitting.chars("[data-history-splitting-chars]");
 
-let segmenter =  document.querySelector(".segmenter") !== null ? new Segmenter(document.querySelector(".segmenter"),{
-    pieces: 7,
-    animation: {
-        duration: 1500,
-        easing: 'easeOutQuad',
-        delay: 600,
-        translateZ: {min: 10, max: 65}
-    },
-    parallax: true,
-    parallaxMovement: {min: 5, max: 10},
-    positions: [
-        {top: 10, left: 20, width: 20, height: 30},
-        {top: 8, left: 35, width: 30, height: 20},
-        {top: 25, left: 18, width: 14, height: 25},
-        {top: 23, left: 50, width: 20, height: 10},
-        {top: 30, left: 65, width: 10, height: 30},
-        {top: 48, left: 20, width: 10, height: 13},
-        {top: 50, left: 67, width: 10, height: 20}
-    ]
-}) : '';
-
 // year
 
 let year = document.querySelector(".our__history .date h1");
-
 
 // our company history blocks components
 
@@ -147,4 +125,15 @@ let triggerEvent = (elem, event) => {
 if(nextArrow !== null) {
     nextArrow.addEventListener("click", nextArrowFunction);
     prevArrow.addEventListener("click", prevArrowFunction);
+}
+
+// our history page elements
+let ourVisionSection = document.querySelector(".about__page.our__vision");
+let ourVisionBackgroundImage = document.querySelector(".about__page.our__vision .background__image");
+let ourVisionHeader = document.querySelector(".about__page.our__vision h2.title");
+let ourVisionParagraph = document.querySelector(".about__page.our__vision p");
+if(ourVisionSection) {
+    TweenMax.to(ourVisionBackgroundImage, 1, { opacity: 1, x: 0, delay: 0.2, ease: Power4.easeOut });
+    TweenMax.to(ourVisionHeader, 0.5, { opacity: 1, y: 0, delay: 0.4 });
+    TweenMax.to(ourVisionParagraph, 0.5, { opacity: 1, y: 0, delay: 0.6 });
 }

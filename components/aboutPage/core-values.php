@@ -1,4 +1,4 @@
-<section class="about__page core__values">
+<section class="about__page core__values" data-emergence="hidden">
     <div class="background__image secondary"></div>
     <div class="tint"></div>
 	<div class="row align-center align-middle">
@@ -26,7 +26,7 @@
 	</div>
 </section>
 
-<section class="about__page history__blocks">
+<section class="about__page history__blocks" data-emergence="hidden">
     <div class="row">
         <div class="col">
             <div class="wrap">

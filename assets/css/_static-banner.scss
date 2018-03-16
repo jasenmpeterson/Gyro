@@ -1,0 +1,9 @@
+.static__banner h2.title,
+.static__banner p {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.static__banner .background__image {
+  transform: translateX(200px);
+  opacity: 0;
+}
