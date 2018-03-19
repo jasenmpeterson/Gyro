@@ -79,6 +79,21 @@ http://flickity.metafizzy.co
 .is-selected .char,.title-slide-in .char{-webkit-animation:text-focus-in .5s cubic-bezier(0.55,0.085,0.68,0.53) both;animation:text-focus-in .5s cubic-bezier(0.55,0.085,0.68,0.53) both;-webkit-animation-delay:calc(1s * var(--char-percent));animation-delay:calc(1s * var(--char-percent));opacity:0}
 .static__banner h2.title,.static__banner p{opacity:0;-webkit-transform:translateY(20px);-ms-transform:translateY(20px);transform:translateY(20px)}
 .static__banner .background__image{-webkit-transform:translateX(200px);-ms-transform:translateX(200px);transform:translateX(200px);opacity:0}
+.static__banner__background__color .static__banner{background-color:#710014}
+.static__banner__background__color .static__banner .content__wrap p,.static__banner__background__color .static__banner .content__wrap h2{color:#fff}
+.col.sidebar{width:320px;max-width:100%}
+.col.sidebar .content__wrap{padding:25px;background-color:#f7f7f7}
+.col.sidebar .content__wrap.contact{background-color:#e5e6e6}
+.col.sidebar .content__wrap.contact table{width:100%;margin-bottom:25px}
+.col.sidebar .content__wrap.contact h5{font-weight:700}
+.col.sidebar .content__wrap.contact td{font-size:14px;padding:5px 0}
+.drill__down,.drill__down ul{list-style-type:none;padding:0;margin:0}
+.drill__down{margin-top:25px}
+.drill__down ul{pointer-events:none;opacity:0;height:0}
+.drill__down ul a{font-size:14px;text-decoration:none;display:inline-block;margin-bottom:10px;color:#95989a}
+.drill__down ul li{opacity:0;-webkit-transform:translateX(-200px);-ms-transform:translateX(-200px);transform:translateX(-200px)}
+.drill__down button{background-color:transparent;border:0;cursor:pointer;border-top:1px solid #cfd4d8;padding:15px 0;width:100%;text-align:left;color:#747d86}
+.drill__down button:focus{outline:0}
 html{box-sizing:border-box}
 *,*:before,*:after{box-sizing:inherit}
 html,body{padding:0;margin:0}
@@ -398,7 +413,9 @@ span.region,span.day{color:#960000}
 .location__module.contact address p{margin:0;font-size:14px;line-height:20px;font-style:normal}
 .location__module .loader{position:absolute;right:0;left:0;bottom:0;top:0;margin:auto;width:44px;height:44px;opacity:1;-webkit-transition:opacity 300ms ease-out;transition:opacity 300ms ease-out}
 .location__module .loader.inactive{opacity:0}
-@media screen and (min-width:320px){.rotating__banner{height:400px}
+.content__with__sidebar{width:auto;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}
+@media screen and (min-width:320px){.static__banner__small .static__banner .content__wrap{padding:70px 30px}
+.rotating__banner{height:400px}
 .rotating__banner .col{width:320px}
 .rotating__banner .content__wrap{margin-top:-75px}
 .content__slider .col{width:100%}

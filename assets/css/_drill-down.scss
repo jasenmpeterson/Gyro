@@ -1,0 +1,38 @@
+.drill__down,
+.drill__down ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.drill__down {
+  margin-top: 25px;
+}
+.drill__down ul {
+  pointer-events: none;
+  opacity: 0;
+  height: 0;
+}
+.drill__down ul a {
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #95989A;
+}
+.drill__down ul li {
+  opacity: 0;
+  transform: translateX(-200px);
+}
+.drill__down button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-top: 1px solid #CFD4D8;
+  padding: 15px 0;
+  width: 100%;
+  text-align: left;
+  color: #747D86;
+}
+.drill__down button:focus {
+  outline: none;
+}

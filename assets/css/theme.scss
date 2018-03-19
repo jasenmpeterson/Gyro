@@ -7,6 +7,8 @@
 @import "splitting";
 @import "splitting-animations";
 @import "static-banner";
+@import "sidebar";
+@import "drill-down";
 // layout
 
 html {
@@ -1439,3 +1441,4 @@ a .read__more:before {
 @import "page";
 @import "aboutPage/about";
 @import "locations/locations";
+@import "interiorPage/interiorPage";

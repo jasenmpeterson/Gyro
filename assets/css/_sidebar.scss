@@ -1,0 +1,22 @@
+.col.sidebar {
+  width: 320px;
+  max-width: 100%;
+}
+.col.sidebar .content__wrap {
+  padding: 25px;
+  background-color: #F7F7F7;
+}
+.col.sidebar .content__wrap.contact {
+  background-color: #E5E6E6;
+}
+.col.sidebar .content__wrap.contact table {
+  width: 100%;
+  margin-bottom: 25px;
+}
+.col.sidebar .content__wrap.contact h5 {
+  font-weight: 700;
+}
+.col.sidebar .content__wrap.contact td {
+  font-size: 14px;
+  padding: 5px 0;
+}
