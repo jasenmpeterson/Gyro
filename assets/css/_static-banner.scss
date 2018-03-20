@@ -15,8 +15,22 @@
 .static__banner__background__color .static__banner {
   background-color: #710014;
 }
-
 .static__banner__background__color .static__banner .content__wrap p,
 .static__banner__background__color .static__banner .content__wrap h2 {
   color: #fff;
+}
+.static__banner .col:first-child {
+  width: 35%;
+}
+.static__banner .col:last-child {
+  width: auto;
+  flex: 1;
+}
+.static__banner .background__image.secondary {
+  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+}
+.static__banner .content__wrap {
+  @media screen and (min-width: 320px) {
+    padding: 150px 40px;
+  }
 }

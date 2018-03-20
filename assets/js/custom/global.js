@@ -5,6 +5,8 @@ import {technologyHomeAnimation} from "./technologyHomeAnimation";
 import {newsHomeAnimation} from "./newsHomeAnimation";
 import {coreValuesAnimation} from "./coreValuesAnimations";
 import {historyBlocksAnimation} from "./aboutHistoryBlocksAnimation";
+import {technologyPageAnimation} from "./technologyPageAnimation";
+import {documentList} from "./documentList";
 
 // emergence
 emergence.init({
@@ -28,3 +30,9 @@ emergence.init({
         }
     }
 });
+
+// technology page -- technology & solutions
+technologyPageAnimation();
+
+// documents list
+documentList();

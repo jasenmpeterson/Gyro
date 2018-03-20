@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="7848.915 526.903 28.17 32.194">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e2e5e7;
+      }
+
+      .cls-2 {
+        fill: #b0b7bd;
+      }
+
+      .cls-3 {
+        fill: #cad1d8;
+      }
+
+      .cls-4 {
+        fill: #f15642;
+      }
+    </style>
+  </defs>
+  <g id="Group_167" data-name="Group 167" transform="translate(7848.915 526.903)">
+    <path id="Path_581" data-name="Path 581" class="cls-1" d="M66.012,0A2.018,2.018,0,0,0,64,2.012v28.17a2.018,2.018,0,0,0,2.012,2.012H86.134a2.018,2.018,0,0,0,2.012-2.012V8.049L80.1,0Z" transform="translate(-59.976)"/>
+    <path id="Path_582" data-name="Path 582" class="cls-2" d="M322.012,8.049h6.036L320,0V6.036A2.018,2.018,0,0,0,322.012,8.049Z" transform="translate(-299.879)"/>
+    <path id="Path_583" data-name="Path 583" class="cls-3" d="M358.036,134.036,352,128h6.036Z" transform="translate(-329.866 -119.951)"/>
+    <path id="Path_584" data-name="Path 584" class="cls-4" d="M24.146,251.067a1.009,1.009,0,0,1-1.006,1.006H1.006A1.009,1.009,0,0,1,0,251.067V241.006A1.009,1.009,0,0,1,1.006,240H23.14a1.009,1.009,0,0,1,1.006,1.006Z" transform="translate(0 -224.909)"/>
+    <path id="Path_585" data-name="Path 585" class="cls-3" d="M83.115,417.006H64v1.006H83.115a1.009,1.009,0,0,0,1.006-1.006V416A1.009,1.009,0,0,1,83.115,417.006Z" transform="translate(-59.976 -389.842)"/>
+  </g>
+</svg>

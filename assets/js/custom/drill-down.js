@@ -1,10 +1,18 @@
 let drillDownButton = document.querySelectorAll(".drill__down button");
 
 let openMenu = (e) => {
+    let button = e.target;
     let menu = e.target.parentNode;
     let drillDownDropDown = menu.querySelector(".drill__down__drop__down");
     let drillDownDropDownList = menu.querySelectorAll(".drill__down__drop__down li");
     if(!drillDownDropDown.classList.contains("active")) {
+        TweenMax.to(button, 0.5, {
+            backgroundColor: "#FFB100",
+            borderTop: "#FFB100",
+            color: "white",
+            paddingLeft: 15,
+            marginBottom: 10
+        });
         TweenMax.to(drillDownDropDown, 0.5, {
             opacity: 1,
             height: "auto",
@@ -29,6 +37,13 @@ let openMenu = (e) => {
             paddingBottom: 0,
             delay: 0.5,
             ease: Power2.easeIn
+        });
+        TweenMax.to(button, 0.5, {
+            backgroundColor: "transparent",
+            color: "#747D87",
+            borderTop: "1px solid #cfd4d8",
+            paddingLeft: 0,
+            marginBottom: 0
         });
         drillDownDropDown.classList.remove("active");
     }

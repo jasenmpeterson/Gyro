@@ -6,7 +6,7 @@
  * Time: 12:49 PM
  */
 ?>
-<div class="col sidebar">
+<div class="col sidebar left">
     <aside>
         <div class="content__wrap">
             <ul class="drill__down">

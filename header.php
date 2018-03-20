@@ -36,7 +36,7 @@
 </div>
 
 <header>
-    <div class="row align-right meta__header">
+    <div class="row align-right meta__header align-middle">
         <div class="col search__form">
             <div class="search__form__wrap">
 				<?php get_search_form(); ?>

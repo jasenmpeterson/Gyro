@@ -165,19 +165,10 @@ $nav-padding: 20px;
   padding: 20px 0;
   border-radius: 4px;
   width: 420px;
-  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
-  transition: z-index 600ms ease-out, opacity 400ms 100ms ease-out, transform 300ms 150ms ease-in-out;
+  box-shadow: 0 10px 55px 0 rgba(0, 0, 0, 0.15), 0 10px 17px 0 rgba(0, 0, 0, 0.15);
   opacity: 0;
   transform: translateY(50px);
-  pointer-events: none;
   z-index: -1;
-}
-
-.primary_nav .nav__wrap li.parent__nav__item:hover .parent__sub__menu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-  z-index: 100;
 }
 
 .primary_nav .parent__sub__menu:before,
@@ -1237,8 +1228,36 @@ p:last-child {
   margin-bottom: 0;
 }
 
-p:not(:last-child) {
-  margin-bottom: 40px;
+ul {
+  padding: 0;
+}
+
+ul.content li {
+  margin-bottom: 15px;
+  line-height: 30px;
+}
+
+ul.documents {
+  list-style-type: none;
+  font-size: 14px;
+}
+
+ul.documents img {
+  width: 25px;
+  height: 25px;
+}
+
+ul.documents li a {
+  display: flex;
+  background-color: #F8F8F8;
+  padding: 20px;
+  margin-bottom: 15px;
+  color: #5d6771;
+  text-decoration: none;
+}
+
+ul.documents figure {
+  margin: 0 15px 0 0;
 }
 
 // -- helpers
@@ -1256,6 +1275,10 @@ p:not(:last-child) {
 }
 
 // -- title
+
+.title {
+  font-weight: 300 !important;
+}
 
 .title:before {
   content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjE3OC40NjkgODM5LjgwNiA0Ni40MiA2LjE5NCI+PGRlZnM+PHN0eWxlPi5he2ZpbGw6I2ViMDAyOTt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik0xMi4wMzQsNUg1Ni4yMjJMNTMuOTkxLDExLjJIOS44WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTY4LjY2NiA4MzQuODAyKSIvPjwvc3ZnPg==);
@@ -1435,10 +1458,23 @@ a .read__more:before {
   fill: #fff;
 }
 
+// tables
+table {
+  width: 100%;
+}
+th {
+  text-align: left;
+}
+td {
+  padding: 15px;
+}
+.stripes tr:nth-of-type(even) {
+  background-color: #ccc;
+}
+
 @import "technology-and-services";
 @import "news-posts";
 @import "history";
-@import "page";
 @import "aboutPage/about";
 @import "locations/locations";
 @import "interiorPage/interiorPage";

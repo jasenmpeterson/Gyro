@@ -14,6 +14,7 @@ get_header();
     <div class="row">
 	    <?php get_template_part("components/gyro-sidebar"); ?>
 	    <?php get_template_part("components/technology/gyro-drill"); ?>
+	    <?php get_template_part("components/gyro-sidebar-right"); ?>
     </div>
 </div>
 

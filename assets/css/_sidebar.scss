@@ -1,6 +1,15 @@
+.sidebar {
+  opacity: 0;
+  transform: translateY(50px);
+}
 .col.sidebar {
   width: 320px;
-  max-width: 100%;
+}
+.col.sidebar.right {
+  width: 400px;
+}
+.col.sidebar.right .content__wrap {
+  background-color: transparent;
 }
 .col.sidebar .content__wrap {
   padding: 25px;
