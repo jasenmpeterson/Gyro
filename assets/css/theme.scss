@@ -165,10 +165,19 @@ $nav-padding: 20px;
   padding: 20px 0;
   border-radius: 4px;
   width: 420px;
-  box-shadow: 0 10px 55px 0 rgba(0, 0, 0, 0.15), 0 10px 17px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 35px 0 rgba(0, 0, 0, 0.15), 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+  transition: z-index 400ms ease-out, opacity 400ms ease-out, transform 400ms ease-out;
   opacity: 0;
   transform: translateY(50px);
+  pointer-events: none;
   z-index: -1;
+}
+
+.primary_nav .nav__wrap li.parent__nav__item:hover .parent__sub__menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  z-index: 100;
 }
 
 .primary_nav .parent__sub__menu:before,
@@ -278,23 +287,23 @@ $nav-padding: 20px;
 
 .primary_nav ul.sub__menu.child__sub__menu li .sub__menu__child__title ~ ul.sub__menu {
   opacity: 0;
-  pointer-events: none;
-  max-height: 0;
-  transition: opacity 200ms cubic-bezier(0.390, 0.575, 0.565, 1.000), max-height 400ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 35ms;
+  height: 0;
 }
 
-.primary_nav ul.sub__menu.child__sub__menu li.menu-item-has-children.open .sub__menu__child__title ~ ul.sub__menu {
-  opacity: 1;
-  pointer-events: auto;
-  max-height: 500px;
-  transition: max-height 400ms cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 600ms cubic-bezier(0.390, 0.575, 0.565, 1.000) 100ms;
+.primary_nav ul.sub__menu.child__sub__menu li .sub__menu__child__title ~ ul.sub__menu li {
+  pointer-events: none;
 }
+
+.primary_nav ul.sub__menu.child__sub__menu li .sub__menu__child__title ~ ul.sub__menu.active li {
+  pointer-events: auto;
+}
+
 
 .sub__menu__child__title {
   transition: all 300ms ease-out;
 }
 
-.sub__menu__child__title.active {
+.sub__menu__child__title.open {
   background: #4a525b;
   color: #ffffff;
 }
@@ -314,6 +323,11 @@ $nav-padding: 20px;
   height: 35px;
   font-size: 20px;
   transition: all 300ms ease-out;
+}
+
+.primary_nav .sub__menu__child__title.open:before {
+  color: #fff;
+  transform: rotate(45deg);
 }
 
 .primary_nav .sub__menu__child__title.active:before {

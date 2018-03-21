@@ -4,14 +4,11 @@
  .title-slide-in .char {
    animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
    animation-delay: calc(1s * var(--char-percent));
-   opacity: 0;
-
    @keyframes text-focus-in {
      0% {
-       text-shadow: 0 0 8px #000;
+       opacity: 0;
      }
      100% {
-       text-shadow: none;
        opacity: 1;
      }
    }

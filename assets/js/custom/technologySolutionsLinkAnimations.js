@@ -2,30 +2,25 @@
 
 let technologyLinks = document.querySelectorAll(".technology__and__services a");
 
-function animateLink(translateX, translateY, target, opacity, scale) {
-    anime.remove( target.querySelector("article"), target.querySelector("span"));
-    anime({
-        targets: [target.querySelector("article")],
-        translateX: translateX,
-        translateY: translateY,
-        duration: 400,
-        easing: 'easeOutQuad'
+function animateLink(translateX, target, opacity, delay) {
+    TweenMax.to(target.querySelector("article"), 0.5, {
+        x: translateX,
+        delay: delay,
+        overwrite: "all"
     });
-    anime({
-        targets: [target.querySelector("span")],
+    TweenMax.to(target.querySelector("span"), 0.5, {
         opacity: opacity,
-        duration: 400,
-        delay: 50,
-        easing: 'easeOutQuad'
+        delay: 0.25,
+        overwrite: "all"
     });
 }
 
 function enterLink (target) {
-    animateLink("+=145", 0, target, 1, 0.5 );
+    animateLink("145", target, 1);
 }
 
 function leaveLink (target) {
-    animateLink("0", 0, target, 0, 1);
+    animateLink("0", target, 0, 0.5);
 }
 
 for(let link of technologyLinks) {
