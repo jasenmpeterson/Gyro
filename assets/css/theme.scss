@@ -124,11 +124,11 @@ header .row {
 $nav-padding: 20px;
 
 .primary_nav {
-  @media screen and (min-width: 1401px) {
+  @media screen and (min-width: 1400px) {
     width: 70%;
   }
   @media screen and (min-width: 1076px) {
-    width: 60%;
+    width: 75%;
   }
   @media screen and (max-width: 1075px) {
     width: 100px;
@@ -145,11 +145,22 @@ $nav-padding: 20px;
   display: block;
   cursor: default;
   color: #747d86;
+  font-size: 14px;
 }
 
 .primary_nav a {
   color: #747D86;
   padding-bottom: 35px;
+}
+
+.primary_nav ul span,
+.primary_nav a {
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+  }
 }
 
 .primary_nav li.menu-item-has-children {
@@ -162,13 +173,11 @@ $nav-padding: 20px;
   left: 50%;
   margin-left: -200px;
   background-color: #fff;
-  padding: 20px 0;
-  border-radius: 4px;
   width: 420px;
   box-shadow: 0 5px 35px 0 rgba(0, 0, 0, 0.15), 0 5px 10px 0 rgba(0, 0, 0, 0.15);
   transition: z-index 400ms ease-out, opacity 400ms ease-out, transform 400ms ease-out;
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(25px);
   pointer-events: none;
   z-index: -1;
 }
@@ -242,7 +251,7 @@ $nav-padding: 20px;
 
 .primary_nav .sub__menu__title {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin: 15px 0;
 }
 
 .primary_nav .sub__menu__child__title {
@@ -350,10 +359,9 @@ $nav-padding: 20px;
 .primary_nav li.parent__nav__item:before {
   position: absolute;
   display: block;
-  top: 25px;
   @media screen and (min-width: 1600px) {
-    font-size: 18px;
-    left: 10px;
+    font-size: 25px;
+    left: -5px;
   }
   @media screen and (min-width: 1076px) {
     font-size: 16px;
@@ -365,7 +373,7 @@ $nav-padding: 20px;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
+  line-height: 0.8;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -407,14 +415,11 @@ $nav-padding: 20px;
 
 .col.logo {
   width: 30%;
-  @media screen and (max-width: 1400px) {
-    width: 40%;
+  @media screen and (min-width: 1440px) {
+    width: 30%;
   }
-  @media screen and (max-width: 1075px) {
-    width: 480px;
-  }
-  @media screen and (max-width: 650px) {
-    width: 250px;
+  @media screen and (min-width: 1200px) {
+    width: 25%;
   }
 }
 
@@ -903,7 +908,7 @@ input.search {
 
 .rotating__banner .carousel__cell {
   height: 100%;
-  background: url("assets/images/raw/banner_hp.jpg") no-repeat left center;
+  background-position: left center;
   background-size: cover;
 }
 
@@ -1068,9 +1073,14 @@ input.search {
 .flickity-page-dots {
   left: 0;
   min-width: 200px;
-  bottom: 125px;
   width: auto;
   z-index: 20;
+  @media screen and (min-width: 1440px) {
+    bottom: 125px;
+  }
+  @media screen and (min-width: 1200px) {
+    bottom: 85px;
+  }
 }
 
 .flickity-page-dots .dot {
@@ -1492,3 +1502,4 @@ td {
 @import "aboutPage/about";
 @import "locations/locations";
 @import "interiorPage/interiorPage";
+@import "newsroom/newsrooms";

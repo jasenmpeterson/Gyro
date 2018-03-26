@@ -3,10 +3,20 @@
   transform: translateY(50px);
 }
 .col.sidebar {
-  width: 320px;
+  @media screen and (min-width: 1400px) {
+    width: 320px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 285px;
+  }
 }
 .col.sidebar.right {
-  width: 400px;
+  @media screen and (min-width: 1400px) {
+    width: 400px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 320px;
+  }
 }
 .col.sidebar.right .content__wrap {
   background-color: transparent;

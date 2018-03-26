@@ -13,7 +13,7 @@ for(let drillDown of drillDownButton) {
                     TweenMax.to(subMenu, 0.2, {
                         autoAlpha: 1,
                         backgroundColor: "#f4f4f4",
-                        paddingBottom: 15
+                        paddingBottom: 10
                     })
                 }
             });

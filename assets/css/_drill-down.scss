@@ -32,7 +32,11 @@
   width: 100%;
   text-align: left;
   color: #747D86;
+  transition: all 300ms ease-out;
 }
+//.drill__down button:hover {
+//  transform: scale(1.05);
+//}
 .drill__down button:focus {
   outline: none;
 }

@@ -11,6 +11,10 @@ define("THEME_URI", get_site_url());
 /*--- REMOVE GENERATOR META TAG ---*/
 remove_action('wp_head', 'wp_generator');
 
+// CLASSES
+
+include('classes/content-slider.php');
+
 // ENQUEUE STYLES
 
 function enqueue_styles() {
@@ -87,6 +91,10 @@ register_nav_menus( array(
 	'secondary_menu' => 'Secondary Menu',
 	'footer_menu' => 'Footer Menu'
 ) );
+
+// THUMBNAILS
+
+add_theme_support( 'post-thumbnails' );
 
 // Custom Walker
 

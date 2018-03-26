@@ -6,6 +6,7 @@ import {newsHomeAnimation} from "./newsHomeAnimation";
 import {coreValuesAnimation} from "./coreValuesAnimations";
 import {historyBlocksAnimation} from "./aboutHistoryBlocksAnimation";
 import {technologyPageAnimation} from "./technologyPageAnimation";
+import {newsroomPageAnimation} from "./newsroomPageAnimation";
 import {documentList} from "./documentList";
 
 // emergence
@@ -33,6 +34,8 @@ emergence.init({
 
 // technology page -- technology & solutions
 technologyPageAnimation();
+// newsroom page
+newsroomPageAnimation();
 
 // documents list
 documentList();

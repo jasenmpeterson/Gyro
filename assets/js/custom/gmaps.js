@@ -1,4 +1,5 @@
 import {format} from "date-fns";
+
 let GoogleMapsLoader = require('google-maps');
 
 GoogleMapsLoader.load(function(google) {
@@ -268,27 +269,25 @@ GoogleMapsLoader.load(function(google) {
         let  setTemp = (lat,lng, location, region) => {
             weatherModule.classList.remove("active");
             loader.classList.remove("inactive");
-            fetch(`https://api.darksky.net/forecast/c17289827bd62ef9aab0884abfe6f5fd/${lat},${lng}`)
-                .then(function (response) {
+            fetch(`${pageParams.themeDirectory}/api/weather.php?lat=${lat}&lng=${lng}`)
+                .then( function (response) {
                     return response.json();
-                })
-                .then(function (myJSON) {
-                    weatherModule.classList.add("active");
-                    loader.classList.add("inactive");
-                    currentTemp = Math.round(myJSON.currently.apparentTemperature);
-                    currentHumidity = myJSON.currently.humidity + "%";
-                    currentHumidity = currentHumidity.replace(/^[0\.]+/, "");
-                    currentPrecipitation = Math.round(myJSON.currently.precipIntensity) + "%";
-                    currentWind = Math.round(myJSON.currently.windSpeed) + " mph";
-                    currentTime = new Date( myJSON.currently.time * 1000);
-                    let formattedCurrentTime = format(new Date(currentTime), "h:mm A");
-                    document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
-                    document.querySelector("span.humidity").innerHTML = currentHumidity;
-                    document.querySelector("span.precipitation").innerHTML = currentPrecipitation;
-                    document.querySelector("span.wind").innerHTML = currentWind;
-                    document.querySelector("span.day").innerHTML = currentDay + " " + formattedCurrentTime;
-                    document.querySelector("span.city").innerHTML = location;
-                    document.querySelector("span.region").innerHTML = region;
+                }).then(function(myJSON) {
+                        weatherModule.classList.add("active");
+                        loader.classList.add("inactive");
+                        currentTemp = Math.round(myJSON.temp);
+                        currentHumidity = myJSON.humidity + "%";
+                        currentHumidity = currentHumidity.replace(/^[0\.]+/, "");
+                        currentPrecipitation = Math.round(myJSON.precipitation) + "%";
+                        currentWind = Math.round(myJSON.wind) + " mph";
+                        currentTime = myJSON.time;
+                        document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
+                        document.querySelector("span.humidity").innerHTML = currentHumidity;
+                        document.querySelector("span.precipitation").innerHTML = currentPrecipitation;
+                        document.querySelector("span.wind").innerHTML = currentWind;
+                        document.querySelector("span.day").innerHTML = currentDay + " " + myJSON.time;
+                        document.querySelector("span.city").innerHTML = location;
+                        document.querySelector("span.region").innerHTML = region;
                 });
         };
 

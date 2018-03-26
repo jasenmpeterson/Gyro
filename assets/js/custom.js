@@ -76,7 +76,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   /******/__webpack_require__.p = "";
   /******/
   /******/ // Load entry module and return exports
-  /******/return __webpack_require__(__webpack_require__.s = 65);
+  /******/return __webpack_require__(__webpack_require__.s = 66);
   /******/
 })(
 /************************************************************************/
@@ -989,7 +989,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
-  var differenceInCalendarMonths = __webpack_require__(38);
+  var differenceInCalendarMonths = __webpack_require__(39);
   var compareAsc = __webpack_require__(7);
 
   /**
@@ -1066,8 +1066,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 18 */
 /***/function (module, exports, __webpack_require__) {
 
-  var buildDistanceInWordsLocale = __webpack_require__(83);
-  var buildFormatLocale = __webpack_require__(84);
+  var buildDistanceInWordsLocale = __webpack_require__(84);
+  var buildFormatLocale = __webpack_require__(85);
 
   /**
    * @category Locales
@@ -1549,6 +1549,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   /***/
 },
 /* 30 */
+/***/function (module, __webpack_exports__, __webpack_require__) {
+
+  "use strict";
+
+  Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+  /* harmony export (immutable) */__webpack_exports__["newsroomPageAnimation"] = newsroomPageAnimation;
+  // technology and solutions pages
+  function newsroomPageAnimation() {
+    if (document.querySelector(".newsrooms") !== null) {
+      var newsroomContent = document.querySelector(".newsrooms");
+      var sidebar = document.querySelector(".sidebar.left");
+      var elements = [sidebar, newsroomContent];
+      TweenMax.staggerTo(elements, 0.5, {
+        opacity: 1,
+        y: 0
+      }, 0.2);
+    }
+  }
+
+  /***/
+},
+/* 31 */
 /***/function (module, exports, __webpack_require__) {
 
   var addMilliseconds = __webpack_require__(5);
@@ -1580,11 +1602,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 31 */
+/* 32 */
 /***/function (module, exports, __webpack_require__) {
 
   var getISOYear = __webpack_require__(1);
-  var setISOYear = __webpack_require__(32);
+  var setISOYear = __webpack_require__(33);
 
   /**
    * @category ISO Week-Numbering Year Helpers
@@ -1613,7 +1635,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 32 */
+/* 33 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -1655,7 +1677,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 33 */
+/* 34 */
 /***/function (module, exports, __webpack_require__) {
 
   var addMilliseconds = __webpack_require__(5);
@@ -1687,7 +1709,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 34 */
+/* 35 */
 /***/function (module, exports, __webpack_require__) {
 
   var addMonths = __webpack_require__(10);
@@ -1718,7 +1740,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 35 */
+/* 36 */
 /***/function (module, exports, __webpack_require__) {
 
   var addMilliseconds = __webpack_require__(5);
@@ -1748,7 +1770,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 36 */
+/* 37 */
 /***/function (module, exports, __webpack_require__) {
 
   var addMonths = __webpack_require__(10);
@@ -1778,7 +1800,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 37 */
+/* 38 */
 /***/function (module, exports, __webpack_require__) {
 
   var getISOYear = __webpack_require__(1);
@@ -1812,7 +1834,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 38 */
+/* 39 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -1850,7 +1872,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 39 */
+/* 40 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -1880,7 +1902,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 40 */
+/* 41 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -1915,7 +1937,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 41 */
+/* 42 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -1960,10 +1982,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 42 */
+/* 43 */
 /***/function (module, exports, __webpack_require__) {
 
-  var addISOYears = __webpack_require__(31);
+  var addISOYears = __webpack_require__(32);
 
   /**
    * @category ISO Week-Numbering Year Helpers
@@ -1992,7 +2014,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 43 */
+/* 44 */
 /***/function (module, exports, __webpack_require__) {
 
   var compareDesc = __webpack_require__(15);
@@ -2201,7 +2223,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 44 */
+/* 45 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2245,7 +2267,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 45 */
+/* 46 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2278,11 +2300,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 46 */
+/* 47 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
-  var startOfYear = __webpack_require__(47);
+  var startOfYear = __webpack_require__(48);
   var differenceInCalendarDays = __webpack_require__(9);
 
   /**
@@ -2311,7 +2333,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 47 */
+/* 48 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2344,7 +2366,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 48 */
+/* 49 */
 /***/function (module, exports, __webpack_require__) {
 
   var isDate = __webpack_require__(12);
@@ -2385,7 +2407,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 49 */
+/* 50 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2415,7 +2437,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 50 */
+/* 51 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2453,10 +2475,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 51 */
+/* 52 */
 /***/function (module, exports, __webpack_require__) {
 
-  var startOfHour = __webpack_require__(52);
+  var startOfHour = __webpack_require__(53);
 
   /**
    * @category Hour Helpers
@@ -2488,7 +2510,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 52 */
+/* 53 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2519,7 +2541,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 53 */
+/* 54 */
 /***/function (module, exports, __webpack_require__) {
 
   var isSameWeek = __webpack_require__(21);
@@ -2553,7 +2575,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 54 */
+/* 55 */
 /***/function (module, exports, __webpack_require__) {
 
   var startOfISOYear = __webpack_require__(6);
@@ -2590,10 +2612,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 55 */
+/* 56 */
 /***/function (module, exports, __webpack_require__) {
 
-  var startOfMinute = __webpack_require__(56);
+  var startOfMinute = __webpack_require__(57);
 
   /**
    * @category Minute Helpers
@@ -2626,7 +2648,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 56 */
+/* 57 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2657,7 +2679,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 57 */
+/* 58 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2691,10 +2713,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 58 */
+/* 59 */
 /***/function (module, exports, __webpack_require__) {
 
-  var startOfQuarter = __webpack_require__(59);
+  var startOfQuarter = __webpack_require__(60);
 
   /**
    * @category Quarter Helpers
@@ -2726,7 +2748,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 59 */
+/* 60 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2760,10 +2782,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 60 */
+/* 61 */
 /***/function (module, exports, __webpack_require__) {
 
-  var startOfSecond = __webpack_require__(61);
+  var startOfSecond = __webpack_require__(62);
 
   /**
    * @category Second Helpers
@@ -2796,7 +2818,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 61 */
+/* 62 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2827,7 +2849,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 62 */
+/* 63 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2861,7 +2883,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 63 */
+/* 64 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2905,7 +2927,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 64 */
+/* 65 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -2947,32 +2969,33 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 65 */
+/* 66 */
 /***/function (module, exports, __webpack_require__) {
 
   __webpack_require__(22);
-  __webpack_require__(66);
+  __webpack_require__(67);
   __webpack_require__(23);
   __webpack_require__(24);
-  __webpack_require__(67);
   __webpack_require__(68);
   __webpack_require__(69);
-  __webpack_require__(173);
+  __webpack_require__(70);
+  __webpack_require__(174);
   __webpack_require__(26);
   __webpack_require__(25);
-  __webpack_require__(174);
-  __webpack_require__(28);
   __webpack_require__(175);
+  __webpack_require__(28);
+  __webpack_require__(30);
   __webpack_require__(176);
   __webpack_require__(177);
   __webpack_require__(178);
+  __webpack_require__(179);
   __webpack_require__(27);
   __webpack_require__(29);
-  module.exports = __webpack_require__(179);
+  module.exports = __webpack_require__(180);
 
   /***/
 },
-/* 66 */
+/* 67 */
 /***/function (module, exports) {
 
   if (document.querySelector(".content__slider") !== null) {
@@ -2991,7 +3014,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 67 */
+/* 68 */
 /***/function (module, exports) {
 
   var drillDownButton = document.querySelectorAll(".drill__down button");
@@ -3072,7 +3095,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
   }
 },
-/* 68 */
+/* 69 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
   "use strict";
@@ -3085,7 +3108,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   /* harmony import */var __WEBPACK_IMPORTED_MODULE_4__coreValuesAnimations__ = __webpack_require__(23);
   /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__aboutHistoryBlocksAnimation__ = __webpack_require__(22);
   /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__technologyPageAnimation__ = __webpack_require__(29);
-  /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__documentList__ = __webpack_require__(24);
+  /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__newsroomPageAnimation__ = __webpack_require__(30);
+  /* harmony import */var __WEBPACK_IMPORTED_MODULE_8__documentList__ = __webpack_require__(24);
   // animations
 
 
@@ -3114,22 +3138,24 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   // technology page -- technology & solutions
   Object(__WEBPACK_IMPORTED_MODULE_6__technologyPageAnimation__["technologyPageAnimation"])();
+  // newsroom page
+  Object(__WEBPACK_IMPORTED_MODULE_7__newsroomPageAnimation__["newsroomPageAnimation"])();
 
   // documents list
-  Object(__WEBPACK_IMPORTED_MODULE_7__documentList__["documentList"])();
+  Object(__WEBPACK_IMPORTED_MODULE_8__documentList__["documentList"])();
 
   /***/
 },
-/* 69 */
+/* 70 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
   "use strict";
 
   Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-  /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_date_fns__ = __webpack_require__(70);
+  /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_date_fns__ = __webpack_require__(71);
   /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_date_fns___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_date_fns__);
 
-  var GoogleMapsLoader = __webpack_require__(172);
+  var GoogleMapsLoader = __webpack_require__(173);
 
   GoogleMapsLoader.load(function (google) {
     if (document.getElementById("map")) {
@@ -3417,23 +3443,22 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var setTemp = function setTemp(lat, lng, location, region) {
           weatherModule.classList.remove("active");
           loader.classList.remove("inactive");
-          fetch('https://api.darksky.net/forecast/c17289827bd62ef9aab0884abfe6f5fd/' + lat + ',' + lng).then(function (response) {
+          fetch(pageParams.themeDirectory + '/api/weather.php?lat=' + lat + '&lng=' + lng).then(function (response) {
             return response.json();
           }).then(function (myJSON) {
             weatherModule.classList.add("active");
             loader.classList.add("inactive");
-            currentTemp = Math.round(myJSON.currently.apparentTemperature);
-            currentHumidity = myJSON.currently.humidity + "%";
+            currentTemp = Math.round(myJSON.temp);
+            currentHumidity = myJSON.humidity + "%";
             currentHumidity = currentHumidity.replace(/^[0\.]+/, "");
-            currentPrecipitation = Math.round(myJSON.currently.precipIntensity) + "%";
-            currentWind = Math.round(myJSON.currently.windSpeed) + " mph";
-            currentTime = new Date(myJSON.currently.time * 1000);
-            var formattedCurrentTime = Object(__WEBPACK_IMPORTED_MODULE_0_date_fns__["format"])(new Date(currentTime), "h:mm A");
+            currentPrecipitation = Math.round(myJSON.precipitation) + "%";
+            currentWind = Math.round(myJSON.wind) + " mph";
+            currentTime = myJSON.time;
             document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
             document.querySelector("span.humidity").innerHTML = currentHumidity;
             document.querySelector("span.precipitation").innerHTML = currentPrecipitation;
             document.querySelector("span.wind").innerHTML = currentWind;
-            document.querySelector("span.day").innerHTML = currentDay + " " + formattedCurrentTime;
+            document.querySelector("span.day").innerHTML = currentDay + " " + myJSON.time;
             document.querySelector("span.city").innerHTML = location;
             document.querySelector("span.region").innerHTML = region;
           });
@@ -3503,168 +3528,168 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 70 */
+/* 71 */
 /***/function (module, exports, __webpack_require__) {
 
   module.exports = {
     addDays: __webpack_require__(4),
-    addHours: __webpack_require__(30),
-    addISOYears: __webpack_require__(31),
+    addHours: __webpack_require__(31),
+    addISOYears: __webpack_require__(32),
     addMilliseconds: __webpack_require__(5),
-    addMinutes: __webpack_require__(33),
+    addMinutes: __webpack_require__(34),
     addMonths: __webpack_require__(10),
-    addQuarters: __webpack_require__(34),
-    addSeconds: __webpack_require__(35),
+    addQuarters: __webpack_require__(35),
+    addSeconds: __webpack_require__(36),
     addWeeks: __webpack_require__(14),
-    addYears: __webpack_require__(36),
-    areRangesOverlapping: __webpack_require__(71),
-    closestIndexTo: __webpack_require__(72),
-    closestTo: __webpack_require__(73),
+    addYears: __webpack_require__(37),
+    areRangesOverlapping: __webpack_require__(72),
+    closestIndexTo: __webpack_require__(73),
+    closestTo: __webpack_require__(74),
     compareAsc: __webpack_require__(7),
     compareDesc: __webpack_require__(15),
     differenceInCalendarDays: __webpack_require__(9),
-    differenceInCalendarISOWeeks: __webpack_require__(74),
-    differenceInCalendarISOYears: __webpack_require__(37),
-    differenceInCalendarMonths: __webpack_require__(38),
-    differenceInCalendarQuarters: __webpack_require__(75),
-    differenceInCalendarWeeks: __webpack_require__(76),
-    differenceInCalendarYears: __webpack_require__(40),
-    differenceInDays: __webpack_require__(41),
-    differenceInHours: __webpack_require__(77),
-    differenceInISOYears: __webpack_require__(78),
+    differenceInCalendarISOWeeks: __webpack_require__(75),
+    differenceInCalendarISOYears: __webpack_require__(38),
+    differenceInCalendarMonths: __webpack_require__(39),
+    differenceInCalendarQuarters: __webpack_require__(76),
+    differenceInCalendarWeeks: __webpack_require__(77),
+    differenceInCalendarYears: __webpack_require__(41),
+    differenceInDays: __webpack_require__(42),
+    differenceInHours: __webpack_require__(78),
+    differenceInISOYears: __webpack_require__(79),
     differenceInMilliseconds: __webpack_require__(11),
-    differenceInMinutes: __webpack_require__(79),
+    differenceInMinutes: __webpack_require__(80),
     differenceInMonths: __webpack_require__(16),
-    differenceInQuarters: __webpack_require__(80),
+    differenceInQuarters: __webpack_require__(81),
     differenceInSeconds: __webpack_require__(17),
-    differenceInWeeks: __webpack_require__(81),
-    differenceInYears: __webpack_require__(82),
-    distanceInWords: __webpack_require__(43),
-    distanceInWordsStrict: __webpack_require__(86),
-    distanceInWordsToNow: __webpack_require__(87),
-    eachDay: __webpack_require__(88),
+    differenceInWeeks: __webpack_require__(82),
+    differenceInYears: __webpack_require__(83),
+    distanceInWords: __webpack_require__(44),
+    distanceInWordsStrict: __webpack_require__(87),
+    distanceInWordsToNow: __webpack_require__(88),
+    eachDay: __webpack_require__(89),
     endOfDay: __webpack_require__(19),
-    endOfHour: __webpack_require__(89),
-    endOfISOWeek: __webpack_require__(90),
-    endOfISOYear: __webpack_require__(91),
-    endOfMinute: __webpack_require__(92),
-    endOfMonth: __webpack_require__(45),
-    endOfQuarter: __webpack_require__(93),
-    endOfSecond: __webpack_require__(94),
-    endOfToday: __webpack_require__(95),
-    endOfTomorrow: __webpack_require__(96),
-    endOfWeek: __webpack_require__(44),
-    endOfYear: __webpack_require__(97),
-    endOfYesterday: __webpack_require__(98),
-    format: __webpack_require__(99),
-    getDate: __webpack_require__(100),
-    getDay: __webpack_require__(101),
-    getDayOfYear: __webpack_require__(46),
+    endOfHour: __webpack_require__(90),
+    endOfISOWeek: __webpack_require__(91),
+    endOfISOYear: __webpack_require__(92),
+    endOfMinute: __webpack_require__(93),
+    endOfMonth: __webpack_require__(46),
+    endOfQuarter: __webpack_require__(94),
+    endOfSecond: __webpack_require__(95),
+    endOfToday: __webpack_require__(96),
+    endOfTomorrow: __webpack_require__(97),
+    endOfWeek: __webpack_require__(45),
+    endOfYear: __webpack_require__(98),
+    endOfYesterday: __webpack_require__(99),
+    format: __webpack_require__(100),
+    getDate: __webpack_require__(101),
+    getDay: __webpack_require__(102),
+    getDayOfYear: __webpack_require__(47),
     getDaysInMonth: __webpack_require__(13),
-    getDaysInYear: __webpack_require__(102),
-    getHours: __webpack_require__(103),
-    getISODay: __webpack_require__(50),
+    getDaysInYear: __webpack_require__(103),
+    getHours: __webpack_require__(104),
+    getISODay: __webpack_require__(51),
     getISOWeek: __webpack_require__(20),
-    getISOWeeksInYear: __webpack_require__(104),
+    getISOWeeksInYear: __webpack_require__(105),
     getISOYear: __webpack_require__(1),
-    getMilliseconds: __webpack_require__(105),
-    getMinutes: __webpack_require__(106),
-    getMonth: __webpack_require__(107),
-    getOverlappingDaysInRanges: __webpack_require__(108),
-    getQuarter: __webpack_require__(39),
-    getSeconds: __webpack_require__(109),
-    getTime: __webpack_require__(110),
-    getYear: __webpack_require__(111),
-    isAfter: __webpack_require__(112),
-    isBefore: __webpack_require__(113),
+    getMilliseconds: __webpack_require__(106),
+    getMinutes: __webpack_require__(107),
+    getMonth: __webpack_require__(108),
+    getOverlappingDaysInRanges: __webpack_require__(109),
+    getQuarter: __webpack_require__(40),
+    getSeconds: __webpack_require__(110),
+    getTime: __webpack_require__(111),
+    getYear: __webpack_require__(112),
+    isAfter: __webpack_require__(113),
+    isBefore: __webpack_require__(114),
     isDate: __webpack_require__(12),
-    isEqual: __webpack_require__(114),
-    isFirstDayOfMonth: __webpack_require__(115),
-    isFriday: __webpack_require__(116),
-    isFuture: __webpack_require__(117),
-    isLastDayOfMonth: __webpack_require__(118),
-    isLeapYear: __webpack_require__(49),
-    isMonday: __webpack_require__(119),
-    isPast: __webpack_require__(120),
-    isSameDay: __webpack_require__(121),
-    isSameHour: __webpack_require__(51),
-    isSameISOWeek: __webpack_require__(53),
-    isSameISOYear: __webpack_require__(54),
-    isSameMinute: __webpack_require__(55),
-    isSameMonth: __webpack_require__(57),
-    isSameQuarter: __webpack_require__(58),
-    isSameSecond: __webpack_require__(60),
+    isEqual: __webpack_require__(115),
+    isFirstDayOfMonth: __webpack_require__(116),
+    isFriday: __webpack_require__(117),
+    isFuture: __webpack_require__(118),
+    isLastDayOfMonth: __webpack_require__(119),
+    isLeapYear: __webpack_require__(50),
+    isMonday: __webpack_require__(120),
+    isPast: __webpack_require__(121),
+    isSameDay: __webpack_require__(122),
+    isSameHour: __webpack_require__(52),
+    isSameISOWeek: __webpack_require__(54),
+    isSameISOYear: __webpack_require__(55),
+    isSameMinute: __webpack_require__(56),
+    isSameMonth: __webpack_require__(58),
+    isSameQuarter: __webpack_require__(59),
+    isSameSecond: __webpack_require__(61),
     isSameWeek: __webpack_require__(21),
-    isSameYear: __webpack_require__(62),
-    isSaturday: __webpack_require__(122),
-    isSunday: __webpack_require__(123),
-    isThisHour: __webpack_require__(124),
-    isThisISOWeek: __webpack_require__(125),
-    isThisISOYear: __webpack_require__(126),
-    isThisMinute: __webpack_require__(127),
-    isThisMonth: __webpack_require__(128),
-    isThisQuarter: __webpack_require__(129),
-    isThisSecond: __webpack_require__(130),
-    isThisWeek: __webpack_require__(131),
-    isThisYear: __webpack_require__(132),
-    isThursday: __webpack_require__(133),
-    isToday: __webpack_require__(134),
-    isTomorrow: __webpack_require__(135),
-    isTuesday: __webpack_require__(136),
-    isValid: __webpack_require__(48),
-    isWednesday: __webpack_require__(137),
-    isWeekend: __webpack_require__(138),
-    isWithinRange: __webpack_require__(139),
-    isYesterday: __webpack_require__(140),
-    lastDayOfISOWeek: __webpack_require__(141),
-    lastDayOfISOYear: __webpack_require__(142),
-    lastDayOfMonth: __webpack_require__(143),
-    lastDayOfQuarter: __webpack_require__(144),
-    lastDayOfWeek: __webpack_require__(63),
-    lastDayOfYear: __webpack_require__(145),
-    max: __webpack_require__(146),
-    min: __webpack_require__(147),
+    isSameYear: __webpack_require__(63),
+    isSaturday: __webpack_require__(123),
+    isSunday: __webpack_require__(124),
+    isThisHour: __webpack_require__(125),
+    isThisISOWeek: __webpack_require__(126),
+    isThisISOYear: __webpack_require__(127),
+    isThisMinute: __webpack_require__(128),
+    isThisMonth: __webpack_require__(129),
+    isThisQuarter: __webpack_require__(130),
+    isThisSecond: __webpack_require__(131),
+    isThisWeek: __webpack_require__(132),
+    isThisYear: __webpack_require__(133),
+    isThursday: __webpack_require__(134),
+    isToday: __webpack_require__(135),
+    isTomorrow: __webpack_require__(136),
+    isTuesday: __webpack_require__(137),
+    isValid: __webpack_require__(49),
+    isWednesday: __webpack_require__(138),
+    isWeekend: __webpack_require__(139),
+    isWithinRange: __webpack_require__(140),
+    isYesterday: __webpack_require__(141),
+    lastDayOfISOWeek: __webpack_require__(142),
+    lastDayOfISOYear: __webpack_require__(143),
+    lastDayOfMonth: __webpack_require__(144),
+    lastDayOfQuarter: __webpack_require__(145),
+    lastDayOfWeek: __webpack_require__(64),
+    lastDayOfYear: __webpack_require__(146),
+    max: __webpack_require__(147),
+    min: __webpack_require__(148),
     parse: __webpack_require__(0),
-    setDate: __webpack_require__(148),
-    setDay: __webpack_require__(149),
-    setDayOfYear: __webpack_require__(150),
-    setHours: __webpack_require__(151),
-    setISODay: __webpack_require__(152),
-    setISOWeek: __webpack_require__(153),
-    setISOYear: __webpack_require__(32),
-    setMilliseconds: __webpack_require__(154),
-    setMinutes: __webpack_require__(155),
-    setMonth: __webpack_require__(64),
-    setQuarter: __webpack_require__(156),
-    setSeconds: __webpack_require__(157),
-    setYear: __webpack_require__(158),
+    setDate: __webpack_require__(149),
+    setDay: __webpack_require__(150),
+    setDayOfYear: __webpack_require__(151),
+    setHours: __webpack_require__(152),
+    setISODay: __webpack_require__(153),
+    setISOWeek: __webpack_require__(154),
+    setISOYear: __webpack_require__(33),
+    setMilliseconds: __webpack_require__(155),
+    setMinutes: __webpack_require__(156),
+    setMonth: __webpack_require__(65),
+    setQuarter: __webpack_require__(157),
+    setSeconds: __webpack_require__(158),
+    setYear: __webpack_require__(159),
     startOfDay: __webpack_require__(3),
-    startOfHour: __webpack_require__(52),
+    startOfHour: __webpack_require__(53),
     startOfISOWeek: __webpack_require__(2),
     startOfISOYear: __webpack_require__(6),
-    startOfMinute: __webpack_require__(56),
-    startOfMonth: __webpack_require__(159),
-    startOfQuarter: __webpack_require__(59),
-    startOfSecond: __webpack_require__(61),
-    startOfToday: __webpack_require__(160),
-    startOfTomorrow: __webpack_require__(161),
+    startOfMinute: __webpack_require__(57),
+    startOfMonth: __webpack_require__(160),
+    startOfQuarter: __webpack_require__(60),
+    startOfSecond: __webpack_require__(62),
+    startOfToday: __webpack_require__(161),
+    startOfTomorrow: __webpack_require__(162),
     startOfWeek: __webpack_require__(8),
-    startOfYear: __webpack_require__(47),
-    startOfYesterday: __webpack_require__(162),
-    subDays: __webpack_require__(163),
-    subHours: __webpack_require__(164),
-    subISOYears: __webpack_require__(42),
-    subMilliseconds: __webpack_require__(165),
-    subMinutes: __webpack_require__(166),
-    subMonths: __webpack_require__(167),
-    subQuarters: __webpack_require__(168),
-    subSeconds: __webpack_require__(169),
-    subWeeks: __webpack_require__(170),
-    subYears: __webpack_require__(171)
+    startOfYear: __webpack_require__(48),
+    startOfYesterday: __webpack_require__(163),
+    subDays: __webpack_require__(164),
+    subHours: __webpack_require__(165),
+    subISOYears: __webpack_require__(43),
+    subMilliseconds: __webpack_require__(166),
+    subMinutes: __webpack_require__(167),
+    subMonths: __webpack_require__(168),
+    subQuarters: __webpack_require__(169),
+    subSeconds: __webpack_require__(170),
+    subWeeks: __webpack_require__(171),
+    subYears: __webpack_require__(172)
 
     /***/ };
 },
-/* 71 */
+/* 72 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -3714,7 +3739,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 72 */
+/* 73 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -3769,7 +3794,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 73 */
+/* 74 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -3822,7 +3847,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 74 */
+/* 75 */
 /***/function (module, exports, __webpack_require__) {
 
   var startOfISOWeek = __webpack_require__(2);
@@ -3868,10 +3893,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 75 */
+/* 76 */
 /***/function (module, exports, __webpack_require__) {
 
-  var getQuarter = __webpack_require__(39);
+  var getQuarter = __webpack_require__(40);
   var parse = __webpack_require__(0);
 
   /**
@@ -3907,7 +3932,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 76 */
+/* 77 */
 /***/function (module, exports, __webpack_require__) {
 
   var startOfWeek = __webpack_require__(8);
@@ -3963,7 +3988,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 77 */
+/* 78 */
 /***/function (module, exports, __webpack_require__) {
 
   var differenceInMilliseconds = __webpack_require__(11);
@@ -3998,13 +4023,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 78 */
+/* 79 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
-  var differenceInCalendarISOYears = __webpack_require__(37);
+  var differenceInCalendarISOYears = __webpack_require__(38);
   var compareAsc = __webpack_require__(7);
-  var subISOYears = __webpack_require__(42);
+  var subISOYears = __webpack_require__(43);
 
   /**
    * @category ISO Week-Numbering Year Helpers
@@ -4046,7 +4071,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 79 */
+/* 80 */
 /***/function (module, exports, __webpack_require__) {
 
   var differenceInMilliseconds = __webpack_require__(11);
@@ -4081,7 +4106,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 80 */
+/* 81 */
 /***/function (module, exports, __webpack_require__) {
 
   var differenceInMonths = __webpack_require__(16);
@@ -4114,10 +4139,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 81 */
+/* 82 */
 /***/function (module, exports, __webpack_require__) {
 
-  var differenceInDays = __webpack_require__(41);
+  var differenceInDays = __webpack_require__(42);
 
   /**
    * @category Week Helpers
@@ -4147,11 +4172,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 82 */
+/* 83 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
-  var differenceInCalendarYears = __webpack_require__(40);
+  var differenceInCalendarYears = __webpack_require__(41);
   var compareAsc = __webpack_require__(7);
 
   /**
@@ -4191,7 +4216,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 83 */
+/* 84 */
 /***/function (module, exports) {
 
   function buildDistanceInWordsLocale() {
@@ -4296,10 +4321,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 84 */
+/* 85 */
 /***/function (module, exports, __webpack_require__) {
 
-  var buildFormattingTokensRegExp = __webpack_require__(85);
+  var buildFormattingTokensRegExp = __webpack_require__(86);
 
   function buildFormatLocale() {
     // Note: in English, the names of days of the week and months are capitalized.
@@ -4389,7 +4414,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 85 */
+/* 86 */
 /***/function (module, exports) {
 
   var commonFormatterKeys = ['M', 'MM', 'Q', 'D', 'DD', 'DDD', 'DDDD', 'd', 'E', 'W', 'WW', 'YY', 'YYYY', 'GG', 'GGGG', 'H', 'HH', 'h', 'hh', 'm', 'mm', 's', 'ss', 'S', 'SS', 'SSS', 'Z', 'ZZ', 'X', 'x'];
@@ -4412,7 +4437,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 86 */
+/* 87 */
 /***/function (module, exports, __webpack_require__) {
 
   var compareDesc = __webpack_require__(15);
@@ -4594,10 +4619,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 87 */
+/* 88 */
 /***/function (module, exports, __webpack_require__) {
 
-  var distanceInWords = __webpack_require__(43);
+  var distanceInWords = __webpack_require__(44);
 
   /**
    * @category Common Helpers
@@ -4685,7 +4710,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 88 */
+/* 89 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -4745,7 +4770,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 89 */
+/* 90 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -4776,10 +4801,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 90 */
+/* 91 */
 /***/function (module, exports, __webpack_require__) {
 
-  var endOfWeek = __webpack_require__(44);
+  var endOfWeek = __webpack_require__(45);
 
   /**
    * @category ISO Week Helpers
@@ -4807,7 +4832,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 91 */
+/* 92 */
 /***/function (module, exports, __webpack_require__) {
 
   var getISOYear = __webpack_require__(1);
@@ -4846,7 +4871,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 92 */
+/* 93 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -4877,7 +4902,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 93 */
+/* 94 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -4911,7 +4936,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 94 */
+/* 95 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -4942,7 +4967,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 95 */
+/* 96 */
 /***/function (module, exports, __webpack_require__) {
 
   var endOfDay = __webpack_require__(19);
@@ -4969,7 +4994,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 96 */
+/* 97 */
 /***/function (module, exports) {
 
   /**
@@ -5002,7 +5027,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 97 */
+/* 98 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5035,7 +5060,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 98 */
+/* 99 */
 /***/function (module, exports) {
 
   /**
@@ -5068,14 +5093,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 99 */
+/* 100 */
 /***/function (module, exports, __webpack_require__) {
 
-  var getDayOfYear = __webpack_require__(46);
+  var getDayOfYear = __webpack_require__(47);
   var getISOWeek = __webpack_require__(20);
   var getISOYear = __webpack_require__(1);
   var parse = __webpack_require__(0);
-  var isValid = __webpack_require__(48);
+  var isValid = __webpack_require__(49);
   var enLocale = __webpack_require__(18);
 
   /**
@@ -5402,7 +5427,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 100 */
+/* 101 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5432,7 +5457,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 101 */
+/* 102 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5462,10 +5487,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 102 */
+/* 103 */
 /***/function (module, exports, __webpack_require__) {
 
-  var isLeapYear = __webpack_require__(49);
+  var isLeapYear = __webpack_require__(50);
 
   /**
    * @category Year Helpers
@@ -5490,7 +5515,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 103 */
+/* 104 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5520,7 +5545,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 104 */
+/* 105 */
 /***/function (module, exports, __webpack_require__) {
 
   var startOfISOYear = __webpack_require__(6);
@@ -5559,7 +5584,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 105 */
+/* 106 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5589,7 +5614,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 106 */
+/* 107 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5619,7 +5644,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 107 */
+/* 108 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5649,7 +5674,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 108 */
+/* 109 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5713,7 +5738,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 109 */
+/* 110 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5743,7 +5768,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 110 */
+/* 111 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5773,7 +5798,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 111 */
+/* 112 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5803,7 +5828,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 112 */
+/* 113 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5834,7 +5859,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 113 */
+/* 114 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5865,7 +5890,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 114 */
+/* 115 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5899,7 +5924,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 115 */
+/* 116 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5927,7 +5952,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 116 */
+/* 117 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5955,7 +5980,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 117 */
+/* 118 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -5983,12 +6008,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 118 */
+/* 119 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
   var endOfDay = __webpack_require__(19);
-  var endOfMonth = __webpack_require__(45);
+  var endOfMonth = __webpack_require__(46);
 
   /**
    * @category Month Helpers
@@ -6014,7 +6039,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 119 */
+/* 120 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6042,7 +6067,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 120 */
+/* 121 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6070,7 +6095,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 121 */
+/* 122 */
 /***/function (module, exports, __webpack_require__) {
 
   var startOfDay = __webpack_require__(3);
@@ -6105,7 +6130,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 122 */
+/* 123 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6133,7 +6158,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 123 */
+/* 124 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6161,10 +6186,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 124 */
+/* 125 */
 /***/function (module, exports, __webpack_require__) {
 
-  var isSameHour = __webpack_require__(51);
+  var isSameHour = __webpack_require__(52);
 
   /**
    * @category Hour Helpers
@@ -6190,10 +6215,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 125 */
+/* 126 */
 /***/function (module, exports, __webpack_require__) {
 
-  var isSameISOWeek = __webpack_require__(53);
+  var isSameISOWeek = __webpack_require__(54);
 
   /**
    * @category ISO Week Helpers
@@ -6220,10 +6245,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 126 */
+/* 127 */
 /***/function (module, exports, __webpack_require__) {
 
-  var isSameISOYear = __webpack_require__(54);
+  var isSameISOYear = __webpack_require__(55);
 
   /**
    * @category ISO Week-Numbering Year Helpers
@@ -6251,10 +6276,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 127 */
+/* 128 */
 /***/function (module, exports, __webpack_require__) {
 
-  var isSameMinute = __webpack_require__(55);
+  var isSameMinute = __webpack_require__(56);
 
   /**
    * @category Minute Helpers
@@ -6280,10 +6305,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 128 */
+/* 129 */
 /***/function (module, exports, __webpack_require__) {
 
-  var isSameMonth = __webpack_require__(57);
+  var isSameMonth = __webpack_require__(58);
 
   /**
    * @category Month Helpers
@@ -6308,10 +6333,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 129 */
+/* 130 */
 /***/function (module, exports, __webpack_require__) {
 
-  var isSameQuarter = __webpack_require__(58);
+  var isSameQuarter = __webpack_require__(59);
 
   /**
    * @category Quarter Helpers
@@ -6336,10 +6361,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 130 */
+/* 131 */
 /***/function (module, exports, __webpack_require__) {
 
-  var isSameSecond = __webpack_require__(60);
+  var isSameSecond = __webpack_require__(61);
 
   /**
    * @category Second Helpers
@@ -6365,7 +6390,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 131 */
+/* 132 */
 /***/function (module, exports, __webpack_require__) {
 
   var isSameWeek = __webpack_require__(21);
@@ -6401,10 +6426,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 132 */
+/* 133 */
 /***/function (module, exports, __webpack_require__) {
 
-  var isSameYear = __webpack_require__(62);
+  var isSameYear = __webpack_require__(63);
 
   /**
    * @category Year Helpers
@@ -6429,7 +6454,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 133 */
+/* 134 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6457,7 +6482,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 134 */
+/* 135 */
 /***/function (module, exports, __webpack_require__) {
 
   var startOfDay = __webpack_require__(3);
@@ -6485,7 +6510,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 135 */
+/* 136 */
 /***/function (module, exports, __webpack_require__) {
 
   var startOfDay = __webpack_require__(3);
@@ -6515,7 +6540,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 136 */
+/* 137 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6543,7 +6568,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 137 */
+/* 138 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6571,7 +6596,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 138 */
+/* 139 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6601,7 +6626,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 139 */
+/* 140 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6649,7 +6674,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 140 */
+/* 141 */
 /***/function (module, exports, __webpack_require__) {
 
   var startOfDay = __webpack_require__(3);
@@ -6679,10 +6704,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 141 */
+/* 142 */
 /***/function (module, exports, __webpack_require__) {
 
-  var lastDayOfWeek = __webpack_require__(63);
+  var lastDayOfWeek = __webpack_require__(64);
 
   /**
    * @category ISO Week Helpers
@@ -6710,7 +6735,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 142 */
+/* 143 */
 /***/function (module, exports, __webpack_require__) {
 
   var getISOYear = __webpack_require__(1);
@@ -6749,7 +6774,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 143 */
+/* 144 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6782,7 +6807,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 144 */
+/* 145 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6816,7 +6841,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 145 */
+/* 146 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6849,7 +6874,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 146 */
+/* 147 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6887,7 +6912,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 147 */
+/* 148 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6925,7 +6950,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 148 */
+/* 149 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -6957,7 +6982,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 149 */
+/* 150 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -7003,7 +7028,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 150 */
+/* 151 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -7036,7 +7061,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 151 */
+/* 152 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -7068,12 +7093,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 152 */
+/* 153 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
   var addDays = __webpack_require__(4);
-  var getISODay = __webpack_require__(50);
+  var getISODay = __webpack_require__(51);
 
   /**
    * @category Weekday Helpers
@@ -7105,7 +7130,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 153 */
+/* 154 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -7141,7 +7166,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 154 */
+/* 155 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -7173,7 +7198,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 155 */
+/* 156 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -7205,11 +7230,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 156 */
+/* 157 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
-  var setMonth = __webpack_require__(64);
+  var setMonth = __webpack_require__(65);
 
   /**
    * @category Quarter Helpers
@@ -7239,7 +7264,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 157 */
+/* 158 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -7271,7 +7296,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 158 */
+/* 159 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -7303,7 +7328,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 159 */
+/* 160 */
 /***/function (module, exports, __webpack_require__) {
 
   var parse = __webpack_require__(0);
@@ -7335,7 +7360,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 160 */
+/* 161 */
 /***/function (module, exports, __webpack_require__) {
 
   var startOfDay = __webpack_require__(3);
@@ -7362,7 +7387,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 161 */
+/* 162 */
 /***/function (module, exports) {
 
   /**
@@ -7395,7 +7420,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 162 */
+/* 163 */
 /***/function (module, exports) {
 
   /**
@@ -7428,7 +7453,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 163 */
+/* 164 */
 /***/function (module, exports, __webpack_require__) {
 
   var addDays = __webpack_require__(4);
@@ -7458,10 +7483,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 164 */
+/* 165 */
 /***/function (module, exports, __webpack_require__) {
 
-  var addHours = __webpack_require__(30);
+  var addHours = __webpack_require__(31);
 
   /**
    * @category Hour Helpers
@@ -7488,7 +7513,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 165 */
+/* 166 */
 /***/function (module, exports, __webpack_require__) {
 
   var addMilliseconds = __webpack_require__(5);
@@ -7518,10 +7543,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 166 */
+/* 167 */
 /***/function (module, exports, __webpack_require__) {
 
-  var addMinutes = __webpack_require__(33);
+  var addMinutes = __webpack_require__(34);
 
   /**
    * @category Minute Helpers
@@ -7548,7 +7573,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 167 */
+/* 168 */
 /***/function (module, exports, __webpack_require__) {
 
   var addMonths = __webpack_require__(10);
@@ -7578,10 +7603,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 168 */
+/* 169 */
 /***/function (module, exports, __webpack_require__) {
 
-  var addQuarters = __webpack_require__(34);
+  var addQuarters = __webpack_require__(35);
 
   /**
    * @category Quarter Helpers
@@ -7608,10 +7633,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 169 */
+/* 170 */
 /***/function (module, exports, __webpack_require__) {
 
-  var addSeconds = __webpack_require__(35);
+  var addSeconds = __webpack_require__(36);
 
   /**
    * @category Second Helpers
@@ -7638,7 +7663,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 170 */
+/* 171 */
 /***/function (module, exports, __webpack_require__) {
 
   var addWeeks = __webpack_require__(14);
@@ -7668,10 +7693,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 171 */
+/* 172 */
 /***/function (module, exports, __webpack_require__) {
 
-  var addYears = __webpack_require__(36);
+  var addYears = __webpack_require__(37);
 
   /**
    * @category Year Helpers
@@ -7698,7 +7723,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 172 */
+/* 173 */
 /***/function (module, exports, __webpack_require__) {
 
   var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -7907,7 +7932,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 173 */
+/* 174 */
 /***/function (module, exports) {
 
   // home page history component
@@ -8084,7 +8109,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 174 */
+/* 175 */
 /***/function (module, exports) {
 
   var hamburgerMenu = document.querySelector(".hamburger__menu");
@@ -8103,7 +8128,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 175 */
+/* 176 */
 /***/function (module, exports) {
 
   // drill down
@@ -8128,7 +8153,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               TweenMax.to(subMenu, 0.2, {
                 autoAlpha: 1,
                 backgroundColor: "#f4f4f4",
-                paddingBottom: 15
+                paddingBottom: 10
               });
             }
           });
@@ -8170,7 +8195,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
   }
 },
-/* 176 */
+/* 177 */
 /***/function (module, exports) {
 
   if (document.querySelector(".rotating__banner") !== null) {
@@ -8191,7 +8216,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 177 */
+/* 178 */
 /***/function (module, exports) {
 
   var searchInputElem = document.querySelector("input.search");
@@ -8216,7 +8241,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 178 */
+/* 179 */
 /***/function (module, exports) {
 
   var staticBannerHeader = document.querySelector(".static__banner h2.title");
@@ -8230,7 +8255,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   /***/
 },
-/* 179 */
+/* 180 */
 /***/function (module, exports) {
 
   // TODO: NEED TO MAKE THIS A LITTLE LESS SPECIFIC SO IT WORKS WITH ICON LIST IN GENERAL.
