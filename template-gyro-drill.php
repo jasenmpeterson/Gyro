@@ -10,7 +10,7 @@ get_header();
 ?>
 
 <div class="content__wrapper static__banner__small static__banner__background__color">
-	<?php get_template_part("components/static-banner"); ?>
+	<?php get_template_part("components/technology/static-banner-gyro-drill"); ?>
     <div class="row">
 	    <?php get_template_part("components/technology/gyro-sidebar"); ?>
 	    <?php get_template_part("components/technology/gyro-drill"); ?>

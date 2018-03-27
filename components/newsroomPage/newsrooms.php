@@ -9,7 +9,9 @@
 
 <section class="col interior__page__content content__with__sidebar content__contain newsrooms block__content__animations content__with__sidebar">
     <article>
-        <a href="#" class="background__image" style="background:url('<?php echo get_template_directory_uri();?>/assets/images/raw/banner_hp.jpg');">
+        <a href="#">
+            <figure class="background__image" style="background:url('<?php echo get_template_directory_uri();?>/assets/images/raw/banner_hp.jpg');"></figure>
+            <figure class="background__image background__image__contrast" style="background:url('<?php echo get_template_directory_uri();?>/assets/images/raw/banner_hp.jpg');"></figure>
             <div class="content__wrap">
                 <h5>Press &amp; Media</h5>
                 <h2>ArtifPellentesque sollicitudin.</h2>

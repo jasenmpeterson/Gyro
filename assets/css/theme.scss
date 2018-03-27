@@ -52,11 +52,6 @@ header .row {
   background-color: $color-gray;
 }
 
-.primary__header .nav__wrap {
-  padding: 0 20px;
-}
-
-
 // meta header
 
 .meta__header {
@@ -130,8 +125,9 @@ $nav-padding: 20px;
   @media screen and (min-width: 1076px) {
     width: 75%;
   }
-  @media screen and (max-width: 1075px) {
-    width: 100px;
+  @media screen and (min-width: 320px) {
+    width: 20%;
+    padding: 0 10px;
   }
 }
 
@@ -344,9 +340,9 @@ $nav-padding: 20px;
   color: #ffffff;
 }
 
-// primary nav icons (the actual icons are in fonts/fonts.scss)
+//  nav icons (the actual icons are in fonts/fonts.scss)
 
-.primary_nav li.parent__nav__item {
+li.parent__nav__item {
   position: relative;
   @media screen and (min-width: 1600px) {
     padding: 25px 0 25px 30px;
@@ -356,7 +352,7 @@ $nav-padding: 20px;
   }
 }
 
-.primary_nav li.parent__nav__item:before {
+li.parent__nav__item:before {
   position: absolute;
   display: block;
   @media screen and (min-width: 1600px) {
@@ -414,12 +410,14 @@ $nav-padding: 20px;
 // logo
 
 .col.logo {
-  width: 30%;
   @media screen and (min-width: 1440px) {
     width: 30%;
   }
   @media screen and (min-width: 1200px) {
     width: 25%;
+  }
+  @media screen and (min-width: 320px) {
+    width: 80%;
   }
 }
 
@@ -481,15 +479,17 @@ input {
 }
 
 .search__form {
-  width: 25%;
-  @media screen and (max-width: 650px) {
+  @media screen and (min-width: 320px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 650px) {
     width: 45%;
   }
 }
 
 .search__form .search__form__wrap {
-  @media screen and (max-width: 990px) {
-    padding-right: 10px;
+  @media screen and (min-width: 320px) {
+    padding: 0 10px;
   }
 }
 
@@ -685,7 +685,7 @@ input.search {
 
 .hamburger__menu {
   display: none;
-  width: 60px;
+  width: 44px;
   height: 60px;
   cursor: pointer;
   margin-left: auto;
@@ -697,7 +697,7 @@ input.search {
 .hamburger__menu .bar,
 .hamburger__menu .bar:after,
 .hamburger__menu .bar:before {
-  width: 50px;
+  width:  44px;
   height: 5px;
 }
 
@@ -716,7 +716,7 @@ input.search {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 15px;
+  bottom: 10px;
   background: $color-red;
   transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -725,7 +725,7 @@ input.search {
   content: "";
   position: absolute;
   left: 0;
-  top: 15px;
+  top: 10px;
   background: $color-red;
   transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -777,7 +777,7 @@ input.search {
   border-top: 1px solid $color-gray;
 }
 
-.mobile__menu li {
+.mobile__menu ul li:not(:last-child) {
   border-bottom: 1px solid $color-gray;
 }
 
@@ -789,6 +789,16 @@ input.search {
 .mobile__menu li a:hover {
   background-color: $color-red;
   color: #ffffff;
+}
+
+.mobile__menu li ul {
+  opacity: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.mobile__menu li ul.active {
+  pointer-events: auto;
 }
 
 .mobile__close__button {
@@ -804,7 +814,7 @@ input.search {
   position: relative;
   cursor: pointer;
   display: inline-block;
-  margin: 10px 20px;
+  margin: 10px;
   transition: cubic-bezier(0.175, 0.885, 0.52, 1.775) 200ms;
   border: 0px solid white;
 }
@@ -852,6 +862,22 @@ input.search {
 .circle:hover:after {
   transform: scale(0.7) rotate(-45deg);
   transition-delay: 100ms;
+}
+
+.mobile__menu .sub__menu__grandchild__title,
+.mobile__menu .parent__nav__item a,
+.mobile__menu .sub__menu__title,
+.mobile__menu .sub__menu__child__title {
+  padding: 20px 40px;
+  font-size: 14px;
+  display: block;
+}
+
+.mobile__menu li.parent__nav__item:before {
+  width: 25px;
+  height: 25px;
+  top: 22px;
+  left: 20px;
 }
 
 // rotating banner
@@ -1354,7 +1380,25 @@ ul.documents figure {
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
-
+.background__image__contrast {
+  filter: contrast(120%);
+  opacity: 0;
+  transition: all 300ms ease-out;
+}
+.background__image.secondary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  clip-path: polygon(0 0%, 100% 1%, 69% 100%, 0% 100%);
+  @media screen and (min-width: 700px) {
+    display: block;
+  }
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
+}
 // tint
 
 .tint:before {

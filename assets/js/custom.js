@@ -3025,20 +3025,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var drillDownDropDown = menu.querySelector(".drill__down__drop__down");
     var drillDownDropDownList = menu.querySelectorAll(".drill__down__drop__down li");
     if (!drillDownDropDown.classList.contains("active")) {
-      TweenMax.to(button, 0.5, {
+      TweenMax.to(button, 0.3, {
         backgroundColor: "#FFB100",
-        borderTop: "#FFB100",
-        color: "white",
-        paddingLeft: 15,
-        marginBottom: 10
+        color: "white"
       });
-      TweenMax.to(drillDownDropDown, 0.5, {
+      TweenMax.to(drillDownDropDown, 0.3, {
         opacity: 1,
         height: "auto",
-        paddingBottom: 10,
+        padding: 15,
         ease: Power2.easeOut
       });
-      TweenMax.staggerTo(drillDownDropDownList, 0.5, {
+      TweenMax.staggerTo(drillDownDropDownList, 0.3, {
         opacity: 1,
         x: 0,
         ease: Power2.easeOut
@@ -3047,22 +3044,19 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     } else {
       TweenMax.staggerTo(drillDownDropDownList, 0.3, {
         opacity: 0,
-        x: -200,
-        ease: Power2.easeIn
+        x: -10,
+        ease: Power2.easeOut
       }, 0.1);
       TweenMax.to(drillDownDropDown, 0.3, {
         opacity: 0,
         height: 0,
-        paddingBottom: 0,
-        delay: 0.5,
-        ease: Power2.easeIn
+        padding: 0,
+        ease: Power2.easeOut
       });
-      TweenMax.to(button, 0.5, {
-        backgroundColor: "transparent",
+      TweenMax.to(button, 0.3, {
+        backgroundColor: "white",
         color: "#747D87",
-        borderTop: "1px solid #cfd4d8",
-        paddingLeft: 0,
-        marginBottom: 0
+        ease: Power2.easeOut
       });
       drillDownDropDown.classList.remove("active");
     }
@@ -8115,6 +8109,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   var hamburgerMenu = document.querySelector(".hamburger__menu");
   var hamburgerMenuClose = document.querySelector(".mobile__close__button .circle");
   var mobileMenu = document.querySelector(".mobile__menu");
+  var mobileMenuParent = document.querySelectorAll(".mobile__menu li.menu-item-has-children");
 
   hamburgerMenu.addEventListener("click", function () {
     // let hamburgerMenuBar = document.querySelector(".hamburger__menu .bar");
@@ -8126,21 +8121,77 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     mobileMenu.classList.remove("open");
   });
 
-  /***/
-},
-/* 176 */
-/***/function (module, exports) {
-
-  // drill down
-  var drillDownButton = document.querySelectorAll(".sub__menu__child__title");
+  var mobileClickEvent = function mobileClickEvent(e) {
+    var parent = e.target.parentNode;
+    var subMenu = parent.querySelector(".sub__menu");
+    if (!subMenu.classList.contains("active")) {
+      TweenMax.set(subMenu, { height: "auto" });
+      TweenMax.from(subMenu, 0.2, {
+        height: 0,
+        onComplete: function onComplete() {
+          TweenMax.to(subMenu, 0.2, {
+            autoAlpha: 1,
+            backgroundColor: "#f4f4f4"
+          });
+        }
+      });
+      subMenu.classList.add("active");
+    } else {
+      if (!subMenu.classList.contains("child__sub__menu")) {
+        TweenMax.to(subMenu, 0.2, {
+          autoAlpha: 0,
+          backgroundColor: "transparent",
+          onComplete: function onComplete() {
+            TweenMax.to(subMenu, 0.2, {
+              height: 0
+            });
+          }
+        });
+        subMenu.classList.remove("active");
+      }
+    }
+  };
 
   var _iteratorNormalCompletion8 = true;
   var _didIteratorError8 = false;
   var _iteratorError8 = undefined;
 
   try {
-    for (var _iterator8 = drillDownButton[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-      var drillDown = _step8.value;
+    for (var _iterator8 = mobileMenuParent[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+      var parent = _step8.value;
+
+      parent.addEventListener("click", mobileClickEvent);
+    }
+
+    /***/
+  } catch (err) {
+    _didIteratorError8 = true;
+    _iteratorError8 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion8 && _iterator8.return) {
+        _iterator8.return();
+      }
+    } finally {
+      if (_didIteratorError8) {
+        throw _iteratorError8;
+      }
+    }
+  }
+},
+/* 176 */
+/***/function (module, exports) {
+
+  // drill down
+  var drillDownButton = document.querySelectorAll(".primary_nav .sub__menu__child__title");
+
+  var _iteratorNormalCompletion9 = true;
+  var _didIteratorError9 = false;
+  var _iteratorError9 = undefined;
+
+  try {
+    for (var _iterator9 = drillDownButton[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+      var drillDown = _step9.value;
 
       drillDown.addEventListener("click", function (e) {
         var parentMenu = e.target;
@@ -8181,16 +8232,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /***/
   } catch (err) {
-    _didIteratorError8 = true;
-    _iteratorError8 = err;
+    _didIteratorError9 = true;
+    _iteratorError9 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion8 && _iterator8.return) {
-        _iterator8.return();
+      if (!_iteratorNormalCompletion9 && _iterator9.return) {
+        _iterator9.return();
       }
     } finally {
-      if (_didIteratorError8) {
-        throw _iteratorError8;
+      if (_didIteratorError9) {
+        throw _iteratorError9;
       }
     }
   }
@@ -8283,13 +8334,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     animateLink("0", target, 0, 0.5);
   }
 
-  var _iteratorNormalCompletion9 = true;
-  var _didIteratorError9 = false;
-  var _iteratorError9 = undefined;
+  var _iteratorNormalCompletion10 = true;
+  var _didIteratorError10 = false;
+  var _iteratorError10 = undefined;
 
   try {
-    for (var _iterator9 = technologyLinks[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-      var link = _step9.value;
+    for (var _iterator10 = technologyLinks[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+      var link = _step10.value;
 
       link.addEventListener("mouseenter", function (e) {
         enterLink(e.target);
@@ -8301,16 +8352,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /***/
   } catch (err) {
-    _didIteratorError9 = true;
-    _iteratorError9 = err;
+    _didIteratorError10 = true;
+    _iteratorError10 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion9 && _iterator9.return) {
-        _iterator9.return();
+      if (!_iteratorNormalCompletion10 && _iterator10.return) {
+        _iterator10.return();
       }
     } finally {
-      if (_didIteratorError9) {
-        throw _iteratorError9;
+      if (_didIteratorError10) {
+        throw _iteratorError10;
       }
     }
   }

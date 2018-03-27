@@ -20,8 +20,23 @@
   position: relative;
   overflow: hidden;
 }
-.block__content__animations a.background__image {
+.block__content__animations figure.background__image {
   background-position: 0 -300px !important;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 300ms cubic-bezier(.17,.67,.83,.67);
+}
+.block__content__animations a:hover figure.background__image:not(.background__image__contrast) {
+  transform: scale(1.1);
+  opacity: 0.5;
+}
+.block__content__animations a:hover figure.background__image__contrast {
+  transform: scale(1.1);
+  opacity: 1;
 }
 .block__content__animations article:before {
   content: "";

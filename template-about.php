@@ -12,9 +12,10 @@ get_header();
 ?>
 
 	<div class="content__wrapper">
-		<?php get_template_part("components/static-banner"); ?>
-		<?php get_template_part("components/aboutPage/our-vision"); ?>
+		<?php get_template_part("components/aboutPage/static-banner-our-history"); ?>
+		<?php get_template_part("components/aboutPage/static-banner-our-vision"); ?>
 		<?php get_template_part("components/aboutPage/core-values"); ?>
+		<?php get_template_part("components/aboutPage/history-blocks"); ?>
 		<?php get_template_part("components/aboutPage/history"); ?>
 		<?php get_template_part("components/aboutPage/culture-video"); ?>
 	</div>

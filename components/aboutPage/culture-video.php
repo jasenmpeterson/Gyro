@@ -1,10 +1,20 @@
+<?php
+    $query = new WP_Query(
+        array(
+            'post_type' => 'page',
+            'p' => 36
+        )
+    );
+    if ( $query->have_posts() ) :
+        while ( $query->have_posts() ) : $query->the_post();
+        $culture = get_field('our_culture');
+?>
 <section class="our__culture__video about__page" data-emergence="hidden">
 	<div class="clippy"></div>
 	<div class="row align-middle">
 		<div class="col">
-			<h1 class="title">Our Culture</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ducimus magnam quos ullam vitae. Autem
-				debitis est optio reiciendis vitae. A cumque distinctio error impedit non optio quam unde. Aut!</p>
+			<h1 class="title"><?php echo $culture['header']; ?></h1>
+			<?php echo $culture['paragraphs']; ?>
 		</div>
 		<div class="col">
 			<div class="video__wrap tint">
@@ -14,3 +24,6 @@
 		</div>
 	</div>
 </section>
+<?php
+        endwhile;
+    endif;

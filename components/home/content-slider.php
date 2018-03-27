@@ -5,13 +5,14 @@
  * Date: 3/26/18
  * Time: 1:22 PM
  */
-$contentSlider = new ContentSlider(122);
+$contentSlider = new \contentSlider\contentSlider(122);
 $slider = $contentSlider->DisplayContentSlider();
-
-foreach ($slider as $slide ):
 ?>
-	<?php if ($slide) : ?>
 	<section class="content__slider blueprint__wrap component" data-emergence="hidden">
+        <?php
+	        foreach ($slider as $slide ):
+                if ($slide) :
+        ?>
 		<div class="carousel__cell">
 			<div class="row">
 				<div class="col">
@@ -30,7 +31,8 @@ foreach ($slider as $slide ):
 				</div>
 			</div>
 		</div>
-	</section>
-<?php
-	endif;
-endforeach;
+        <?php
+                endif;
+            endforeach;
+        ?>
+	</section>;

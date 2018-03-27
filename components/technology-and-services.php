@@ -18,7 +18,7 @@ if ($query->have_posts() ) : ?>
 	while ( $query->have_posts() ) : $query->the_post();
 		$learn_more_component = get_field('learn_more_component');
 		?>
-    <div class="background__image secondary"></div>
+    <div class="background__image secondary" style="background-image: url('<?php echo $learn_more_component['image'] ;?>')"></div>
     <div class="row">
         <div class="col">
             <div class="content__wrap">

@@ -13,7 +13,8 @@ remove_action('wp_head', 'wp_generator');
 
 // CLASSES
 
-include('classes/content-slider.php');
+include('classes/contentSlider.php');
+include('classes/staticBanner.php');
 
 // ENQUEUE STYLES
 

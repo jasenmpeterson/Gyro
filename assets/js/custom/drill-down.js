@@ -6,20 +6,17 @@ let openMenu = (e) => {
     let drillDownDropDown = menu.querySelector(".drill__down__drop__down");
     let drillDownDropDownList = menu.querySelectorAll(".drill__down__drop__down li");
     if(!drillDownDropDown.classList.contains("active")) {
-        TweenMax.to(button, 0.5, {
+        TweenMax.to(button, 0.3, {
             backgroundColor: "#FFB100",
-            borderTop: "#FFB100",
-            color: "white",
-            paddingLeft: 15,
-            marginBottom: 10
+            color: "white"
         });
-        TweenMax.to(drillDownDropDown, 0.5, {
+        TweenMax.to(drillDownDropDown, 0.3, {
             opacity: 1,
             height: "auto",
-            paddingBottom: 10,
+            padding: 15,
             ease: Power2.easeOut
         });
-        TweenMax.staggerTo(drillDownDropDownList, 0.5, {
+        TweenMax.staggerTo(drillDownDropDownList, 0.3, {
             opacity: 1,
             x: 0,
             ease: Power2.easeOut
@@ -28,22 +25,19 @@ let openMenu = (e) => {
     } else {
         TweenMax.staggerTo(drillDownDropDownList, 0.3, {
             opacity: 0,
-            x: -200,
-            ease: Power2.easeIn
+            x: -10,
+            ease: Power2.easeOut
         }, 0.1);
         TweenMax.to(drillDownDropDown, 0.3, {
             opacity: 0,
             height: 0,
-            paddingBottom: 0,
-            delay: 0.5,
-            ease: Power2.easeIn
+            padding: 0,
+            ease: Power2.easeOut
         });
-        TweenMax.to(button, 0.5, {
-            backgroundColor: "transparent",
+        TweenMax.to(button, 0.3, {
+            backgroundColor: "white",
             color: "#747D87",
-            borderTop: "1px solid #cfd4d8",
-            paddingLeft: 0,
-            marginBottom: 0
+            ease: Power2.easeOut
         });
         drillDownDropDown.classList.remove("active");
     }
