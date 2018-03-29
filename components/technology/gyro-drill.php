@@ -1,24 +1,31 @@
+<?php
+$query = new WP_Query(
+	array(
+		'post_type' => 'page',
+		'p' => 69
+	)
+);
+if ($query->have_posts() ) :
+;?>
 <div class="col interior__page__content content__with__sidebar content__contain technology__and__services__content" data-emergence="hidden">
+	<?php
+	while ( $query->have_posts() ) : $query->the_post();
+		$history_home_page_component = get_field('history_home_page_component');
+		$id = get_the_ID();
+        $content_blocks = get_field('content_blocks');
+        $content = $content_blocks['content'];
+        foreach($content as $content_block):
+    ?>
+        <div class="content__wrap">
+            <h3 class="title"><?php echo $content_block['title']; ?></h3>
+	        <?php echo $content_block['paragraph']; ?>
+        </div>
+    <?php
+            endforeach;
+        endwhile;
+
+    ?>
     <div class="content__wrap">
-        <h3>Gyrodata’s GyroDrill performance motors are designed to withstand the harshest downhole conditions while delivering superior performance in a wide range of drilling applications.</h3>
-        <h3 class="title">Design</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda autem deleniti eligendi enim
-            esse exercitationem fugit in, iure magnam molestias officia reiciendis suscipit tenetur vero? Id, iusto
-            magni. Iste. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda autem deleniti eligendi enim
-            esse exercitationem fugit in, iure magnam molestias officia reiciendis suscipit tenetur vero? Id, iusto
-            magni. Iste.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores aut commodi deleniti doloribus error
-            iure odio quis repudiandae sapiente? Amet animi delectus excepturi explicabo labore non quae quam
-            voluptatem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda autem deleniti eligendi enim
-            esse exercitationem fugit in, iure magnam molestias officia reiciendis suscipit tenetur vero? Id, iusto
-            magni. Iste.</p>
-        <h3 class="title">Features</h3>
-        <p>The Gyrodata designed bearing assembly is a straight forward concept which features a typical stack up of thrust bearing races and rock bit balls along with upper and lower radial bearings. This simple yet robust design allows for greater load capabilities and reduces the stresses on individual components. Thus extended run periods and low operating costs can be expected.</p>
-        <ul class="content">
-            <li>The heavy duty driveshaft assembly is a ball driven design that converts the eccentric rotation of the rotor into concentric rotation for input into the bearing assembly. The driveshaft transfers the thrust load from the rotor caused by the pressure drop across it. The driveshaft assembly is also re-buildable and re-useable which can be easily assembled or disassembled.</li>
-            <li>The adjustable bent housing (ABH) is designed so the bend angle can be easily changed in thirteen separate increments from 0º to 3º on the rig floor which can produce a wide range of build rates. Gyrodata motors can also be assembled with a fixed bent housing (FBH) which also are manufactured in various bend angles.</li>
-            <li>Gyrodata mud motors can be modified with multiple power section models that produce various speed and torque outputs to accommodate customer needs. All stators are lined with hard rubber elastomer which produces maximum power section output.</li>
-        </ul>
         <h3 class="title">Technical Specifications</h3>
         <table cellspacing="0" class="stripes">
             <thead>
@@ -145,3 +152,5 @@
         </table>
     </div>
 </div>
+<?php
+    endif;

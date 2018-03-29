@@ -11,8 +11,7 @@ import {documentList} from "./documentList";
 
 // emergence
 emergence.init({
-    offsetTop: 250,
-    elemCushion: 0.5,
+    elemCushion: 0.2 ,
     reset: false,
     callback: function(element,state) {
         if (state === 'visible') {

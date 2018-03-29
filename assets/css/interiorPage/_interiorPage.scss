@@ -1,19 +1,27 @@
 .content__with__sidebar {
-  width: auto;
+  width: 50%;
   flex: 1;
 }
 .content__contain .content__wrap {
-  padding: 65px 35px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+.content__contain .content__wrap:first-child {
+   padding-top: 15px;
+}
+.content__contain .content__wrap:last-child {
+  padding-bottom: 65px;
 }
 .interior__page__content .content__wrap h3 {
   font-weight: 700;
 }
-.interior__page__content .content__wrap h3:first-child {
-  margin-top: 0;
-}
 .interior__page__content {
   opacity: 0;
   transform: translateY(50px);
+}
+.interior__page__content .content__wrap ul li {
+  margin-bottom: 15px;
+  line-height: 30px;
 }
 .block__content__animations article {
   height: 300px;

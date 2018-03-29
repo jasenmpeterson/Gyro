@@ -61,20 +61,16 @@
             <h5>Contact Local Support</h5>
             <table>
                 <tr>
-                    <td>North America</td>
-                    <td>+1 281.213.6300</td>
+                    <td>North & Latin Americas</td>
+                    <td>+1 281 213 6300</td>
                 </tr>
                 <tr>
-                    <td>North America</td>
-                    <td>+1 281.213.6300</td>
+                    <td>Europe & Africa</td>
+                    <td>+44 1224 823060</td>
                 </tr>
                 <tr>
-                    <td>North America</td>
-                    <td>+1 281.213.6300</td>
-                </tr>
-                <tr>
-                    <td>North America</td>
-                    <td>+1 281.213.6300</td>
+                    <td>Asia & Middle East</td>
+                    <td>+60 32713 3622</td>
                 </tr>
             </table>
             <a href="#" class="button" data-text="Contact Us"><span>Contact Us</span></a>

@@ -3110,8 +3110,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   // emergence
   emergence.init({
-    offsetTop: 250,
-    elemCushion: 0.5,
+    elemCushion: 0.2,
     reset: false,
     callback: function callback(element, state) {
       if (state === 'visible') {

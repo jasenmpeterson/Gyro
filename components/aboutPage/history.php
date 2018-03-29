@@ -587,7 +587,7 @@
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="14" data-date="2006">
+    <div class="history__chart__content" data-content="14" data-date="2014">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">

@@ -18,11 +18,7 @@ wp_footer();
                 </div>
                 <div class="col">
                     <a href="#">Code of Conduct</a>
-                </div>
-                <div class="col">
                     <a href="#">Terms and Conditions</a>
-                </div>
-                <div class="col">
                     <a href="#">Site Map</a>
                 </div>
             </div>
