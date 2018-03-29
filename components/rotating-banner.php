@@ -25,6 +25,9 @@ if ($query->have_posts() ) : ?>
                 <div class="col">
                     <div class="content__wrap">
                         <h1 data-banner-splitting-chars style="--word-total:1; --char-total:5;"><?php echo $content['header']; ?></h1>
+                        <?php if (!empty($content['paragraph'])): ?>
+                        <div data-banner-splitting-chars style="--word-total:1; --char-total:5; margin-bottom: 15px;"><?php echo $content['paragraph']; ?></div>
+                        <?php endif; ?>
                         <a href="<?php echo $page_link; ?>" class="button" data-text="Learn More"><span>Learn more</span></a>
                     </div>
                 </div>

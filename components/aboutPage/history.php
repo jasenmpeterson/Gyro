@@ -1,5 +1,5 @@
 <section class="our__history about__page history__chart" data-emergence="hidden">
-    <section class="date"><h1 class="title">1982</h1></section>
+    <section class="date"><h1 class="title">1980</h1></section>
 	<div class="svg__wrap">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="2316.999 3222.411 1561.501 783.277">
             <g id="Group_185" data-name="Group 185" transform="translate(2327.3 3222.411)">
@@ -429,7 +429,7 @@
             </g>
         </svg>
 	</div>
-    <div class="history__chart__content active" data-content="0" data-date="1982">
+    <div class="history__chart__content active" data-content="0" data-date="1980">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
@@ -443,98 +443,114 @@
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>Gyroscopic Survey</h2>
+                    <p>First commercial gyroscopic survey run</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="2" data-date="1984">
+    <div class="history__chart__content" data-content="2" data-date="1988">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>GEMS</h2>
+                    <p>Gyrodata introduces the Gyrodata Electronic Magnetic Surveyor (GEMS) tool.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="3" data-date="1985">
+    <div class="history__chart__content" data-content="3" data-date="1989">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>Gyro Steering</h2>
+                    <p>Gyroscopic Steering tool introduced.</p>
+                    <h2>Slimhole Gyros</h2>
+                    <p>The slimhole gyro system (1 3/4") is introduced.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="4" data-date="1986">
+    <div class="history__chart__content" data-content="4" data-date="1997">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>RGS DP</h2>
+                    <p>Drop gyroscopic systems (RGS DP) introduced.</p>
+                    <h2>ALC</h2>
+                    <p>Gyrodata introduces the Advanced Logging Combination tools (ALC).</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="5" data-date="1987">
+    <div class="history__chart__content" data-content="5" data-date="2002">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>RSS</h2>
+                    <p>Launch of the Well-Guide RSS 10" tool.</p>
+                    <h2>GWD</h2>
+                    <p>Introduction of the Gyro-Guide GWD system.</p>
+                    <h2>Monitor SWD</h2>
+                    <p>Introduction of the Monitor SWD system.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="6" data-date="1988">
+    <div class="history__chart__content" data-content="6" data-date="2003">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>RSS</h2>
+                    <p>Well-Guide RSS 10" first run in the United States.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="7" data-date="1999">
+    <div class="history__chart__content" data-content="7" data-date="2006">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>7" RSS</h2>
+                    <p>The Well-Guide RSS 7" tool is introduced.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="8" data-date="2000">
+    <div class="history__chart__content" data-content="8" data-date="2008">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>GWD EM</h2>
+                    <p>Gyro-Guide GWD gains onboard EM telemetry.</p>
+                    <h2>Gryoscopes</h2>
+                    <p>Gyrodata starts in house manufacturing of specially designed gyroscopes.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="9" data-date="2001">
+    <div class="history__chart__content" data-content="9" data-date="2009">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>CAAT</h2>
+                    <p>The Continuous All-Attitude Tool (CAAT) is introduced.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="10" data-date="2002">
+    <div class="history__chart__content" data-content="10" data-date="2010">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>MXY Gyro</h2>
+                    <p>The MXY gyroscope is introduced. This gyroscope is the first fully in house manufactured gyroscope specifically designed for the Oil & Gas industry.</p>
+                    <h2>GyroDrill Motors</h2>
+                    <p>Introduction of our in house designed and produced GyroDrill Mud Motors. </p>
+                    <h2>GWD40</h2>
+                    <p>Gyro-Guide GWD40 is introduced, bringing along survey capability of up to 40 degrees of inclination.</p>
+                    <h2>GWD70</h2>
+                    <p>Hot on the heels of the Gyro-Guide GWD40, Gyrodata introduces the Gyro-Guide GWD70, which raises the inclination limit to 70 degrees.</p>
                 </div>
             </div>
         </div>
@@ -549,22 +565,24 @@
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="12" data-date="2004">
+    <div class="history__chart__content" data-content="12" data-date="2011">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>New Corporate HQ</h2>
+                    <p>Construction started in 2010, and in 2011, we moved into our new global corporate HQ in Houston, TX. Our new facilities provided us with about 10 times the space, which is filling up fast!</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="history__chart__content" data-content="13" data-date="2005">
+    <div class="history__chart__content" data-content="13" data-date="2013">
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>GWD90</h2>
+                    <p>The Gyro-Guide GWD90 is introduced, allowing for all-attitude GWD surveys. </p>
+                    <h2>Smart Well-Guide</h2>
+                    <p>Gyrodata introduces the Smart Well-Guide 4¾" RSS tool. </p>
                 </div>
             </div>
         </div>
@@ -573,8 +591,8 @@
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
+                    <h2>Micro-Guide</h2>
+                    <p>Gyrodata introduces the Micro-Guide service, allowing customers to get a highly accurate picture of possible micro doglegs in the wellbore. This service is highly important when determining the optimal placement of Artificial Lift Assemblies.</p>
                 </div>
             </div>
         </div>

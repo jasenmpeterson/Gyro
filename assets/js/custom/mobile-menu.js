@@ -27,6 +27,7 @@ let mobileClickEvent = (e) => {
                 })
             }
         });
+        parent.classList.add("open");
         subMenu.classList.add("active");
     } else {
         if(!subMenu.classList.contains("child__sub__menu")) {
@@ -39,6 +40,7 @@ let mobileClickEvent = (e) => {
                     })
                 }
             });
+            parent.classList.remove("open");
             subMenu.classList.remove("active");
         }
     }

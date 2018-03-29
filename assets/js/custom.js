@@ -3008,7 +3008,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       prevNextButtons: false,
       pageDots: true,
       selectedAttraction: 0.01,
-      friction: 0.15
+      friction: 0.15,
+      adaptiveHeight: true
     });
   }
 
@@ -3156,6 +3157,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       (function () {
         var loadLocations = function loadLocations(region) {
           var buttonsWrap = document.querySelector(".locations__button__wrap.cities");
+          buttonsWrap.innerHTML = "";
           buttonsWrap.innerHTML += '\n                ' + locations.map(function (location) {
             return location.region === region ? '<h4>' + location.name + '</h4>' + location.cities.map(function (location) {
               return '<button class="location__button maps__button" data-name="' + location.name + '" data-region="' + location.region + '" data-lat="' + location.latitude + '" data-lng="' + location.longitude + '">' + location.name + '</button> ';
@@ -3214,22 +3216,27 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var loader = document.querySelector(".location__module .loader");
         var weatherModule = document.querySelector(".weather__container");
         var icon = {
-          url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
-          scaledSize: new google.maps.Size(20, 20) // scaled size
+          url: '/wp-content/themes/gyro/assets/images/raw/map_marker_b.svg',
+          scaledSize: new google.maps.Size(12, 12) // scaled size
         };
         var map = new google.maps.Map(el, {
           center: myLatLng,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           zoom: 3,
           styles: [{
+            "elementType": "geometry",
+            "stylers": [{
+              "color": "#212121"
+            }]
+          }, {
+            "elementType": "geometry.fill",
+            "stylers": [{
+              "color": "#6b767f"
+            }]
+          }, {
             "elementType": "labels",
             "stylers": [{
               "visibility": "off"
-            }]
-          }, {
-            "elementType": "geometry",
-            "stylers": [{
-              "color": "#f5f5f5"
             }]
           }, {
             "elementType": "labels.icon",
@@ -3237,26 +3244,44 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               "visibility": "off"
             }]
           }, {
-            "elementType": "labels.text.fill",
-            "stylers": [{
-              "color": "#616161"
-            }]
-          }, {
             "elementType": "labels.text.stroke",
             "stylers": [{
-              "color": "#f5f5f5"
+              "color": "#212121"
+            }]
+          }, {
+            "featureType": "administrative",
+            "elementType": "geometry",
+            "stylers": [{
+              "color": "#757575"
+            }, {
+              "visibility": "off"
+            }]
+          }, {
+            "featureType": "administrative.country",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+              "color": "#9e9e9e"
             }]
           }, {
             "featureType": "administrative.land_parcel",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          }, {
+            "featureType": "administrative.locality",
             "elementType": "labels.text.fill",
             "stylers": [{
               "color": "#bdbdbd"
             }]
           }, {
-            "featureType": "poi",
-            "elementType": "geometry",
+            "featureType": "administrative.neighborhood",
             "stylers": [{
-              "color": "#eeeeee"
+              "visibility": "off"
+            }]
+          }, {
+            "featureType": "poi",
+            "stylers": [{
+              "visibility": "off"
             }]
           }, {
             "featureType": "poi",
@@ -3268,67 +3293,95 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "featureType": "poi.park",
             "elementType": "geometry",
             "stylers": [{
-              "color": "#e5e5e5"
+              "color": "#181818"
             }]
           }, {
             "featureType": "poi.park",
-            "elementType": "labels.text.fill",
-            "stylers": [{
-              "color": "#9e9e9e"
-            }]
-          }, {
-            "featureType": "road",
-            "elementType": "geometry",
-            "stylers": [{
-              "color": "#ffffff"
-            }]
-          }, {
-            "featureType": "road.arterial",
-            "elementType": "labels.text.fill",
-            "stylers": [{
-              "color": "#757575"
-            }]
-          }, {
-            "featureType": "road.highway",
-            "elementType": "geometry",
-            "stylers": [{
-              "color": "#dadada"
-            }]
-          }, {
-            "featureType": "road.highway",
             "elementType": "labels.text.fill",
             "stylers": [{
               "color": "#616161"
             }]
           }, {
+            "featureType": "poi.park",
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+              "color": "#1b1b1b"
+            }]
+          }, {
+            "featureType": "road",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          }, {
+            "featureType": "road",
+            "elementType": "geometry.fill",
+            "stylers": [{
+              "color": "#2c2c2c"
+            }]
+          }, {
+            "featureType": "road",
+            "elementType": "labels.icon",
+            "stylers": [{
+              "visibility": "off"
+            }]
+          }, {
+            "featureType": "road",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+              "color": "#8a8a8a"
+            }]
+          }, {
+            "featureType": "road.arterial",
+            "elementType": "geometry",
+            "stylers": [{
+              "color": "#373737"
+            }]
+          }, {
+            "featureType": "road.highway",
+            "elementType": "geometry",
+            "stylers": [{
+              "color": "#3c3c3c"
+            }]
+          }, {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry",
+            "stylers": [{
+              "color": "#4e4e4e"
+            }]
+          }, {
             "featureType": "road.local",
             "elementType": "labels.text.fill",
             "stylers": [{
-              "color": "#9e9e9e"
+              "color": "#616161"
             }]
           }, {
-            "featureType": "transit.line",
-            "elementType": "geometry",
+            "featureType": "transit",
             "stylers": [{
-              "color": "#e5e5e5"
+              "visibility": "off"
             }]
           }, {
-            "featureType": "transit.station",
-            "elementType": "geometry",
+            "featureType": "transit",
+            "elementType": "labels.text.fill",
             "stylers": [{
-              "color": "#eeeeee"
+              "color": "#757575"
             }]
           }, {
             "featureType": "water",
             "elementType": "geometry",
             "stylers": [{
-              "color": "#c9c9c9"
+              "color": "#000000"
+            }]
+          }, {
+            "featureType": "water",
+            "elementType": "geometry.fill",
+            "stylers": [{
+              "color": "#5a6771"
             }]
           }, {
             "featureType": "water",
             "elementType": "labels.text.fill",
             "stylers": [{
-              "color": "#9e9e9e"
+              "color": "#3d3d3d"
             }]
           }]
         });
@@ -3337,34 +3390,55 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           region: "North America",
           cities: [{
             name: "Houston, TX",
-            latitude: 29.76328,
-            longitude: -95.36327,
+            latitude: 29.936193,
+            longitude: -95.655899,
             region: "North America",
             contact: {
-              name: "GyroData Global - North American Headquarters",
-              street: "4245 Cadillac Lane",
+              name: "GyroData Global - North & Latin American Headquarters",
+              street: "23000 Northwest Lake Drive",
               city: "Houston, TX",
-              zip: "77581",
-              tel: "911",
-              fax: "911"
+              zip: "77095",
+              tel: "+1 281 213 6300",
+              fax: " +1 281 213 6301"
             }
-          }, {
-            name: "Miami, FL",
-            latitude: 25.77427,
-            longitude: -80.193667,
-            region: "North America",
+          }]
+        }, {
+          name: "",
+          region: "Asia & Middle East",
+          cities: [{
+            name: "Kuala Lumpur, Malaysia",
+            latitude: 3.163308,
+            longitude: 101.711744,
+            region: "Asia & Middle East",
             contact: {
-              name: "GyroData Global - North American Headquarters",
-              street: "4245 Cadillac Lane",
-              city: "Miami, FL",
-              zip: "77581",
-              tel: "911",
-              fax: "911"
+              name: "GyroData Global - Asia & Middle East Headquarters",
+              street: "Suite 20.02, Level 20, Integra Tower 348, Jalan Tun Razak",
+              city: "Kuala Lumpur, Malaysia",
+              zip: "50400",
+              tel: "+60 32713 3622",
+              fax: "+60 32713 3722"
+            }
+          }]
+        }, {
+          name: "",
+          region: "Europe, Africa & Caspian",
+          cities: [{
+            name: "Scotland, United Kingdom",
+            latitude: 57.177927,
+            longitude: -2.110487,
+            region: "Europe, Africa & Caspian",
+            contact: {
+              name: "GyroData Global - Europe, Africa & Caspian Headquarters",
+              street: "Campus Three\n" + "Balgownie Drive, Bridge of Don\n" + "Aberdeen, AB22 8GW",
+              city: "Scotland, United Kingdom",
+              zip: "AB22 8GW",
+              tel: "+44 1224 823060",
+              fax: "+44 1224 826021"
             }
           }]
         }];
 
-        var regions = [{ name: "North America", latitude: 54.525961, longitude: -105.255119 }, { name: "Asia & Middle East", latitude: 34.047863, longitude: 100.619655 }, { name: "Europe, Africa & Caspian", latitude: 54.525961, longitude: 15.255119 }, { name: "Latin America", latitude: -4.442039, longitude: -61.326854 }];
+        var regions = [{ name: "North America", latitude: 54.525961, longitude: -105.255119 }, { name: "Asia & Middle East", latitude: 34.047863, longitude: 100.619655 }, { name: "Europe, Africa & Caspian", latitude: 54.525961, longitude: 15.255119 }];
 
         var regionsModule = document.querySelector(".location__module.regions .regions__wrap");
 
@@ -3375,6 +3449,36 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         try {
           for (var _iterator3 = locations[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
             var location = _step3.value;
+
+            var _loop = function _loop(city) {
+              var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(city.latitude, city.longitude),
+                map: map,
+                icon: icon,
+                title: city.name,
+                region: city.region,
+                optimized: false
+              });
+              var infoWindow = new google.maps.InfoWindow({
+                content: city.name
+              });
+              marker.addListener("click", function () {
+                infoWindow.open(map, this);
+                map.setZoom(5);
+                map.setCenter(marker.getPosition());
+                setTemp(parseInt(marker.getPosition().lat()), parseInt(marker.getPosition().lng()), marker.title, marker.region);
+                locationsModule.classList.add("active");
+                document.querySelector(".region__title").innerHTML = marker.region;
+                loadLocations(marker.region);
+                setContact(marker.title);
+                localModule.classList.add("active");
+                marker.setIcon({
+                  url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
+                  scaledSize: new google.maps.Size(30, 30)
+                });
+              });
+            };
+
             var _iteratorNormalCompletion6 = true;
             var _didIteratorError6 = false;
             var _iteratorError6 = undefined;
@@ -3383,26 +3487,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               for (var _iterator6 = location.cities[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
                 var city = _step6.value;
 
-                var marker = new google.maps.Marker({
-                  position: new google.maps.LatLng(city.latitude, city.longitude),
-                  map: map,
-                  icon: icon,
-                  title: city.name,
-                  region: city.region
-                });
-                // marker.addListener("click", function () {
-                //     map.setZoom(5);
-                //     map.setCenter(marker.getPosition());
-                //     setTemp(parseInt(marker.getPosition().lat()),parseInt(marker.getPosition().lng()), marker.title, marker.region);
-                //     locationsModule.classList.add("active");
-                //     document.querySelector(".region__title").innerHTML = marker.region;
-                //     loadLocations(marker.region);
-                //     localModule.classList.add("active");
-                //     // marker.setIcon({
-                //     //     url: '/wp-content/themes/gyro/assets/images/raw/map_marker.svg',
-                //     //     scaledSize: new google.maps.Size(30, 30)
-                //     // })'
-                // });
+                _loop(city);
               }
             } catch (err) {
               _didIteratorError6 = true;
@@ -3466,7 +3551,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             return location.cities.map(function (currentCity) {
               return currentCity.contact.city === city ? '<h4>' + currentCity.contact.name + '</h4><address><p>' + currentCity.contact.street + '</p><p>' + currentCity.contact.city + ' ' + currentCity.contact.zip + '</p><p>Tel: ' + currentCity.contact.tel + '</p><p>Fax: ' + currentCity.contact.fax + '</p></address> ' : "";
             }).join('');
-          });
+          }).join('');
           contactModule.classList.add("active");
         };
 
@@ -7958,7 +8043,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   var circleDeselect = function circleDeselect() {
     var activeCircles = document.querySelectorAll(".our__history circle.animated");
 
-    var _loop = function _loop(circle) {
+    var _loop2 = function _loop2(circle) {
       anime.remove(circle);
       anime({
         targets: circle,
@@ -7978,7 +8063,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       for (var _iterator7 = activeCircles[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
         var circle = _step7.value;
 
-        _loop(circle);
+        _loop2(circle);
       }
       // previous content section
     } catch (err) {
@@ -8135,6 +8220,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           });
         }
       });
+      parent.classList.add("open");
       subMenu.classList.add("active");
     } else {
       if (!subMenu.classList.contains("child__sub__menu")) {
@@ -8147,6 +8233,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             });
           }
         });
+        parent.classList.remove("open");
         subMenu.classList.remove("active");
       }
     }

@@ -314,9 +314,14 @@
   width: 50%;
 }
 
+.history__chart .content__wrap {
+  position: relative;
+  top: 30px;
+}
+
 .history__chart__content {
   position: absolute;
-  bottom: 45%;
+  top: 400px;
   left: 0;
   right: 0;
   margin: auto;
