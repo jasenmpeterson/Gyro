@@ -873,6 +873,13 @@ input.search {
   transition-delay: 100ms;
 }
 
+.mobile__menu {
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 .mobile__menu .sub__menu__grandchild__title,
 .mobile__menu .parent__nav__item a,
 .mobile__menu .sub__menu__title,
