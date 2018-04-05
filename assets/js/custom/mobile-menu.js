@@ -1,11 +1,9 @@
 let hamburgerMenu = document.querySelector(".hamburger__menu");
 let hamburgerMenuClose = document.querySelector(".mobile__close__button .circle");
 let mobileMenu = document.querySelector(".mobile__menu");
-let mobileMenuParent = document.querySelectorAll(".mobile__menu li.menu-item-has-children");
+let mobileMenuParent = document.querySelectorAll(".mobile__menu li span");
 
 hamburgerMenu.addEventListener( "click", () => {
-    // let hamburgerMenuBar = document.querySelector(".hamburger__menu .bar");
-    // hamburgerMenuBar.classList.toggle("animate");
     mobileMenu.classList.add("open");
 });
 
@@ -15,22 +13,50 @@ hamburgerMenuClose.addEventListener( "click", () => {
 
 let mobileClickEvent = (e) => {
     let parent = e.target.parentNode;
-    let subMenu = parent.querySelector(".sub__menu");
-    if(!subMenu.classList.contains("active")) {
-        TweenMax.set(subMenu, {height: "auto"});
-        TweenMax.from(subMenu, 0.2, {
-            height: 0,
-            onComplete: function () {
-                TweenMax.to(subMenu, 0.2, {
-                    autoAlpha: 1,
-                    backgroundColor: "#f4f4f4"
-                })
-            }
-        });
-        parent.classList.add("open");
-        subMenu.classList.add("active");
+    if(parent.classList.contains("parent__nav__item")) {
+        let subMenu = parent.querySelector(".sub__menu.parent__sub__menu");
+        if(!subMenu.classList.contains("active")) {
+            TweenMax.set(subMenu, {height: "auto"});
+            TweenMax.from(subMenu, 0.2, {
+                height: 0,
+                onComplete: function () {
+                    TweenMax.to(subMenu, 0.2, {
+                        autoAlpha: 1,
+                        backgroundColor: "#f4f4f4"
+                    })
+                }
+            });
+            parent.classList.add("open");
+            subMenu.classList.add("active");
+        } else {
+            TweenMax.to(subMenu, 0.2, {
+                autoAlpha: 0,
+                backgroundColor: "transparent",
+                onComplete: function () {
+                    TweenMax.to(subMenu, 0.2, {
+                        height: 0,
+                    })
+                }
+            });
+            parent.classList.remove("open");
+            subMenu.classList.remove("active");
+        }
     } else {
-        if(!subMenu.classList.contains("child__sub__menu")) {
+        let subMenu = parent.querySelector(".sub__menu.child__sub__menu");
+        if(!subMenu.classList.contains("active")) {
+            TweenMax.set(subMenu, {height: "auto"});
+            TweenMax.from(subMenu, 0.2, {
+                height: 0,
+                onComplete: function () {
+                    TweenMax.to(subMenu, 0.2, {
+                        autoAlpha: 1,
+                        backgroundColor: "#f4f4f4"
+                    })
+                }
+            });
+            parent.classList.add("open");
+            subMenu.classList.add("active");
+        } else {
             TweenMax.to(subMenu, 0.2, {
                 autoAlpha: 0,
                 backgroundColor: "transparent",

@@ -5,7 +5,11 @@
  * Date: 3/27/18
  * Time: 10:49 AM
  */
-$staticBanner = new \staticBanner\staticBanner(69, 'static_banner');
+
+global $post;
+$postID = $post->ID;
+
+$staticBanner = new \staticBanner\staticBanner('tech_solutions',$postID, 'static_banner');
 $banner = $staticBanner->DisplayStaticBanner();
 ?>
 <section class="static__banner">

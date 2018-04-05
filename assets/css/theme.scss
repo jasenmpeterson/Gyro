@@ -150,12 +150,7 @@ $nav-padding: 20px;
 
 .primary_nav ul span,
 .primary_nav a {
-  @media screen and (min-width: 1440px) {
-    font-size: 16px;
-  }
-  @media screen and (min-width: 1100px) {
-    font-size: 14px;
-  }
+  font-size: 14px;
 }
 
 .primary_nav li.menu-item-has-children {
@@ -175,6 +170,14 @@ $nav-padding: 20px;
   transform: translateY(25px);
   pointer-events: none;
   z-index: -1;
+}
+
+.primary_nav ul.parent__sub__menu > li.child__nav__item > a {
+  padding: 15px;
+  color: #747d86;
+}
+.primary_nav ul.parent__sub__menu > li.child__nav__item > a:hover {
+  color: #fff;
 }
 
 .primary_nav .nav__wrap li.parent__nav__item:hover .parent__sub__menu {
@@ -220,23 +223,19 @@ $nav-padding: 20px;
   padding-left: 35px;
 }
 
-.primary_nav .child__nav__item:not(.menu-item-has-children) {
+.primary_nav .child__nav__item:not(.menu-item-has-children):not(:last-child) {
   border-bottom: 1px solid rgba(0,0,0,.05);
-
 }
 
 .primary_nav .child__nav__item:not(.menu-item-has-children) > a {
   color: $color-red;
   transition: all 300ms ease-out;
+  padding-left: 25px;
 }
 
 .primary_nav .sub__menu > li > a:hover {
-  background-color: #4a525b;;
+  background-color: #4a525b;
   color: #ffffff;
-}
-
-.primary_nav .sub__menu > li:last-child {
-  border-bottom: 0;
 }
 
 .primary_nav .sub__menu {
@@ -244,13 +243,14 @@ $nav-padding: 20px;
   padding: 0;
 }
 
-.primary_nav .sub__menu__title {
-  font-size: 18px;
-  margin: 15px 0;
+.primary_nav .sub__menu span.sub__menu__title {
+  margin: 0;
+  padding: 15px;
+  background-color: #eee;
 }
 
 .primary_nav .sub__menu__child__title {
-  padding: 20px;
+  padding: 20px 20px 20px 25px;
   color: $color-red;
   border-bottom: 1px solid rgba(0,0,0,.05);
   position: relative;
@@ -260,7 +260,7 @@ $nav-padding: 20px;
   padding-left: 35px;
   background-color: transparent;
   color:#747d86;
-  border-bottom: 0;
+  border-bottom: none;
 }
 
 .primary_nav .sub__menu__grandchild__title ~ ul.child__sub__menu li:first-child {
@@ -272,7 +272,7 @@ $nav-padding: 20px;
   margin-bottom: 8px;
   background-color: transparent;
   color: #747d86;
-  border-bottom: 0;
+  border-bottom: none;
 }
 
 .primary_nav .sub__menu__grandchild__title ~ ul.child__sub__menu li a,
@@ -790,11 +790,17 @@ input.search {
   color: #ffffff;
 }
 
-.mobile__menu li ul.parent__sub__menu {
+.mobile__menu li ul.parent__sub__menu,
+.mobile__menu li ul.child__sub__menu {
   opacity: 0;
   height: 0;
-  pointer-events: none;
+   pointer-events: none;
 }
+
+.mobile__menu .sub__menu__title {
+  background-color: #eee; 
+}
+
 
 .mobile__menu li ul.active {
   pointer-events: auto;
@@ -871,13 +877,31 @@ input.search {
 .mobile__menu .parent__nav__item a,
 .mobile__menu .sub__menu__title,
 .mobile__menu .sub__menu__child__title {
-  padding: 20px 40px;
   font-size: 14px;
   display: block;
 }
 
+.mobile__menu .sub__menu__grandchild__title {
+  padding: 20px 40px;
+}
+
+.mobile__menu .parent__nav__item a {
+  padding-left: 45px;
+}
+
+.mobile__menu .sub__menu__title {
+  padding: 20px 40px;
+}
+
+.mobile__menu .sub__menu__child__title {
+  color: $color-red;
+  padding: 20px 40px 20px 50px;
+  background-color: #fff;
+}
+
+
 .mobile__menu .sub__menu .child__sub__menu li a {
-  padding-left: 50px;
+  padding-left: 60px;
 }
 
 .mobile__menu li.parent__nav__item:before {
@@ -897,7 +921,7 @@ input.search {
   color: #ffffff;
 }
 
-.mobile__menu .parent__nav__item > span:before {
+.mobile__menu .parent__nav__item span:before {
   content: "+";
   color: #4a525b;
   display: flex;
@@ -914,11 +938,18 @@ input.search {
   transition: all 300ms ease-out;
 }
 
-.mobile__menu .parent__nav__item.open > span:before {
-  color: #fff;
+.mobile__menu .parent__nav__item.open > span:before,
+.mobile__menu .child__nav__item.open > span:before {
   transform: rotate(45deg);
 }
 
+.mobile__menu .parent__nav__item.open > span:before {
+  color: #fff;
+}
+
+.mobile__menu .child__nav__item.open > span:before {
+  color: $color-red;
+}
 // rotating banner
 
 .rotating__banner {
@@ -1478,6 +1509,10 @@ footer a {
   display: inline-block;
 }
 
+footer a:not(:last-child) {
+  margin-right: 15px;
+}
+
 footer .row {
   align-items: center;
 }
@@ -1596,3 +1631,4 @@ td {
 @import "locations/locations";
 @import "interiorPage/interiorPage";
 @import "newsroom/newsrooms";
+@import "categoryPage/categoryPage";

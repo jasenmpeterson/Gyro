@@ -1,8 +1,10 @@
 <?php
+global $post;
+$postID = $post->ID;
 $query = new WP_Query(
 	array(
-		'post_type' => 'page',
-		'p' => 69
+		'post_type' => 'tech_solutions',
+		'p' => $postID
 	)
 );
 if ($query->have_posts() ) :

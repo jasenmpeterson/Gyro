@@ -12,8 +12,7 @@ for(let drillDown of drillDownButton) {
                 onComplete: function () {
                     TweenMax.to(subMenu, 0.2, {
                         autoAlpha: 1,
-                        backgroundColor: "#f4f4f4",
-                        paddingBottom: 10
+                        backgroundColor: "#f4f4f4"
                     })
                 }
             });
@@ -23,7 +22,6 @@ for(let drillDown of drillDownButton) {
             TweenMax.to(subMenu, 0.2, {
                 autoAlpha: 0,
                 backgroundColor: "transparent",
-                paddingBottom: 0,
                 onComplete: function () {
                     TweenMax.to(subMenu, 0.2, {
                         height: 0,

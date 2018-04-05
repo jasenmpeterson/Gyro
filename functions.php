@@ -100,3 +100,9 @@ add_theme_support( 'post-thumbnails' );
 // Custom Walker
 
 include("walker.php");
+
+// Custom Excerpt Length
+
+function excerpt($content, $limit) {
+	return wp_trim_words($content, $limit);
+}

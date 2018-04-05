@@ -11,17 +11,19 @@ namespace staticBanner;
 
 class staticBanner {
 	public $post_id;
+	public $post_type;
 	public $acf_field;
 	public $banner;
 
-	function __construct($PostID, $acfField) {
+	function __construct($PostType, $PostID, $acfField) {
 		$this->post_id = $PostID;
 		$this->acf_field = $acfField;
+		$this->post_type = $PostType;
 	}
 	function DisplayStaticBanner() {
 		$query = new \WP_Query(
 			array(
-				'post_type' => 'page',
+				'post_type' => (!empty($this->post_type) ? $this->post_type : 'page'),
 				'p' => $this->post_id
 			)
 		);

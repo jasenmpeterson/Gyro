@@ -5,7 +5,7 @@
  * Date: 3/27/18
  * Time: 10:49 AM
  */
-$staticBanner = new \staticBanner\staticBanner(20, 'static_banner');
+$staticBanner = new \staticBanner\staticBanner(null,20, 'static_banner');
 $banner = $staticBanner->DisplayStaticBanner();
 ?>
 <section class="static__banner">
