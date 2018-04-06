@@ -8,7 +8,7 @@
 $query = new WP_Query(
         array(
                 'post_type' => 'page',
-                'p' => 134
+                'p' => 22
         )
 );
 if ($query->have_posts() ) : ?>

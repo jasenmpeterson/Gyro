@@ -3260,6 +3260,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         };
         var map = new google.maps.Map(el, {
           center: myLatLng,
+          disableDefaultUI: true,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           zoom: 3,
           styles: [{

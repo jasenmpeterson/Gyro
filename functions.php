@@ -15,6 +15,8 @@ remove_action('wp_head', 'wp_generator');
 
 include('classes/contentSlider.php');
 include('classes/staticBanner.php');
+include('classes/rotatingBanner.php');
+include('components/home/homePageClass.php');
 
 // ENQUEUE STYLES
 

@@ -2,21 +2,21 @@
 /**
  * Created by IntelliJ IDEA.
  * User: jasen
- * Date: 3/27/18
- * Time: 10:45 AM
+ * Date: 4/6/18
+ * Time: 10:32 AM
  */
 
-namespace contentSlider;
+namespace rotatingBanner;
 
 
-class contentSlider {
+class rotatingBanner {
 	public $post_id;
-	public  $content_slider;
+	public  $rotating__banner;
 
 	function __construct($PostID) {
 		$this->post_id = $PostID;
 	}
-	function DisplayContentSlider() {
+	function DisplayRotatingBanner() {
 		$query =  new \WP_Query(
 			array(
 				'post_type' => 'page',
@@ -25,20 +25,19 @@ class contentSlider {
 		);
 		if ( $query->have_posts() ) :
 			while ( $query->have_posts() ) : $query->the_post();
-				$slider = get_field( "content_slider" );
+				$slider = get_field( "rotating_banner_content" );
 				$i      = 0;
 				foreach ( $slider as $slide ) {
-					$this->content_slider[ $i ++ ] = array(
-						'image'     => $slide['image'],
-						'title'     => $slide['title'],
-						'label'     => $slide['label'],
+					$this->rotating__banner[ $i ++ ] = array(
+						'image'     => $slide['featured_image'],
 						'header'    => $slide['header'],
-						'paragraph' => $slide['paragraph']
+						'paragraph' => $slide['paragraphs'],
+						'link'  => $slide['learn_more_button']
 					);
 				}
 			endwhile;
 		endif;
 
-		return $this->content_slider;
+		return $this->rotating__banner;
 	}
 }

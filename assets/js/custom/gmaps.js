@@ -24,6 +24,7 @@ GoogleMapsLoader.load(function(google) {
         };
         let map = new google.maps.Map(el, {
             center: myLatLng,
+            disableDefaultUI: true,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             zoom: 3,
             styles: [
