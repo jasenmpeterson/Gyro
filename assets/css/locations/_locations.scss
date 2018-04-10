@@ -123,24 +123,12 @@
   opacity: 0;
   z-index: -1;
   transform: translateY(50px);
-  transition: all 400ms ease-out;
 }
 
 .location__module.local {
   position: relative;
 }
 
-.location__module.contact {
-  transition-delay: 200ms;
-}
-
-.location__module.locations.active,
-.location__module.local.active,
-.location__module.contact.active {
-  opacity: 1;
-  z-index: 1;
-  transform: translateY(0);
-}
 
 .location__module.locations,
 .location__module.local {

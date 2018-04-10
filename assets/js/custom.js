@@ -3221,7 +3221,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 map.setCenter({ lat: parseInt(latitude), lng: parseInt(longitude) });
                 setTemp(parseInt(latitude), parseInt(longitude), location, region);
                 setContact(e.target.dataset.name);
-                localModule.classList.add("active");
+                TweenMax.to(localModule, 0.2, {
+                  opacity: 1,
+                  y: 0
+                });
               });
             }
           } catch (err) {
@@ -3252,6 +3255,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var currentDay = dayNames[d.getDay() - 1];
         var locationsModule = document.querySelector(".location__module.locations");
         var localModule = document.querySelector(".location__module.local");
+        var contactModule = document.querySelector(".location__module.contact");
         var loader = document.querySelector(".location__module .loader");
         var weatherModule = document.querySelector(".weather__container");
         var icon = {
@@ -3507,11 +3511,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 map.setZoom(5);
                 map.setCenter(marker.getPosition());
                 setTemp(parseInt(marker.getPosition().lat()), parseInt(marker.getPosition().lng()), marker.title, marker.region);
-                locationsModule.classList.add("active");
+                TweenMax.to(locationsModule, 0.2, {
+                  opacity: 1,
+                  y: 0
+                });
                 document.querySelector(".region__title").innerHTML = marker.region;
                 loadLocations(marker.region);
                 setContact(marker.title);
-                localModule.classList.add("active");
+                TweenMax.to(localModule, 0.2, {
+                  opacity: 1,
+                  y: 0
+                });
                 marker.setIcon({
                   url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
                   scaledSize: new google.maps.Size(30, 30)
@@ -3565,7 +3575,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           fetch(pageParams.themeDirectory + '/api/weather.php?lat=' + lat + '&lng=' + lng).then(function (response) {
             return response.json();
           }).then(function (myJSON) {
-            weatherModule.classList.add("active");
+            TweenMax.to(weatherModule, 0.2, {
+              opacity: 1,
+              y: 0
+            });
             loader.classList.add("inactive");
             currentTemp = Math.round(myJSON.temp);
             currentHumidity = myJSON.humidity + "%";
@@ -3574,9 +3587,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             currentWind = Math.round(myJSON.wind) + " mph";
             currentTime = myJSON.time;
             document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
-            document.querySelector("span.humidity").innerHTML = currentHumidity;
-            document.querySelector("span.precipitation").innerHTML = currentPrecipitation;
-            document.querySelector("span.wind").innerHTML = currentWind;
+            document.querySelector("span.humidity").innerHTML = 'Humidity: ' + currentHumidity;
+            document.querySelector("span.precipitation").innerHTML = 'Precipitation: ' + currentPrecipitation;
+            document.querySelector("span.wind").innerHTML = 'Wind: ' + currentWind;
             document.querySelector("span.day").innerHTML = currentDay + " " + myJSON.time;
             document.querySelector("span.city").innerHTML = location;
             document.querySelector("span.region").innerHTML = region;
@@ -3584,17 +3597,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         };
 
         var setContact = function setContact(city) {
-          var contactModule = document.querySelector(".location__module.contact");
           var module = document.querySelector(".location__module.contact .col");
-          //module.innerHTML =  `${locations.map(location => location.cities.map(currentCity => console.log(currentCity.contact)) ).join('')}`;
           module.innerHTML = '' + locations.map(function (location) {
             return location.cities.map(function (currentCity) {
               return currentCity.contact.city === city ? '<h4>' + currentCity.contact.name + '</h4><address><p>' + currentCity.contact.street + '</p><p>' + currentCity.contact.city + ' ' + currentCity.contact.zip + '</p><p>Tel: ' + currentCity.contact.tel + '</p><p>Fax: ' + currentCity.contact.fax + '</p></address> ' : "";
             }).join('');
           }).join('');
-          contactModule.classList.add("active");
+          TweenMax.to(contactModule, 0.2, {
+            opacity: 1,
+            y: 0
+          });
         };
-
         regionsModule.innerHTML = '<div class="locations__button__wrap">\n        ' + regions.map(function (region) {
           return '<button class="region__button maps__button" data-name="' + region.name + '" data-lat="' + region.latitude + '" data-lng="' + region.longitude + '">' + region.name + '</button>';
         }).join('') + '\n    </div>';
@@ -3609,6 +3622,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             var regionButton = _step5.value;
 
             regionButton.addEventListener("click", function (e) {
+              var weatherModuleContent = weatherModule.querySelectorAll("span");
               var longitude = e.target.dataset.lng;
               var latitude = e.target.dataset.lat;
               var region = e.target.dataset.name;
@@ -3617,9 +3631,47 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               var prevActiveRegion = document.querySelector(".region__button.active");
               prevActiveRegion !== null ? prevActiveRegion.classList.remove("active") : "";
               e.target.classList.add("active");
+              TweenMax.staggerTo([contactModule, localModule], 0.2, {
+                opacity: 0,
+                y: 50
+              }, 0.2, function () {
+                var _iteratorNormalCompletion8 = true;
+                var _didIteratorError8 = false;
+                var _iteratorError8 = undefined;
+
+                try {
+                  for (var _iterator8 = weatherModuleContent[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+                    var span = _step8.value;
+
+                    span.innerHTML = "";
+                  }
+                } catch (err) {
+                  _didIteratorError8 = true;
+                  _iteratorError8 = err;
+                } finally {
+                  try {
+                    if (!_iteratorNormalCompletion8 && _iterator8.return) {
+                      _iterator8.return();
+                    }
+                  } finally {
+                    if (_didIteratorError8) {
+                      throw _iteratorError8;
+                    }
+                  }
+                }
+              });
               if (!document.querySelector(".location__button[data-region='" + region + "']")) {
                 loadLocations(region);
-                locationsModule.classList.add("active");
+                TweenMax.to(locationsModule, 0.2, {
+                  opacity: 0,
+                  y: 20,
+                  onComplete: function onComplete() {
+                    TweenMax.to(locationsModule, 0.2, {
+                      opacity: 1,
+                      y: 0
+                    });
+                  }
+                });
                 var regionTitle = document.querySelector(".region__title h1 span");
                 regionTitle.innerHTML = region;
               }
@@ -8095,28 +8147,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       });
     };
 
-    var _iteratorNormalCompletion8 = true;
-    var _didIteratorError8 = false;
-    var _iteratorError8 = undefined;
+    var _iteratorNormalCompletion9 = true;
+    var _didIteratorError9 = false;
+    var _iteratorError9 = undefined;
 
     try {
-      for (var _iterator8 = activeCircles[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-        var circle = _step8.value;
+      for (var _iterator9 = activeCircles[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+        var circle = _step9.value;
 
         _loop2(circle);
       }
       // previous content section
     } catch (err) {
-      _didIteratorError8 = true;
-      _iteratorError8 = err;
+      _didIteratorError9 = true;
+      _iteratorError9 = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion8 && _iterator8.return) {
-          _iterator8.return();
+        if (!_iteratorNormalCompletion9 && _iterator9.return) {
+          _iterator9.return();
         }
       } finally {
-        if (_didIteratorError8) {
-          throw _iteratorError8;
+        if (_didIteratorError9) {
+          throw _iteratorError9;
         }
       }
     }
@@ -8237,11 +8289,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   var mobileMenuParent = document.querySelectorAll(".mobile__menu li span");
 
   hamburgerMenu.addEventListener("click", function () {
+    TweenMax.to(mobileMenu, 0.3, {
+      opacity: 1,
+      x: 0,
+      ease: Power2.easeIn
+    });
     mobileMenu.classList.add("open");
   });
 
   hamburgerMenuClose.addEventListener("click", function () {
     mobileMenu.classList.remove("open");
+    TweenMax.to(mobileMenu, 0.3, {
+      opacity: 0,
+      x: -100,
+      ease: Power2.easeOut
+    });
   });
 
   var mobileClickEvent = function mobileClickEvent(e) {
@@ -8305,29 +8367,29 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
   };
 
-  var _iteratorNormalCompletion9 = true;
-  var _didIteratorError9 = false;
-  var _iteratorError9 = undefined;
+  var _iteratorNormalCompletion10 = true;
+  var _didIteratorError10 = false;
+  var _iteratorError10 = undefined;
 
   try {
-    for (var _iterator9 = mobileMenuParent[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-      var parent = _step9.value;
+    for (var _iterator10 = mobileMenuParent[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+      var parent = _step10.value;
 
       parent.addEventListener("click", mobileClickEvent);
     }
 
     /***/
   } catch (err) {
-    _didIteratorError9 = true;
-    _iteratorError9 = err;
+    _didIteratorError10 = true;
+    _iteratorError10 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion9 && _iterator9.return) {
-        _iterator9.return();
+      if (!_iteratorNormalCompletion10 && _iterator10.return) {
+        _iterator10.return();
       }
     } finally {
-      if (_didIteratorError9) {
-        throw _iteratorError9;
+      if (_didIteratorError10) {
+        throw _iteratorError10;
       }
     }
   }
@@ -8338,13 +8400,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   // drill down
   var drillDownButton = document.querySelectorAll(".primary_nav .sub__menu__child__title");
 
-  var _iteratorNormalCompletion10 = true;
-  var _didIteratorError10 = false;
-  var _iteratorError10 = undefined;
+  var _iteratorNormalCompletion11 = true;
+  var _didIteratorError11 = false;
+  var _iteratorError11 = undefined;
 
   try {
-    for (var _iterator10 = drillDownButton[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-      var drillDown = _step10.value;
+    for (var _iterator11 = drillDownButton[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+      var drillDown = _step11.value;
 
       drillDown.addEventListener("click", function (e) {
         var parentMenu = e.target;
@@ -8383,16 +8445,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /***/
   } catch (err) {
-    _didIteratorError10 = true;
-    _iteratorError10 = err;
+    _didIteratorError11 = true;
+    _iteratorError11 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion10 && _iterator10.return) {
-        _iterator10.return();
+      if (!_iteratorNormalCompletion11 && _iterator11.return) {
+        _iterator11.return();
       }
     } finally {
-      if (_didIteratorError10) {
-        throw _iteratorError10;
+      if (_didIteratorError11) {
+        throw _iteratorError11;
       }
     }
   }
@@ -8485,13 +8547,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     animateLink("0", target, 0, 0.5);
   }
 
-  var _iteratorNormalCompletion11 = true;
-  var _didIteratorError11 = false;
-  var _iteratorError11 = undefined;
+  var _iteratorNormalCompletion12 = true;
+  var _didIteratorError12 = false;
+  var _iteratorError12 = undefined;
 
   try {
-    for (var _iterator11 = technologyLinks[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-      var link = _step11.value;
+    for (var _iterator12 = technologyLinks[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
+      var link = _step12.value;
 
       link.addEventListener("mouseenter", function (e) {
         enterLink(e.target);
@@ -8503,16 +8565,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /***/
   } catch (err) {
-    _didIteratorError11 = true;
-    _iteratorError11 = err;
+    _didIteratorError12 = true;
+    _iteratorError12 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion11 && _iterator11.return) {
-        _iterator11.return();
+      if (!_iteratorNormalCompletion12 && _iterator12.return) {
+        _iterator12.return();
       }
     } finally {
-      if (_didIteratorError11) {
-        throw _iteratorError11;
+      if (_didIteratorError12) {
+        throw _iteratorError12;
       }
     }
   }

@@ -16,6 +16,7 @@ GoogleMapsLoader.load(function(google) {
         let currentDay = dayNames[d.getDay()-1];
         let locationsModule = document.querySelector(".location__module.locations");
         let localModule = document.querySelector(".location__module.local");
+        let contactModule = document.querySelector(".location__module.contact");
         let loader = document.querySelector(".location__module .loader");
         let weatherModule = document.querySelector(".weather__container");
         let icon = {
@@ -367,11 +368,17 @@ GoogleMapsLoader.load(function(google) {
                     map.setZoom(5);
                     map.setCenter(marker.getPosition());
                     setTemp(parseInt(marker.getPosition().lat()),parseInt(marker.getPosition().lng()), marker.title, marker.region);
-                    locationsModule.classList.add("active");
+                    TweenMax.to(locationsModule, 0.2, {
+                        opacity: 1,
+                        y: 0
+                    });
                     document.querySelector(".region__title").innerHTML = marker.region;
                     loadLocations(marker.region);
                     setContact(marker.title);
-                    localModule.classList.add("active");
+                    TweenMax.to(localModule, 0.2, {
+                        opacity: 1,
+                        y: 0
+                    });
                     marker.setIcon({
                         url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
                         scaledSize: new google.maps.Size(30, 30)
@@ -387,7 +394,10 @@ GoogleMapsLoader.load(function(google) {
                 .then( function (response) {
                     return response.json();
                 }).then(function(myJSON) {
-                        weatherModule.classList.add("active");
+                        TweenMax.to(weatherModule, 0.2, {
+                            opacity: 1,
+                            y: 0
+                        });
                         loader.classList.add("inactive");
                         currentTemp = Math.round(myJSON.temp);
                         currentHumidity = myJSON.humidity + "%";
@@ -396,9 +406,9 @@ GoogleMapsLoader.load(function(google) {
                         currentWind = Math.round(myJSON.wind) + " mph";
                         currentTime = myJSON.time;
                         document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
-                        document.querySelector("span.humidity").innerHTML = currentHumidity;
-                        document.querySelector("span.precipitation").innerHTML = currentPrecipitation;
-                        document.querySelector("span.wind").innerHTML = currentWind;
+                        document.querySelector("span.humidity").innerHTML = 'Humidity: ' + currentHumidity;
+                        document.querySelector("span.precipitation").innerHTML = 'Precipitation: ' + currentPrecipitation;
+                        document.querySelector("span.wind").innerHTML = 'Wind: ' + currentWind;
                         document.querySelector("span.day").innerHTML = currentDay + " " + myJSON.time;
                         document.querySelector("span.city").innerHTML = location;
                         document.querySelector("span.region").innerHTML = region;
@@ -406,13 +416,13 @@ GoogleMapsLoader.load(function(google) {
         };
 
         let setContact = (city) => {
-            let contactModule = document.querySelector(".location__module.contact");
             let module = document.querySelector(".location__module.contact .col");
-            //module.innerHTML =  `${locations.map(location => location.cities.map(currentCity => console.log(currentCity.contact)) ).join('')}`;
             module.innerHTML =  `${locations.map(location => location.cities.map(currentCity => (currentCity.contact.city === city ? `<h4>${currentCity.contact.name}</h4><address><p>${currentCity.contact.street}</p><p>${currentCity.contact.city} ${currentCity.contact.zip}</p><p>Tel: ${currentCity.contact.tel}</p><p>Fax: ${currentCity.contact.fax}</p></address> `  : "")).join('') ).join('')}`;
-            contactModule.classList.add("active");
+            TweenMax.to(contactModule, 0.2, {
+                opacity: 1,
+                y: 0
+            });
         };
-
         regionsModule.innerHTML = `<div class="locations__button__wrap">
         ${regions.map(region => `<button class="region__button maps__button" data-name="${region.name}" data-lat="${region.latitude}" data-lng="${region.longitude}">${region.name}</button>`).join('')}
     </div>`;
@@ -420,6 +430,7 @@ GoogleMapsLoader.load(function(google) {
         let regionButtons = document.querySelectorAll(".region__button");
         for(let regionButton of regionButtons) {
             regionButton.addEventListener("click", (e) => {
+                let weatherModuleContent = weatherModule.querySelectorAll("span");
                 let longitude = e.target.dataset.lng;
                 let latitude = e.target.dataset.lat;
                 let region = e.target.dataset.name;
@@ -428,9 +439,26 @@ GoogleMapsLoader.load(function(google) {
                 let prevActiveRegion = document.querySelector(".region__button.active");
                 (prevActiveRegion !== null) ? prevActiveRegion.classList.remove("active") : "";
                 e.target.classList.add("active");
+                TweenMax.staggerTo([contactModule, localModule], 0.2, {
+                    opacity: 0,
+                    y: 50
+                }, 0.2,  function () {
+                    for(let span of weatherModuleContent) {
+                        span.innerHTML = "";
+                    }
+                });
                 if(!document.querySelector(".location__button[data-region='"+region+"']")) {
                     loadLocations(region);
-                    locationsModule.classList.add("active");
+                    TweenMax.to(locationsModule, 0.2, {
+                        opacity: 0,
+                        y: 20,
+                        onComplete: function () {
+                            TweenMax.to(locationsModule, 0.2, {
+                                opacity: 1,
+                                y: 0
+                            });
+                        }
+                    });
                     let regionTitle = document.querySelector(".region__title h1 span");
                     regionTitle.innerHTML = region;
                 }
@@ -456,7 +484,10 @@ GoogleMapsLoader.load(function(google) {
                     map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
                     setTemp(parseInt(latitude),parseInt(longitude), location, region);
                     setContact(e.target.dataset.name);
-                    localModule.classList.add("active");
+                    TweenMax.to(localModule, 0.2, {
+                        opacity: 1,
+                        y: 0
+                    });
                 });
 
             }

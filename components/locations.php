@@ -24,9 +24,9 @@
                     <span class="temperature span__block"></span>
                 </div>
                 <div class="col">
-                    <p>Precipitation: <span class="precipitation"> </span></p>
-                    <p>Humidity: <span class="humidity"></span></p>
-                    <p>Wind: <span class="wind"></span></p>
+                    <p><span class="precipitation"> </span></p>
+                    <p><span class="humidity"></span></p>
+                    <p><span class="wind"></span></p>
                 </div>
             </div>
         </div>
