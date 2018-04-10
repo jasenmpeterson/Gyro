@@ -3633,7 +3633,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               e.target.classList.add("active");
               TweenMax.staggerTo([contactModule, localModule], 0.2, {
                 opacity: 0,
-                y: 50
+                y: 50,
+                delay: 0.3
               }, 0.2, function () {
                 var _iteratorNormalCompletion8 = true;
                 var _didIteratorError8 = false;
@@ -3664,7 +3665,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 loadLocations(region);
                 TweenMax.to(locationsModule, 0.2, {
                   opacity: 0,
-                  y: 20,
+                  y: 5,
                   onComplete: function onComplete() {
                     TweenMax.to(locationsModule, 0.2, {
                       opacity: 1,

@@ -441,7 +441,8 @@ GoogleMapsLoader.load(function(google) {
                 e.target.classList.add("active");
                 TweenMax.staggerTo([contactModule, localModule], 0.2, {
                     opacity: 0,
-                    y: 50
+                    y: 50,
+                    delay: 0.3
                 }, 0.2,  function () {
                     for(let span of weatherModuleContent) {
                         span.innerHTML = "";
@@ -451,7 +452,7 @@ GoogleMapsLoader.load(function(google) {
                     loadLocations(region);
                     TweenMax.to(locationsModule, 0.2, {
                         opacity: 0,
-                        y: 20,
+                        y: 5,
                         onComplete: function () {
                             TweenMax.to(locationsModule, 0.2, {
                                 opacity: 1,
