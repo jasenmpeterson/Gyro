@@ -13,8 +13,9 @@ if (have_posts()) :
 		<div class="col interior__page__content content__with__sidebar content__contain newsrooms content__with__sidebar single__page__content">
 			<figure class="background__image" style="background: url(<?php echo $image; ?>"></figure>
 			<div class="wrap">
-				<span class="date"><?php echo $date;?></span>
+				<span class="date"><i class="far fa-clock"></i><?php echo $date;?></span>
 				<h1><?php the_title(); ?></h1>
+				<span class="categories">Categories: <?php echo get_the_category_list( ', ' );?></span>
 				<?php the_content(); ?>
 			</div>
 		</div>

@@ -35,4 +35,24 @@
 }
 .single__page__content h1 {
   margin-top: 0;
+  margin-bottom: 15px;
+}
+.single__page__content .date,
+.single__page__content .categories {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.single__page__content .categories {
+  margin-bottom: 25px;
+}
+.single__page__content .date .fa-clock {
+  margin-right: 5px;
+}
+.single__page__content ul,
+.single__page__content ol {
+  padding-left: 35px;
+}
+.single__page__content p img {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10), 0 3px 12px rgba(0, 0, 0, 0.10);
 }

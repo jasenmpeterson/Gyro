@@ -1,6 +1,7 @@
 .category__wrapper h1 {
   font-size: 24px;
-  margin-bottom: 5px;
+  margin-bottom: 0;
+  margin-top: 5px;
 }
 .category__wrapper h1 ~ p {
   margin-top: 0;
@@ -75,7 +76,7 @@
 .category__articles a:hover h1,
 .category__articles a:hover .excerpt,
 .category__articles a:hover .date {
-  transform: translateY(-20px);
+  transform: translateY(-30px);
 }
 .category__articles a:hover h1 {
   transition-delay: 150ms;

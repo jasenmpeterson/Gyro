@@ -6,14 +6,19 @@
   @media screen and (min-width: 1100px) {
     width: 25%;
   }
-
 }
 .col.sidebar.right .content__wrap {
   background-color: transparent;
 }
+.col.sidebar .content__wrap h3 {
+  margin-top: 0;
+}
 .col.sidebar .content__wrap {
   padding: 25px;
   background-color: #F7F7F7;
+}
+.col.sidebar .content__wrap ul {
+  margin-bottom: 0;
 }
 .col.sidebar .content__wrap.contact {
   background-color: #E5E6E6;
