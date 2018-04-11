@@ -344,8 +344,7 @@ GoogleMapsLoader.load(function(google) {
         let regions = [
             { name: "North America", latitude: 54.525961, longitude: -105.255119 },
             { name: "Asia & Middle East", latitude: 34.047863, longitude: 100.619655  },
-            { name: "Europe, Africa & Caspian", latitude: 54.525961, longitude: 15.255119  },
-            // { name: "Latin America", latitude: -4.442039, longitude: -61.326854 }
+            { name: "Europe, Africa & Caspian", latitude: 54.525961, longitude: 15.255119  }
         ];
 
         let regionsModule = document.querySelector(".location__module.regions .regions__wrap");
@@ -372,7 +371,7 @@ GoogleMapsLoader.load(function(google) {
                         opacity: 1,
                         y: 0
                     });
-                    document.querySelector(".region__title").innerHTML = marker.region;
+                    document.querySelector(".region__title h1 span").innerHTML = marker.region;
                     loadLocations(marker.region);
                     setContact(marker.title);
                     TweenMax.to(localModule, 0.2, {
@@ -382,7 +381,7 @@ GoogleMapsLoader.load(function(google) {
                     marker.setIcon({
                         url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
                         scaledSize: new google.maps.Size(30, 30)
-                    })
+                    });
                 });
             }
         }

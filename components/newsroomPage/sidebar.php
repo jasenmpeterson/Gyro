@@ -5,57 +5,20 @@
  * Date: 3/19/18
  * Time: 12:49 PM
  */
+$recentPosts = new \recentPosts\recentPosts(null,null);
+$recentPosts->retrievePosts();
 ?>
 <div class="col sidebar left">
 	<aside>
-		<div class="content__wrap">
-			<ul class="drill__down">
-				<li>
-					<button>Drilling Services</button>
-					<ul class="drill__down__drop__down">
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-					</ul>
-				</li>
-				<li>
-					<button>Wellbore Surveying</button>
-					<ul class="drill__down__drop__down">
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-					</ul>
-				</li>
-				<li>
-					<button>Logging Services</button>
-					<ul class="drill__down__drop__down">
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-					</ul>
-				</li>
-				<li>
-					<button>Value Added Services</button>
-					<ul class="drill__down__drop__down">
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-					</ul>
-				</li>
-				<li>
-					<button>Equipment Rental</button>
-					<ul class="drill__down__drop__down">
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-						<li><a href="#">GyroDrill Performance Motors</a></li>
-					</ul>
-				</li>
-			</ul>
+		<div class="content__wrap recent__posts">
+            <h3>Recent Posts</h3>
+            <ul>
+				<?php
+				if(!empty($recentPosts->output)):
+					echo $recentPosts->output;
+				endif;
+				?>
+            </ul>
 		</div>
 		<div class="content__wrap contact">
 			<h5>Contact Local Support</h5>
