@@ -11,7 +11,6 @@
 	$contentSlider = $homePageClass->displayContentSlider();
 	$technology = $homePageClass->displayTechnology();
 	$history = $homePageClass->displayHistory();
-
 	if(!empty($banner)):
 ?>
 

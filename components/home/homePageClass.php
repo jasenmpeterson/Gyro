@@ -29,7 +29,8 @@ class homePageClass {
 			$this->main_banner[$i++] = array(
 				'image'     => $slide['image'],
 				'header'    => $slide['header'],
-				'paragraph' => $slide['paragraph']
+				'paragraph' => $slide['paragraph'],
+				'link' => $slide['learn_more_button']
 			);
 		}
 

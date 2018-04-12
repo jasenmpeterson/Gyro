@@ -26,6 +26,7 @@
 }
 .single__page__content .wrap {
   padding: 35px;
+  position: relative;
 }
 .single__page .background__image {
   width: 100%;
@@ -55,4 +56,25 @@
 }
 .single__page__content p img {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10), 0 3px 12px rgba(0, 0, 0, 0.10);
+}
+ul.social__media__module {
+  position: absolute;
+  width: 48px;
+  border-radius: 2px;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  background-color: #fff;
+  padding: 15px;
+  margin: 0;
+  box-shadow: -1px 5px 15px rgba(0, 0, 0, 0.05) inset;
+  border: 1px solid rgba(0,0,0,0.08);
+  list-style-type: none;
+  transition: all 350ms ease-out;
+}
+.social__media__module li {
+  text-align: center;
+}
+.social__media__module li  a {
+  display: block;
 }

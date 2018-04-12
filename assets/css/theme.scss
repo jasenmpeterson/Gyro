@@ -1259,6 +1259,10 @@ input.search {
   background: none;
 }
 
+.button:hover {
+  color: inherit;
+}
+
 .button > span {
   vertical-align: middle;
   display: block;
@@ -1391,7 +1395,7 @@ h3 {
 }
 
 p {
-  line-height: 30px;
+  line-height: 25px;
 }
 
 p:last-child {
@@ -1685,6 +1689,20 @@ td {
   background-color: #ccc;
 }
 
+// pagination
+.page-numbers {
+  display: inline-block;
+  padding: 8px 12px;
+  box-shadow: 0 1.5px 4px rgba(0,0,0,0.24), 0 1.5px 6px rgba(0,0,0,0.12);
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+}
+.page-numbers.current {
+  background-color: #4A525B;
+  color: #ffffff;
+}
+
 @import "technology-and-services";
 @import "news-posts";
 @import "history";
@@ -1693,3 +1711,4 @@ td {
 @import "interiorPage/interiorPage";
 @import "newsroom/newsrooms";
 @import "categoryPage/categoryPage";
+@import "searchPage/searchPage";

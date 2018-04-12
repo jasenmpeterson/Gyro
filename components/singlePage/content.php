@@ -7,12 +7,18 @@ if (have_posts()) :
 	while (have_posts()) : the_post();
 	$image = get_the_post_thumbnail_url(get_the_ID());
 	$date = get_the_date('F j, Y');
+	$link = get_permalink();
 ?>
 <div class="single__page">
 	<div class="row">
 		<div class="col interior__page__content content__with__sidebar content__contain newsrooms content__with__sidebar single__page__content">
 			<figure class="background__image" style="background: url(<?php echo $image; ?>"></figure>
 			<div class="wrap">
+                <ul class="social__media__module">
+                    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=http:<?php echo $link;?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.facebook.com/sharer.php?u=http:<?php echo $link;?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url=http:<?php echo $link;?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                </ul>
 				<span class="date"><i class="far fa-clock"></i><?php echo $date;?></span>
 				<h1><?php the_title(); ?></h1>
 				<span class="categories">Categories: <?php echo get_the_category_list( ', ' );?></span>

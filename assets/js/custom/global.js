@@ -35,6 +35,5 @@ emergence.init({
 technologyPageAnimation();
 // newsroom page
 newsroomPageAnimation();
-
 // documents list
 documentList();

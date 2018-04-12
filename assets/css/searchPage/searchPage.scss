@@ -1,0 +1,36 @@
+.search__results {
+  max-width: 990px;
+  margin: 0 auto;
+  padding: 35px 0;
+}
+.search__header {
+  margin-bottom: 25px;
+}
+.search__title {
+  margin-bottom: 15px;
+}
+.search__result:not(:last-child) {
+  margin-bottom: 25px;
+}
+.search__result a {
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  padding: 20px;
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+.search__result h3 {
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+.search__result a p {
+  color: #4a525b;
+  margin-top: 5px;
+}
+.post__type__name {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 30px;
+}
