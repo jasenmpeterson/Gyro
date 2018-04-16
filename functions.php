@@ -94,6 +94,7 @@ if( function_exists('acf_add_options_page') ) {
 register_nav_menus( array(
 	'primary_menu' => 'Primary Menu',
 	'secondary_menu' => 'Secondary Menu',
+	'tech_menu' => 'Technology & Solutions Menu',
 	'footer_menu' => 'Footer Menu'
 ) );
 
@@ -104,6 +105,7 @@ add_theme_support( 'post-thumbnails' );
 // Custom Walker
 
 include("walker.php");
+include("tech_walker.php");
 
 // Custom Excerpt Length
 

@@ -1331,7 +1331,6 @@ blockquote p {
 
 a {
   color: $color-red;
-  transition: color 300ms ease-out;
 }
 
 a:hover {
@@ -1701,6 +1700,25 @@ td {
 .page-numbers.current {
   background-color: #4A525B;
   color: #ffffff;
+}
+
+// 404
+
+.four-o-four__page {
+  max-width: 990px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.four-o-four__page header {
+  border-bottom: none;
+}
+
+.four-o-four__page h1 {
+  margin-bottom: 0;
 }
 
 @import "technology-and-services";

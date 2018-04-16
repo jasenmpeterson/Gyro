@@ -9,53 +9,14 @@
 <div class="col sidebar left">
     <aside>
         <div class="content__wrap">
-            <ul class="drill__down">
-                <li>
-                    <button>Drilling Services</button>
-                    <ul class="drill__down__drop__down">
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button>Wellbore Surveying</button>
-                    <ul class="drill__down__drop__down">
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button>Logging Services</button>
-                    <ul class="drill__down__drop__down">
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button>Value Added Services</button>
-                    <ul class="drill__down__drop__down">
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button>Equipment Rental</button>
-                    <ul class="drill__down__drop__down">
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                        <li><a href="#">GyroDrill Performance Motors</a></li>
-                    </ul>
-                </li>
-            </ul>
+	        <?php
+	        wp_nav_menu(array(
+		        "menu" => "Technology & Solutions",
+		        'container'=> false,
+		        'menu_class' => 'drill__down',
+		        'walker' => new Gyro_Tech_Walker()
+	        ));
+	        ?>
         </div>
         <div class="content__wrap contact">
             <h5>Contact Local Support</h5>

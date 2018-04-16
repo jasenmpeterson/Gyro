@@ -20,7 +20,7 @@ GoogleMapsLoader.load(function(google) {
         let loader = document.querySelector(".location__module .loader");
         let weatherModule = document.querySelector(".weather__container");
         let icon = {
-            url:  '/wp-content/themes/gyro/assets/images/raw/map_marker_b.svg',
+            url:  '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
             scaledSize: new google.maps.Size(12, 12), // scaled size
         };
         let map = new google.maps.Map(el, {
@@ -378,10 +378,10 @@ GoogleMapsLoader.load(function(google) {
                         opacity: 1,
                         y: 0
                     });
-                    marker.setIcon({
-                        url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
-                        scaledSize: new google.maps.Size(30, 30)
-                    });
+                    // marker.setIcon({
+                    //     url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
+                    //     scaledSize: new google.maps.Size(30, 30)
+                    // });
                 });
             }
         }
