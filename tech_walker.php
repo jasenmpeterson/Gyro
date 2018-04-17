@@ -48,7 +48,7 @@ class Gyro_Tech_Walker extends Walker_Nav_Menu {
 
 		if ($permalink && $permalink != "#") {
 
-			$output .= '<a href="'.$permalink.'">';
+			$output .= '<a href="'.$permalink.'"><span class="link__block">';
 
 		} else {
 			$output .= '<span>';
@@ -60,7 +60,7 @@ class Gyro_Tech_Walker extends Walker_Nav_Menu {
 
 		if ($permalink && $permalink != "#") {
 
-			$output .= '</a>';
+			$output .= '</span></a>';
 
 		}  else {
 			$output .= "</span>";

@@ -17,18 +17,43 @@
 .drill__down ul.child {
   display: block;
 }
-.drill__down__drop__down li:not(:last-child)  {
-  padding: 5px 0;
+.drill__down__drop__down li a  {
+  padding: 10px 0;
 }
-.drill__down ul li:not(:last-child) {
-  margin-bottom: 5px;
+.drill__down__drop__down ul li {
+  margin-bottom: 0;
+}
+.drill__down ul li a {
+  overflow: hidden;
+  position: relative;
+}
+.drill__down ul li:not(:only-child) a {
+  margin-bottom: 0;
+  border-bottom:  1px solid rgba(0,0,0,0.05);
+}
+.drill__down ul li a:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin: -15px 0 0 1px;
+  width: 60px;
+  height: 25px;
+  border-radius: 50%;
+  background: $color-yellow;
+  transform-origin: 100% 50%;
+  transform: scale3d(1, 2, 1);
+  transition: transform 300ms, opacity 300ms;
+  transition-timing-function: cubic-bezier(0.7,0,0.9,1);
+}
+.drill__down ul li a:hover:before {
+  transform: scale3d(9, 9, 1);
 }
 .drill__down__drop__down ul {
   box-shadow: none;
 }
-.drill__down__drop__down li.current-menu-item a {
+.drill__down__drop__down li.current-menu-item a span {
   color: $color-red;
-  cursor: default;
 }
 .drill__down li:last-of-type .drill__down__drop__down {
   margin-bottom: 0;
@@ -39,6 +64,11 @@
   text-decoration: none;
   display: block;
   color: #95989A;
+  transition: all 300ms ease-out;
+}
+.drill__down ul a:hover span {
+  transform: translateX(20px);
+  color: #ffffff;
 }
 .drill__down button {
   background-color: #fff;
@@ -57,8 +87,8 @@
   border: none;
   font-size: 14px;
   padding: 0;
-  cursor: default;
   font-weight: 700;
+  margin: 10px 0;
 }
 .drill__down button:focus {
   outline: none;
@@ -71,10 +101,49 @@
   background-color: #fff;
   color: #747d86;
 }
-.drill__down__drop__down.child {
-  margin: 8px 0;
-}
 .drill__down li.parent > span {
   margin-bottom: 10px;
   display: block;
+  font-weight: 700;
+}
+.drill__down li.menu-item-object-page {
+  padding: 0;
+}
+.drill__down li.menu-item-object-page a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  transition: all 200ms ease-out;
+  position: relative;
+}
+.drill__down li.menu-item-object-page a:hover {
+  color: #ffffff;
+}
+.drill__down  li.menu-item-object-page a:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin: -15px 0 0 1px;
+  width: 60px;
+  height: 35px;
+  border-radius: 50%;
+  background: $color-yellow;
+  transform-origin: 100% 50%;
+  transform: scale3d(1, 2, 1);
+  transition: transform 300ms, opacity 300ms;
+  transition-timing-function: cubic-bezier(0.7,0,0.9,1);
+}
+.drill__down li.menu-item-object-page a:hover:before {
+  transform: scale3d(9, 9, 1);
+}
+.drill__down__drop__down.parent li {
+  margin-bottom: 0;
+}
+.drill__down .link__block {
+  font-weight: 300;
+  margin: 0;
+  transition: all 300ms ease-out;
+  position: relative;
+  z-index: 2;
 }
