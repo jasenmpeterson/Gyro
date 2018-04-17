@@ -95,6 +95,7 @@ register_nav_menus( array(
 	'primary_menu' => 'Primary Menu',
 	'secondary_menu' => 'Secondary Menu',
 	'tech_menu' => 'Technology & Solutions Menu',
+	'applications_menu' => 'Applications & Markets Menu',
 	'footer_menu' => 'Footer Menu'
 ) );
 

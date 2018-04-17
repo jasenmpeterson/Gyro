@@ -9,14 +9,54 @@
 <div class="col sidebar left">
     <aside>
         <div class="content__wrap">
-	        <?php
-	        wp_nav_menu(array(
-		        "menu" => "Technology & Solutions",
-		        'container'=> false,
-		        'menu_class' => 'drill__down',
-		        'walker' => new Gyro_Tech_Walker()
-	        ));
-	        ?>
+			<?php
+			// getting a list of children from parent cat (applications) and all of it's grandchildren, etc.
+			$args = array(
+				'post_parent' => 510,
+				'post_type'   => 'page',
+				'numberposts' => -1,
+				'post_status' => 'publish'
+			);
+			$page_children = get_children($args);
+			$links = array();
+			$children = array();
+			$grandchildren = array();
+			$i = 0;
+			$page_object = get_queried_object();
+			foreach($page_children as $page_child) {
+				$page_args = array (
+					'post_parent' => $page_child->ID
+				);
+
+				$pages = get_children($page_args);
+
+				if(!empty($pages)) {
+					foreach($pages as $page):
+						$grandchildren[$page_child->post_title] = $page;
+					endforeach;
+					$links[$page_child->post_title] = $grandchildren;
+				} else {
+					$children[] = $page_child;
+					$links['pages'] = $children;
+				}
+			}
+			foreach($links as $key => $link) {
+				if(is_string($key) && $key !== 'pages') {
+					echo '<ul class="drill__down">';
+					echo '<li class="list__title"><span>'.$key.'</span></li>';
+					foreach($links[$key] as $page) {
+						echo '<li class="child"><a href="'.get_permalink($page->ID).'"><span class="link__block">'.$page->post_title.'</span></a></li>';
+					}
+					echo '</ul>';
+				} else {
+					echo '<div class="drill__down">';
+					foreach($link as $page_link) {
+						echo '<a class="no-parent" href="'.get_permalink($page_link->ID).'"><span class="link__block">'.$page_link->post_title.'</span></a>';
+					}
+					echo '</div>';
+				}
+			}
+			?>
         </div>
         <div class="content__wrap contact">
             <h5>Contact Local Support</h5>

@@ -12,7 +12,6 @@ if ($query->have_posts() ) :
 <div class="col interior__page__content content__with__sidebar content__contain technology__and__services__content" data-emergence="hidden">
 	<?php
 	while ( $query->have_posts() ) : $query->the_post();
-		$history_home_page_component = get_field('history_home_page_component');
 		$id = get_the_ID();
         $content_blocks = get_field('content_blocks');
         $content = $content_blocks['content'];

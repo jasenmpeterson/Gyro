@@ -15,16 +15,14 @@ if ($query->have_posts() ) :
 			$id = get_the_ID();
 			$content_blocks = get_field('content_blocks');
 			$content = $content_blocks['content'];
-			if(!empty($content)) {
-				foreach($content as $content_block):
-					?>
-                    <div class="content__wrap">
-                        <h3 class="title"><?php echo $content_block['title']; ?></h3>
-						<?php echo $content_block['paragraph']; ?>
-                    </div>
-				<?php
-				endforeach;
-            }
+			foreach($content as $content_block):
+				?>
+				<div class="content__wrap">
+					<h3 class="title"><?php echo $content_block['title']; ?></h3>
+					<?php echo $content_block['paragraph']; ?>
+				</div>
+			<?php
+			endforeach;
 		endwhile;
 
 		?>
