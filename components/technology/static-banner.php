@@ -9,7 +9,7 @@
 global $post;
 $postID = $post->ID;
 
-$staticBanner = new \staticBanner\staticBanner('tech_solutions',$postID, 'static_banner');
+$staticBanner = new \staticBanner\staticBanner('page',$postID, 'static_banner');
 $banner = $staticBanner->DisplayStaticBanner();
 ?>
 <section class="static__banner">

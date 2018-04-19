@@ -15,9 +15,9 @@ remove_action('wp_head', 'wp_generator');
 
 include('classes/contentSlider.php');
 include('classes/staticBanner.php');
-
 include('classes/recentPosts.php');
 include('classes/categories.php');
+include('classes/sideBar.php');
 include('components/home/homePageClass.php');
 
 // ENQUEUE STYLES

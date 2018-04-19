@@ -3,7 +3,7 @@ global $post;
 $postID = $post->ID;
 $query = new WP_Query(
 	array(
-		'post_type' => 'tech_solutions',
+		'post_type' => 'page',
 		'p' => $postID
 	)
 );

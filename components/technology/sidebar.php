@@ -9,11 +9,12 @@
 <div class="col sidebar left">
     <aside>
         <div class="content__wrap">
-	        <?php
-                $sideBar = new \sideBar\sideBar(505,'page',-1);
-                $displaySideBar = $sideBar->retrieveChildren();
-                echo $displaySideBar;
-	        ?>
+			<?php
+
+			$sideBar = new \sideBar\sideBar(510);
+			$displaySideBar = $sideBar->get_posts_children();
+			echo $displaySideBar;
+			?>
         </div>
         <div class="content__wrap contact">
             <h5>Contact Local Support</h5>
