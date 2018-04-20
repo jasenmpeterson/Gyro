@@ -1,23 +1,23 @@
-.recent__posts li a {
-  text-decoration: none;
-  display: block;
-  color: #5d6771;
-  transition: all 600ms ease-out;
-  box-shadow: 0 10px 20px rgba(255,255,255,1) inset, 0 1px 3px rgba(0,0,0,0.23);
-  border-radius: 2px;
-  padding: 10px 20px;
-  border: 1px solid rgba(93, 102, 113, 0.05);
-}
-.recent__posts li a:hover {
-  box-shadow: inset 1px 1px 10px rgba(0,0,0,0.05), 0 0 1px transparent;
-  border: 1px solid rgba(93, 102, 113, 0.20);
-}
-.recent__posts li {
-  list-style-type: none;
-}
-.recent__posts li:not(:last-child) {
-  margin-bottom: 15px;
-}
+//.recent__posts li a {
+//  text-decoration: none;
+//  display: block;
+//  color: #5d6771;
+//  transition: all 600ms ease-out;
+//  box-shadow: 0 10px 20px rgba(255,255,255,1) inset, 0 1px 3px rgba(0,0,0,0.23);
+//  border-radius: 2px;
+//  padding: 10px 20px;
+//  border: 1px solid rgba(93, 102, 113, 0.05);
+//}
+//.recent__posts li a:hover {
+//  box-shadow: inset 1px 1px 10px rgba(0,0,0,0.05), 0 0 1px transparent;
+//  border: 1px solid rgba(93, 102, 113, 0.20);
+//}
+//.recent__posts li {
+//  list-style-type: none;
+//}
+//.recent__posts li:not(:last-child) {
+//  margin-bottom: 15px;
+//}
 .single__page__content {
   box-shadow: 0 0 15px rgba(44,62,80,0.10);
   border: 1px solid rgba(0,0,0,0.05);

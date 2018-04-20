@@ -7,15 +7,13 @@
 .col.sidebar .content__wrap .drill__down:not(:last-child) {
   margin-bottom: 15px;
 }
-.drill__down.level-1-children {
+.drill__down.level-1-children,
+.drill__down.categories {
   box-shadow: 0 3px 12px rgba(0,0,0,0.05), 0 3px 12px rgba(0,0,0,0.05);
   border-radius: 0 0 4px 4px;
   background-color: #fff;
   overflow: hidden;
   padding: 15px;
-}
-.drill__down.level-1-children > li > a {
-  font-weight: 700;
 }
 .drill__down li {
   margin-bottom: 0;
@@ -73,4 +71,7 @@
 }
 .drill__down.level-2-children li a span {
   padding-left: 15px;
+}
+.drill__down.level-3-children li a span {
+  padding-left: 30px;
 }

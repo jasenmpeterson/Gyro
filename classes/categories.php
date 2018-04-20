@@ -15,10 +15,10 @@ class categories {
 	function retrieveCategories() {
 		$terms = get_categories();
 		if ( !empty($terms) ) :
-			$this->output.= '<ul>';
+			$this->output.= '<ul class="drill__down categories">';
 			foreach($terms as $term):
 				$this->output.= '<li>';
-				$this->output.= '<a href="'.get_category_link($term->cat_ID).'">'.$term->name.'</a>';
+				$this->output.= '<a href="'.get_category_link($term->cat_ID).'"><span>'.$term->name.'</span></a>';
 				$this->output.= '</li>';
 			endforeach;
 			$this->output.='</ul>';

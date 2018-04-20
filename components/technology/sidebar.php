@@ -10,10 +10,8 @@
     <aside>
         <div class="content__wrap">
 			<?php
-
-			$sideBar = new \sideBar\sideBar(510);
-			$displaySideBar = $sideBar->get_posts_children();
-			echo $displaySideBar;
+                $sideBar = new \sideBar\sideBar();
+                $displaySideBar = $sideBar->get_posts_children(510, 1);
 			?>
         </div>
         <div class="content__wrap contact">

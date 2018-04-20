@@ -11,8 +11,7 @@ $recentPosts->retrievePosts();
 <div class="col sidebar left">
 	<aside>
 		<div class="content__wrap recent__posts">
-            <h3>Recent Posts</h3>
-            <ul>
+            <ul class="drill__down categories">
 				<?php
 				if(!empty($recentPosts->output)):
 					echo $recentPosts->output;

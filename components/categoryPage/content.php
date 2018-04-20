@@ -16,7 +16,6 @@ if ($query->have_posts() ) :
             <div class="col sidebar left">
                 <aside>
                     <div class="content__wrap recent__posts">
-                        <h3>Categories</h3>
 				        <?php
 				        if(!empty($listCategories->output)):
 					        echo $listCategories->output;

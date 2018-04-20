@@ -5,14 +5,14 @@
  * Date: 3/19/18
  * Time: 12:49 PM
  */
+$contacts = get_field('contacts', 'options');
 ?>
 <div class="col sidebar left">
     <aside>
         <div class="content__wrap">
 	        <?php
-                $sideBar = new \sideBar\sideBar(505,'page',-1);
-                $displaySideBar = $sideBar->retrieveChildren();
-                echo $displaySideBar;
+                $sideBar = new \sideBar\sideBar();
+                $displaySideBar = $sideBar->get_posts_children(505, 1);
 	        ?>
         </div>
         <div class="content__wrap contact">

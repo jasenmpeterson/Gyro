@@ -5,9 +5,10 @@
  * Date: 4/12/18
  * Time: 10:57 AM
  */
-	if (have_posts()):
+
 ?>
 	<section class="search__results">
+        <?php if (have_posts()): ?>
 		<header class="search__header">
 			<h1 class="search__title"><?php printf( __( 'Search Results for: %s', 'shape' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		</header><!-- .page-header -->
@@ -30,10 +31,9 @@
 			</article>
 		<?php endwhile; ?>
         <?php echo paginate_links(); ?>
+        <?php else: ?>
+            <header class="search__header">
+                <h1 class="search__title"><?php printf( __( 'No Results Were Found for: %s', 'shape' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+            </header><!-- .page-header -->
+        <?php endif; ?>
 	</section>
-	<?php else: ?>
-		<header class="search__header">
-			<h1 class="search__title"><?php printf( __( 'No Results Were Found for: %s', 'shape' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-		</header><!-- .page-header -->
-<?php
-endif;
