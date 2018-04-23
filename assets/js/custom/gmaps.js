@@ -1,7 +1,5 @@
-import {format} from "date-fns";
-
 let GoogleMapsLoader = require('google-maps');
-
+GoogleMapsLoader.KEY = 'AIzaSyC7tSjhQyqDfDkKWmiemLdrrKFMTymkqgM';
 GoogleMapsLoader.load(function(google) {
     if(document.getElementById("map")) {
         let el = document.querySelector("#map");
@@ -21,7 +19,7 @@ GoogleMapsLoader.load(function(google) {
         let weatherModule = document.querySelector(".weather__container");
         let icon = {
             url:  '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
-            scaledSize: new google.maps.Size(12, 12), // scaled size
+            scaledSize: new google.maps.Size(40, 40), // scaled size
         };
         let map = new google.maps.Map(el, {
             center: myLatLng,
@@ -494,5 +492,3 @@ GoogleMapsLoader.load(function(google) {
         }
     }
 });
-
-GoogleMapsLoader.KEY = 'AIzaSyC7tSjhQyqDfDkKWmiemLdrrKFMTymkqgM';

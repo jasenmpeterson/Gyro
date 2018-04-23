@@ -17,10 +17,10 @@ $args = array (
 $children = get_pages($args);
 ?>
 
-	<div class="content__wrapper static__banner__small static__banner__background__color">
+	<div class="content__wrapper static__banner__small static__banner__background__color parent__page">
 		<?php include(locate_template('components/parentPage/static-banner.php')); ?>
 		<div class="row">
-			<?php include(locate_template('components/parentPage/sidebar.php')); ?>
+			<?php // include(locate_template('components/parentPage/sidebar.php')); ?>
 			<?php include(locate_template('components/parentPage/content.php')); ?>
 		</div>
 	</div>

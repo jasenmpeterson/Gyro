@@ -9,19 +9,13 @@
 global $post;
 $postID = $post->ID;
 
-$staticBanner = new \staticBanner\staticBanner('page',$postID, 'static_banner');
-$banner = $staticBanner->DisplayStaticBanner();
 ?>
 <section class="static__banner">
 	<div class="row">
 		<div class="col">
 			<div class="content__wrap">
-				<h2 class="title"><?php echo $banner['header'] ?></h2>
-				<?php echo $banner['paragraphs'] ?>
+				<h2 class="title"><?php echo get_the_title($postID); ?></h2>
 			</div>
-		</div>
-		<div class="col">
-			<div class="background__image secondary" style="width: 100%; background-image: url('<?php echo $banner['image']; ?>')"></div>
 		</div>
 	</div>
 </section>

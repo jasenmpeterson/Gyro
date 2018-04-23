@@ -43,7 +43,8 @@ if ($query->have_posts() ) : ?>
 	</div>
 	<div class="row">
 		<div class="col text__align__center">
-			<a href="#" class="button" data-text="Read More Articles"><span>Read More Articles</span></a>
+
+			<a href="<?php echo get_permalink(20); ?>" class="button" data-text="Read More Articles"><span>Read More Articles</span></a>
 		</div>
 	</div>
 </section>

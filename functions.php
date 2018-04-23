@@ -69,14 +69,6 @@ function google_maps_script_attributes( $tag, $handle) {
 }
 add_filter('script_loader_tag', 'google_maps_script_attributes', 10, 2);
 
-// REMOVE CONTENT EDITOR FROM PAGES
-
-add_action('admin_init', 'remove_textarea');
-
-function remove_textarea() {
-	remove_post_type_support( 'page', 'editor' );
-}
-
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(

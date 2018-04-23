@@ -17,7 +17,6 @@ $terms = get_categories();
             <figure class="background__image" style="background:url('<?php echo get_template_directory_uri();?>/assets/images/raw/banner_hp.jpg');"></figure>
             <figure class="background__image background__image__contrast" style="background:url('<?php echo get_template_directory_uri();?>/assets/images/raw/banner_hp.jpg');"></figure>
             <div class="content__wrap">
-                <h5>Category</h5>
                 <h2><?php echo $term->name?></h2>
                 <span class="read__more">Learn More</span>
             </div>

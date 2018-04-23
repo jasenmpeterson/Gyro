@@ -12,6 +12,9 @@
 .content__contain .content__wrap:last-child {
   padding-bottom: 65px;
 }
+.interior__page__content .content__wrap h2 {
+  font-size: 30px;
+}
 .interior__page__content .content__wrap h3 {
   font-weight: 700;
 }
@@ -25,11 +28,11 @@
 }
 .block__content__animations article {
   height: 300px;
+  width: 50%;
   position: relative;
   overflow: hidden;
 }
 .block__content__animations figure.background__image {
-  background-position: 0 -300px !important;
   margin: 0;
   position: absolute;
   top: 0;
@@ -49,18 +52,13 @@
 .block__content__animations .content__wrap {
   padding: 0 40px;
   height: 100%;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
   background-color: rgba(24,25,26,.60);
-  transition: all 500ms cubic-bezier(.15,.61,.22,.88);
-  @media screen and (min-width: 600px) {
-    width: 650px;
-  }
-  @media screen and (min-width: 320px) {
-    width: 300px;
-  }
+  transition: all 300ms ease-out;
 }
 .block__content__animations a {
   display: flex;
@@ -69,17 +67,22 @@
   align-items: center;
   height: 100%;
   text-decoration: none;
-  transition: all 200ms cubic-bezier(.15,.61,.22,.88) 0ms;
+  transition: all 200ms ease-out 0ms;
 }
 .block__content__animations a .read__more {
   position: absolute;
   right: 185px;
   bottom: 45px;
-  transition: opacity 200ms cubic-bezier(.15,.61,.22,.88) 0ms;
+  transform: translateX(20px);
+  transition: all 200ms ease-out 200ms;
+}
+.block__content__animations a:hover .read__more {
+  transform: translateX(0);
 }
 .block__content__animations a h5,
 .block__content__animations a h2 {
-  transition: all 300ms cubic-bezier(.15,.61,.22,.88);
+  opacity: 0.7;
+  transition: all 200ms ease-out 200ms;
 }
 .block__content__animations a h5 {
   transition-delay: 250ms;
@@ -90,10 +93,11 @@
 .block__content__animations a:hover .content__wrap {
   clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
   background-color: rgba(255, 177, 0, .85);
-  width: 70%;
+  width: 90%;
 }
 .block__content__animations a:hover h5,
 .block__content__animations a:hover h2 {
+  opacity: 1;
   transform: translateY(-30px);
 }
 .block__content__animations a:hover h2 {
@@ -115,8 +119,28 @@
   height: 1px;
   background-color: #FFB100;
   margin-bottom: 10px;
-  transition: all 300ms cubic-bezier(.15,.61,.22,.88);
+  transition: all 300ms ease-out;
 }
 .block__content__animations a:hover h5:before {
   background-color: #fff;
+}
+.block__content__animations {
+  display: flex;
+  flex-wrap: wrap;
+}
+.generic__page .content__wrap {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 45px;
+}
+
+.generic__page *:first-child {
+  margin-top: 0;
+}
+.content__wrapper__generic .static__banner {
+  text-align: center;
+}
+.content__wrapper__generic .static__banner h2 {
+  display: inline-block;
 }

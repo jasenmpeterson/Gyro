@@ -28,7 +28,7 @@
     </div>
 	<?php
         wp_nav_menu(array(
-	        "menu" => "Primary Menu",
+	        "theme_location" => "primary_menu",
 	        "container" => false,
 	        "walker" => new Gyro_Walker()
         ));
@@ -46,7 +46,7 @@
             <div class="nav__wrap">
 				<?php
 				wp_nav_menu(array(
-					"menu" => "Secondary Menu",
+					"theme_location" => "secondary_menu",
 					'container'=> false
 				));
 				?>
@@ -73,7 +73,7 @@
             <div class="nav__wrap">
                 <?php
                     wp_nav_menu(array(
-                        "menu" => "Primary Menu",
+                        "theme_location" => "primary_menu",
                         "container" => false,
                         "walker" => new Gyro_Walker()
                     ));

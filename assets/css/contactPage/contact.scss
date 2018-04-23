@@ -1,0 +1,55 @@
+.contact__page .static__banner {
+  position: relative;
+  z-index: 2;
+}
+.contact__page .map__wrapper {
+  margin-top: 90px;
+}
+.form__wrapper {
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto 75px auto;
+}
+form {
+  width: 100%;
+}
+form span {
+  display: block;
+  margin: 15px 0;
+}
+form input:not([type=submit]) {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+form textarea {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.08);
+  padding: 15px;
+}
+form select {
+  width: 100%;
+}
+form input[type=submit] {
+  display: inline-block;
+  width: 200px;
+  padding: 15px;
+  height: auto;
+  border: 1px solid $color-yellow;
+  cursor: pointer;
+  transition: all 300ms ease-out;
+}
+form input[type=submit]:hover {
+  color: #ffffff;
+  background-color: $color-yellow;
+}
+form *:focus {
+  outline-color: $color-yellow;
+}
+span.wpcf7-not-valid-tip {
+  font-size: 14px;
+}
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+  border: none;
+  margin: 25px 0;
+  padding: 0;
+}

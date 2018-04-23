@@ -17,9 +17,12 @@ wp_footer();
                     </a>
                 </div>
                 <div class="col">
-                    <a href="#">Code of Conduct</a>
-                    <a href="#">Terms and Conditions</a>
-                    <a href="#">Site Map</a>
+	                <?php
+                        wp_nav_menu(array(
+                            "theme_location" => "footer_menu",
+                            'container'=> false
+                        ));
+	                ?>
                 </div>
             </div>
         </footer>

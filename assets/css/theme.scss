@@ -1559,7 +1559,18 @@ footer a:hover {
   color: $color-red;
 }
 
+footer li {
+  list-style-type: none;
+  display: inline-block;
+  margin-bottom: 0 !important;
+}
+
+footer li:not(:last-child) {
+  margin-right: 15px;
+}
+
 footer a {
+  transition: all 300ms ease-out;
   @media screen and (min-width: 767px) {
     display: inline-block;
   }
@@ -1731,3 +1742,4 @@ td {
 @import "newsroom/newsrooms";
 @import "categoryPage/categoryPage";
 @import "searchPage/searchPage";
+@import "contactPage/contact";

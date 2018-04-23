@@ -20,6 +20,12 @@
   display: block;
   text-decoration: none;
 }
+.search__result a h3 {
+  transition: all 300ms ease-out
+}
+.search__result a:hover h3 {
+  color: #e0e1e1;
+}
 .search__result h3 {
   margin-top: 25px;
   margin-bottom: 0;
