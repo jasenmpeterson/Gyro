@@ -70,11 +70,27 @@ ul.social__media__module {
   box-shadow: -1px 5px 15px rgba(0, 0, 0, 0.05) inset;
   border: 1px solid rgba(0,0,0,0.08);
   list-style-type: none;
-  transition: all 350ms ease-out;
 }
 .social__media__module li {
   text-align: center;
 }
 .social__media__module li  a {
   display: block;
+  transition: all 350ms ease-out;
+}
+.newsroom__article {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  max-width: 990px;
+  width: 100%;
+}
+.newsroom__cat__label {
+  text-decoration: none;
+  transition: color 300ms;
+}
+.newsroom__article .date,
+.newsroom__article .categories {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
 }

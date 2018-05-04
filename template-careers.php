@@ -13,10 +13,7 @@ $page_id     = get_queried_object_id();
 
 	<div class="content__wrapper static__banner__small static__banner__background__color">
 		<?php include(locate_template('components/careers/static-banner.php')); ?>
-		<div class="row">
-			<?php include(locate_template("components/careers/sidebar.php")); ?>
-			<?php include(locate_template("components/careers/content.php")); ?>
-		</div>
+		<?php include(locate_template('components/careers/content.php')); ?>
 	</div>
 
 <?php

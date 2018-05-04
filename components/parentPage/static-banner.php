@@ -17,7 +17,7 @@ $banner = $staticBanner->DisplayStaticBanner();
 			</div>
 		</div>
 		<div class="col">
-			<div class="background__image secondary" style="width: 100%; background-image: url('<?php echo $banner['image']; ?>')"></div>
+			<div class="background__image secondary" style="width: 100%; background-image: url('<?php echo $banner['image']['sizes']['large']; ?>')"></div>
 		</div>
 	</div>
 </section>

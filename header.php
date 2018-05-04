@@ -17,7 +17,7 @@
 
     <!--=== WP_HEAD() ===-->
 	<?php wp_head(); ?>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js"></script>
 </head>
 
 <body <?php body_class(); ?>>

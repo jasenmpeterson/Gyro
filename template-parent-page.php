@@ -14,14 +14,16 @@ $args = array (
 	'parent' => $page_id,
 	'post_status' => 'publish'
 );
+$documents = get_field('related_downloads', $page_id);
 $children = get_pages($args);
 ?>
 
 	<div class="content__wrapper static__banner__small static__banner__background__color parent__page">
 		<?php include(locate_template('components/parentPage/static-banner.php')); ?>
-		<div class="row">
-			<?php // include(locate_template('components/parentPage/sidebar.php')); ?>
+		<div class="row sidebar_row">
+			<?php include(locate_template('components/parentPage/sidebar.php')); ?>
 			<?php include(locate_template('components/parentPage/content.php')); ?>
+			<?php include(locate_template('components/parentPage/sidebar-right.php')); ?>
 		</div>
 	</div>
 

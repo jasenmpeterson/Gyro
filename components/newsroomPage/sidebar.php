@@ -7,6 +7,9 @@
  */
 $recentPosts = new \recentPosts\recentPosts(null,null);
 $recentPosts->retrievePosts();
+$contacts = new \supportContacts\supportContacts();
+$listCategories = new \categories\categories();
+$listCategories->retrieveCategories();
 ?>
 <div class="col sidebar left">
 	<aside>
@@ -18,28 +21,15 @@ $recentPosts->retrievePosts();
 				endif;
 				?>
             </ul>
+			<?php
+			if(!empty($listCategories->output)):
+				echo $listCategories->output;
+			endif;
+			?>
 		</div>
+
 		<div class="content__wrap contact">
-			<h5>Contact Local Support</h5>
-			<table>
-				<tr>
-					<td>North America</td>
-					<td>+1 281.213.6300</td>
-				</tr>
-				<tr>
-					<td>North America</td>
-					<td>+1 281.213.6300</td>
-				</tr>
-				<tr>
-					<td>North America</td>
-					<td>+1 281.213.6300</td>
-				</tr>
-				<tr>
-					<td>North America</td>
-					<td>+1 281.213.6300</td>
-				</tr>
-			</table>
-			<a href="#" class="button" data-text="Contact Us"><span>Contact Us</span></a>
+			<?php echo $contacts->getContacts(); ?>
 		</div>
 	</aside>
 </div>

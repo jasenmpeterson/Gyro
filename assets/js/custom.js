@@ -604,6 +604,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // animations
 
 
+    (function () {
+        if (typeof NodeList.prototype.forEach === "function") return false;
+        NodeList.prototype.forEach = Array.prototype.forEach;
+    })();
+
     // emergence
     emergence.init({
         elemCushion: 0.2,
@@ -632,6 +637,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     Object(__WEBPACK_IMPORTED_MODULE_7__newsroomPageAnimation__["newsroomPageAnimation"])();
     // documents list
     Object(__WEBPACK_IMPORTED_MODULE_8__documentList__["documentList"])();
+
+    // contact form floating labels;
+    jQuery(document).ready(function () {
+        jQuery(document).on('focus', '.form__wrapper input[type=text], .form__wrapper input[type=tel], .form__wrapper input[type=email], .form__wrapper textarea', function (e) {
+            var ph = jQuery(this).attr('placeholder');
+            if (ph) {
+                jQuery(this).attr('ph', jQuery(this).attr('placeholder'));
+                jQuery(this).attr('placeholder', '');
+                jQuery(this).animate({ 'padding-top': '30px', 'padding-bottom': '15px', 'position': 'relative' }, 100);
+                jQuery(this).parent().append('<div class="floating-label">' + ph + '</div>');
+                jQuery(this).parent().find('.floating-label').fadeIn();
+            }
+        });
+    });
 
     /***/
 },
@@ -690,6 +709,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                             }
                         }
                     }
+
+                    locationButtons[0].click();
                 };
 
                 var el = document.querySelector("#map");
@@ -943,7 +964,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     for (var _iterator3 = locations[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
                         var location = _step3.value;
 
-                        var _loop = function _loop(city) {
+                        var _loop2 = function _loop2(city) {
                             var marker = new google.maps.Marker({
                                 position: new google.maps.LatLng(city.latitude, city.longitude),
                                 map: map,
@@ -986,7 +1007,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                             for (var _iterator6 = location.cities[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
                                 var city = _step6.value;
 
-                                _loop(city);
+                                _loop2(city);
                             }
                         } catch (err) {
                             _didIteratorError6 = true;
@@ -1021,6 +1042,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 var setTemp = function setTemp(lat, lng, location, region) {
                     weatherModule.classList.remove("active");
                     loader.classList.remove("inactive");
+                    document.querySelector("span.temperature").innerHTML = "";
+                    document.querySelector("span.humidity").innerHTML = "";
+                    document.querySelector("span.precipitation").innerHTML = "";
+                    document.querySelector("span.wind").innerHTML = "";
+                    document.querySelector("span.day").innerHTML = "";
+                    document.querySelector("span.city").innerHTML = "";
+                    document.querySelector("span.region").innerHTML = "";
                     fetch(pageParams.themeDirectory + '/api/weather.php?lat=' + lat + '&lng=' + lng).then(function (response) {
                         return response.json();
                     }).then(function (myJSON) {
@@ -1062,15 +1090,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }).join('') + '\n    </div>';
 
                 var regionButtons = document.querySelectorAll(".region__button");
-                var _iteratorNormalCompletion4 = true;
-                var _didIteratorError4 = false;
-                var _iteratorError4 = undefined;
 
-                try {
-                    for (var _iterator4 = regionButtons[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-                        var regionButton = _step4.value;
-
-                        regionButton.addEventListener("click", function (e) {
+                var _loop = function _loop(regionButton) {
+                    regionButton.addEventListener("click", function (e) {
+                        if (!regionButton.classList.contains('active')) {
                             var weatherModuleContent = weatherModule.querySelectorAll("span");
                             var longitude = e.target.dataset.lng;
                             var latitude = e.target.dataset.lat;
@@ -1080,36 +1103,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                             var prevActiveRegion = document.querySelector(".region__button.active");
                             prevActiveRegion !== null ? prevActiveRegion.classList.remove("active") : "";
                             e.target.classList.add("active");
-                            TweenMax.staggerTo([contactModule, localModule], 0.2, {
-                                opacity: 0,
-                                y: 50,
-                                delay: 0.3
-                            }, 0.2, function () {
-                                var _iteratorNormalCompletion7 = true;
-                                var _didIteratorError7 = false;
-                                var _iteratorError7 = undefined;
-
-                                try {
-                                    for (var _iterator7 = weatherModuleContent[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-                                        var span = _step7.value;
-
-                                        span.innerHTML = "";
-                                    }
-                                } catch (err) {
-                                    _didIteratorError7 = true;
-                                    _iteratorError7 = err;
-                                } finally {
-                                    try {
-                                        if (!_iteratorNormalCompletion7 && _iterator7.return) {
-                                            _iterator7.return();
-                                        }
-                                    } finally {
-                                        if (_didIteratorError7) {
-                                            throw _iteratorError7;
-                                        }
-                                    }
-                                }
-                            });
+                            // TweenMax.staggerTo([contactModule, localModule], 0.2, {
+                            //     opacity: 0,
+                            //     y: 50,
+                            //     delay: 0.3
+                            // }, 0.2,  function () {
+                            //     for(let span of weatherModuleContent) {
+                            //         span.innerHTML = "";
+                            //     }
+                            // });
                             if (!document.querySelector(".location__button[data-region='" + region + "']")) {
                                 loadLocations(region);
                                 TweenMax.to(locationsModule, 0.2, {
@@ -1125,7 +1127,19 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                                 var regionTitle = document.querySelector(".region__title h1 span");
                                 regionTitle.innerHTML = region;
                             }
-                        });
+                        }
+                    });
+                };
+
+                var _iteratorNormalCompletion4 = true;
+                var _didIteratorError4 = false;
+                var _iteratorError4 = undefined;
+
+                try {
+                    for (var _iterator4 = regionButtons[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                        var regionButton = _step4.value;
+
+                        _loop(regionButton);
                     }
                 } catch (err) {
                     _didIteratorError4 = true;
@@ -1388,7 +1402,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var circleDeselect = function circleDeselect() {
         var activeCircles = document.querySelectorAll(".our__history circle.animated");
 
-        var _loop2 = function _loop2(circle) {
+        var _loop3 = function _loop3(circle) {
             anime.remove(circle);
             anime({
                 targets: circle,
@@ -1400,28 +1414,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             });
         };
 
-        var _iteratorNormalCompletion8 = true;
-        var _didIteratorError8 = false;
-        var _iteratorError8 = undefined;
+        var _iteratorNormalCompletion7 = true;
+        var _didIteratorError7 = false;
+        var _iteratorError7 = undefined;
 
         try {
-            for (var _iterator8 = activeCircles[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-                var circle = _step8.value;
+            for (var _iterator7 = activeCircles[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+                var circle = _step7.value;
 
-                _loop2(circle);
+                _loop3(circle);
             }
             // previous content section
         } catch (err) {
-            _didIteratorError8 = true;
-            _iteratorError8 = err;
+            _didIteratorError7 = true;
+            _iteratorError7 = err;
         } finally {
             try {
-                if (!_iteratorNormalCompletion8 && _iterator8.return) {
-                    _iterator8.return();
+                if (!_iteratorNormalCompletion7 && _iterator7.return) {
+                    _iterator7.return();
                 }
             } finally {
-                if (_didIteratorError8) {
-                    throw _iteratorError8;
+                if (_didIteratorError7) {
+                    throw _iteratorError7;
                 }
             }
         }
@@ -1620,29 +1634,29 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
     };
 
-    var _iteratorNormalCompletion9 = true;
-    var _didIteratorError9 = false;
-    var _iteratorError9 = undefined;
+    var _iteratorNormalCompletion8 = true;
+    var _didIteratorError8 = false;
+    var _iteratorError8 = undefined;
 
     try {
-        for (var _iterator9 = mobileMenuParent[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-            var parent = _step9.value;
+        for (var _iterator8 = mobileMenuParent[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+            var parent = _step8.value;
 
             parent.addEventListener("click", mobileClickEvent);
         }
 
         /***/
     } catch (err) {
-        _didIteratorError9 = true;
-        _iteratorError9 = err;
+        _didIteratorError8 = true;
+        _iteratorError8 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion9 && _iterator9.return) {
-                _iterator9.return();
+            if (!_iteratorNormalCompletion8 && _iterator8.return) {
+                _iterator8.return();
             }
         } finally {
-            if (_didIteratorError9) {
-                throw _iteratorError9;
+            if (_didIteratorError8) {
+                throw _iteratorError8;
             }
         }
     }
@@ -1653,13 +1667,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // drill down
     var drillDownButton = document.querySelectorAll(".primary_nav .sub__menu__child__title");
 
-    var _iteratorNormalCompletion10 = true;
-    var _didIteratorError10 = false;
-    var _iteratorError10 = undefined;
+    var _iteratorNormalCompletion9 = true;
+    var _didIteratorError9 = false;
+    var _iteratorError9 = undefined;
 
     try {
-        for (var _iterator10 = drillDownButton[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-            var drillDown = _step10.value;
+        for (var _iterator9 = drillDownButton[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+            var drillDown = _step9.value;
 
             drillDown.addEventListener("click", function (e) {
                 var parentMenu = e.target;
@@ -1698,16 +1712,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         /***/
     } catch (err) {
-        _didIteratorError10 = true;
-        _iteratorError10 = err;
+        _didIteratorError9 = true;
+        _iteratorError9 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion10 && _iterator10.return) {
-                _iterator10.return();
+            if (!_iteratorNormalCompletion9 && _iterator9.return) {
+                _iterator9.return();
             }
         } finally {
-            if (_didIteratorError10) {
-                throw _iteratorError10;
+            if (_didIteratorError9) {
+                throw _iteratorError9;
             }
         }
     }
@@ -1726,9 +1740,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             selectedAttraction: 0.01,
             friction: 0.15
         });
-
-        // text splitting
-        Splitting.chars("[data-banner-splitting-chars]");
     }
 
     /***/
@@ -1773,7 +1784,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         if (staticBannerParagraphs !== null) {
             TweenMax.to(staticBannerParagraphs, 0.5, { opacity: 1, y: 0, delay: 0.3 });
         }
-        TweenMax.to(staticBannerImage, 1, { opacity: 1, x: 0, ease: Power4.easeOut });
+        if (staticBannerImage !== null) {
+            TweenMax.to(staticBannerImage, 1, { opacity: 1, x: 0, ease: Power4.easeOut });
+        }
     }
 
     /***/
@@ -1806,13 +1819,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         animateLink("0", target, 0, 0.5);
     }
 
-    var _iteratorNormalCompletion11 = true;
-    var _didIteratorError11 = false;
-    var _iteratorError11 = undefined;
+    var _iteratorNormalCompletion10 = true;
+    var _didIteratorError10 = false;
+    var _iteratorError10 = undefined;
 
     try {
-        for (var _iterator11 = technologyLinks[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-            var link = _step11.value;
+        for (var _iterator10 = technologyLinks[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+            var link = _step10.value;
 
             link.addEventListener("mouseenter", function (e) {
                 enterLink(e.target);
@@ -1824,16 +1837,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         /***/
     } catch (err) {
-        _didIteratorError11 = true;
-        _iteratorError11 = err;
+        _didIteratorError10 = true;
+        _iteratorError10 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion11 && _iterator11.return) {
-                _iterator11.return();
+            if (!_iteratorNormalCompletion10 && _iterator10.return) {
+                _iterator10.return();
             }
         } finally {
-            if (_didIteratorError11) {
-                throw _iteratorError11;
+            if (_didIteratorError10) {
+                throw _iteratorError10;
             }
         }
     }

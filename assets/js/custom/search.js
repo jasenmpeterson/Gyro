@@ -9,7 +9,7 @@ searchInputElem.addEventListener("focus", (e) => {
 
 searchInputElem.addEventListener("blur", (e) => {
     searchIconElem.classList.remove("inactive");
-    closeIconElem.classList.remove("active")
+   closeIconElem.classList.remove("active")
 });
 
 closeIconElem.addEventListener("click", (e) => {

@@ -16,7 +16,7 @@
         ?>
 		<div class="col">
 			<div class="wrap">
-				<div class="image"></div>
+				<div class="image" style="background: url(<?php echo $history_block['image']['sizes']['large']; ?>)"></div>
 				<div class="tint tint__primary"></div>
 				<div class="tint tint__alternate"></div>
 				<div class="content__wrap content__front">

@@ -6,15 +6,18 @@
  * Time: 12:18 PM
  * Template Name: Technology and Solutions Template
  */
+global $post;
+$postID = $post->ID;
+$documents = get_field('related_downloads', $postID);
 get_header();
 ?>
 
 <div class="content__wrapper static__banner__small static__banner__background__color">
-	<?php get_template_part("components/technology/static-banner"); ?>
-    <div class="row">
-	    <?php get_template_part("components/technology/sidebar"); ?>
-	    <?php get_template_part("components/technology/content"); ?>
-	    <?php get_template_part("components/technology/sidebar-right"); ?>
+	<?php include(locate_template('components/technology/static-banner.php')); ?>
+    <div class="row sidebar_row">
+	    <?php include(locate_template('components/technology/sidebar.php')); ?>
+	    <?php include(locate_template('components/technology/content.php')); ?>
+	    <?php include(locate_template('components/technology/sidebar-right.php')); ?>
     </div>
 </div>
 

@@ -18,7 +18,11 @@ include('classes/staticBanner.php');
 include('classes/recentPosts.php');
 include('classes/categories.php');
 include('classes/sideBar.php');
+include('classes/supportContacts.php');
+include('classes/jazz.php');
 include('components/home/homePageClass.php');
+require "lib/jazz-api/jazz.php";
+
 
 // ENQUEUE STYLES
 
@@ -85,6 +89,7 @@ if( function_exists('acf_add_options_page') ) {
 
 register_nav_menus( array(
 	'primary_menu' => 'Primary Menu',
+	'mega_menu' => 'Mega Menu',
 	'secondary_menu' => 'Secondary Menu',
 	'tech_menu' => 'Technology & Solutions Menu',
 	'applications_menu' => 'Applications & Markets Menu',

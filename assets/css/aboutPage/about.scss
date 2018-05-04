@@ -183,7 +183,7 @@
 }
 
 .history__blocks .image {
-  background: url("assets/images/raw/banner_hp.jpg") no-repeat left center;
+  background-position: top center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   position: absolute;

@@ -18,7 +18,7 @@ $slider = $contentSlider->DisplayContentSlider();
 				<div class="col">
 					<div class="content__wrap">
 						<h1 data-content-slider-splitting-chars style="--word-total:1; --char-total:5;" class="title"><?php echo $slide['title']; ?></h1>
-						<img src="<?php echo $slide['image']['url']?>" alt="$slide['image']['alt']">
+						<img src="<?php echo $slide['image']['sizes']['medium']?>" alt="$slide['image']['alt']">
 					</div>
 				</div>
 				<div class="col">

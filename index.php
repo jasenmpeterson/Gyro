@@ -11,7 +11,7 @@ get_header();
 ?>
 
 <div class="content__wrapper">
-	<?php get_template_part("template-home"); ?>
+	<?php include(locate_template('template-home.php')); ?>
 </div>
 
 

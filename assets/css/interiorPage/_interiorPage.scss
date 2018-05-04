@@ -1,13 +1,18 @@
 .content__with__sidebar {
-  width: 50%;
   flex: 1;
+  @media screen and (min-width: 320px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 767px) {
+    width: 50%;
+  }
 }
 .content__contain .content__wrap {
   padding-left: 35px;
   padding-right: 35px;
 }
 .content__contain .content__wrap:first-child {
-   padding-top: 15px;
+   padding-top: 65px;
 }
 .content__contain .content__wrap:last-child {
   padding-bottom: 65px;
@@ -28,9 +33,14 @@
 }
 .block__content__animations article {
   height: 300px;
-  width: 50%;
   position: relative;
   overflow: hidden;
+  @media screen and (min-width: 320px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 600px) {
+    width: 50%;
+  }
 }
 .block__content__animations figure.background__image {
   margin: 0;
@@ -132,7 +142,7 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 45px;
+  padding: 45px 0;
 }
 
 .generic__page *:first-child {
@@ -143,4 +153,23 @@
 }
 .content__wrapper__generic .static__banner h2 {
   display: inline-block;
+}
+
+.no-right-sidebar {
+  flex: 0;
+  flex-basis: 50%;
+}
+.interior__page__content ul,
+.content__wrapper__generic ul {
+  padding-left: 20px;
+}
+.child__wrap {
+  padding: 45px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.child__wrap h3 {
+  margin-top: 0;
+}
+.content__wrap h3:first-child {
+  margin-top: 0;
 }

@@ -11,7 +11,7 @@ get_header();
 
 	<div class="content__wrapper static__banner__small static__banner__background__color">
 		<?php get_template_part("components/applications/static-banner"); ?>
-		<div class="row">
+		<div class="row sidebar_row">
 			<?php get_template_part("components/applications/sidebar"); ?>
 			<?php get_template_part("components/applications/content"); ?>
 		</div>

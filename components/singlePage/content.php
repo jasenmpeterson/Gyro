@@ -3,6 +3,7 @@ $recentPosts = new \recentPosts\recentPosts(null,null);
 $recentPosts->retrievePosts();
 $listCategories = new \categories\categories();
 $listCategories->retrieveCategories();
+$contacts = new \supportContacts\supportContacts();
 if (have_posts()) :
 	while (have_posts()) : the_post();
 	$image = get_the_post_thumbnail_url(get_the_ID());
@@ -10,7 +11,7 @@ if (have_posts()) :
 	$link = get_permalink();
 ?>
 <div class="single__page">
-	<div class="row">
+	<div class="row sidebar_row">
         <div class="col sidebar">
             <aside>
                 <div class="content__wrap recent__posts">
@@ -28,26 +29,7 @@ if (have_posts()) :
 					?>
                 </div>
                 <div class="content__wrap contact">
-                    <h5>Contact Local Support</h5>
-                    <table>
-                        <tr>
-                            <td>North America</td>
-                            <td>+1 281.213.6300</td>
-                        </tr>
-                        <tr>
-                            <td>North America</td>
-                            <td>+1 281.213.6300</td>
-                        </tr>
-                        <tr>
-                            <td>North America</td>
-                            <td>+1 281.213.6300</td>
-                        </tr>
-                        <tr>
-                            <td>North America</td>
-                            <td>+1 281.213.6300</td>
-                        </tr>
-                    </table>
-                    <a href="#" class="button" data-text="Contact Us"><span>Contact Us</span></a>
+	                <?php echo $contacts->getContacts(); ?>
                 </div>
             </aside>
         </div>

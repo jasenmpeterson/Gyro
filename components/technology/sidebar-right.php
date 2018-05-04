@@ -6,45 +6,23 @@
  * Time: 12:49 PM
  */
 ?>
+<?php if(!empty($documents)): ?>
 <div class="col sidebar right">
 	<div class="content__wrap">
-		<h4>Spec Sheets</h4>
+		<h4>Related Downloads</h4>
+
 		<ul class="documents">
+            <?php foreach($documents as $document): ?>
 			<li>
-				<a href="#">
+				<a href="<?php echo $document['document']; ?>" target="_blank">
 					<figure>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/raw/pdf-icon.svg" alt="">
 					</figure>
-					<article>GyroDrill Performance Motor Spec Sheets</article>
+					<article><?php echo $document['title']; ?></article>
 				</a>
 			</li>
-			<li>
-				<a href="#">
-					<figure>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/raw/pdf-icon.svg" alt="">
-					</figure>
-					<article>GyroDrill Performance Motor Spec Sheets</article>
-				</a>
-			</li>
-		</ul>
-		<h4>Case Studies</h4>
-		<ul class="documents">
-			<li>
-				<a href="#">
-					<figure>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/raw/pdf-icon.svg" alt="">
-					</figure>
-					<article>GyroDrill Performance Motor Spec Sheets</article>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<figure>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/raw/pdf-icon.svg" alt="">
-					</figure>
-					<article>GyroDrill Performance Motor Spec Sheets</article>
-				</a>
-			</li>
+            <?php endforeach;?>
 		</ul>
 	</div>
 </div>
+<?php endif; ?>

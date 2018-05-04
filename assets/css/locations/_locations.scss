@@ -31,8 +31,7 @@
 
 .location__module {
  // background-color: #F2F2F2;
-  background-color: rgba(242, 242, 242, 0.5);
-  //box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+  background-color: rgba(242, 242, 242, 0.8);
   border-top: 1px solid  rgba(0, 0, 0, 0.05);
   padding: 25px;
   width: 100%;
@@ -92,13 +91,18 @@
 .region__button {
   position: relative;
   padding-left: 35px;
+  transition: all 300ms;
+}
+
+.region__button.active {
+  font-weight: 700;
 }
 
 .region__button:before {
   display: block;
   content: "";
   border-radius: 50%;
-  background-color: #cccccc;
+  background-color: #616163;
   border: 3px solid transparent;
   width: 20px;
   height: 20px;
@@ -127,13 +131,14 @@
 
 .location__module.local {
   position: relative;
+  min-height: 140px;
 }
 
 
 .location__module.locations,
 .location__module.local {
   // background-color: #E5E6E6;
-  background-color: rgba(229, 230, 230, 0.5);
+  background-color: rgba(229, 230, 230, 0.8);
 }
 
 .location__module.contact {

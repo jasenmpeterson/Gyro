@@ -387,6 +387,13 @@ GoogleMapsLoader.load(function(google) {
         let  setTemp = (lat,lng, location, region) => {
             weatherModule.classList.remove("active");
             loader.classList.remove("inactive");
+            document.querySelector("span.temperature").innerHTML = "";
+            document.querySelector("span.humidity").innerHTML = "";
+            document.querySelector("span.precipitation").innerHTML = "";
+            document.querySelector("span.wind").innerHTML = "";
+            document.querySelector("span.day").innerHTML = "";
+            document.querySelector("span.city").innerHTML = "";
+            document.querySelector("span.region").innerHTML = "";
             fetch(`${pageParams.themeDirectory}/api/weather.php?lat=${lat}&lng=${lng}`)
                 .then( function (response) {
                     return response.json();
@@ -427,38 +434,40 @@ GoogleMapsLoader.load(function(google) {
         let regionButtons = document.querySelectorAll(".region__button");
         for(let regionButton of regionButtons) {
             regionButton.addEventListener("click", (e) => {
-                let weatherModuleContent = weatherModule.querySelectorAll("span");
-                let longitude = e.target.dataset.lng;
-                let latitude = e.target.dataset.lat;
-                let region = e.target.dataset.name;
-                map.setZoom(3);
-                map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
-                let prevActiveRegion = document.querySelector(".region__button.active");
-                (prevActiveRegion !== null) ? prevActiveRegion.classList.remove("active") : "";
-                e.target.classList.add("active");
-                TweenMax.staggerTo([contactModule, localModule], 0.2, {
-                    opacity: 0,
-                    y: 50,
-                    delay: 0.3
-                }, 0.2,  function () {
-                    for(let span of weatherModuleContent) {
-                        span.innerHTML = "";
+                if(!regionButton.classList.contains('active')) {
+                    let weatherModuleContent = weatherModule.querySelectorAll("span");
+                    let longitude = e.target.dataset.lng;
+                    let latitude = e.target.dataset.lat;
+                    let region = e.target.dataset.name;
+                    map.setZoom(3);
+                    map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
+                    let prevActiveRegion = document.querySelector(".region__button.active");
+                    (prevActiveRegion !== null) ? prevActiveRegion.classList.remove("active") : "";
+                    e.target.classList.add("active");
+                    // TweenMax.staggerTo([contactModule, localModule], 0.2, {
+                    //     opacity: 0,
+                    //     y: 50,
+                    //     delay: 0.3
+                    // }, 0.2,  function () {
+                    //     for(let span of weatherModuleContent) {
+                    //         span.innerHTML = "";
+                    //     }
+                    // });
+                    if(!document.querySelector(".location__button[data-region='"+region+"']")) {
+                        loadLocations(region);
+                        TweenMax.to(locationsModule, 0.2, {
+                            opacity: 0,
+                            y: 5,
+                            onComplete: function () {
+                                TweenMax.to(locationsModule, 0.2, {
+                                    opacity: 1,
+                                    y: 0
+                                });
+                            }
+                        });
+                        let regionTitle = document.querySelector(".region__title h1 span");
+                        regionTitle.innerHTML = region;
                     }
-                });
-                if(!document.querySelector(".location__button[data-region='"+region+"']")) {
-                    loadLocations(region);
-                    TweenMax.to(locationsModule, 0.2, {
-                        opacity: 0,
-                        y: 5,
-                        onComplete: function () {
-                            TweenMax.to(locationsModule, 0.2, {
-                                opacity: 1,
-                                y: 0
-                            });
-                        }
-                    });
-                    let regionTitle = document.querySelector(".region__title h1 span");
-                    regionTitle.innerHTML = region;
                 }
             })
         }
@@ -487,8 +496,8 @@ GoogleMapsLoader.load(function(google) {
                         y: 0
                     });
                 });
-
             }
+            locationButtons[0].click();
         }
     }
 });

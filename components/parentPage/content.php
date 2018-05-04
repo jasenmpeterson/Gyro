@@ -7,23 +7,24 @@
  * Template Name: Parent Page
  */
 ?>
-	<section class="col interior__page__content  content__contain newsrooms block__content__animations content__with__sidebar">
+	<section class="col interior__page__content parent__page <?php if(empty($documents)): echo 'no-right-sidebar'; endif; ?> content__contain newsrooms content__with__sidebar">
+        <div class="content__wrap">
+            <?php echo wpautop(get_the_content($page_id)); ?>
 		<?php
 		if(!empty($children)):
 			foreach($children as $child):
 				?>
-				<article>
-					<a href="<?php echo get_permalink($child->ID); ?>">
-						<figure class="background__image" style="background:url('<?php echo get_template_directory_uri();?>/assets/images/raw/banner_hp.jpg');"></figure>
-						<figure class="background__image background__image__contrast" style="background:url('<?php echo get_template_directory_uri();?>/assets/images/raw/banner_hp.jpg');"></figure>
-						<div class="content__wrap">
-							<h2><?php echo $child->post_title?></h2>
-							<span class="read__more">Learn More</span>
-						</div>
-					</a>
-				</article>
+				<div class="child__wrap">
+                    <h2><?php echo $child->post_title ?></h2>
+                    <?php echo wpautop($child->post_content); ?>
+                    <a class="button fade-in" href="<?php echo get_permalink($child->ID); ?>" data-text="Learn more about <?php echo $child->post_title?>">
+						<span>Learn more about the <?php echo $child->post_title?></span>
+                    </a>
+                </div>
+
 			<?php
 			endforeach;
 		endif;
 		?>
+        </div>
 	</section>

@@ -10,6 +10,4 @@ if(document.querySelector(".rotating__banner") !== null) {
         friction: 0.15
     });
 
-// text splitting
-    Splitting.chars("[data-banner-splitting-chars]");
 }

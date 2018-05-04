@@ -257,7 +257,19 @@ gulp.task( 'customJS', function() {
         }))
         .pipe(sourcemaps.init())
         .pipe(babel({
-            presets: ['env']
+            "presets": [
+                ["env", {
+                    "targets": {
+                        "browsers": [
+                            "Chrome >= 52",
+                            "FireFox >= 44",
+                            "Safari >= 7",
+                            "Explorer 11",
+                            "last 4 Edge versions"
+                        ]
+                    }
+                }]
+            ]
         }))
         .pipe( concat( jsCustomFile + '.js' ) )
         .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.

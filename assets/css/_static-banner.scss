@@ -3,6 +3,9 @@
   opacity: 0;
   transform: translateY(20px);
 }
+.static__banner h2.title {
+  margin-bottom: 10px;
+}
 .static__banner .background__image {
   transform: translateX(200px);
   opacity: 0;
@@ -21,7 +24,7 @@
 }
 .static__banner .col:first-child {
   @media screen and (min-width: 767px) {
-    width: 35%;
+    width: 45%;
   }
   @media screen and (min-width: 320px) {
     width: 100%;

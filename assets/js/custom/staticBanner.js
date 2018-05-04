@@ -6,5 +6,8 @@ if(staticBannerHeader) {
     if(staticBannerParagraphs !== null) {
         TweenMax.to(staticBannerParagraphs, 0.5, { opacity: 1, y: 0, delay: 0.3 });
     }
-    TweenMax.to(staticBannerImage, 1, { opacity: 1, x: 0, ease: Power4.easeOut });
+    if(staticBannerImage !== null) {
+        TweenMax.to(staticBannerImage, 1, { opacity: 1, x: 0, ease: Power4.easeOut });
+    }
+
 }
