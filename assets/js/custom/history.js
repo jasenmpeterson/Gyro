@@ -18,7 +18,7 @@ historyBlocks.forEach(el => el.addEventListener("click", animateHistoryBlock));
 
 // our history timeline
 
-let targets = document.querySelectorAll(".our__history circle");
+let targets = document.querySelectorAll(".our__history .svg__wrap svg circle");
 
 let circleDeselect = () => {
     let activeCircles =  document.querySelectorAll(".our__history circle.animated");
@@ -35,16 +35,18 @@ let circleDeselect = () => {
     }
     // previous content section
     let prevSection = document.querySelector(".history__chart__content.active");
-    anime({
-        targets: prevSection,
-        opacity: 0,
-        translateY: "20",
-        color: "#18191a",
-        delay: 200,
-        run: function () {
-            prevSection.classList.remove("active");
-        }
-    });
+    if(prevSection) {
+        anime({
+            targets: prevSection,
+            opacity: 0,
+            translateY: "20",
+            color: "#18191a",
+            delay: 200,
+            run: function () {
+                prevSection.classList.remove("active");
+            }
+        });
+    }
 };
 
 let circleSelect = (el) => {
@@ -96,7 +98,9 @@ let circleSelect = (el) => {
 
 };
 
-targets.forEach(el => el.addEventListener("click", circleSelect));
+for(let target of targets) {
+    target.addEventListener("click", circleSelect)
+}
 
 // left/right functionality
 

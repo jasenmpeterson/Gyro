@@ -426,7 +426,8 @@ th,td{width:15%;font-size:14px}
 .history__blocks .wrap.active p{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 .history__blocks .wrap:hover .tint__primary{background-color:rgba(0,0,0,0.8)}
 .our__history.about__page{background-color:#18191a;position:relative;min-height:100vh}
-.our__history .svg__wrap{padding:40px 0;max-width:90%;margin:0 auto}
+.our__history .svg__wrap{padding:40px 0;width:1700px;max-width:100%;margin:0 auto}
+.our__history .svg__wrap svg{width:100%}
 .our__history svg{padding-top:40px}
 .our__history .cls-1{fill:#fff}
 .our__history .cls-4{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:.181px}

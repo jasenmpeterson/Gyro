@@ -2,7 +2,7 @@
 <head>
 
     <!--=== META TAGS ===-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,chrome=1">
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="description" content="Keywords">
     <meta name="author" content="Name">

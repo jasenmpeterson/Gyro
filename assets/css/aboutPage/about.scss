@@ -278,8 +278,13 @@
 
 .our__history .svg__wrap {
   padding: 40px 0;
-  max-width: 90%;
+  width: 1700px;
+  max-width: 100%;
   margin: 0 auto;
+}
+
+.our__history .svg__wrap svg {
+  width: 100%;
 }
 
 .our__history svg {

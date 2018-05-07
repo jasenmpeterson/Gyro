@@ -113,16 +113,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     function coreValuesAnimation(element) {
         if (element.classList.contains("core__values")) {
             var coreValuesHeader = document.querySelector(".core__values h2.title");
-            var coreValuesRule = CSSRulePlugin.getRule(".core__values .col:first-child:after");
             var coreValueContent = document.querySelectorAll(".core__values .content__wrap");
             TweenMax.to(coreValuesHeader, 0.5, { opacity: 1, y: 0 });
-            TweenMax.to(coreValuesRule, 0.5, {
-                cssRule: {
-                    opacity: 1,
-                    height: "100%",
-                    delay: 0.3
-                }
-            });
             TweenMax.staggerTo(coreValueContent, 0.5, {
                 opacity: 1,
                 y: 0,
@@ -1397,7 +1389,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // our history timeline
 
-    var targets = document.querySelectorAll(".our__history circle");
+    var targets = document.querySelectorAll(".our__history .svg__wrap svg circle");
 
     var circleDeselect = function circleDeselect() {
         var activeCircles = document.querySelectorAll(".our__history circle.animated");
@@ -1441,16 +1433,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
 
         var prevSection = document.querySelector(".history__chart__content.active");
-        anime({
-            targets: prevSection,
-            opacity: 0,
-            translateY: "20",
-            color: "#18191a",
-            delay: 200,
-            run: function run() {
-                prevSection.classList.remove("active");
-            }
-        });
+        if (prevSection) {
+            anime({
+                targets: prevSection,
+                opacity: 0,
+                translateY: "20",
+                color: "#18191a",
+                delay: 200,
+                run: function run() {
+                    prevSection.classList.remove("active");
+                }
+            });
+        }
     };
 
     var circleSelect = function circleSelect(el) {
@@ -1501,11 +1495,32 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
     };
 
-    targets.forEach(function (el) {
-        return el.addEventListener("click", circleSelect);
-    });
+    var _iteratorNormalCompletion8 = true;
+    var _didIteratorError8 = false;
+    var _iteratorError8 = undefined;
 
-    // left/right functionality
+    try {
+        for (var _iterator8 = targets[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+            var target = _step8.value;
+
+            target.addEventListener("click", circleSelect);
+        }
+
+        // left/right functionality
+    } catch (err) {
+        _didIteratorError8 = true;
+        _iteratorError8 = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion8 && _iterator8.return) {
+                _iterator8.return();
+            }
+        } finally {
+            if (_didIteratorError8) {
+                throw _iteratorError8;
+            }
+        }
+    }
 
     var nextArrow = document.querySelector(".our__history .next__arrow");
     var prevArrow = document.querySelector(".our__history .prev__arrow");
@@ -1634,29 +1649,29 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
     };
 
-    var _iteratorNormalCompletion8 = true;
-    var _didIteratorError8 = false;
-    var _iteratorError8 = undefined;
+    var _iteratorNormalCompletion9 = true;
+    var _didIteratorError9 = false;
+    var _iteratorError9 = undefined;
 
     try {
-        for (var _iterator8 = mobileMenuParent[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-            var parent = _step8.value;
+        for (var _iterator9 = mobileMenuParent[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+            var parent = _step9.value;
 
             parent.addEventListener("click", mobileClickEvent);
         }
 
         /***/
     } catch (err) {
-        _didIteratorError8 = true;
-        _iteratorError8 = err;
+        _didIteratorError9 = true;
+        _iteratorError9 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion8 && _iterator8.return) {
-                _iterator8.return();
+            if (!_iteratorNormalCompletion9 && _iterator9.return) {
+                _iterator9.return();
             }
         } finally {
-            if (_didIteratorError8) {
-                throw _iteratorError8;
+            if (_didIteratorError9) {
+                throw _iteratorError9;
             }
         }
     }
@@ -1667,13 +1682,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // drill down
     var drillDownButton = document.querySelectorAll(".primary_nav .sub__menu__child__title");
 
-    var _iteratorNormalCompletion9 = true;
-    var _didIteratorError9 = false;
-    var _iteratorError9 = undefined;
+    var _iteratorNormalCompletion10 = true;
+    var _didIteratorError10 = false;
+    var _iteratorError10 = undefined;
 
     try {
-        for (var _iterator9 = drillDownButton[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-            var drillDown = _step9.value;
+        for (var _iterator10 = drillDownButton[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+            var drillDown = _step10.value;
 
             drillDown.addEventListener("click", function (e) {
                 var parentMenu = e.target;
@@ -1712,16 +1727,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         /***/
     } catch (err) {
-        _didIteratorError9 = true;
-        _iteratorError9 = err;
+        _didIteratorError10 = true;
+        _iteratorError10 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion9 && _iterator9.return) {
-                _iterator9.return();
+            if (!_iteratorNormalCompletion10 && _iterator10.return) {
+                _iterator10.return();
             }
         } finally {
-            if (_didIteratorError9) {
-                throw _iteratorError9;
+            if (_didIteratorError10) {
+                throw _iteratorError10;
             }
         }
     }
@@ -1819,13 +1834,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         animateLink("0", target, 0, 0.5);
     }
 
-    var _iteratorNormalCompletion10 = true;
-    var _didIteratorError10 = false;
-    var _iteratorError10 = undefined;
+    var _iteratorNormalCompletion11 = true;
+    var _didIteratorError11 = false;
+    var _iteratorError11 = undefined;
 
     try {
-        for (var _iterator10 = technologyLinks[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-            var link = _step10.value;
+        for (var _iterator11 = technologyLinks[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+            var link = _step11.value;
 
             link.addEventListener("mouseenter", function (e) {
                 enterLink(e.target);
@@ -1837,16 +1852,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         /***/
     } catch (err) {
-        _didIteratorError10 = true;
-        _iteratorError10 = err;
+        _didIteratorError11 = true;
+        _iteratorError11 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion10 && _iterator10.return) {
-                _iterator10.return();
+            if (!_iteratorNormalCompletion11 && _iterator11.return) {
+                _iterator11.return();
             }
         } finally {
-            if (_didIteratorError10) {
-                throw _iteratorError10;
+            if (_didIteratorError11) {
+                throw _iteratorError11;
             }
         }
     }
