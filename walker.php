@@ -11,72 +11,66 @@ if ( ! class_exists( 'Gyro_Walker' ) ) {
 
 	class Gyro_Walker extends Walker_Nav_Menu {
 
-		// start a new level/sub-menu
+		var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
 
-		public function start_lvl(&$output, $depth = 0, $args = array()) {
-
+		function start_lvl( &$output, $depth = 0, $args = array() ) {
 			$indent = str_repeat("\t", $depth);
 
-			$output .= ($depth == 0 ? "\n$indent<ul class=\"sub__menu parent__sub__menu\">\n" : "\n$indent<ul class=\"sub__menu child__sub__menu\">\n");
-
+			if( $depth >  0 ) {
+				$output .= "\n$indent<ul class='sub-menu grand-children-sub-menu'>\n";
+			} else {
+				$output .= "\n$indent<ul class='sub-menu'>\n";
+			}
 		}
 
-		// the link element
+		function end_lvl( &$output, $depth = 0, $args = array() ) {
+			$indent = str_repeat("\t", $depth);
+			$output .= "$indent</ul>\n";
+		}
 
-		public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+		function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
-			$object = $item->object;
-			$type = $item->type;
-			$title = $item->title;
-			$description = $item->description;
-			$permalink = $item->url;
+			global $wp_query;
+			$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+			$class_names = $value = '';
+			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
-			// set classes
-
-			$output .= ($depth == 0 ? "<li class='parent__nav__item ". implode(" ", $item->classes) . "'>" : "<li class='child__nav__item". implode(" ", $item->classes) . "'>");
-
-			// add span if no permalink
-
-			if ($permalink && $permalink != "#") {
-
-				$output .= '<a href="'.$permalink.'">';
-
-			} else if ($depth == 1) {
-
-				$output .= '<span class="sub__menu__title">';
-
-			} else if ($depth == 2) {
-
-				$output .= '<span class="sub__menu__child__title">';
-
-			} else {
-
-				$output .= '<span class="sub__menu__grandchild__title">';
-
+			// active class
+			if(in_array('current-menu-item', $classes)) {
+				$classes[] = 'active';
+				unset($classes['current-menu-item']);
 			}
 
-			// title
-
-			$output .= $title;
-
-			// description
-
-			if ($description != '' && $depth == 0) {
-
-				$output .= '<small class="description">' . $description . '</small>';
-
+			// check for children
+			$children = get_posts(array('post_type' => 'nav_menu_item', 'nopaging' => true, 'numberposts' => 1, 'meta_key' => '_menu_item_menu_item_parent', 'meta_value' => $item->ID));
+			if (!empty($children)) {
+				$classes[] = 'has-sub';
 			}
 
-			if ($permalink && $permalink != "#") {
+			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
-				$output .= '</a>';
+			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-			} else {
+			$output .= $indent . '<li' . $id . $value . $class_names .'>';
 
-				$output .= "</span>";
+			$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+			$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+			$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+			$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
 
-			}
+			$item_output = $args->before;
+			$item_output .= '<a class="primary-link"'. $attributes .'>';
+			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+			$item_output .= '</a>';
+			$item_output .= $args->after;
 
+			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		}
+
+		function end_el( &$output, $item, $depth = 0, $args = array() ) {
+			$output .= "</li>\n";
 		}
 
 	}

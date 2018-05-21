@@ -8,15 +8,39 @@
 
 class mega_walker extends  Walker_Nav_Menu {
 
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
-		$indent = str_repeat("\t", $depth);
-		$submenu = ($depth > 0) ? ' sub-menu' : '';
-		$output .= "\n$indent<ul class=\"dropdown-menu$submenu depth_$depth\" >\n";
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		$object = $item->object;
+		$type = $item->type;
+		$title = $item->title;
+		$description = $item->description;
+		$permalink = $item->url;
+
+		$output = '<li class="'.implode( ' ', $item->classes).'">';
+
+		// add span if no permalink
+		if( $permalink && $permalink != '#' ) {
+			$output .= '<a href="'.$permalink.'">';
+		} else {
+			$output .= '<span>';
+		}
+
+		// title
+		$output .= $title;
+
+		// description
+		if( $description != '' && $depth === 0 ) {
+			$output .= '<small class="description">'.$description.'</small>';
+		}
+
+		// close span and link tags
+		if( $permalink && $permalink != '#' ) {
+			$output .= '</a>';
+		} else {
+			$output .= '</span>';
+		}
 	}
 
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		$indent = ($depth) ? str_repeat("\t", $depth) : '';
-		$li_attributes = '';
-		$class_names = $value = '';
+	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		$output .= '</li>';
 	}
 }

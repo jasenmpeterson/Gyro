@@ -43,14 +43,12 @@
             </div>
         </div>
         <div class="col secondary__nav">
-            <div class="nav__wrap">
-				<?php
-				wp_nav_menu(array(
-					"theme_location" => "secondary_menu",
-					'container'=> false
-				));
-				?>
-            </div>
+	        <?php
+	        wp_nav_menu(array(
+		        "theme_location" => "secondary_menu",
+		        'container'=> false
+	        ));
+	        ?>
         </div>
         <div class="col social__media">
             <div class="social__media__wrap">
@@ -70,17 +68,15 @@
             </div>
         </div>
         <div class="col primary_nav">
-            <div class="nav__wrap">
-                <?php
-                    wp_nav_menu(array(
-                        "theme_location" => "primary_menu",
-                        "container" => false,
-                        "walker" => new Gyro_Walker()
-                    ));
-                ?>
-                <div class="hamburger__menu">
-                    <div class="bar"></div>
-                </div>
+	        <?php
+                wp_nav_menu(array(
+                    "theme_location" => "primary_menu",
+                    "container" => false,
+                    "walker" => new Gyro_Walker()
+                ));
+	        ?>
+            <div class="hamburger__menu">
+                <div class="bar"></div>
             </div>
         </div>
     </div>

@@ -16,7 +16,6 @@
                     <circle id="Ellipse_9" data-id="8" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-78.7 474.67 -542.218)"></circle>
                     <circle id="Ellipse_10" data-id="9" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-67.54 582.092 -754.796)"></circle>
                     <circle id="Ellipse_11" data-id="10" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-56.172 728.777 -1046.097)"></circle>
-                    <circle id="Ellipse_12" data-id="11" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-45 938.157 -1461.704)"></circle>
                     <circle id="Ellipse_13" data-id="12" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-33.7 1280.782 -2143.95)"></circle>
                     <circle id="Ellipse_14" data-id="13" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-22.552 1946.415 -3463.001)"></circle>
                     <circle id="Ellipse_15" data-id="14" class="cls-1" cx="8.177" cy="8.177" r="8.177" transform="rotate(-11.168 3966.722 -7473.518)"></circle>
@@ -433,7 +432,7 @@
         <div class="row align-center align-middle">
             <div class="col">
                 <div class="content__wrap">
-                    <h2>Founding of GyroData</h2>
+                    <h2>Founding of Gyrodata</h2>
                     <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore. </p>
                 </div>
             </div>
@@ -444,7 +443,7 @@
             <div class="col">
                 <div class="content__wrap">
                     <h2>Gyroscopic Survey</h2>
-                    <p>First commercial gyroscopic survey run</p>
+                    <p>First commercial gyroscopic survey run.</p>
                 </div>
             </div>
         </div>

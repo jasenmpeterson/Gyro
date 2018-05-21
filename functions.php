@@ -21,6 +21,7 @@ include('classes/sideBar.php');
 include('classes/supportContacts.php');
 include('classes/jazz.php');
 include('components/home/homePageClass.php');
+include('mega_walker.php');
 require "lib/jazz-api/jazz.php";
 
 
