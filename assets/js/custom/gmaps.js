@@ -280,17 +280,16 @@ GoogleMapsLoader.load(function(google) {
         });
         function parse(locations) {
             for (let location of locations) {
-                console.log(location.acf);
                 let marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(location.acf.latitude, location.acf.longitude),
+                    position: new google.maps.LatLng(location.acf.location.latitude, location.acf.location.longitude),
                     map: map,
                     icon: icon,
-                    title: location.acf.city_name,
-                    region: location.acf.city_region,
+                    title: location.acf.location.city_name,
+                    region: location.acf.location.city_region,
                     optimized: false
                 });
                 let infoWindow = new google.maps.InfoWindow({
-                    content: location.acf.city_name
+                    content: location.acf.location.city_name
                 });
                 marker.addListener("click", function () {
                     infoWindow.open(map, this);
@@ -303,15 +302,140 @@ GoogleMapsLoader.load(function(google) {
                     });
                     document.querySelector(".region__title h1 span").innerHTML = marker.region;
                     loadLocations(marker.region);
-                    setContact(marker.title);
                     TweenMax.to(localModule, 0.2, {
                         opacity: 1,
                         y: 0
                     });
                 });
             }
-        }
 
+            function loadLocations (region) {
+                let buttonsWrap = document.querySelector(".locations__button__wrap.cities");
+                buttonsWrap.innerHTML = "";
+                buttonsWrap.innerHTML +=`
+                ${
+                    locations.map(location => ( location.acf.location.country_region === region ? `<h4>${ location.acf.location.country_name }</h4><button class="location__button maps__button" data-name="${location.acf.location.contact.city}" data-region="${location.acf.location.city_region}" data-lat="${location.acf.location.latitude}" data-lng="${location.acf.location.longitude}">${location.acf.location.contact.city}</button>` : '' ) ).join('') }`;
+
+                locations.map( location => ( console.log(location.acf.location) ) );
+                let locationButtons = document.querySelectorAll(".location__button");
+                for(let locationButton of locationButtons) {
+                    locationButton.addEventListener("click", (e) => {
+                        let longitude = e.target.dataset.lng;
+                        let latitude = e.target.dataset.lat;
+                        let location = e.target.dataset.name;
+                        let region = e.target.dataset.region;
+                        map.setZoom(8);
+                        map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
+                        setTemp(parseInt(latitude),parseInt(longitude), location, region);
+                        setContact(e.target.dataset.name);
+                        TweenMax.to(localModule, 0.2, {
+                            opacity: 1,
+                            y: 0
+                        });
+                    });
+                }
+                locationButtons[0].click();
+            }
+
+            let regions = [
+                { name: "North America", latitude: 54.525961, longitude: -105.255119 },
+                { name: "Asia & Middle East", latitude: 34.047863, longitude: 100.619655  },
+                { name: "Europe, Africa & Caspian", latitude: 54.525961, longitude: 15.255119  }
+            ];
+
+            let regionsModule = document.querySelector(".location__module.regions .regions__wrap");
+
+            regionsModule.innerHTML = `<div class="locations__button__wrap">
+        ${regions.map(region => `<button class="region__button maps__button" data-name="${region.name}" data-lat="${region.latitude}" data-lng="${region.longitude}">${region.name}</button>`).join('')}
+    </div>`;
+
+            let regionButtons = document.querySelectorAll(".region__button");
+            for(let regionButton of regionButtons) {
+                regionButton.addEventListener("click", (e) => {
+                    if(!regionButton.classList.contains('active')) {
+                        let weatherModuleContent = weatherModule.querySelectorAll("span");
+                        let longitude = e.target.dataset.lng;
+                        let latitude = e.target.dataset.lat;
+                        let region = e.target.dataset.name;
+                        map.setZoom(3);
+                        map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
+                        let prevActiveRegion = document.querySelector(".region__button.active");
+                        (prevActiveRegion !== null) ? prevActiveRegion.classList.remove("active") : "";
+                        e.target.classList.add("active");
+                        TweenMax.staggerTo([contactModule, localModule], 0.2, {
+                            opacity: 0,
+                            y: 50,
+                            delay: 0.3
+                        }, 0.2,  function () {
+                            for(let span of weatherModuleContent) {
+                                span.innerHTML = "";
+                            }
+                        });
+                        if(!document.querySelector(".location__button[data-region='"+region+"']")) {
+                            loadLocations(region);
+                            TweenMax.to(locationsModule, 0.2, {
+                                opacity: 0,
+                                y: 5,
+                                onComplete: function () {
+                                    TweenMax.to(locationsModule, 0.2, {
+                                        opacity: 1,
+                                        y: 0
+                                    });
+                                }
+                            });
+                            let regionTitle = document.querySelector(".region__title h1 span");
+                            regionTitle.innerHTML = region;
+                        }
+                    }
+                })
+            }
+
+            let setTemp = (lat,lng, location, region) => {
+                weatherModule.classList.remove("active");
+                loader.classList.remove("inactive");
+                document.querySelector("span.temperature").innerHTML = "";
+                document.querySelector("span.humidity").innerHTML = "";
+                document.querySelector("span.precipitation").innerHTML = "";
+                document.querySelector("span.wind").innerHTML = "";
+                document.querySelector("span.day").innerHTML = "";
+                document.querySelector("span.city").innerHTML = "";
+                document.querySelector("span.region").innerHTML = "";
+                fetch(`${pageParams.themeDirectory}/api/weather.php?lat=${lat}&lng=${lng}`)
+                    .then( function (response) {
+                        return response.json();
+                    }).then(function(myJSON) {
+                    TweenMax.to(weatherModule, 0.2, {
+                        opacity: 1,
+                        y: 0
+                    });
+                    loader.classList.add("inactive");
+                    currentTemp = Math.round(myJSON.temp);
+                    currentHumidity = myJSON.humidity + "%";
+                    currentHumidity = currentHumidity.replace(/^[0\.]+/, "");
+                    currentPrecipitation = Math.round(myJSON.precipitation) + "%";
+                    currentWind = Math.round(myJSON.wind) + " mph";
+                    currentTime = myJSON.time;
+                    document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
+                    document.querySelector("span.humidity").innerHTML = 'Humidity: ' + currentHumidity;
+                    document.querySelector("span.precipitation").innerHTML = 'Precipitation: ' + currentPrecipitation;
+                    document.querySelector("span.wind").innerHTML = 'Wind: ' + currentWind;
+                    document.querySelector("span.day").innerHTML = currentDay + " " + myJSON.time;
+                    document.querySelector("span.city").innerHTML = location;
+                    document.querySelector("span.region").innerHTML = region;
+                });
+            };
+
+            let setContact = (city) => {
+                console.log( city );
+                locations.map( location => console.log(location) );
+                let module = document.querySelector(".location__module.contact .col");
+                module.innerHTML =  `${ locations.map( location => ( location.acf.location.city_name === city ? `<h4>${location.acf.location.contact.name}</h4><address><p>${location.acf.location.contact.street}</p><p>${location.acf.location.contact.city}, ${location.acf.location.contact.zip}</p><p>Tel: ${location.acf.location.contact.telephone}</p><p>Fax: ${location.acf.location.contact.fax}</p></address>` : ''   ) ).join('') }`;
+                TweenMax.to(contactModule, 0.2, {
+                    opacity: 1,
+                    y: 0
+                });
+            };
+        }
 
     }
 });
