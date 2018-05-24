@@ -14,26 +14,48 @@ if (have_posts()) :
 	<div class="row sidebar_row">
         <div class="col sidebar">
             <aside>
-                <div class="content__wrap recent__posts">
-                    <ul class="drill__down categories">
-						<?php
-						if(!empty($recentPosts->output)):
-							echo $recentPosts->output;
-						endif;
-						?>
-                    </ul>
-					<?php
-					if(!empty($listCategories->output)):
-						echo $listCategories->output;
-					endif;
-					?>
+                <div class="content__wrap recent__posts drill__down categories">
+	                <?php
+	                //for each category, show all posts
+	                $cat_args=array(
+		                'orderby' => 'name',
+		                'order' => 'ASC'
+	                );
+	                $categories=get_categories($cat_args);
+	                foreach($categories as $category) {
+		                $args=array(
+			                'showposts' => -1,
+			                'category__in' => array($category->term_id),
+			                'ignore_sticky_posts'=>1
+		                );
+		                $posts=get_posts($args);
+		                if ($posts) {
+			                echo '<h4>'.$category->name.'</h4>';
+			                foreach($posts as $post) {
+				                setup_postdata($post); ?>
+                                <p><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><span><?php the_title(); ?></span></a></p>
+				                <?php
+			                } // foreach($posts
+		                } // if ($posts
+	                } // foreach($categories
+                    wp_reset_postdata();
+	                ?>
                 </div>
                 <div class="content__wrap contact">
 	                <?php echo $contacts->getContacts(); ?>
                 </div>
             </aside>
         </div>
-		<div class="col interior__page__content content__with__sidebar content__contain newsrooms content__with__sidebar single__page__content">
+		<div class="col interior__page__content content__with__sidebar content__contain newsrooms content__with__sidebar single__page__content  static__banner__background__color">
+            <section class="static__banner">
+                <div class="row">
+                    <div class="col">
+                        <div class="content__wrap">
+                            <h2 class="title"><?php echo get_the_title(); ?></h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
 			<figure class="background__image" style="background: url(<?php echo $image; ?>"></figure>
 			<div class="wrap">
                 <ul class="social__media__module">
@@ -42,7 +64,6 @@ if (have_posts()) :
                     <li><a href="https://twitter.com/intent/tweet?url=http:<?php echo $link;?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
                 </ul>
 				<span class="date"><i class="far fa-clock"></i><?php echo $date;?></span>
-				<h1><?php the_title(); ?></h1>
 				<span class="categories">Categories: <?php echo get_the_category_list( ', ' );?></span>
 				<?php the_content(); ?>
 			</div>

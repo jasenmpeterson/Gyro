@@ -173,3 +173,7 @@
 .content__wrap h3:first-child {
   margin-top: 0;
 }
+.single__page {
+  position: relative;
+  z-index: 1;
+}

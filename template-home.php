@@ -44,11 +44,14 @@
 			        if ($slide) :
 				        ?>
                         <div class="carousel__cell">
+                            <div class="product__background">
+                                <img src="<?php echo $slide['image']['url']?>" alt="<?php echo $slide['image']['alt']; ?>">
+                            </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="content__wrap">
                                         <h1 data-content-slider-splitting-chars style="--word-total:1; --char-total:5;" class="title"><?php echo $slide['title']; ?></h1>
-                                        <img src="<?php echo $slide['image']['url']?>" alt="$slide['image']['alt']">
+                                        <img src="<?php echo $slide['image']['url']?>" alt="<?php echo $slide['image']['alt']; ?>">
                                     </div>
                                 </div>
                                 <div class="col">

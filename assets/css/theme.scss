@@ -124,12 +124,32 @@ header .row {
 // primary nav
 
 .primary_nav {
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1100px) {
     width: 75%;
   }
   @media screen and (min-width: 320px) {
-    width: 20%;
-    padding: 0 10px;
+    width: 55%;
+  }
+}
+.primary_nav .menu {
+  @media screen and (min-width: 1100px) {
+    display: flex;
+  }
+  @media screen and (min-width: 320px) {
+    display: none;
+  }
+}
+.primary_nav a {
+  @media screen and (min-width: 1280px) {
+      font-size: 16px;
+  }
+  @media screen and (min-width: 320px) {
+    font-size: 14px;
+  }
+}
+.col.logo {
+  @media screen and (min-width: 768px) {
+    width: 25%;
   }
 }
 .menu-secondary-menu {
@@ -137,7 +157,7 @@ header .row {
 }
 .menu {
   display: flex;
-  padding-right: 65px;
+  padding: 0 45px;
   justify-content: space-between;
   margin: 0;
   height: 100%;
@@ -145,6 +165,7 @@ header .row {
 .primary_nav {
   min-height: 100%;
   align-self: stretch;
+  align-items: center;
 }
 .primary_nav ul span {
   display: block;
@@ -169,7 +190,6 @@ header .row {
   color: #747d86;
 }
 .sub-menu {
-  //pointer-events: none;
   position: absolute;
   top: 100px;
   left: 0;
@@ -202,13 +222,28 @@ header .row {
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 .sub-menu li:hover {
-  background-color: #4a525b;
+  background-color: #F2F2F2;
 }
 .sub-menu li:hover > a {
-  color: #ffffff;
+  color: #EB0029;
 }
 .sub-menu .has-sub {
   position: static;
+}
+.sub-menu .has-sub > a:after {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-right-style: solid;
+  border-right-width: 2px;
+  transform: rotate(315deg);
+  color: #ffb100;
+  content: '';
+  display: inline-block;
+  height: 6px;
+  right: 20px;
+  position: absolute;
+  top: 25px;
+  width: 6px;
 }
 .has-sub:hover > .sub-menu {
   opacity: 1;
@@ -229,7 +264,7 @@ li[class^="icon-"] a:before {
   }
   @media screen and (min-width: 1076px) {
     font-size: 16px;
-    left: 0;
+    left: -20px;
   }
     font-family: 'icomoon' !important;
     speak: none;
@@ -272,14 +307,6 @@ li[class^="icon-"] a:before {
 
 // logo
 
-.col.logo {
-  @media screen and (min-width: 1440px) {
-    width: 25%;
-  }
-  @media screen and (min-width: 320px) {
-    width: 80%;
-  }
-}
 
 .logo__wrap {
   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSItNzggLTIwOCAzNzAgMTMwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDojZjhmOGY4O30uYntmaWx0ZXI6dXJsKCNhKTt9PC9zdHlsZT48ZmlsdGVyIGlkPSJhIiB4PSItNzgiIHk9Ii0yMDgiIHdpZHRoPSIzNzAiIGhlaWdodD0iMTMwIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPjxmZU9mZnNldCBpbnB1dD0iU291cmNlQWxwaGEiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwLjE2MSIvPjxmZUNvbXBvc2l0ZSBvcGVyYXRvcj0iaW4iIGluMj0iYiIvPjxmZUNvbXBvc2l0ZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmlsdGVyPjwvZGVmcz48ZyBjbGFzcz0iYiIgdHJhbnNmb3JtPSJtYXRyaXgoMSwgMCwgMCwgMSwgMCwgMCkiPjxwYXRoIGNsYXNzPSJhIiBkPSJNMCwwSDMzNEwzMDIuNjExLDkzLjY1MiwwLDk0WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwIC0xOTApIi8+PC9nPjwvc3ZnPg==) no-repeat -65px center;
@@ -294,10 +321,12 @@ li[class^="icon-"] a:before {
   display: flex;
   align-items: center;
   height: 100%;
-  padding-left: 75px;
-  @media screen and (max-width: 650px) {
-    padding-left: 30px;
-  }
+  padding: 15px;
+}
+
+.logo__wrap a svg {
+  display: block;
+  margin: 0 auto;
 }
 
 .logo {
@@ -560,8 +589,15 @@ input.search {
   width: 44px;
   height: 60px;
   cursor: pointer;
-  margin-left: auto;
-  @media screen and (max-width: 1075px) {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  @media screen and (min-width: 1100px) {
+    display: none;
+  }
+  @media screen and (min-width: 320px) {
     display: block;
   }
 }
@@ -635,11 +671,55 @@ input.search {
 .mobile__menu ul {
   flex-direction: column;
   padding: 0;
+  display: block;
+}
+.mobile__menu li {
+  position: relative;
+}
+.mobile__menu li[class^="icon-"]:before, .mobile__menu li[class^="icon-"] a:before {
+  top: 25px;
+  left: 15px;
+}
+
+.mobile__menu li.active:before {
+  color: #ffffff;
+}
+
+.mobile__menu .sub-menu {
+  min-height: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: static;
+  width: 100%;
+  visibility: visible;
 }
 
 .mobile__menu li,
 .mobile__menu li a {
   display: block;
+}
+
+.mobile__menu li.menu-item-has-children:after {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-right-style: solid;
+  border-right-width: 2px;
+  transform: rotate(315deg);
+  color: $color-red;
+  content: '';
+  display: inline-block;
+  height: 6px;
+  right: 20px;
+  position: absolute;
+  top: 25px;
+  width: 6px;
+  transition: all 350ms ease-out;
+}
+
+.mobile__menu li.active.menu-item-has-children:after {
+  color: white;
+  transform: rotate(403deg);
 }
 
 .mobile__menu li:first-of-type {
@@ -651,26 +731,16 @@ input.search {
 }
 
 .mobile__menu li a {
-  padding: 20px;
+  padding: 20px 40px;
   transition: all 400ms ease-out;
+  text-decoration: none;
+  color: $color-dark-gray;
 }
 
-.mobile__menu li a:hover {
+.mobile__menu li a.active {
   background-color: $color-red;
   color: #ffffff;
 }
-
-.mobile__menu li ul.parent__sub__menu,
-.mobile__menu li ul.child__sub__menu {
-  opacity: 0;
-  height: 0;
-   pointer-events: none;
-}
-
-.mobile__menu .sub__menu__title {
-  background-color: #eee; 
-}
-
 
 .mobile__menu li ul.active {
   pointer-events: auto;
@@ -891,7 +961,7 @@ input.search {
 
 .rotating__banner .carousel__cell {
   height: 100%;
-  background-position: left center;
+  background-position: bottom center;
   background-size: cover;
 }
 
@@ -1105,11 +1175,13 @@ input.search {
   height: 13px;
   margin: 0;
   position: relative;
-  transition: opacity 300ms ease-out;
+  opacity: 1;
+  transform: scale(0.5);
+  transition: all 300ms ease-out;
 }
 
 .dot.is-selected {
-  opacity: 1;
+  transform: scale(1);
 }
 
 .carousel__cell {
@@ -1194,10 +1266,21 @@ input.search {
 }
 // Blueprint Wrap
 
-.blueprint__wrap {
-  background: url("assets/images/raw/blueprint.svg") no-repeat left center;
-  background-size: 110%;
+.product__background {
+  position: absolute;
+  top: -250px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  opacity: .08;
 }
+
+//.blueprint__wrap {
+//  background: url("assets/images/raw/blueprint.svg") no-repeat left center;
+//  background-size: 110%;
+//}
 
 // Typography
 
@@ -1393,7 +1476,6 @@ ul.documents figure {
 .background__image {
   background-size: cover !important;
   background-repeat: no-repeat !important;
-  background-position: center center !important;
 }
 .background__image__contrast {
   filter: contrast(120%);
@@ -1647,6 +1729,7 @@ td {
 .four-o-four__page h1 {
   margin-bottom: 0;
 }
+
 @import "drill-down";
 @import "technology-and-services";
 @import "news-posts";

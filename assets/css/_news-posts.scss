@@ -54,12 +54,12 @@
 .news__posts a:hover p {
   opacity: 1;
   transition: opacity 600ms ease-out 300ms, transform 300ms ease-out 350ms;
-  @media screen and (min-width: 991px) {
-    transform: translateY(-35px);
-  }
-  @media screen and (min-width: 320px) {
-    transform: translateY(-15px);
-  }
+  //@media screen and (min-width: 991px) {
+  //  transform: translateY(-35px);
+  //}
+  //@media screen and (min-width: 320px) {
+  //  transform: translateY(-15px);
+  //}
 }
 
 .news__posts a:hover h3:before {
@@ -78,15 +78,15 @@
   transition: all 300ms ease-out 300ms;
 }
 
-.news__posts a:hover h3 {
-  @media screen and (min-width: 991px) {
-    transform: translateY(-35px);
-  }
-  @media screen and (min-width: 320px) {
-    transform: translateY(-15px);
-  }
-  transition: all 300ms ease-out 300ms;
-}
+//.news__posts a:hover h3 {
+//  @media screen and (min-width: 991px) {
+//    transform: translateY(-10px);
+//  }
+//  @media screen and (min-width: 320px) {
+//    transform: translateY(-5px);
+//  }
+//  transition: all 300ms ease-out 300ms;
+//}
 
 .news__posts .content__wrap {
   margin-top: auto;

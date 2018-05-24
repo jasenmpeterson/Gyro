@@ -13,7 +13,7 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
     <!--=== TITLE ===-->
-    <title><?php wp_title(); ?> - <?php bloginfo( 'name' ); ?></title>
+    <title><?php wp_title(); ?> </title>
 
     <!--=== WP_HEAD() ===-->
 	<?php wp_head(); ?>
@@ -29,8 +29,7 @@
 	<?php
         wp_nav_menu(array(
 	        "theme_location" => "primary_menu",
-	        "container" => false,
-	        "walker" => new Gyro_Walker()
+	        "container" => false
         ));
 	?>
 </div>

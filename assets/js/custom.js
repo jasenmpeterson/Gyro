@@ -523,61 +523,223 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 11 */
 /***/function (module, exports) {
 
-    // let drillDownButton = document.querySelectorAll(".drill__down li.parent > button");
-    //
-    // let openMenu = (e) => {
-    //     let menu = e.target.parentNode;
-    //     let drillDownDropDown = menu.querySelector(".drill__down__drop__down.parent");
-    //     let drillDownChild = drillDownDropDown.querySelectorAll(".drill__down__drop__down.child");
-    //     let title = menu.querySelectorAll("span");
-    //     let dropDownList = menu.querySelectorAll(".drill__down__drop__down.parent > li");
-    //     console.log(dropDownList);
-    //     if(!drillDownDropDown.classList.contains("active")) {
-    //         TweenMax.to(drillDownDropDown, 0.3, {
-    //             opacity: 1,
-    //             scaleY: 1,
-    //             display: "block",
-    //             transformOrigin: 'center top',
-    //             ease: Power2.easeOut
-    //         });
-    //         TweenMax.to(title, 0.3, {
-    //             opacity: 1,
-    //             x: 0,
-    //             delay: 0.3,
-    //             ease: Power2.easeOut
-    //         });
-    //         TweenMax.staggerTo(drillDownChild, 0.3, {
-    //             opacity: 1,
-    //             x: 0,
-    //             delay: 0.3,
-    //         }, 0.2);
-    //         drillDownDropDown.classList.add("active");
-    //     } else {
-    //         TweenMax.to(title, 0.3, {
-    //             opacity: 0,
-    //             x: -10,
-    //             ease: Power2.easeOut
-    //         });
-    //         TweenMax.staggerTo(drillDownChild, 0.1, {
-    //             opacity: 0,
-    //             x: -10
-    //         }, 0.1);
-    //         TweenMax.to(drillDownDropDown, 0.6, {
-    //             opacity: 0,
-    //             scaleY: 0,
-    //             display: "none",
-    //             delay: 0.2,
-    //             ease: Power2.easeOut
-    //         });
-    //         drillDownDropDown.classList.remove("active");
-    //     }
-    // };
-    //
-    // for(let button of drillDownButton) {
-    //     button.addEventListener("click", openMenu)
-    // }
+    var drillDownButton = document.querySelectorAll(".drill__down li.parent > button");
 
-    /***/},
+    var openMenu = function openMenu(e) {
+        var menu = e.target.parentNode;
+        var drillDownDropDown = menu.querySelector(".drill__down__drop__down.parent");
+        var drillDownChild = drillDownDropDown.querySelectorAll(".drill__down__drop__down.child");
+        var title = menu.querySelectorAll("span");
+        var dropDownList = menu.querySelectorAll(".drill__down__drop__down.parent > li");
+        console.log(dropDownList);
+        if (!drillDownDropDown.classList.contains("active")) {
+            TweenMax.to(drillDownDropDown, 0.3, {
+                opacity: 1,
+                scaleY: 1,
+                display: "block",
+                transformOrigin: 'center top',
+                ease: Power2.easeOut
+            });
+            TweenMax.to(title, 0.3, {
+                opacity: 1,
+                x: 0,
+                delay: 0.3,
+                ease: Power2.easeOut
+            });
+            TweenMax.staggerTo(drillDownChild, 0.3, {
+                opacity: 1,
+                x: 0,
+                delay: 0.3
+            }, 0.2);
+            drillDownDropDown.classList.add("active");
+        } else {
+            TweenMax.to(title, 0.3, {
+                opacity: 0,
+                x: -10,
+                ease: Power2.easeOut
+            });
+            TweenMax.staggerTo(drillDownChild, 0.1, {
+                opacity: 0,
+                x: -10
+            }, 0.1);
+            TweenMax.to(drillDownDropDown, 0.6, {
+                opacity: 0,
+                scaleY: 0,
+                display: "none",
+                delay: 0.2,
+                ease: Power2.easeOut
+            });
+            drillDownDropDown.classList.remove("active");
+        }
+    };
+
+    var _iteratorNormalCompletion3 = true;
+    var _didIteratorError3 = false;
+    var _iteratorError3 = undefined;
+
+    try {
+        for (var _iterator3 = drillDownButton[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            var button = _step3.value;
+
+            button.addEventListener("click", openMenu);
+        }
+
+        // This is the important part!
+    } catch (err) {
+        _didIteratorError3 = true;
+        _iteratorError3 = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                _iterator3.return();
+            }
+        } finally {
+            if (_didIteratorError3) {
+                throw _iteratorError3;
+            }
+        }
+    }
+
+    function collapseSection(element) {
+        // get the height of the element's inner content, regardless of its actual size
+        var sectionHeight = element.scrollHeight;
+
+        // temporarily disable all css transitions
+        var elementTransition = element.style.transition;
+        element.style.transition = '';
+
+        // on the next frame (as soon as the previous style change has taken effect),
+        // explicitly set the element's height to its current pixel height, so we
+        // aren't transitioning out of 'auto'
+        requestAnimationFrame(function () {
+            element.style.height = sectionHeight + 'px';
+            element.style.transition = elementTransition;
+
+            // on the next frame (as soon as the previous style change has taken effect),
+            // have the element transition to height: 0
+            requestAnimationFrame(function () {
+                element.style.height = 0 + 'px';
+            });
+        });
+
+        // mark the section as "currently collapsed"
+        element.setAttribute('data-collapsed', 'true');
+    }
+
+    function expandSection(element) {
+        // get the height of the element's inner content, regardless of its actual size
+        var sectionHeight = element.scrollHeight;
+
+        // have the element transition to the height of its inner content
+        element.style.height = sectionHeight + 'px';
+
+        // when the next css transition finishes (which should be the one we just triggered)
+        element.addEventListener('transitionend', function (e) {
+            // remove this event listener so it only gets triggered once
+            element.removeEventListener('transitionend', arguments.callee);
+
+            // remove "height" from the element's inline styles, so it can return to its initial value
+            element.style.height = null;
+        });
+
+        // mark the section as "currently not collapsed"
+        element.setAttribute('data-collapsed', 'false');
+    }
+
+    var toggleButton = document.querySelectorAll('.toggle > a');
+
+    var _loop = function _loop(_button) {
+        _button.addEventListener('click', function (e) {
+            e.preventDefault();
+            var sub = _button.parentNode.querySelector('.drill__down');
+            if (!sub.classList.contains('open')) {
+                sub.classList.add('open');
+                this.classList.add('active');
+                TweenLite.set(sub, { height: 'auto' });
+                TweenLite.from(sub, 0.2, { height: 0 });
+                TweenLite.to(sub, 0.2, { opacity: 1 });
+            } else {
+                sub.classList.remove('open');
+                this.classList.remove('active');
+                TweenLite.to(sub, 0.2, { opacity: 0, height: 0 });
+            }
+        });
+    };
+
+    var _iteratorNormalCompletion4 = true;
+    var _didIteratorError4 = false;
+    var _iteratorError4 = undefined;
+
+    try {
+        for (var _iterator4 = toggleButton[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+            var _button = _step4.value;
+
+            _loop(_button);
+        }
+    } catch (err) {
+        _didIteratorError4 = true;
+        _iteratorError4 = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion4 && _iterator4.return) {
+                _iterator4.return();
+            }
+        } finally {
+            if (_didIteratorError4) {
+                throw _iteratorError4;
+            }
+        }
+    }
+
+    var mobileMenuToggle = document.querySelectorAll('.mobile__menu .menu-item-has-children > a');
+
+    var _loop2 = function _loop2(mobileButton) {
+        mobileButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            var sub = mobileButton.parentNode.querySelector('.sub-menu');
+            if (!sub.classList.contains('open')) {
+                sub.classList.add('open');
+                this.classList.add('active');
+                this.parentNode.classList.add('active');
+                TweenLite.set(sub, { height: 'auto' });
+                TweenLite.from(sub, 0.2, { height: 0 });
+                TweenLite.to(sub, 0.2, { opacity: 1 });
+            } else {
+                sub.classList.remove('open');
+                this.classList.remove('active');
+                this.parentNode.classList.remove('active');
+                TweenLite.to(sub, 0.2, { opacity: 0, height: 0 });
+            }
+        });
+    };
+
+    var _iteratorNormalCompletion5 = true;
+    var _didIteratorError5 = false;
+    var _iteratorError5 = undefined;
+
+    try {
+        for (var _iterator5 = mobileMenuToggle[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+            var mobileButton = _step5.value;
+
+            _loop2(mobileButton);
+        }
+
+        /***/
+    } catch (err) {
+        _didIteratorError5 = true;
+        _iteratorError5 = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion5 && _iterator5.return) {
+                _iterator5.return();
+            }
+        } finally {
+            if (_didIteratorError5) {
+                throw _iteratorError5;
+            }
+        }
+    }
+},
 /* 12 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
@@ -653,501 +815,257 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     GoogleMapsLoader.KEY = 'AIzaSyC7tSjhQyqDfDkKWmiemLdrrKFMTymkqgM';
     GoogleMapsLoader.load(function (google) {
         if (document.getElementById("map")) {
-            (function () {
-                var loadLocations = function loadLocations(region) {
-                    var buttonsWrap = document.querySelector(".locations__button__wrap.cities");
-                    buttonsWrap.innerHTML = "";
-                    buttonsWrap.innerHTML += '\n                ' + locations.map(function (location) {
-                        return location.region === region ? '<h4>' + location.name + '</h4>' + location.cities.map(function (location) {
-                            return '<button class="location__button maps__button" data-name="' + location.name + '" data-region="' + location.region + '" data-lat="' + location.latitude + '" data-lng="' + location.longitude + '">' + location.name + '</button> ';
-                        }).join('') : "";
-                    }).join('');
-
-                    var locationButtons = document.querySelectorAll(".location__button");
-                    var _iteratorNormalCompletion5 = true;
-                    var _didIteratorError5 = false;
-                    var _iteratorError5 = undefined;
-
-                    try {
-                        for (var _iterator5 = locationButtons[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-                            var locationButton = _step5.value;
-
-                            locationButton.addEventListener("click", function (e) {
-                                var longitude = e.target.dataset.lng;
-                                var latitude = e.target.dataset.lat;
-                                var location = e.target.dataset.name;
-                                var region = e.target.dataset.region;
-                                map.setZoom(8);
-                                map.setCenter({ lat: parseInt(latitude), lng: parseInt(longitude) });
-                                setTemp(parseInt(latitude), parseInt(longitude), location, region);
-                                setContact(e.target.dataset.name);
-                                TweenMax.to(localModule, 0.2, {
-                                    opacity: 1,
-                                    y: 0
-                                });
-                            });
-                        }
-                    } catch (err) {
-                        _didIteratorError5 = true;
-                        _iteratorError5 = err;
-                    } finally {
-                        try {
-                            if (!_iteratorNormalCompletion5 && _iterator5.return) {
-                                _iterator5.return();
-                            }
-                        } finally {
-                            if (_didIteratorError5) {
-                                throw _iteratorError5;
-                            }
-                        }
-                    }
-
-                    locationButtons[0].click();
-                };
-
-                var el = document.querySelector("#map");
-                var myLatLng = { lat: 29.76328, lng: -95.36327 };
-                var currentTemp = void 0;
-                var currentHumidity = void 0;
-                var currentPrecipitation = void 0;
-                var currentWind = void 0;
-                var currentTime = void 0;
-                var d = new Date();
-                var dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-                var currentDay = dayNames[d.getDay() - 1];
-                var locationsModule = document.querySelector(".location__module.locations");
-                var localModule = document.querySelector(".location__module.local");
-                var contactModule = document.querySelector(".location__module.contact");
-                var loader = document.querySelector(".location__module .loader");
-                var weatherModule = document.querySelector(".weather__container");
-                var icon = {
-                    url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
-                    scaledSize: new google.maps.Size(40, 40) // scaled size
-                };
-                var map = new google.maps.Map(el, {
-                    center: myLatLng,
-                    disableDefaultUI: true,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    zoom: 3,
-                    styles: [{
-                        "elementType": "geometry",
-                        "stylers": [{
-                            "color": "#212121"
-                        }]
-                    }, {
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#6b767f"
-                        }]
-                    }, {
-                        "elementType": "labels",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    }, {
-                        "elementType": "labels.icon",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    }, {
-                        "elementType": "labels.text.stroke",
-                        "stylers": [{
-                            "color": "#212121"
-                        }]
-                    }, {
-                        "featureType": "administrative",
-                        "elementType": "geometry",
-                        "stylers": [{
-                            "color": "#757575"
-                        }, {
-                            "visibility": "off"
-                        }]
-                    }, {
-                        "featureType": "administrative.country",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#9e9e9e"
-                        }]
-                    }, {
-                        "featureType": "administrative.land_parcel",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    }, {
-                        "featureType": "administrative.locality",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#bdbdbd"
-                        }]
-                    }, {
-                        "featureType": "administrative.neighborhood",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    }, {
-                        "featureType": "poi",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    }, {
-                        "featureType": "poi",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#757575"
-                        }]
-                    }, {
-                        "featureType": "poi.park",
-                        "elementType": "geometry",
-                        "stylers": [{
-                            "color": "#181818"
-                        }]
-                    }, {
-                        "featureType": "poi.park",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#616161"
-                        }]
-                    }, {
-                        "featureType": "poi.park",
-                        "elementType": "labels.text.stroke",
-                        "stylers": [{
-                            "color": "#1b1b1b"
-                        }]
-                    }, {
-                        "featureType": "road",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    }, {
-                        "featureType": "road",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#2c2c2c"
-                        }]
-                    }, {
-                        "featureType": "road",
-                        "elementType": "labels.icon",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    }, {
-                        "featureType": "road",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#8a8a8a"
-                        }]
-                    }, {
-                        "featureType": "road.arterial",
-                        "elementType": "geometry",
-                        "stylers": [{
-                            "color": "#373737"
-                        }]
-                    }, {
-                        "featureType": "road.highway",
-                        "elementType": "geometry",
-                        "stylers": [{
-                            "color": "#3c3c3c"
-                        }]
-                    }, {
-                        "featureType": "road.highway.controlled_access",
-                        "elementType": "geometry",
-                        "stylers": [{
-                            "color": "#4e4e4e"
-                        }]
-                    }, {
-                        "featureType": "road.local",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#616161"
-                        }]
-                    }, {
-                        "featureType": "transit",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    }, {
-                        "featureType": "transit",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#757575"
-                        }]
-                    }, {
-                        "featureType": "water",
-                        "elementType": "geometry",
-                        "stylers": [{
-                            "color": "#000000"
-                        }]
-                    }, {
-                        "featureType": "water",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#5a6771"
-                        }]
-                    }, {
-                        "featureType": "water",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#3d3d3d"
-                        }]
-                    }]
-                });
-                var locations = [{
-                    name: "United States",
-                    region: "North America",
-                    cities: [{
-                        name: "Houston, TX",
-                        latitude: 29.936193,
-                        longitude: -95.655899,
-                        region: "North America",
-                        contact: {
-                            name: "GyroData Global - North & Latin American Headquarters",
-                            street: "23000 Northwest Lake Drive",
-                            city: "Houston, TX",
-                            zip: "77095",
-                            tel: "+1 281 213 6300",
-                            fax: " +1 281 213 6301"
-                        }
-                    }]
-                }, {
-                    name: "",
-                    region: "Asia & Middle East",
-                    cities: [{
-                        name: "Kuala Lumpur, Malaysia",
-                        latitude: 3.163308,
-                        longitude: 101.711744,
-                        region: "Asia & Middle East",
-                        contact: {
-                            name: "GyroData Global - Asia & Middle East Headquarters",
-                            street: "Suite 20.02, Level 20, Integra Tower 348, Jalan Tun Razak",
-                            city: "Kuala Lumpur, Malaysia",
-                            zip: "50400",
-                            tel: "+60 32713 3622",
-                            fax: "+60 32713 3722"
-                        }
-                    }]
-                }, {
-                    name: "",
-                    region: "Europe, Africa & Caspian",
-                    cities: [{
-                        name: "Scotland, United Kingdom",
-                        latitude: 57.177927,
-                        longitude: -2.110487,
-                        region: "Europe, Africa & Caspian",
-                        contact: {
-                            name: "GyroData Global - Europe, Africa & Caspian Headquarters",
-                            street: "Campus Three\n" + "Balgownie Drive, Bridge of Don\n" + "Aberdeen, AB22 8GW",
-                            city: "Scotland, United Kingdom",
-                            zip: "AB22 8GW",
-                            tel: "+44 1224 823060",
-                            fax: "+44 1224 826021"
-                        }
-                    }]
-                }];
-
-                var regions = [{ name: "North America", latitude: 54.525961, longitude: -105.255119 }, { name: "Asia & Middle East", latitude: 34.047863, longitude: 100.619655 }, { name: "Europe, Africa & Caspian", latitude: 54.525961, longitude: 15.255119 }];
-
-                var regionsModule = document.querySelector(".location__module.regions .regions__wrap");
-
-                var _iteratorNormalCompletion3 = true;
-                var _didIteratorError3 = false;
-                var _iteratorError3 = undefined;
-
-                try {
-                    for (var _iterator3 = locations[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                        var location = _step3.value;
-
-                        var _loop2 = function _loop2(city) {
-                            var marker = new google.maps.Marker({
-                                position: new google.maps.LatLng(city.latitude, city.longitude),
-                                map: map,
-                                icon: icon,
-                                title: city.name,
-                                region: city.region,
-                                optimized: false
-                            });
-                            var infoWindow = new google.maps.InfoWindow({
-                                content: city.name
-                            });
-                            marker.addListener("click", function () {
-                                infoWindow.open(map, this);
-                                map.setZoom(5);
-                                map.setCenter(marker.getPosition());
-                                setTemp(parseInt(marker.getPosition().lat()), parseInt(marker.getPosition().lng()), marker.title, marker.region);
-                                TweenMax.to(locationsModule, 0.2, {
-                                    opacity: 1,
-                                    y: 0
-                                });
-                                document.querySelector(".region__title h1 span").innerHTML = marker.region;
-                                loadLocations(marker.region);
-                                setContact(marker.title);
-                                TweenMax.to(localModule, 0.2, {
-                                    opacity: 1,
-                                    y: 0
-                                });
-                                // marker.setIcon({
-                                //     url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
-                                //     scaledSize: new google.maps.Size(30, 30)
-                                // });
-                            });
-                        };
-
-                        var _iteratorNormalCompletion6 = true;
-                        var _didIteratorError6 = false;
-                        var _iteratorError6 = undefined;
-
-                        try {
-                            for (var _iterator6 = location.cities[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-                                var city = _step6.value;
-
-                                _loop2(city);
-                            }
-                        } catch (err) {
-                            _didIteratorError6 = true;
-                            _iteratorError6 = err;
-                        } finally {
-                            try {
-                                if (!_iteratorNormalCompletion6 && _iterator6.return) {
-                                    _iterator6.return();
-                                }
-                            } finally {
-                                if (_didIteratorError6) {
-                                    throw _iteratorError6;
-                                }
-                            }
-                        }
-                    }
-                } catch (err) {
-                    _didIteratorError3 = true;
-                    _iteratorError3 = err;
-                } finally {
-                    try {
-                        if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                            _iterator3.return();
-                        }
-                    } finally {
-                        if (_didIteratorError3) {
-                            throw _iteratorError3;
-                        }
-                    }
-                }
-
-                var setTemp = function setTemp(lat, lng, location, region) {
-                    weatherModule.classList.remove("active");
-                    loader.classList.remove("inactive");
-                    document.querySelector("span.temperature").innerHTML = "";
-                    document.querySelector("span.humidity").innerHTML = "";
-                    document.querySelector("span.precipitation").innerHTML = "";
-                    document.querySelector("span.wind").innerHTML = "";
-                    document.querySelector("span.day").innerHTML = "";
-                    document.querySelector("span.city").innerHTML = "";
-                    document.querySelector("span.region").innerHTML = "";
-                    fetch(pageParams.themeDirectory + '/api/weather.php?lat=' + lat + '&lng=' + lng).then(function (response) {
-                        return response.json();
-                    }).then(function (myJSON) {
-                        TweenMax.to(weatherModule, 0.2, {
+            var parse = function parse(locations) {
+                var _loop3 = function _loop3(location) {
+                    console.log(location.acf);
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(location.acf.latitude, location.acf.longitude),
+                        map: map,
+                        icon: icon,
+                        title: location.acf.city_name,
+                        region: location.acf.city_region,
+                        optimized: false
+                    });
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: location.acf.city_name
+                    });
+                    marker.addListener("click", function () {
+                        infoWindow.open(map, this);
+                        map.setZoom(5);
+                        map.setCenter(marker.getPosition());
+                        setTemp(parseInt(marker.getPosition().lat()), parseInt(marker.getPosition().lng()), marker.title, marker.region);
+                        TweenMax.to(locationsModule, 0.2, {
                             opacity: 1,
                             y: 0
                         });
-                        loader.classList.add("inactive");
-                        currentTemp = Math.round(myJSON.temp);
-                        currentHumidity = myJSON.humidity + "%";
-                        currentHumidity = currentHumidity.replace(/^[0\.]+/, "");
-                        currentPrecipitation = Math.round(myJSON.precipitation) + "%";
-                        currentWind = Math.round(myJSON.wind) + " mph";
-                        currentTime = myJSON.time;
-                        document.querySelector("span.temperature").innerHTML = currentTemp + "<sup>&#8457;</sup>";
-                        document.querySelector("span.humidity").innerHTML = 'Humidity: ' + currentHumidity;
-                        document.querySelector("span.precipitation").innerHTML = 'Precipitation: ' + currentPrecipitation;
-                        document.querySelector("span.wind").innerHTML = 'Wind: ' + currentWind;
-                        document.querySelector("span.day").innerHTML = currentDay + " " + myJSON.time;
-                        document.querySelector("span.city").innerHTML = location;
-                        document.querySelector("span.region").innerHTML = region;
+                        document.querySelector(".region__title h1 span").innerHTML = marker.region;
+                        loadLocations(marker.region);
+                        setContact(marker.title);
+                        TweenMax.to(localModule, 0.2, {
+                            opacity: 1,
+                            y: 0
+                        });
                     });
                 };
 
-                var setContact = function setContact(city) {
-                    var module = document.querySelector(".location__module.contact .col");
-                    module.innerHTML = '' + locations.map(function (location) {
-                        return location.cities.map(function (currentCity) {
-                            return currentCity.contact.city === city ? '<h4>' + currentCity.contact.name + '</h4><address><p>' + currentCity.contact.street + '</p><p>' + currentCity.contact.city + ' ' + currentCity.contact.zip + '</p><p>Tel: ' + currentCity.contact.tel + '</p><p>Fax: ' + currentCity.contact.fax + '</p></address> ' : "";
-                        }).join('');
-                    }).join('');
-                    TweenMax.to(contactModule, 0.2, {
-                        opacity: 1,
-                        y: 0
-                    });
-                };
-                regionsModule.innerHTML = '<div class="locations__button__wrap">\n        ' + regions.map(function (region) {
-                    return '<button class="region__button maps__button" data-name="' + region.name + '" data-lat="' + region.latitude + '" data-lng="' + region.longitude + '">' + region.name + '</button>';
-                }).join('') + '\n    </div>';
-
-                var regionButtons = document.querySelectorAll(".region__button");
-
-                var _loop = function _loop(regionButton) {
-                    regionButton.addEventListener("click", function (e) {
-                        if (!regionButton.classList.contains('active')) {
-                            var weatherModuleContent = weatherModule.querySelectorAll("span");
-                            var longitude = e.target.dataset.lng;
-                            var latitude = e.target.dataset.lat;
-                            var region = e.target.dataset.name;
-                            map.setZoom(3);
-                            map.setCenter({ lat: parseInt(latitude), lng: parseInt(longitude) });
-                            var prevActiveRegion = document.querySelector(".region__button.active");
-                            prevActiveRegion !== null ? prevActiveRegion.classList.remove("active") : "";
-                            e.target.classList.add("active");
-                            // TweenMax.staggerTo([contactModule, localModule], 0.2, {
-                            //     opacity: 0,
-                            //     y: 50,
-                            //     delay: 0.3
-                            // }, 0.2,  function () {
-                            //     for(let span of weatherModuleContent) {
-                            //         span.innerHTML = "";
-                            //     }
-                            // });
-                            if (!document.querySelector(".location__button[data-region='" + region + "']")) {
-                                loadLocations(region);
-                                TweenMax.to(locationsModule, 0.2, {
-                                    opacity: 0,
-                                    y: 5,
-                                    onComplete: function onComplete() {
-                                        TweenMax.to(locationsModule, 0.2, {
-                                            opacity: 1,
-                                            y: 0
-                                        });
-                                    }
-                                });
-                                var regionTitle = document.querySelector(".region__title h1 span");
-                                regionTitle.innerHTML = region;
-                            }
-                        }
-                    });
-                };
-
-                var _iteratorNormalCompletion4 = true;
-                var _didIteratorError4 = false;
-                var _iteratorError4 = undefined;
+                var _iteratorNormalCompletion6 = true;
+                var _didIteratorError6 = false;
+                var _iteratorError6 = undefined;
 
                 try {
-                    for (var _iterator4 = regionButtons[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-                        var regionButton = _step4.value;
+                    for (var _iterator6 = locations[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+                        var location = _step6.value;
 
-                        _loop(regionButton);
+                        _loop3(location);
                     }
                 } catch (err) {
-                    _didIteratorError4 = true;
-                    _iteratorError4 = err;
+                    _didIteratorError6 = true;
+                    _iteratorError6 = err;
                 } finally {
                     try {
-                        if (!_iteratorNormalCompletion4 && _iterator4.return) {
-                            _iterator4.return();
+                        if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                            _iterator6.return();
                         }
                     } finally {
-                        if (_didIteratorError4) {
-                            throw _iteratorError4;
+                        if (_didIteratorError6) {
+                            throw _iteratorError6;
                         }
                     }
                 }
-            })();
+            };
+
+            var api = pageParams.root + '/wp-json/wp/v2/locations';
+            fetch(api).then(function (resp) {
+                return resp.json();
+            }).then(function (data) {
+                parse(data);
+            });
+            var el = document.querySelector("#map");
+            var myLatLng = { lat: 29.76328, lng: -95.36327 };
+            var currentTemp = void 0;
+            var currentHumidity = void 0;
+            var currentPrecipitation = void 0;
+            var currentWind = void 0;
+            var currentTime = void 0;
+            var d = new Date();
+            var dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+            var currentDay = dayNames[d.getDay() - 1];
+            var locationsModule = document.querySelector(".location__module.locations");
+            var localModule = document.querySelector(".location__module.local");
+            var contactModule = document.querySelector(".location__module.contact");
+            var loader = document.querySelector(".location__module .loader");
+            var weatherModule = document.querySelector(".weather__container");
+            var icon = {
+                url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
+                scaledSize: new google.maps.Size(40, 40) // scaled size
+            };
+            var map = new google.maps.Map(el, {
+                center: myLatLng,
+                disableDefaultUI: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                zoom: 3,
+                styles: [{
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#212121"
+                    }]
+                }, {
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#6b767f"
+                    }]
+                }, {
+                    "elementType": "labels",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "elementType": "labels.icon",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "color": "#212121"
+                    }]
+                }, {
+                    "featureType": "administrative",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#757575"
+                    }, {
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#9e9e9e"
+                    }]
+                }, {
+                    "featureType": "administrative.land_parcel",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "administrative.locality",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#bdbdbd"
+                    }]
+                }, {
+                    "featureType": "administrative.neighborhood",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#757575"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#181818"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#616161"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{
+                        "color": "#1b1b1b"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#2c2c2c"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels.icon",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#8a8a8a"
+                    }]
+                }, {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#373737"
+                    }]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#3c3c3c"
+                    }]
+                }, {
+                    "featureType": "road.highway.controlled_access",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#4e4e4e"
+                    }]
+                }, {
+                    "featureType": "road.local",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#616161"
+                    }]
+                }, {
+                    "featureType": "transit",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#757575"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "color": "#000000"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#5a6771"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#3d3d3d"
+                    }]
+                }]
+            });
         }
     });
 
@@ -1394,7 +1312,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var circleDeselect = function circleDeselect() {
         var activeCircles = document.querySelectorAll(".our__history circle.animated");
 
-        var _loop3 = function _loop3(circle) {
+        var _loop4 = function _loop4(circle) {
             anime.remove(circle);
             anime({
                 targets: circle,
@@ -1414,7 +1332,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             for (var _iterator7 = activeCircles[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
                 var circle = _step7.value;
 
-                _loop3(circle);
+                _loop4(circle);
             }
             // previous content section
         } catch (err) {
@@ -1588,93 +1506,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         });
     });
 
-    var mobileClickEvent = function mobileClickEvent(e) {
-        var parent = e.target.parentNode;
-        if (parent.classList.contains("parent__nav__item")) {
-            var subMenu = parent.querySelector(".sub__menu.parent__sub__menu");
-            if (!subMenu.classList.contains("active")) {
-                TweenMax.set(subMenu, { height: "auto" });
-                TweenMax.from(subMenu, 0.2, {
-                    height: 0,
-                    onComplete: function onComplete() {
-                        TweenMax.to(subMenu, 0.2, {
-                            autoAlpha: 1,
-                            backgroundColor: "#f4f4f4"
-                        });
-                    }
-                });
-                parent.classList.add("open");
-                subMenu.classList.add("active");
-            } else {
-                TweenMax.to(subMenu, 0.2, {
-                    autoAlpha: 0,
-                    backgroundColor: "transparent",
-                    onComplete: function onComplete() {
-                        TweenMax.to(subMenu, 0.2, {
-                            height: 0
-                        });
-                    }
-                });
-                parent.classList.remove("open");
-                subMenu.classList.remove("active");
-            }
-        } else {
-            var _subMenu = parent.querySelector(".sub__menu.child__sub__menu");
-            if (!_subMenu.classList.contains("active")) {
-                TweenMax.set(_subMenu, { height: "auto" });
-                TweenMax.from(_subMenu, 0.2, {
-                    height: 0,
-                    onComplete: function onComplete() {
-                        TweenMax.to(_subMenu, 0.2, {
-                            autoAlpha: 1,
-                            backgroundColor: "#f4f4f4"
-                        });
-                    }
-                });
-                parent.classList.add("open");
-                _subMenu.classList.add("active");
-            } else {
-                TweenMax.to(_subMenu, 0.2, {
-                    autoAlpha: 0,
-                    backgroundColor: "transparent",
-                    onComplete: function onComplete() {
-                        TweenMax.to(_subMenu, 0.2, {
-                            height: 0
-                        });
-                    }
-                });
-                parent.classList.remove("open");
-                _subMenu.classList.remove("active");
-            }
-        }
-    };
-
-    var _iteratorNormalCompletion9 = true;
-    var _didIteratorError9 = false;
-    var _iteratorError9 = undefined;
-
-    try {
-        for (var _iterator9 = mobileMenuParent[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-            var parent = _step9.value;
-
-            parent.addEventListener("click", mobileClickEvent);
-        }
-
-        /***/
-    } catch (err) {
-        _didIteratorError9 = true;
-        _iteratorError9 = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion9 && _iterator9.return) {
-                _iterator9.return();
-            }
-        } finally {
-            if (_didIteratorError9) {
-                throw _iteratorError9;
-            }
-        }
-    }
+    /***/
 },
 /* 17 */
 /***/function (module, exports) {
@@ -1773,13 +1605,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         animateLink("0", target, 0, 0.5);
     }
 
-    var _iteratorNormalCompletion10 = true;
-    var _didIteratorError10 = false;
-    var _iteratorError10 = undefined;
+    var _iteratorNormalCompletion9 = true;
+    var _didIteratorError9 = false;
+    var _iteratorError9 = undefined;
 
     try {
-        for (var _iterator10 = technologyLinks[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-            var link = _step10.value;
+        for (var _iterator9 = technologyLinks[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+            var link = _step9.value;
 
             link.addEventListener("mouseenter", function (e) {
                 enterLink(e.target);
@@ -1791,16 +1623,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         /***/
     } catch (err) {
-        _didIteratorError10 = true;
-        _iteratorError10 = err;
+        _didIteratorError9 = true;
+        _iteratorError9 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion10 && _iterator10.return) {
-                _iterator10.return();
+            if (!_iteratorNormalCompletion9 && _iterator9.return) {
+                _iterator9.return();
             }
         } finally {
-            if (_didIteratorError10) {
-                throw _iteratorError10;
+            if (_didIteratorError9) {
+                throw _iteratorError9;
             }
         }
     }

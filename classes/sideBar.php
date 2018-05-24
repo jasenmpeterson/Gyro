@@ -14,7 +14,6 @@ class sideBar {
 	public $post_parent;
 	public $array;
 
-
 	public function get_posts_children($post_id, $current_level ) {
 
 		// https://wordpress.stackexchange.com/questions/13669/using-the-loop-to-show-all-levels-of-subpages-under-a-parent-page-halfway-there
@@ -28,9 +27,7 @@ class sideBar {
 
 		if ( empty($children) ) return;
 
-
 		echo '<ul class="drill__down children level-'.$current_level.'-children">';
-
 
 		foreach ($children as $child) {
 
@@ -40,11 +37,19 @@ class sideBar {
 				be used if you want to style different
 				levels in the hierarchy differently */
 
-			echo '<li>';
+			$pages = get_pages('child_of=' . $child->ID);
 
-			echo '<a href="'.get_permalink($child->ID).'"><span>';
+			if ( $pages ) {
+				echo '<li class="toggle">';
+				echo '<a href="#"><span>';
+			} else {
+				echo '<li>';
+				echo '<a href="'.get_permalink($child->ID).'"><span>';
+			}
+
+
 			echo apply_filters( 'the_title', $child->post_title );
-			echo '</a></span>';
+			echo '</span></a>';
 
 			// now call the same function for child of this child
 			$loop = new sideBar();

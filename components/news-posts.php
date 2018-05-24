@@ -33,7 +33,7 @@ if ($query->have_posts() ) : ?>
 					<div class="background__image tint" style="background-image: url('<?php echo $post_thumbnail; ?>')"></div>
 					<div class="content__wrap">
 						<h3><?php echo $title; ?></h3>
-						<?php echo $excerpt; ?>
+						<?php echo wpautop( excerpt( $excerpt, 20 ) ); ?>
                         <span class="read__more">Read More</span>
 					</div>
 				</a>
