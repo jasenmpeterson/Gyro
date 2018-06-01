@@ -56,7 +56,7 @@ if (have_posts()) :
                     </div>
                 </div>
             </section>
-			<figure class="background__image" style="background: url(<?php echo $image; ?>"></figure>
+			<figure class="background__image" style="background: url(<?php echo ( !empty($image) ? $image : get_home_url().'/wp-content/uploads/2018/05/pexels-photo-518543.jpeg' ) ?>"></figure>
 			<div class="wrap">
                 <ul class="social__media__module">
                     <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=http:<?php echo $link;?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>

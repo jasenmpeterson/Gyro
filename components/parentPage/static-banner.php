@@ -13,7 +13,6 @@ $banner = $staticBanner->DisplayStaticBanner();
 		<div class="col">
 			<div class="content__wrap">
 				<h2 class="title"><?php echo $banner['header'] ?></h2>
-				<?php echo $banner['paragraphs'] ?>
 			</div>
 		</div>
 		<div class="col">

@@ -100,7 +100,14 @@ function expandSection(element) {
     element.setAttribute('data-collapsed', 'false');
 }
 
+
 let toggleButton = document.querySelectorAll( '.toggle > a');
+let activeToggleButton = document.querySelector( '.active.current-page' );
+
+if( activeToggleButton ) {
+    let grandParent = jQuery(activeToggleButton).parent();
+    jQuery(jQuery(grandParent).parent()).addClass('active');
+}
 
 for( let button of toggleButton ) {
     button.addEventListener( 'click', function(e) {

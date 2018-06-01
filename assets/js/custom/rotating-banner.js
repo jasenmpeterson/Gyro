@@ -7,7 +7,8 @@ if(document.querySelector(".rotating__banner") !== null) {
         prevNextButtons: false,
         pageDots: true,
         selectedAttraction: 0.01,
-        friction: 0.15
+        friction: 0.15,
+        autoPlay: 2500
     });
 
 }

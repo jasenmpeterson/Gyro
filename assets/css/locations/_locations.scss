@@ -53,8 +53,8 @@
 }
 
 .weather__container .col {
-  width: auto;
-  padding: 10px;
+  width: 33.3333333%;
+  padding: 10px 0;
 }
 
 .weather__container .col:last-child {
@@ -118,7 +118,11 @@
 }
 
 .location__button {
-  margin-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 10px 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
 }
 
 .location__module.locations,
@@ -230,4 +234,9 @@ span.day {
 
 .location__module .loader.inactive {
   opacity: 0;
+}
+
+.locations__button__wrap.cities {
+  height: 150px;
+  overflow-y: scroll;
 }

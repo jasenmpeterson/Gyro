@@ -10,7 +10,9 @@ $jobs =  new \jobs\jobs('WKDgyBABahZCCIaAfyD7aSNDf36fHWbp');
 ?>
 <section class="col interior__page__content content__contain newsrooms">
     <div class="content__wrap careers__wrap">
-        <?php echo wpautop(get_the_content($page_id)); ?>
 	    <?php echo $jobs->getData(); ?>
+	    <div class="small">
+		    <?php echo wpautop(get_the_content($page_id)); ?>
+        </div>
     </div>
 </section>

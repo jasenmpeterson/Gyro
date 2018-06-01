@@ -9,6 +9,7 @@ if(document.querySelector(".content__slider") !== null) {
         prevNextButtons: false,
         pageDots: true,
         selectedAttraction: 0.01,
+        autoPlay: true,
         friction: 0.15,
         adaptiveHeight: true
     });

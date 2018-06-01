@@ -44,7 +44,7 @@ class sideBar {
 				echo '<a href="#"><span>';
 			} else {
 				echo '<li>';
-				echo '<a href="'.get_permalink($child->ID).'"><span>';
+				echo '<a class="'.(is_page($child->post_title) ? 'active current-page' : '').'" href="'.get_permalink($child->ID).'"><span>';
 			}
 
 
