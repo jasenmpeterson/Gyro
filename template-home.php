@@ -45,7 +45,7 @@
 				        ?>
                         <div class="carousel__cell">
                             <div class="product__background">
-                                <img src="<?php echo $slide['image']['url']?>" alt="<?php echo $slide['image']['alt']; ?>">
+                                <img src="<?php echo $slide['secondary_image']['url']?>" alt="<?php echo $slide['secondary_image']['alt']; ?>">
                             </div>
                             <div class="row">
                                 <div class="col">

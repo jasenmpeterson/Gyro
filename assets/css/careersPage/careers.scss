@@ -14,3 +14,87 @@
 .careers__wrap h3 {
   font-size: 16px;
 }
+.why-you-should-work-for-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 45px;
+  .col {
+    text-align: center;
+  }
+  &>.col:nth-of-type(1),
+  &>.col:nth-of-type(3){
+    width:  25%;
+  }
+  &>.col:nth-of-type(2) {
+    width: 50%;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      text-align: left;
+      margin-bottom: 0 !important;
+      position: relative;
+      &:before {
+        content: '';
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI0IDI0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6I0VCMDAyOTt9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjAuMywyTDksMTMuNmwtNS4zLTVMMCwxMi4zTDksMjFMMjQsNS43TDIwLjMsMnoiLz48L3N2Zz4=);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+.why-you-should-work-for-us-title {
+  display: table;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 35px;
+  h3 {
+    font-size: 20px;
+  }
+  span {
+    display: table-cell;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 35%;
+  }
+  .sep_line {
+    height: 1px;
+    border-top: 1px solid #ebebeb;
+    display: block;
+    position: relative;
+    top: 1px;
+    width: 100%;
+    border-top: 1px solid #ebebeb;
+  }
+}
+.bullets__wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .col {
+    width: 50%;
+  }
+  font-size: 14px;
+}
+.count__wrap {
+  span {
+    display: block;
+  }
+  .count {
+    font-size: 66px;
+  }
+  .orange {
+    color: #f6653c;
+  }
+  .blue {
+    color: #2AC4EA;
+  }
+}

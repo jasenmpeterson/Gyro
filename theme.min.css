@@ -266,7 +266,7 @@ input.search{color:#fff;-webkit-transition:all 300ms;transition:all 300ms;paddin
 .button:hover>span{-webkit-transform:translate3d(0,110%,0);transform:translate3d(0,110%,0)}
 .button:hover>span,.button:hover:before{-webkit-transition:-webkit-transform .3s cubic-bezier(0.75,0,0.125,1);transition:-webkit-transform .3s cubic-bezier(0.75,0,0.125,1);transition:transform .3s cubic-bezier(0.75,0,0.125,1);transition:transform .3s cubic-bezier(0.75,0,0.125,1),-webkit-transform .3s cubic-bezier(0.75,0,0.125,1)}
 .button.white{color:#fff}
-.product__background{position:absolute;top:-250px;left:0;right:0;margin:auto;width:90%;height:90%;opacity:.03;-webkit-transform:scaleX(-1);-ms-transform:scaleX(-1);transform:scaleX(-1)}
+.product__background{position:absolute;top:0;left:0;bottom:0;right:0;margin:auto;width:80%;height:80%;opacity:.30}
 blockquote{border-left:1px solid rgba(0,0,0,0.1);padding-left:30px;margin:30px 0}
 blockquote p{font-size:22px;font-weight:700}
 p a{-webkit-transition:all 300ms ease-out;transition:all 300ms ease-out;color:#eb0029}
@@ -370,7 +370,7 @@ th,td{width:15%;font-size:14px}
 .news__posts a:hover h3:before{width:75px;opacity:1;-webkit-transition:width 600ms ease-out 200ms,opacity 600ms ease-out 400ms;transition:width 600ms ease-out 200ms,opacity 600ms ease-out 400ms}
 .news__posts a:hover .background__image{-webkit-transform:scale(1.2);-ms-transform:scale(1.2);transform:scale(1.2)}
 .news__posts a h3{color:#fff;font-weight:700;-webkit-transition:all 300ms ease-out 300ms;transition:all 300ms ease-out 300ms}
-.news__posts .content__wrap{margin-top:auto;position:relative;z-index:2;width:100%}
+.news__posts .content__wrap{margin-top:0;position:relative;z-index:2;width:100%}
 .news__posts .col.text__align__center{width:100%}
 .history .row{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
 .history{padding-top:120px;padding-bottom:120px;margin-top:50px;position:relative}
@@ -516,6 +516,7 @@ span.region,span.day{color:#960000}
 .child__wrap h3{margin-top:0}
 .content__wrap h3:first-child{margin-top:0}
 .single__page{position:relative;z-index:1}
+.single__page a{color:#eb0029}
 .single__page__content{box-shadow:0 0 15px rgba(44,62,80,0.1);border:1px solid rgba(0,0,0,0.05);position:relative;z-index:2}
 .single__page__content .wrap{padding:45px;position:relative}
 .single__page .background__image{width:100%;height:500px;margin:0;background-position:center top !important}
@@ -567,6 +568,23 @@ div.wpcf7-validation-errors,div.wpcf7-acceptance-missing{border:0;margin:25px 0;
 .careers__wrap article{padding:20px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
 .careers__wrap .small{font-size:14px;margin-top:35px}
 .careers__wrap h3{font-size:16px}
+.why-you-should-work-for-us{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin-bottom:45px}
+.why-you-should-work-for-us .col{text-align:center}
+.why-you-should-work-for-us>.col:nth-of-type(1),.why-you-should-work-for-us>.col:nth-of-type(3){width:25%}
+.why-you-should-work-for-us>.col:nth-of-type(2){width:50%}
+.why-you-should-work-for-us ul{list-style-type:none;padding:0;margin:0}
+.why-you-should-work-for-us ul li{text-align:left;margin-bottom:0 !important;position:relative}
+.why-you-should-work-for-us ul li:before{content:'';background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI0IDI0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6I0VCMDAyOTt9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjAuMywyTDksMTMuNmwtNS4zLTVMMCwxMi4zTDksMjFMMjQsNS43TDIwLjMsMnoiLz48L3N2Zz4=);background-size:100%;background-repeat:no-repeat;display:inline-block;width:12px;height:12px;margin-right:10px}
+.why-you-should-work-for-us-title{display:table;width:100%;text-align:center;margin-bottom:35px}
+.why-you-should-work-for-us-title h3{font-size:20px}
+.why-you-should-work-for-us-title span{display:table-cell;height:1px;position:relative;vertical-align:middle;width:35%}
+.why-you-should-work-for-us-title .sep_line{height:1px;border-top:1px solid #ebebeb;display:block;position:relative;top:1px;width:100%;border-top:1px solid #ebebeb}
+.bullets__wrap{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;width:100%;font-size:14px}
+.bullets__wrap .col{width:50%}
+.count__wrap span{display:block}
+.count__wrap .count{font-size:66px}
+.count__wrap .orange{color:#f6653c}
+.count__wrap .blue{color:#2ac4ea}
 @media screen and (min-width:320px){.static__banner__small .static__banner .content__wrap{padding:70px 30px}
 .static__banner .col:first-child{width:100%}
 .static__banner .content__wrap{padding:150px 40px}

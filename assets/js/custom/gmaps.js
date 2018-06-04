@@ -294,10 +294,8 @@ GoogleMapsLoader.load(function(google) {
         });
         markers.push(marker);
         marker.addListener("click", function () {
-          console.log( marker.icon.url );
             for (let i = 0; i < markers.length; i++) {
               if (markers[i].icon.url === '/wp-content/themes/gyro/assets/images/raw/pulsating.svg' ) {
-                console.log( 'wtf' );
                 markers[i].setIcon({
                   url: '/wp-content/themes/gyro/assets/images/raw/not_pulsating.svg',
                   scaledSize: new google.maps.Size(50, 50)

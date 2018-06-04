@@ -24,7 +24,7 @@ if (have_posts()) :
 	                $categories=get_categories($cat_args);
 	                foreach($categories as $category) {
 		                $args=array(
-			                'showposts' => -1,
+			                'showposts' => 4,
 			                'category__in' => array($category->term_id),
 			                'ignore_sticky_posts'=>1
 		                );

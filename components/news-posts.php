@@ -30,11 +30,9 @@ if ($query->have_posts() ) : ?>
 		<div class="col">
 			<article>
 				<a href="<?php echo $link; ?>">
-					<div class="background__image tint" style="background-image: url('<?php echo $post_thumbnail; ?>')"></div>
+					<div class="background__image tint" style="background: url(<?php echo ( !empty($image) ? $image : get_home_url().'/wp-content/uploads/2018/05/pexels-photo-518543.jpeg' ) ?>"></div>
 					<div class="content__wrap">
 						<h3><?php echo $title; ?></h3>
-						<?php echo wpautop( excerpt( $excerpt, 20 ) ); ?>
-                        <span class="read__more">Read More</span>
 					</div>
 				</a>
 			</article>

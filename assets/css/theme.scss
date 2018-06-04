@@ -1273,14 +1273,14 @@ input.search {
 
 .product__background {
   position: absolute;
-  top: -250px;
+  top: 0;
   left: 0;
+  bottom: 0;
   right: 0;
   margin: auto;
-  width: 90%;
-  height: 90%;
-  opacity: .03;
-  transform: scaleX(-1);
+  width: 80%;
+  height: 80%;
+  opacity: 0.30;
 }
 
 //.blueprint__wrap {

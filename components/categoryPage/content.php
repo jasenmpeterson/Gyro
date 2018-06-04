@@ -7,7 +7,7 @@ $query = new WP_Query(
 	array(
 		'post_type' => 'post',
 		'cat' => $category->term_id,
-		'posts_per_page' => 3,
+		'posts_per_page' => 4,
 		'paged' => $paged
 	)
 );
@@ -29,7 +29,7 @@ if ($query->have_posts() ) :
 		                $categories=get_categories($cat_args);
 		                foreach($categories as $category) {
 			                $args=array(
-				                'showposts' => -1,
+				                'showposts' => 4,
 				                'category__in' => array($category->term_id),
 				                'ignore_sticky_posts'=>1
 			                );
@@ -55,7 +55,6 @@ if ($query->have_posts() ) :
 	                <?php
 	                while ( $query->have_posts() ) : $query->the_post();
 		                $title = get_the_title();
-		                $content = excerpt(get_the_content(), 25);
 		                $link = get_permalink();
 		                $date = get_the_date('F j, Y');
 		                $image = get_the_post_thumbnail_url(get_the_ID(), 'full');
@@ -65,7 +64,7 @@ if ($query->have_posts() ) :
                                 <span class="date"><i class="far fa-clock"></i> <?php echo $date;?></span>
                                 <h3><?php echo $title; ?></h3>
                                 <span class="categories">Categories: <?php echo get_the_category_list( ', ' );?></span>
-				                <?php echo wpautop(excerpt(get_the_content(), 100)); ?>
+				                <?php echo wpautop(excerpt(get_the_content(), 50)); ?>
                                 <a href="<?php echo $link ?>" class="button" data-text="Read More"><span>Read More</span></a>
                             </div>
                         </article>

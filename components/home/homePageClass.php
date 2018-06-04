@@ -43,6 +43,7 @@ class homePageClass {
 		foreach ( $content_slider as $slide ) {
 			$this->content_slider[$i++] = array(
 				'image'     => $slide['image'],
+				'secondary_image'     => $slide['secondary_image'],
 				'header'    => $slide['header'],
 				'paragraph' => $slide['paragraphs'],
 				'title' => $slide['title'],

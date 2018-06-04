@@ -28,6 +28,7 @@ class contentSlider {
 				$slider = get_field( "content_slider" );
 				$i      = 0;
 				foreach ( $slider as $slide ) {
+					print_r($slide);
 					$this->content_slider[ $i ++ ] = array(
 						'image'     => $slide['image'],
 						'title'     => $slide['title'],
