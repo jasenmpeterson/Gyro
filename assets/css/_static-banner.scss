@@ -17,6 +17,14 @@
 }
 .static__banner__background__color .static__banner {
   background-color: #710014;
+  height: 400px;
+}
+.static__banner__background__color .static__banner .row {
+  height: 100%;
+}
+.static__banner__background__color .static__banner .row .col:first-child {
+  display: flex;
+  align-items: center;
 }
 .static__banner__background__color .static__banner .content__wrap p,
 .static__banner__background__color .static__banner .content__wrap h2 {

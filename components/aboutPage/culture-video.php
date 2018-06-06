@@ -18,8 +18,8 @@
 		</div>
 		<div class="col">
 			<div class="video__wrap tint">
-				<img src="/wp-content/themes/gyro/assets/images/raw/banner_hp.jpg"  alt="">
-				<svg width="30" viewBox="0 0 20 20" class="play__button"><title>Play</title> <path d="M15 10l-9 5v-10l9 5z"></path></svg>
+				<img src="/wp-content/themes/gyro/assets/images/raw/DSC_1335.jpg"  alt="">
+<!--				<svg width="30" viewBox="0 0 20 20" class="play__button"><title>Play</title> <path d="M15 10l-9 5v-10l9 5z"></path></svg>-->
 			</div>
 		</div>
 	</div>

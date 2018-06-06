@@ -45,13 +45,16 @@
 				        ?>
                         <div class="carousel__cell">
                             <div class="product__background">
-                                <img src="<?php echo $slide['secondary_image']['url']?>" alt="<?php echo $slide['secondary_image']['alt']; ?>">
+                                <video src="<?php echo get_template_directory_uri() ;?>/assets/video/background-test.mp4" preload="true" autoplay="autoplay" loop="loop"></video>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="content__wrap">
                                         <h1 data-content-slider-splitting-chars style="--word-total:1; --char-total:5;" class="title"><?php echo $slide['title']; ?></h1>
-                                        <img src="<?php echo $slide['image']['url']?>" alt="<?php echo $slide['image']['alt']; ?>">
+                                        <div class="image--wrap">
+                                            <img class="call--outs" src="<?php echo get_template_directory_uri();?>/assets/images/raw/call-out-test.png" alt="">
+                                            <img src="<?php echo $slide['image']['url']?>" alt="<?php echo $slide['image']['alt']; ?>">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">

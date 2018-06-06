@@ -1280,13 +1280,21 @@ input.search {
   margin: auto;
   width: 80%;
   height: 80%;
-  opacity: 0.30;
+  video {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-//.blueprint__wrap {
-//  background: url("assets/images/raw/blueprint.svg") no-repeat left center;
-//  background-size: 110%;
-//}
+.blueprint__wrap {
+  .image--wrap {
+    position: relative;
+  }
+  .call--outs {
+    position: absolute;
+    bottom: 0;
+  }
+}
 
 // Typography
 

@@ -9,8 +9,24 @@ if(document.querySelector(".content__slider") !== null) {
         prevNextButtons: false,
         pageDots: true,
         selectedAttraction: 0.01,
-        autoPlay: true,
+        // autoPlay: true,
         friction: 0.15,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+      on: {
+        ready: function() {
+            let video = document.querySelector('.blueprint__wrap .is-selected video');
+            video.play();
+        }
+      }
     });
+
+    flktyContentSlider.on( 'change', function() {
+      let video = document.querySelector('.blueprint__wrap .is-selected video');
+      let videos = document.querySelectorAll('.blueprint__wrap video');
+      for(let video of videos) {
+          video.pause();
+      }
+      video.play();
+    });
+
 }
