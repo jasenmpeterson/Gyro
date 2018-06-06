@@ -286,7 +286,10 @@ GoogleMapsLoader.load(function(google) {
           map: map,
           icon: icon,
           title: location.acf.location.city_name,
+          state: location.acf.location.state,
           region: location.acf.location.city_region,
+          latitude: location.acf.location.latitude,
+          longitude: location.acf.location.longitude,
           optimized: false
         });
         let infoWindow = new google.maps.InfoWindow({
@@ -316,7 +319,7 @@ GoogleMapsLoader.load(function(google) {
             y: 0
           });
           document.querySelector(".region__title h1 span").innerHTML = marker.region;
-          loadLocations(marker.region);
+          loadLocations(marker.region, marker.title, marker.state, marker.latitude, marker.longitude);
           TweenMax.to(localModule, 0.2, {
             opacity: 1,
             y: 0
@@ -324,7 +327,7 @@ GoogleMapsLoader.load(function(google) {
         });
       }
 
-      function loadLocations (region) {
+      function loadLocations (region, city, state, latitude, longitude) {
         let buttonsWrap = document.querySelector(".locations__button__wrap.cities");
         buttonsWrap.innerHTML = "";
         buttonsWrap.innerHTML +=`
@@ -349,7 +352,22 @@ GoogleMapsLoader.load(function(google) {
             });
           });
         }
-        locationButtons[0].click();
+        if(city) {
+          console.log(region);
+          console.log(city);
+          console.log(state);
+          console.log(latitude);
+          console.log(longitude);
+          map.setZoom(3);
+          map.setCenter({lat: parseInt(latitude), lng: parseInt(longitude)});
+          setTemp(parseInt(latitude),parseInt(longitude), city, state);
+          setContact(city);
+          TweenMax.to(localModule, 0.2, {
+            opacity: 1,
+            y: 0
+          });
+        }
+        // locationButtons[0].click();
       }
 
       let regions = [

@@ -11,7 +11,8 @@ if(document.querySelector(".content__slider") !== null) {
         selectedAttraction: 0.01,
         // autoPlay: true,
         friction: 0.15,
-        adaptiveHeight: true,
+        adaptiveHeight: false,
+        autoPlay: 5000,
       on: {
         ready: function() {
             let video = document.querySelector('.blueprint__wrap .is-selected video');

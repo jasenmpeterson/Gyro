@@ -475,6 +475,7 @@ span.temperature sup{font-size:12px;vertical-align:super}
 span.city{font-size:18px;margin:5px 0}
 span.region{font-size:12px}
 span.region,span.day{color:#960000}
+span.region{display:none}
 .module__title h1{font-weight:700;color:#5d6771;font-size:18px;display:inline-block;width:250px;max-width:100%;position:relative;margin-bottom:25px}
 .module__title span{position:relative;z-index:2}
 .cities h4{font-size:14px;margin-bottom:5px;margin-top:0;color:#960000}

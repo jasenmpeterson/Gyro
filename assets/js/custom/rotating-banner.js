@@ -8,7 +8,7 @@ if(document.querySelector(".rotating__banner") !== null) {
         pageDots: true,
         selectedAttraction: 0.01,
         friction: 0.15,
-        autoPlay: 2500
+        autoPlay: 5000
     });
 
 }

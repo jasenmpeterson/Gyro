@@ -725,7 +725,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       selectedAttraction: 0.01,
       // autoPlay: true,
       friction: 0.15,
-      adaptiveHeight: true,
+      adaptiveHeight: false,
+      autoPlay: 5000,
       on: {
         ready: function ready() {
           var video = document.querySelector('.blueprint__wrap .is-selected video');
@@ -1536,7 +1537,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             map: map,
             icon: icon,
             title: location.acf.location.city_name,
+            state: location.acf.location.state,
             region: location.acf.location.city_region,
+            latitude: location.acf.location.latitude,
+            longitude: location.acf.location.longitude,
             optimized: false
           });
           var infoWindow = new google.maps.InfoWindow({
@@ -1566,7 +1570,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               y: 0
             });
             document.querySelector(".region__title h1 span").innerHTML = marker.region;
-            loadLocations(marker.region);
+            loadLocations(marker.region, marker.title, marker.state, marker.latitude, marker.longitude);
             TweenMax.to(localModule, 0.2, {
               opacity: 1,
               y: 0
@@ -1599,7 +1603,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           }
         }
 
-        function loadLocations(region) {
+        function loadLocations(region, city, state, latitude, longitude) {
           var buttonsWrap = document.querySelector(".locations__button__wrap.cities");
           buttonsWrap.innerHTML = "";
           buttonsWrap.innerHTML += '\n                ' + locations.map(function (location) {
@@ -1646,7 +1650,22 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
           }
 
-          locationButtons[0].click();
+          if (city) {
+            console.log(region);
+            console.log(city);
+            console.log(state);
+            console.log(latitude);
+            console.log(longitude);
+            map.setZoom(3);
+            map.setCenter({ lat: parseInt(latitude), lng: parseInt(longitude) });
+            setTemp(parseInt(latitude), parseInt(longitude), city, state);
+            setContact(city);
+            TweenMax.to(localModule, 0.2, {
+              opacity: 1,
+              y: 0
+            });
+          }
+          // locationButtons[0].click();
         }
 
         var regions = [{ name: "North America", latitude: 54.525961, longitude: -105.255119 }, { name: "Latin America", latitude: -4.442039, longitude: -61.326854 }, { name: "Middle East & Asia Pacific", latitude: 34.047863, longitude: 100.619655 }, { name: "Europe, Africa & Caspian Sea", latitude: 54.525961, longitude: 15.255119 }];
@@ -2203,7 +2222,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       pageDots: true,
       selectedAttraction: 0.01,
       friction: 0.15,
-      autoPlay: 2500
+      autoPlay: 5000
     });
   }
 
