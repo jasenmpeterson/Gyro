@@ -17,5 +17,10 @@ $cat_name = get_cat_name($cat_id);
 				<h2 class="title"><?php echo $cat_name ?></h2>
 			</div>
 		</div>
+        <div class="col">
+			<?php if( ( $category_image = category_image_src( array('size' =>  'full' )  , false ) ) != null ): ?>
+                <div class="background__image secondary" style="width: 100%; background-image: url('<?php echo $category_image; ?>')"></div>
+			<?php endif; ?>
+        </div>
 	</div>
 </section>

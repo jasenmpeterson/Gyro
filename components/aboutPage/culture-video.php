@@ -10,7 +10,7 @@
         $culture = get_field('our_culture');
 ?>
 <section class="our__culture__video about__page" data-emergence="hidden">
-	<div class="clippy"></div>
+<!--	<div class="clippy"></div>-->
 	<div class="row align-middle">
 		<div class="col">
 			<h1 class="title"><?php echo $culture['header']; ?></h1>

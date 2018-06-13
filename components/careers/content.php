@@ -55,7 +55,10 @@ $jobs =  new \jobs\jobs('WKDgyBABahZCCIaAfyD7aSNDf36fHWbp');
                 </div>
             </div>
         </div>
-	    <?php echo $jobs->getData(); ?>
+	    <?php //echo $jobs->getData(); ?>
+        <div class="job__applications__wrap">
+            <iframe name="resumator-job-frame" id="resumator-job-frame" class="resumator-advanced-widget" src="//gyrodata.applytojob.com/apply/jobs/?depatartment=eac" width="100%" scrolling="yes" frameborder="0" allowTransparency="true"></iframe><script>function resizeResumatorIframe(height,nojump){if(nojump== 0){window.scrollTo(0,0);}document.getElementById("resumator-job-frame").height = parseInt(height)+20;}</script>
+        </div>
 	    <div class="small">
 		    <?php echo wpautop(get_the_content($page_id)); ?>
         </div>

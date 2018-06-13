@@ -111,14 +111,14 @@ header .row {
 .secondary__nav ul li {
   display: block;
   margin-bottom: 0;
+  text-align: right;
+  width: 100%;
 }
 
 .secondary__nav a {
   color: $color-text;
   text-decoration: none;
-  @media screen and (max-width: 1100px) {
-    font-size: 14px;
-  }
+  font-size: 14px;
 }
 
 // primary nav
@@ -140,12 +140,13 @@ header .row {
   }
 }
 .primary_nav a {
-  @media screen and (min-width: 1280px) {
-      font-size: 16px;
-  }
-  @media screen and (min-width: 320px) {
-    font-size: 14px;
-  }
+  font-size: 14px;
+  //@media screen and (min-width: 1280px) {
+  //    font-size: 16px;
+  //}
+  //@media screen and (min-width: 320px) {
+  //  font-size: 14px;
+  //}
 }
 .col.logo {
   @media screen and (min-width: 768px) {
@@ -158,7 +159,7 @@ header .row {
 .menu {
   display: flex;
   padding: 0 45px;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0;
   height: 100%;
 }
@@ -181,6 +182,9 @@ header .row {
   align-items: center;
   position: relative;
 }
+//.primary_nav li:not(:last-child) {
+//  margin-right: 10%;
+//}
 .primary_nav a {
   text-decoration: none;
   display: block;
@@ -200,11 +204,11 @@ header .row {
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   background-color: #fff;
   left: -5rem;
-  @media screen and (min-width: 1100px ) {
-    min-width: 200px;
+  @media screen and (max-width: 1300px ) {
+    min-width: 225px;
   }
   @media screen and (min-width: 1400px ) {
-    min-width: 300px;
+    min-width: 250px;
   }
 }
 .sub-menu:not(.grand-children-sub-menu):before,
@@ -216,7 +220,7 @@ header .row {
   left: 0;
 }
 .sub-menu a {
-  padding: 20px 15px;
+  padding: 20px 12px;
 }
 .sub-menu li {
   font-size: 14px;
@@ -245,7 +249,7 @@ header .row {
   content: '';
   display: inline-block;
   height: 6px;
-  right: 20px;
+  right: 10px;
   position: absolute;
   top: 25px;
   width: 6px;
@@ -966,7 +970,7 @@ input.search {
 
 .rotating__banner .carousel__cell {
   height: 100%;
-  background-position: bottom center;
+  background-position: center;
   background-size: cover;
 }
 
@@ -1490,6 +1494,7 @@ ul.documents figure {
 .background__image {
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 .background__image__contrast {
   filter: contrast(120%);
@@ -1751,6 +1756,34 @@ td {
 .scroll__wrap ul {
   margin-top: 0;
 }
+
+// resources
+.resources--list {
+  max-width: 95%;
+  margin: 50px auto;
+}
+.resource--wrap {
+  a {
+    display: flex;
+    color: #5d6771;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    text-decoration: none;
+    align-items: center;
+    transition: all 350ms;
+  }
+  a:hover {
+    color: $color-red;
+  }
+  figure {
+    margin: 0 15px 0 0;
+  }
+  img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 @import "drill-down";
 @import "technology-and-services";
 @import "news-posts";
