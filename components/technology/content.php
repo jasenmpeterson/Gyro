@@ -22,8 +22,11 @@ if ($query->have_posts() ) :
             foreach($content as $content_block):
         ?>
 
+                <?php
+                    if(!empty($content_block['title'])):
+                ?>
                 <h3 class="title"><?php echo $content_block['title']; ?></h3>
-                <?php echo $content_block['paragraph']; ?>
+                <?php endif; echo $content_block['paragraph']; ?>
         <?php
                 endforeach;
             endwhile;

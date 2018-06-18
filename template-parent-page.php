@@ -12,7 +12,8 @@ $page_id     = get_queried_object_id();
 $args = array (
 	'post_type' => 'page',
 	'parent' => $page_id,
-	'post_status' => 'publish'
+	'post_status' => 'publish',
+    'sort_column' => 'menu_order'
 );
 $documents = get_field('related_downloads', $page_id);
 $case_studies = get_field('case_studies', $page_id);

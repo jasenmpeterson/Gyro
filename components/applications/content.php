@@ -17,10 +17,11 @@ if ($query->have_posts() ) :
 			$content = $content_blocks['content'];
 			foreach($content as $content_block):
 				?>
-				<div class="content__wrap">
-					<h3 class="title"><?php echo $content_block['title']; ?></h3>
-					<?php echo $content_block['paragraph']; ?>
-				</div>
+				<?php
+				if(!empty($content_block['title'])):
+					?>
+                    <h3 class="title"><?php echo $content_block['title']; ?></h3>
+				<?php endif; echo $content_block['paragraph']; ?>
 			<?php
 			endforeach;
 		endwhile;
