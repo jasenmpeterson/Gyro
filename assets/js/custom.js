@@ -215,6 +215,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // history chart - our company - history page
     if (element.classList.contains("history__chart")) {
 
+      var intro = document.querySelector('.history__chart__intro');
+      intro.classList.add('active');
+
       var nextArrow = document.querySelector(".our__history .next__arrow");
       var prevArrow = document.querySelector(".our__history .prev__arrow");
 
@@ -731,6 +734,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         ready: function ready() {
           var video = document.querySelector('.blueprint__wrap .is-selected video');
           video.play();
+          var text = document.querySelectorAll('.is-selected .call--outs text');
+          TweenMax.staggerTo(text, 1, {
+            opacity: 1,
+            ease: Power2.easeOut,
+            delay: 1
+          }, 0.2);
         }
       }
     });
@@ -738,6 +747,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     flktyContentSlider.on('change', function () {
       var video = document.querySelector('.blueprint__wrap .is-selected video');
       var videos = document.querySelectorAll('.blueprint__wrap video');
+      var text = document.querySelectorAll('.is-selected .call--outs text');
+      TweenMax.staggerTo(text, 1, {
+        opacity: 1,
+        ease: Power2.easeOut
+      }, 0.2);
       var _iteratorNormalCompletion3 = true;
       var _didIteratorError3 = false;
       var _iteratorError3 = undefined;

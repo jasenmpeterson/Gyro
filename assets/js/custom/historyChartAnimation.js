@@ -4,6 +4,9 @@ export function historyChartAnimation(element) {
     // history chart - our company - history page
     if(element.classList.contains("history__chart")) {
 
+        let intro = document.querySelector('.history__chart__intro');
+        intro.classList.add('active');
+
         let nextArrow = document.querySelector(".our__history .next__arrow");
         let prevArrow = document.querySelector(".our__history .prev__arrow");
 

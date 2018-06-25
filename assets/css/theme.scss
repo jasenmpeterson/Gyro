@@ -1297,6 +1297,9 @@ input.search {
   .call--outs {
     position: absolute;
     bottom: 0;
+    text {
+      opacity: 0;
+    }
   }
 }
 

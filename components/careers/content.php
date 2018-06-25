@@ -10,6 +10,7 @@ $jobs =  new \jobs\jobs('WKDgyBABahZCCIaAfyD7aSNDf36fHWbp');
 ?>
 <section class="col interior__page__content content__contain newsrooms">
     <div class="content__wrap careers__wrap">
+	    <?php echo wpautop(get_the_content($page_id)); ?>
         <div class="why-you-should-work-for-us-title">
             <span>
                 <span class="sep_line"></span>
@@ -22,7 +23,7 @@ $jobs =  new \jobs\jobs('WKDgyBABahZCCIaAfyD7aSNDf36fHWbp');
         <div class="why-you-should-work-for-us">
             <div class="col">
                 <div class="count__wrap">
-                    <span class="count orange">1200+</span>
+                    <span class="count orange">850+</span>
                     <span class="context">Employees Worldwide</span>
                 </div>
             </div>
@@ -50,7 +51,7 @@ $jobs =  new \jobs\jobs('WKDgyBABahZCCIaAfyD7aSNDf36fHWbp');
             </div>
             <div class="col">
                 <div class="count__wrap">
-                    <span class="count blue">48</span>
+                    <span class="count blue">36</span>
                     <span class="context">Office Locations</span>
                 </div>
             </div>
@@ -60,7 +61,7 @@ $jobs =  new \jobs\jobs('WKDgyBABahZCCIaAfyD7aSNDf36fHWbp');
             <iframe name="resumator-job-frame" id="resumator-job-frame" class="resumator-advanced-widget" src="//gyrodata.applytojob.com/apply/jobs/?depatartment=eac" width="100%" scrolling="yes" frameborder="0" allowTransparency="true"></iframe><script>function resizeResumatorIframe(height,nojump){if(nojump== 0){window.scrollTo(0,0);}document.getElementById("resumator-job-frame").height = parseInt(height)+20;}</script>
         </div>
 	    <div class="small">
-		    <?php echo wpautop(get_the_content($page_id)); ?>
+		    <?php echo get_field('fraudulent_employment_offers', $page_id); ?>
         </div>
     </div>
 </section>

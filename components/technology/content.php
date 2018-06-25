@@ -16,9 +16,6 @@ if ($query->have_posts() ) :
             $content_blocks = get_field('content_blocks');
             $content = $content_blocks['content'];
             $post_content = get_the_content();
-            if(!empty($post_content)) {
-                echo wpautop($post_content);
-            }
             foreach($content as $content_block):
         ?>
 

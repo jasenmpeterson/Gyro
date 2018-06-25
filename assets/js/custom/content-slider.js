@@ -17,6 +17,12 @@ if(document.querySelector(".content__slider") !== null) {
         ready: function() {
             let video = document.querySelector('.blueprint__wrap .is-selected video');
             video.play();
+            let text = document.querySelectorAll('.is-selected .call--outs text');
+            TweenMax.staggerTo(text, 1, {
+              opacity: 1,
+              ease: Power2.easeOut,
+              delay: 1
+            }, 0.2);
         }
       }
     });
@@ -24,6 +30,11 @@ if(document.querySelector(".content__slider") !== null) {
     flktyContentSlider.on( 'change', function() {
       let video = document.querySelector('.blueprint__wrap .is-selected video');
       let videos = document.querySelectorAll('.blueprint__wrap video');
+      let text = document.querySelectorAll('.is-selected .call--outs text');
+      TweenMax.staggerTo(text, 1, {
+        opacity: 1,
+        ease: Power2.easeOut
+      }, 0.2);
       for(let video of videos) {
           video.pause();
       }

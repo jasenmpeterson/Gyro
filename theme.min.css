@@ -273,6 +273,7 @@ input.search{color:#fff;-webkit-transition:all 300ms;transition:all 300ms;paddin
 .product__background video{width:100%;height:100%}
 .blueprint__wrap .image--wrap{position:relative}
 .blueprint__wrap .call--outs{position:absolute;bottom:0}
+.blueprint__wrap .call--outs text{opacity:0}
 blockquote{border-left:1px solid rgba(0,0,0,0.1);padding-left:30px;margin:30px 0}
 blockquote p{font-size:22px;font-weight:700}
 p a{-webkit-transition:all 300ms ease-out;transition:all 300ms ease-out;color:#eb0029}
@@ -408,6 +409,9 @@ th,td{width:15%;font-size:14px}
 .core__values .col:first-child:after{position:absolute;top:0;content:'';display:block;width:1px;height:0;opacity:0;background-color:rgba(255,255,255,0.2)}
 .core__values h2{-webkit-align-self:flex-start;-ms-flex-item-align:start;align-self:flex-start;opacity:0;-webkit-transform:translateY(-20px);-ms-transform:translateY(-20px);transform:translateY(-20px)}
 .core__values .content__wrap{opacity:0;-webkit-transform:translateY(20px);-ms-transform:translateY(20px);transform:translateY(20px)}
+.history__chart__intro{padding:70px 0 30px 0;width:900px;max-width:100%;margin:0 auto;color:#fff;text-align:center;-webkit-transition:all 350ms;transition:all 350ms;opacity:0;-webkit-transform:translateY(50px);-ms-transform:translateY(50px);transform:translateY(50px)}
+.history__chart__intro p{margin-top:0}
+.history__chart__intro.active{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 .history__blocks{background-color:#18191a}
 .history__blocks h3{margin-top:0}
 .history__blocks .wrap{position:relative;height:375px;cursor:pointer;opacity:0;-webkit-transform:translateY(200px);-ms-transform:translateY(200px);transform:translateY(200px)}
@@ -429,7 +433,7 @@ th,td{width:15%;font-size:14px}
 .history__blocks .wrap.active p{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 .history__blocks .wrap:hover .tint__primary{background-color:rgba(0,0,0,0.8)}
 .our__history.about__page{background-color:#18191a;position:relative;min-height:100vh}
-.our__history .svg__wrap{padding:40px 0;width:1700px;max-width:100%;margin:0 auto}
+.our__history .svg__wrap{padding:40px 0;max-width:100%;margin:0 auto;min-height:100vh}
 .our__history .svg__wrap svg{width:100%}
 .our__history svg{padding-top:40px}
 .our__history .cls-1{fill:#fff}
@@ -438,10 +442,10 @@ th,td{width:15%;font-size:14px}
 .our__history circle,.our__history path{opacity:0}
 .our__history svg.arrow{padding:0}
 .our__history svg.arrow path{opacity:1;fill:#FFF}
-.our__history .date{position:absolute;top:220px;left:0;right:0;margin:auto;width:152px;max-width:100%;opacity:0}
+.our__history .date{position:absolute;top:550px;left:0;right:0;margin:auto;width:152px;max-width:100%;opacity:0}
 .our__history h1.title{position:relative;color:#fff;font-size:70px}
 .our__history h1.title:before{position:absolute;bottom:50px;left:0;right:0;margin:auto}
-.our__history .arrow__controls{width:990px;max-width:100%;position:absolute;top:450px;left:0;right:0;margin:auto}
+.our__history .arrow__controls{width:990px;max-width:100%;position:absolute;top:800px;left:0;right:0;margin:auto}
 .history__chart .content__wrap{position:relative;top:30px}
 .history__chart__content{position:absolute;left:0;right:0;margin:auto;width:650px;max-width:100%;text-align:center;opacity:0;visibility:hidden;padding:40px}
 .history__chart__content.active{opacity:1;visibility:visible}
@@ -636,7 +640,7 @@ footer .col{width:100%;padding:10px 0}
 .our__history svg.arrow{width:40px}
 .our__history svg.arrow{width:30px}
 .our__history .arrow__controls .col{width:46%}
-.history__chart__content{top:300px}
+.history__chart__content{top:550px}
 .history__chart__content h2{font-size:18px}
 .our__culture__video .col:first-child{width:100%}
 .our__culture__video .col:last-child{width:100%}
@@ -666,7 +670,7 @@ footer a:not(:last-child){margin-right:15px;margin-bottom:0}
 .core__values .col:last-child{width:50%}
 .history__blocks .col{width:33.3333%}
 .history__blocks .wrap p{font-size:16px}
-.history__chart__content{top:400px}
+.history__chart__content{top:650px}
 .history__chart__content h2{font-size:33px}
 .our__culture__video .col:first-child{width:40%}
 .our__culture__video .col:last-child{width:60%}
