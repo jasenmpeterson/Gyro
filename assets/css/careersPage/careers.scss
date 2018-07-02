@@ -78,10 +78,8 @@
 .bullets__wrap {
   display: flex;
   justify-content: center;
-  width: 100%;
-  .col {
-    width: 50%;
-  }
+  width: 80%;
+  margin: 0 auto;
   font-size: 14px;
 }
 .count__wrap {

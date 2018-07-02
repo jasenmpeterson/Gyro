@@ -109,14 +109,14 @@ let prevArrow = document.querySelector(".our__history .prev__arrow");
 
 let nextArrowFunction = () => {
     let currSection = document.querySelector(".history__chart__content.active");
-    let nextSectionID = parseInt(currSection.dataset.content)  === 14 ? 0 : parseInt(currSection.dataset.content) + 1;
+    let nextSectionID = parseInt(currSection.dataset.content)  === 15 ? 0 : parseInt(currSection.dataset.content) + 1;
     let nextSection = document.querySelector("circle[data-id='"+nextSectionID+"']");
     triggerEvent(nextSection, "click");
 };
 
 let prevArrowFunction = () => {
     let currSection = document.querySelector(".history__chart__content.active");
-    let prevSectionID = parseInt(currSection.dataset.content) === 0 ? 14 : parseInt(currSection.dataset.content) - 1;
+    let prevSectionID = parseInt(currSection.dataset.content) === 0 ? 15 : parseInt(currSection.dataset.content) - 1;
     let prevSection = document.querySelector("[data-id='"+prevSectionID+"']");
     triggerEvent(prevSection, "click");
 };

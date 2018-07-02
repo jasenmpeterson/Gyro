@@ -160,7 +160,7 @@
 
 .history__blocks .col {
   @media screen and (min-width: 767px) {
-    width: 33.3333%;
+    width:50%;
   }
   @media screen and (min-width: 320px) {
     width: 100%;
@@ -293,6 +293,8 @@
   background-color: #18191A;
   position: relative;
   min-height: 100vh;
+  overflow: hidden;
+  padding-bottom: 100px;
 }
 
 .our__history .svg__wrap {

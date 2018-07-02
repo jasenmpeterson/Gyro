@@ -2,6 +2,8 @@
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /******/(function (modules) {
   // webpackBootstrap
   /******/ // The module cache
@@ -717,39 +719,41 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /***/function (module, exports) {
 
   if (document.querySelector(".content__slider") !== null) {
+    var _ref;
 
     var contentSlider = document.querySelector(".content__slider");
     contentSlider.classList.remove("is-hidden");
     contentSlider.offsetHeight;
 
-    var flktyContentSlider = new Flickity(contentSlider, {
+    var flktyContentSlider = new Flickity(contentSlider, (_ref = {
       prevNextButtons: false,
       pageDots: true,
       selectedAttraction: 0.01,
-      // autoPlay: true,
+      autoPlay: true,
       friction: 0.15,
-      adaptiveHeight: false,
-      autoPlay: 5000,
-      on: {
-        ready: function ready() {
-          var video = document.querySelector('.blueprint__wrap .is-selected video');
-          video.play();
-          var text = document.querySelectorAll('.is-selected .call--outs text');
-          TweenMax.staggerTo(text, 1, {
-            opacity: 1,
-            ease: Power2.easeOut,
-            delay: 1
-          }, 0.2);
-        }
+      adaptiveHeight: false
+    }, _defineProperty(_ref, 'autoPlay', 5000), _defineProperty(_ref, 'on', {
+      ready: function ready() {
+        var video = document.querySelector('.blueprint__wrap .is-selected video');
+        video.play();
+        var activeCallout = document.querySelectorAll('.is-selected .call--outs');
+        TweenMax.to(activeCallout, 1, {
+          opacity: 1,
+          y: 0,
+          delay: 1,
+          ease: Power2.easeOut
+        }, 0.2);
       }
-    });
+    }), _ref));
 
     flktyContentSlider.on('change', function () {
       var video = document.querySelector('.blueprint__wrap .is-selected video');
       var videos = document.querySelectorAll('.blueprint__wrap video');
-      var text = document.querySelectorAll('.is-selected .call--outs text');
-      TweenMax.staggerTo(text, 1, {
+      var activeCallout = document.querySelectorAll('.is-selected .call--outs');
+      TweenMax.to(activeCallout, 1, {
         opacity: 1,
+        y: 0,
+        delay: 1,
         ease: Power2.easeOut
       }, 0.2);
       var _iteratorNormalCompletion3 = true;
@@ -1566,14 +1570,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               if (markers[i].icon.url === '/wp-content/themes/gyro/assets/images/raw/pulsating.svg') {
                 markers[i].setIcon({
                   url: '/wp-content/themes/gyro/assets/images/raw/not_pulsating.svg',
-                  scaledSize: new google.maps.Size(50, 50)
+                  scaledSize: new google.maps.Size(5, 5)
                 });
               }
             }
 
             marker.setIcon({
               url: '/wp-content/themes/gyro/assets/images/raw/pulsating.svg',
-              scaledSize: new google.maps.Size(50, 50)
+              scaledSize: new google.maps.Size(50, 50),
+              origin: new google.maps.Point(0, 0), // origin
+              anchor: new google.maps.Point(25, 25) // anchor
             });
 
             map.setZoom(5);
@@ -1817,12 +1823,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       var weatherModule = document.querySelector(".weather__container");
       var icon = {
         url: '/wp-content/themes/gyro/assets/images/raw/not_pulsating.svg',
-        scaledSize: new google.maps.Size(50, 50) // scaled size
+        scaledSize: new google.maps.Size(5, 5) // scaled size
       };
       var map = new google.maps.Map(el, {
         center: myLatLng,
         disableDefaultUI: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false,
         zoom: 3,
         styles: [{
           "elementType": "geometry",
@@ -2156,14 +2163,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   var nextArrowFunction = function nextArrowFunction() {
     var currSection = document.querySelector(".history__chart__content.active");
-    var nextSectionID = parseInt(currSection.dataset.content) === 14 ? 0 : parseInt(currSection.dataset.content) + 1;
+    var nextSectionID = parseInt(currSection.dataset.content) === 15 ? 0 : parseInt(currSection.dataset.content) + 1;
     var nextSection = document.querySelector("circle[data-id='" + nextSectionID + "']");
     triggerEvent(nextSection, "click");
   };
 
   var prevArrowFunction = function prevArrowFunction() {
     var currSection = document.querySelector(".history__chart__content.active");
-    var prevSectionID = parseInt(currSection.dataset.content) === 0 ? 14 : parseInt(currSection.dataset.content) - 1;
+    var prevSectionID = parseInt(currSection.dataset.content) === 0 ? 15 : parseInt(currSection.dataset.content) - 1;
     var prevSection = document.querySelector("[data-id='" + prevSectionID + "']");
     triggerEvent(prevSection, "click");
   };

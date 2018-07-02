@@ -31,18 +31,8 @@ $jobs =  new \jobs\jobs('WKDgyBABahZCCIaAfyD7aSNDf36fHWbp');
                 <div class="bullets__wrap">
                     <div class="col">
                         <ul>
-                            <li>International Travel</li>
-                            <li>Onshore And Offshore Work</li>
-                            <li>Wide Range Of Responsibilities</li>
-                            <li>Career Advancement</li>
-                            <li>Work For A Growing Company</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li>We Provide Medical Worldwide</li>
-                            <li>Excellent Employment Opportunities</li>
-                            <li>Pension Plans Provided Worldwide</li>
+                            <li>Small Company with Big Ideas – Be a Name not a Number</li>
+                            <li>Family First Climate</li>
                             <li>Competitive Salaries</li>
                             <li>Engaging Work Environment</li>
                         </ul>

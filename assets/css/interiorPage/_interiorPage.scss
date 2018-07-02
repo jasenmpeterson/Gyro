@@ -17,6 +17,13 @@
 .content__contain .content__wrap:last-child {
   padding-bottom: 65px;
 }
+.interior__page__content .content__wrap h1 {
+  font-size: 40px;
+  margin-bottom: 0;
+}
+.interior__page__content .content__wrap h1 ~ h2 {
+  margin-top: 5px;
+}
 .interior__page__content .content__wrap h2 {
   font-size: 30px;
 }
@@ -179,4 +186,34 @@
 }
 .single__page a {
   color: $color-red;
+}
+
+.page-intro {
+  background-color: #2A3036;
+  border-radius: 4px;
+  padding: 45px;
+  * {
+    color: #fff;
+  }
+}
+
+.grand-parent__page .content__wrap {
+  padding: 0;
+}
+
+.grand-parent__page .content__wrap h1 {
+  color: #EB002A;
+}
+
+.grand-parent__page .child__wrap,
+.page-intro {
+  width: 98%;
+  margin: 25px auto;
+}
+
+.grand-parent__page .child__wrap {
+  padding: 45px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05), 0 3px 12px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+  border-radius: 0 0 4px 4px;
 }

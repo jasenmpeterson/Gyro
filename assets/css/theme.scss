@@ -116,9 +116,13 @@ header .row {
 }
 
 .secondary__nav a {
-  color: $color-text;
+  color: #FFFFFF;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
+  transition: 350ms all;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 // primary nav
@@ -192,6 +196,15 @@ header .row {
   width: 100%;
   z-index: 2;
   color: #747d86;
+}
+.primary_nav > ul li:hover a,
+li.current_page_item a {
+  color: #EB002A;
+}
+li:hover[class^="icon-"]:before,
+li.current_page_item[class^="icon-"]:before {
+  color: #EB002A;
+  cursor: pointer;
 }
 .sub-menu {
   position: absolute;
@@ -1297,8 +1310,19 @@ input.search {
   .call--outs {
     position: absolute;
     bottom: 0;
-    text {
-      opacity: 0;
+    opacity: 0;
+    transform: translateY(50px);
+    .st0 {
+      enable-background: new
+    }
+    .st1 {
+      fill: #949899;
+    }
+    .st2 {
+      fill: none;
+      stroke: #949899;
+      stroke-width: 4;
+      stroke-miterlimit: 10
     }
   }
 }
@@ -1785,6 +1809,10 @@ td {
     width: 25px;
     height: 25px;
   }
+}
+
+.menu-item-type-custom > a {
+  cursor: default;
 }
 
 @import "drill-down";

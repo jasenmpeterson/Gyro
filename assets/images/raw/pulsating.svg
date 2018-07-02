@@ -6,7 +6,7 @@
 	.st0{fill:none;stroke:#FFB100;stroke-width:2;}
 </style>
 <g>
-	<circle class="st0" cx="22" cy="22" r="1"></circle>
+	<circle class="st0" cx="22" cy="22" r="1"/>
 	<circle class="st0" cx="22" cy="22" r="1">
 	
 		<animate  accumulate="none" additive="replace" attributeName="r" begin="0s" calcMode="spline" dur="1.8s" fill="remove" keySplines="0.165, 0.84, 0.44, 1" keyTimes="0; 1" repeatCount="indefinite" restart="always" values="1; 20">

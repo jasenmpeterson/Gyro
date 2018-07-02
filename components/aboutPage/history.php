@@ -1,6 +1,10 @@
+<?php
+    $timeline = get_field('timeline', 36);
+
+?>
 <section class="our__history about__page history__chart" data-emergence="hidden">
     <div class="history__chart__intro">
-        <p> Gyrodata has a long history of innovation in oil field technology. The idea of developing and refining revolutionary new survey and drilling tools has driven us forward ever since the company was founded, and with considerable success. Along the way we’ve worked on and introduced some now industry-wide accepted standards and systems, such as the idea of ‘Ellipses of Uncertainty’, and tools like our realtime Gyro-While-Drilling and Rotary Steerable Systems (we also introduced the term ‘Point-the-Bit’ along the way). Scroll down to see our achievements over the years, and believe us, we’re not even close to being done innovating yet!</p>
+        <?php echo $timeline['intro_text']; ?>
     </div>
     <section class="date"><h1 class="title">1980</h1></section>
 	<div class="svg__wrap">
@@ -433,180 +437,23 @@
             </g>
         </svg>
 	</div>
-    <div class="history__chart__content active" data-content="0" data-date="1980">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>Founding of Gyrodata</h2>
-                    <p>Gyrodata Inc. was founded in 1980 after recognizing the then current crop of survey technology was unable to adequately show positional uncertainty of a wellbore.</p>
+    <?php
+        $i = 0;
+        foreach($timeline['milestones'] as $milestone):
+    ?>
+            <div class="history__chart__content <?php echo ($i == 0 ? 'active' : '')  ;?>" data-content="<?php echo $i; ?>" data-date="<?php echo $milestone['year']; ?>">
+                <div class="row align-center align-middle">
+                    <div class="col">
+                        <div class="content__wrap">
+	                        <?php echo $milestone['description']; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="1" data-date="1983">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>Gyroscopic Survey</h2>
-                    <p>First commercial gyroscopic survey run.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="2" data-date="1988">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>GEMS</h2>
-                    <p>Gyrodata introduces the Gyrodata Electronic Magnetic Surveyor (GEMS) tool.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="3" data-date="1989">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>Gyro Steering</h2>
-                    <p>Gyroscopic Steering tool introduced. Gyro Steering allowed for real-time Gyro tool face on wireline while drilling, sliding.</p>
-                    <h2>Slimhole Gyros</h2>
-                    <p>The slimhole gyro system (1 3/4") is introduced.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="4" data-date="1992">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <p>Gyrodata officially opens the Aberdeen, Scotland location which serves as the HQ for the Eastern Hemisphere and is currently the regional office for the European, African and Caspian sea. </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="5" data-date="1994">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>Drop Gyro</h2>
-                    <p>Drop gyroscopic systems introduced. Using a proprietary high shock battery-powered system, the drop tool eliminated the requirement for wireline and non-magnetic collars.  The ability to collect a gyro survey while tripping out of the hole immediately led to significant rig time reductions and cost savings.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="6" data-date="1997">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>ALC</h2>
-                    <p>Gyrodata introduces the Advanced Logging Combination tools (ALC) which allowed for simultaneous collection of the Gyrodata survey and various wireline logs. ALC was a major breakthrough in wellbore surveying instrumentation, providing operators with cost savings, a highly accurate wellbore delineation and enhanced positioning within the reservoir.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="7" data-date="2002">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>RSS</h2>
-                    <p>Launch of the WellGuide RSS 10" tool. Gyrodata acquires Cambridge Drilling Automation who developed the first rotary closed-loop steerable tool with point-the-bit technology in 1993</p>
-                    <h2>GWD</h2>
-                    <p>Introduction of the GyroGuide GWD system.  The ability to have real-time gyro steering and surveying capability in the BHA, without wireline,and was a game changing advancement.  This replaced wireline gyro services during kick-off and anti-collision operations.  In addition to significant rig time savings, the HSE risks associated with wireline operationsand close proximity drilling were reduced. </p>
-                    <h2>Monitor SWD</h2>
-                    <p>Introduction of the Monitor SWD system which was the genesis of the Gyrodata mud pulse magnetic MWD services.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="8" data-date="2005">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>7" RSS</h2>
-                    <p>The WellGuide RSS 7" tool is introduced.  The second offering in the WellGuide series, the 7” tool allowed for drilling in holes sizes from 8 3/8”-9 7/8” from vertical to horizontal well profiles.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="9" data-date="2008">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>GWD EM</h2>
-                    <p>Gyrodata engineers compatibility with 3rd party EM telemetry to transmit GyroGuide GWD Gyroscopes.</p>
-                    <p>The first successful gyro Go-Devil drop ever performed.  Another step-change in rig time savings, due to the fact that this tool could drop to bottom at faster speeds then the previous version.  The drop took 7 minutes before they started pulling out of hole, the total well depth was 7,000ft.  </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="10" data-date="2009">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>CAAT</h2>
-                    <p>The Continuous All-Attitude Tool (CAAT) is introduced. CAAT™ provided continuous surveying from vertical to horizontal while moving in or out the well. This enabled significant system reduction in signal to noise ratio to provide higher accuracy survey measurements.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="11" data-date="2010">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>MXY Gyro</h2>
-                    <p>The MXY gyroscope is introduced. This gyroscope is the first fully in house manufactured gyroscope specifically designed for the Oil & Gas industry.</p>
-                    <h2>GyroDrill Motors</h2>
-                    <p>Introduction of our in house designed and produced GyroDrill Mud Motors</p>
-                    <h2>GWD40</h2>
-                    <p>Gyro-Guide GWD40 is introduced, bringing along survey capability of up to 40 degrees of inclination.</p>
-                    <h2>GWD70</h2>
-                    <p>Further sensor innovation and the invention of CAP (Continuous Adaptive Processing) Gyrodata introduces the GyroGuide GWD70, which raises the inclination limit to 70 degrees and establishes Gyrodata as the only company capable of achieving high accuracy real-time gyroscopic surveys above 40 degrees inclination.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="12" data-date="2011">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>New Corporate HQ</h2>
-                    <p>Construction started in 2010, and in 2011, we moved into our new global corporate HQ in Houston, TX.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="13" data-date="2013">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>GWD90</h2>
-                    <p>The GyroGuide GWD90 is introduced, allowing for all-attitude GWD surveys and the ability to drill a complete horizontal well from top to bottom using a GWD tool.</p>
-                    <h2>4¾” WellGuide</h2>
-                    <p>The WellGuide RSS 4 3/4” tool is introduced.  The second offering in the WellGuide series, the 7” tool allowed for drilling in holes sizes from 6”- 6 ¾” from vertical to horizontal well profiles.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="14" data-date="2014">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>MicroGuide</h2>
-                    <p>Gyrodata introduces the MicroGuide service, allowing customers to get a highly accurate picture of possible micro doglegs in the wellbore. This service is highly important when determining the optimal placement of Artificial Lift Assemblies.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="history__chart__content" data-content="15" data-date="2016">
-        <div class="row align-center align-middle">
-            <div class="col">
-                <div class="content__wrap">
-                    <h2>MagGuide MWD</h2>
-                    <p>Gyrodata releases its first MWD system capable of outrun microguide survey and gamma logging as well as enhance inclination and azimuth while drilling amongst other features increasing efficiency of transmitted data.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+        $i++;
+        endforeach;
+    ?>
     <div class="arrow__controls">
         <div class="row align-center align-middle">
             <div class="col">
