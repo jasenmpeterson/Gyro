@@ -7,6 +7,7 @@
  * Template Name: Applications & Markets Template
  */
 get_header();
+$case_studies = get_field('case_studies', $page_id);
 ?>
 
 	<div class="content__wrapper static__banner__small static__banner__background__color">
@@ -14,6 +15,7 @@ get_header();
 		<div class="row sidebar_row">
 			<?php get_template_part("components/applications/sidebar"); ?>
 			<?php get_template_part("components/applications/content"); ?>
+			<?php include(locate_template('components/applications/sidebar-right.php')); ?>
 		</div>
 	</div>
 

@@ -44,6 +44,7 @@ class homePageClass {
 			$this->content_slider[$i++] = array(
 				'image'     => $slide['image'],
 				'bg_video'     => $slide['background_video'],
+				'call_out' => $slide['call_out'],
 				'header'    => $slide['header'],
 				'paragraph' => $slide['paragraphs'],
 				'title' => $slide['title'],
