@@ -7,7 +7,7 @@
  * Template Name: Parent Page
  */
 ?>
-	<section class="col interior__page__content grand-parent__page <?php if(empty($documents)): echo 'no-right-sidebar'; endif; ?> content__contain newsrooms content__with__sidebar">
+	<section class="col interior__page__content parent__page <?php if(empty($documents)): echo 'no-right-sidebar'; endif; ?> content__contain newsrooms content__with__sidebar">
 		<section class="page-intro">
 			<?php echo wpautop(get_the_content($page_id)); ?>
 		</section>

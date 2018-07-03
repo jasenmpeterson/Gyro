@@ -543,10 +543,16 @@ span.region{display:none}
 .single__page a{color:#eb0029}
 .page-intro{background-color:#2a3036;border-radius:4px;padding:45px}
 .page-intro *{color:#fff}
-.grand-parent__page .content__wrap{padding:0}
-.grand-parent__page .content__wrap h1{color:#eb002a}
-.grand-parent__page .child__wrap,.page-intro{width:98%;margin:25px auto}
-.grand-parent__page .child__wrap{padding:45px;box-shadow:0 3px 12px rgba(0,0,0,0.05),0 3px 12px rgba(0,0,0,0.05);margin-bottom:25px;border-radius:0 0 4px 4px}
+.parent__page .content__wrap{padding:0}
+.parent__page .content__wrap h1{color:#eb002a}
+.parent__page .child__wrap,.page-intro{width:98%;margin:25px auto}
+.parent__page .child__wrap{padding:45px;box-shadow:0 3px 12px rgba(0,0,0,0.05),0 3px 12px rgba(0,0,0,0.05);margin-bottom:25px;border-radius:0 0 4px 4px;position:relative}
+.grand-parent__page .content__wrap,.grand-parent__page .content__wrap:first-child{padding:0}
+.grand-parent__page .interior__page__content{width:75%}
+.grand-parent__page .child__wrap{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;height:450px;padding:45px}
+.grand-parent__page .child__wrap .tint:before{background-color:rgba(0,0,0,0.2)}
+.grand-parent__page .inner-wrap{max-width:60%;position:relative;z-index:2}
+.grand-parent__page .inner-wrap *{color:#fff}
 .single__page__content{box-shadow:0 0 15px rgba(44,62,80,0.1);border:1px solid rgba(0,0,0,0.05);position:relative;z-index:2}
 .single__page__content .wrap{padding:45px;position:relative}
 .single__page .background__image{width:100%;height:500px;margin:0;background-position:center top !important}

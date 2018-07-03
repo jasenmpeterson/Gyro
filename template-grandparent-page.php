@@ -20,7 +20,7 @@ $case_studies = get_field('case_studies', $page_id);
 $children = get_pages($args);
 ?>
 
-	<div class="content__wrapper static__banner__small static__banner__background__color parent__page">
+	<div class="content__wrapper static__banner__small static__banner__background__color grand-parent__page">
 		<?php include(locate_template('components/parentPage/static-banner.php')); ?>
 		<div class="row sidebar_row">
 			<?php include(locate_template('components/grandParentPage/sidebar.php')); ?>
