@@ -2,7 +2,8 @@
 $query = new WP_Query(
 	array(
 		'post_type' => 'page',
-		'posts_per_page' => -1
+		'posts_per_page' => -1,
+		'post__not_in' => array(1402, 1400, 1398, 1395, 1393)
 	)
 );
 if ($query->have_posts() ) :
@@ -11,27 +12,31 @@ if ($query->have_posts() ) :
         <div class="resources--list">
 	        <?php
 			$duplicates = array();
+			$documents_array = array();
+
 	        while ( $query->have_posts() ) : $query->the_post();
-		        $id = get_the_ID();
+				$id = get_the_ID();
 				$documents = get_field('documents', $id);
-		        if (!empty($documents)) {
-					foreach($documents as $document):
-						if(!in_array($document['title'], $duplicates )):
-							array_push($duplicates, $document['title'] );
-				        ?>
-                        <div class="resource--wrap">
-                            <a href="<?php echo $document['document']; ?>" target="_blank">
-                                <figure>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/raw/pdf-icon.svg" alt="">
-                                </figure>
-                                <article><?php echo $document['title']; ?></article>
-                            </a>
-                        </div>
-			        <?php
-						endif;
-					endforeach;
-		        }
+				$documents_array[$id] = $documents;
 			endwhile;
+			foreach($documents_array as $document_array) {
+				if(!empty($document_array)) {
+					foreach($document_array as $key => $document) {
+						//echo $key.'<br/>';
+						if(!empty($document)) {
+							foreach($document as $doc) {
+								if(!in_array($doc['title'], $duplicates )):
+									array_push($duplicates, $doc['title'] );
+									echo '<div class="resource--wrap" data-id="'.$key.'"><a href="'.$doc['document'].'">';
+									echo '<figure><img src="'.get_template_directory_uri().'/assets/images/raw/pdf-icon.svg"></figure>';
+									echo '<article>'.$doc['title'].'</article>';
+									echo '</a></div>';
+								endif;
+							}
+						}
+					}
+				}
+			}
 	        ?>
         </div>
 	</div>
