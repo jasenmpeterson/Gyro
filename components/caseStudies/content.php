@@ -1,4 +1,6 @@
 <?php
+global $post;
+$postID = $post->ID;
 $query = new WP_Query(
 	array(
 		'post_type' => 'page',
@@ -13,7 +15,7 @@ if ($query->have_posts() ) :
 			$duplicates = array();
 	        while ( $query->have_posts() ) : $query->the_post();
 		        $id = get_the_ID();
-				$documents = get_field('documents', $id);
+				$documents = get_field('case_studies', $id);
 		        if (!empty($documents)) {
 					foreach($documents as $document):
 						if(!in_array($document['title'], $duplicates )):
@@ -32,6 +34,7 @@ if ($query->have_posts() ) :
 					endforeach;
 		        }
 			endwhile;
+			wp_reset_postdata();
 	        ?>
         </div>
 	</div>

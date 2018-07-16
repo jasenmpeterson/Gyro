@@ -8,8 +8,7 @@
  */
 global $post;
 $postID = $post->ID;
-$documents = get_field('related_downloads', $postID);
-$case_studies = get_field('case_studies', $postID);
+$documents = get_field('documents', $postID);
 get_header();
 ?>
 

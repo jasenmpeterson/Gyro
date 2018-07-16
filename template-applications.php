@@ -7,7 +7,7 @@
  * Template Name: Applications & Markets Template
  */
 get_header();
-$case_studies = get_field('case_studies', $page_id);
+$documents = get_field('documents', $postID);
 ?>
 
 	<div class="content__wrapper static__banner__small static__banner__background__color">

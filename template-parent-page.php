@@ -15,8 +15,8 @@ $args = array (
 	'post_status' => 'publish',
     'sort_column' => 'menu_order'
 );
-$documents = get_field('related_downloads', $page_id);
-$case_studies = get_field('case_studies', $page_id);
+// $documents = get_field('related_downloads', $page_id);
+// $case_studies = get_field('case_studies', $page_id);
 $children = get_pages($args);
 ?>
 

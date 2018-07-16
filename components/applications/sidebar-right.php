@@ -8,12 +8,12 @@
 ?>
 
 <div class="col sidebar right">
-	<?php if(!empty($case_studies)): ?>
+	<?php if(!empty($documents['case_studies'])): ?>
         <div class="content__wrap">
             <h4>Case Studies</h4>
             <div class="scroll__wrap">
                 <ul class="documents">
-					<?php foreach($case_studies as $case_study): ?>
+					<?php foreach($documents['case_studies'] as $case_study): ?>
                         <li>
                             <a href="<?php echo $case_study['document']; ?>" target="_blank">
                                 <figure>
@@ -27,18 +27,18 @@
             </div>
         </div>
 	<?php endif; ?>
-	<?php if(!empty($documents)): ?>
+    <?php if(!empty($documents['flyers'])): ?>
 	<div class="content__wrap">
-		<h4>Related Downloads</h4>
+		<h4>Flyers</h4>
         <div class="scroll__wrap">
             <ul class="documents">
-		        <?php foreach($documents as $document): ?>
+		        <?php foreach($documents['flyers'] as $flyer): ?>
                     <li>
-                        <a href="<?php echo $document['document']; ?>" target="_blank">
+                        <a href="<?php echo $flyer['document']; ?>" target="_blank">
                             <figure>
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/raw/pdf-icon.svg" alt="">
                             </figure>
-                            <article><?php echo $document['title']; ?></article>
+                            <article><?php echo $flyer['title']; ?></article>
                         </a>
                     </li>
 		        <?php endforeach;?>
@@ -46,4 +46,23 @@
         </div>
 	</div>
 	<?php endif; ?>
-</div
+	<?php if(!empty($documents['specs'])): ?>
+	<div class="content__wrap">
+		<h4>Spec Sheets</h4>
+        <div class="scroll__wrap">
+            <ul class="documents">
+		        <?php foreach($documents['specs'] as $spec_sheet): ?>
+                    <li>
+                        <a href="<?php echo $spec_sheet['document']; ?>" target="_blank">
+                            <figure>
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/raw/pdf-icon.svg" alt="">
+                            </figure>
+                            <article><?php echo $spec_sheet['title']; ?></article>
+                        </a>
+                    </li>
+		        <?php endforeach;?>
+            </ul>
+        </div>
+	</div>
+	<?php endif; ?>
+</div>
