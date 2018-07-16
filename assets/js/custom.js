@@ -709,9 +709,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   __webpack_require__(20);
   __webpack_require__(21);
   __webpack_require__(22);
+  __webpack_require__(23);
   __webpack_require__(5);
   __webpack_require__(7);
-  module.exports = __webpack_require__(23);
+  module.exports = __webpack_require__(24);
 
   /***/
 },
@@ -2233,6 +2234,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* 19 */
 /***/function (module, exports) {
 
+  if (document.querySelector(".resources--list") !== null) {
+    var options = {
+      valieNames: [{ data: ['id'] }]
+    };
+    var list = new List('resource-list', options);
+  }
+
+  /***/
+},
+/* 20 */
+/***/function (module, exports) {
+
   if (document.querySelector(".rotating__banner") !== null) {
     var rotatingBanner = document.querySelector(".rotating__banner");
     rotatingBanner.classList.remove("is-hidden");
@@ -2249,7 +2262,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   /***/
 },
-/* 20 */
+/* 21 */
 /***/function (module, exports) {
 
   var searchInputElem = document.querySelector("input.search");
@@ -2274,11 +2287,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   /***/
 },
-/* 21 */
+/* 22 */
 /***/function (module, exports) {
 
   /***/},
-/* 22 */
+/* 23 */
 /***/function (module, exports) {
 
   var staticBannerHeader = document.querySelector(".static__banner h2.title");
@@ -2296,7 +2309,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   /***/
 },
-/* 23 */
+/* 24 */
 /***/function (module, exports) {
 
   // TODO: NEED TO MAKE THIS A LITTLE LESS SPECIFIC SO IT WORKS WITH ICON LIST IN GENERAL.

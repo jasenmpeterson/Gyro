@@ -1788,7 +1788,11 @@ td {
 .resources--list {
   max-width: 95%;
   margin: 50px auto;
+  ul {
+    list-style-type: none;
+  }
 }
+
 .resource--wrap {
   a {
     display: flex;

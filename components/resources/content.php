@@ -9,35 +9,37 @@ $query = new WP_Query(
 if ($query->have_posts() ) :
 	;?>
 	<div class="col interior__page__content content__with__sidebar content__contain <?php if(empty($documents)): echo 'no-right-sidebar'; endif; ?> technology__and__services__content" data-emergence="hidden">
-        <div class="resources--list">
-	        <?php
-			$duplicates = array();
-			$documents_array = array();
+        <div class="resources--list" id="resource-list">
+			<ul class="list">
+				<?php
+					$duplicates = array();
+					$documents_array = array();
 
-	        while ( $query->have_posts() ) : $query->the_post();
-				$id = get_the_ID();
-				$documents = get_field('documents', $id);
-				$documents_array[$id] = $documents;
-			endwhile;
-			foreach($documents_array as $document_array) {
-				if(!empty($document_array)) {
-					foreach($document_array as $key => $document) {
-						//echo $key.'<br/>';
-						if(!empty($document)) {
-							foreach($document as $doc) {
-								if(!in_array($doc['title'], $duplicates )):
-									array_push($duplicates, $doc['title'] );
-									echo '<div class="resource--wrap" data-id="'.$key.'"><a href="'.$doc['document'].'">';
-									echo '<figure><img src="'.get_template_directory_uri().'/assets/images/raw/pdf-icon.svg"></figure>';
-									echo '<article>'.$doc['title'].'</article>';
-									echo '</a></div>';
-								endif;
+					while ( $query->have_posts() ) : $query->the_post();
+						$id = get_the_ID();
+						$documents = get_field('documents', $id);
+						$documents_array[$id] = $documents;
+					endwhile;
+
+					foreach($documents_array as $document_array) {
+						if(!empty($document_array)) {
+							foreach($document_array as $key => $document) {
+								if(!empty($document)) {
+									foreach($document as $doc) {
+										if(!in_array($doc['title'], $duplicates )):
+											array_push($duplicates, $doc['title'] );
+											echo '<li class="resource--wrap" data-id="'.$key.'" class="'.$key.'"><a href="'.$doc['document'].'">';
+											echo '<figure><img src="'.get_template_directory_uri().'/assets/images/raw/pdf-icon.svg"></figure>';
+											echo '<article>'.$doc['title'].'</article>';
+											echo '</a></li>';
+										endif;
+									}
+								}
 							}
 						}
 					}
-				}
-			}
-	        ?>
+				?>
+			</ul>
         </div>
 	</div>
 <?php
