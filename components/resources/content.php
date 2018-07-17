@@ -17,7 +17,6 @@ if ($query->have_posts() ) :
 				<button class="specs">Specs</button>
 				<button class="tech_papers">Tech Papers</button>
 			</div>
-			<div class="filter-list__messages"></div>
 			<ul class="list">
 				<?php
 					$duplicates = array();

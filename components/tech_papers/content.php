@@ -17,8 +17,8 @@ if ($query->have_posts() ) :
 					while ( $query->have_posts() ) : $query->the_post();
 						$id = get_the_ID();
 						$documents = get_field('documents', $id);
-						$case_studies = $documents['case_studies'];
-						$documents_array[$id] = $case_studies;
+						$tech_papers = $documents['tech_papers'];
+						$documents_array[$id] = $tech_papers;
 					endwhile;
 					foreach($documents_array as $document_array) {
 						if(!empty($document_array)) {
