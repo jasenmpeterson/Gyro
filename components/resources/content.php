@@ -10,6 +10,14 @@ if ($query->have_posts() ) :
 	;?>
 	<div class="col interior__page__content content__with__sidebar content__contain <?php if(empty($documents)): echo 'no-right-sidebar'; endif; ?> technology__and__services__content" data-emergence="hidden">
         <div class="resources--list" id="resource-list">
+			<div class="filter-buttons">
+				<button class="case_studies">Case Studies</button>
+				<button class="articles">Articles</button>
+				<button class="flyers">Flyers</button>
+				<button class="specs">Specs</button>
+				<button class="tech_papers">Tech Papers</button>
+			</div>
+			<div class="filter-list__messages"></div>
 			<ul class="list">
 				<?php
 					$duplicates = array();
@@ -28,7 +36,7 @@ if ($query->have_posts() ) :
 									foreach($document as $doc) {
 										if(!in_array($doc['title'], $duplicates )):
 											array_push($duplicates, $doc['title'] );
-											echo '<li class="resource--wrap" data-id="'.$key.'" class="'.$key.'"><a href="'.$doc['document'].'">';
+											echo '<li class="'.$key.'"><a href="'.$doc['document'].'">';
 											echo '<figure><img src="'.get_template_directory_uri().'/assets/images/raw/pdf-icon.svg"></figure>';
 											echo '<article>'.$doc['title'].'</article>';
 											echo '</a></li>';
@@ -40,6 +48,7 @@ if ($query->have_posts() ) :
 					}
 				?>
 			</ul>
+			<ul class="filter-pagination"></ul>
         </div>
 	</div>
 <?php

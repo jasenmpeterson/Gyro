@@ -2234,11 +2234,57 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* 19 */
 /***/function (module, exports) {
 
-  if (document.querySelector(".resources--list") !== null) {
-    var options = {
-      valieNames: [{ data: ['id'] }]
-    };
-    var list = new List('resource-list', options);
+  if (document.querySelector('.resources--list') !== null) {
+    var button;
+
+    (function () {
+      var options = {
+        valueNames: ['case_studies', 'specs', 'flyers', 'articles', 'tech_papers'],
+        page: 10,
+        pagination: [{
+          paginationClass: 'filter-pagination',
+          innerWindow: 1,
+          left: 0,
+          right: 0
+        }]
+      };
+      var list = new List('resource-list', options);
+      var filterButtons = document.querySelectorAll('.filter-buttons button');
+      var filterMessage = document.querySelector('.filter-list__messages');
+      var _iteratorNormalCompletion16 = true;
+      var _didIteratorError16 = false;
+      var _iteratorError16 = undefined;
+
+      try {
+        for (var _iterator16 = filterButtons[Symbol.iterator](), _step16; !(_iteratorNormalCompletion16 = (_step16 = _iterator16.next()).done); _iteratorNormalCompletion16 = true) {
+          button = _step16.value;
+
+          button.addEventListener('click', function (e) {
+            var doctype = e.target.className;
+            list.filter(function (item) {
+              if (item.elm.classList.contains(doctype)) {
+                return true;
+              } else {
+                return false;
+              }
+            });
+          });
+        }
+      } catch (err) {
+        _didIteratorError16 = true;
+        _iteratorError16 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion16 && _iterator16.return) {
+            _iterator16.return();
+          }
+        } finally {
+          if (_didIteratorError16) {
+            throw _iteratorError16;
+          }
+        }
+      }
+    })();
   }
 
   /***/
@@ -2337,13 +2383,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     animateLink("0", target, 0, 0.5);
   }
 
-  var _iteratorNormalCompletion16 = true;
-  var _didIteratorError16 = false;
-  var _iteratorError16 = undefined;
+  var _iteratorNormalCompletion17 = true;
+  var _didIteratorError17 = false;
+  var _iteratorError17 = undefined;
 
   try {
-    for (var _iterator16 = technologyLinks[Symbol.iterator](), _step16; !(_iteratorNormalCompletion16 = (_step16 = _iterator16.next()).done); _iteratorNormalCompletion16 = true) {
-      var link = _step16.value;
+    for (var _iterator17 = technologyLinks[Symbol.iterator](), _step17; !(_iteratorNormalCompletion17 = (_step17 = _iterator17.next()).done); _iteratorNormalCompletion17 = true) {
+      var link = _step17.value;
 
       link.addEventListener("mouseenter", function (e) {
         enterLink(e.target);
@@ -2355,16 +2401,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     /***/
   } catch (err) {
-    _didIteratorError16 = true;
-    _iteratorError16 = err;
+    _didIteratorError17 = true;
+    _iteratorError17 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion16 && _iterator16.return) {
-        _iterator16.return();
+      if (!_iteratorNormalCompletion17 && _iterator17.return) {
+        _iterator17.return();
       }
     } finally {
-      if (_didIteratorError16) {
-        throw _iteratorError16;
+      if (_didIteratorError17) {
+        throw _iteratorError17;
       }
     }
   }
