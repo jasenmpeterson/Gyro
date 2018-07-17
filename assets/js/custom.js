@@ -2261,12 +2261,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           button.addEventListener('click', function (e) {
             var doctype = e.target.className;
             var currActiveButton = document.querySelector('.filter-buttons button.active');
+            if (e.target.classList.contains('active')) {
+              e.target.classList.remove('active');
+              list.filter();
+              return;
+            }
             if (currActiveButton !== null) {
-              currActiveButton.disabled = false;
               currActiveButton.classList.remove('active');
             }
             e.target.classList.add('active');
-            e.target.disabled = true;
             list.filter(function (item) {
               if (item.elm.classList.contains(doctype)) {
                 return true;
