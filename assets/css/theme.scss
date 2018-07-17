@@ -1833,12 +1833,19 @@ td {
   li:not(.disabled) a {
     display: block;
     box-shadow: 0 3px 8px rgba(0,0,0,0.05), 0 3px 8px rgba(0,0,0,0.05);
+    background-color: #fff;
     border-radius: 4px;
     padding: 4px 8px;
     border: 1px solid rgba(0,0,0,0.10);
+    transition: all 350ms ease;
+    &:hover {
+      background-color: #eb0029;
+      color: #fff;
+    }
   }
-  .active a {
-    color: #eb0029;
+  li.active a {
+    background-color: #eb0029;
+    color: #fff;
   }
   .disabled a {
     cursor: default;

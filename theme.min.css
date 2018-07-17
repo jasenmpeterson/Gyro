@@ -351,8 +351,9 @@ th,td{width:15%;font-size:14px}
 .filter-pagination li{display:inline-block}
 .filter-pagination li:not(:last-of-type){margin-right:5px}
 .filter-pagination a{color:#5d6771;-webkit-transition:color 350ms ease;transition:color 350ms ease;text-decoration:none}
-.filter-pagination li:not(.disabled) a{display:block;box-shadow:0 3px 8px rgba(0,0,0,0.05),0 3px 8px rgba(0,0,0,0.05);border-radius:4px;padding:4px 8px;border:1px solid rgba(0,0,0,0.1)}
-.filter-pagination .active a{color:#eb0029}
+.filter-pagination li:not(.disabled) a{display:block;box-shadow:0 3px 8px rgba(0,0,0,0.05),0 3px 8px rgba(0,0,0,0.05);background-color:#fff;border-radius:4px;padding:4px 8px;border:1px solid rgba(0,0,0,0.1);-webkit-transition:all 350ms ease;transition:all 350ms ease}
+.filter-pagination li:not(.disabled) a:hover{background-color:#eb0029;color:#fff}
+.filter-pagination li.active a{background-color:#eb0029;color:#fff}
 .filter-pagination .disabled a{cursor:default}
 .filter-pagination .disabled a:hover{color:#5d6771}
 .menu-item-type-custom>a{cursor:default}
