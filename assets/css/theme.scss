@@ -1855,6 +1855,24 @@ td {
   }
 }
 
+.filter-buttons button {
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05), 0 3px 8px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.10);
+  padding: 4px 8px;
+  transition: all 350ms ease;
+  cursor: pointer;
+  &:hover,
+  &.active {
+    background-color: #eb0029;
+    color: #fff;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
 .menu-item-type-custom > a {
   cursor: default;
 }

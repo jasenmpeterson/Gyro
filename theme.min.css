@@ -356,6 +356,9 @@ th,td{width:15%;font-size:14px}
 .filter-pagination li.active a{background-color:#eb0029;color:#fff}
 .filter-pagination .disabled a{cursor:default}
 .filter-pagination .disabled a:hover{color:#5d6771}
+.filter-buttons button{border-radius:4px;background-color:#fff;box-shadow:0 3px 8px rgba(0,0,0,0.05),0 3px 8px rgba(0,0,0,0.05);border:1px solid rgba(0,0,0,0.1);padding:4px 8px;-webkit-transition:all 350ms ease;transition:all 350ms ease;cursor:pointer}
+.filter-buttons button:hover,.filter-buttons button.active{background-color:#eb0029;color:#fff}
+.filter-buttons button:focus{outline:0}
 .menu-item-type-custom>a{cursor:default}
 .drill__down,.drill__down ul{list-style-type:none;padding:0;margin:0}
 .drill__down{padding:10px}

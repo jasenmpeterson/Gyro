@@ -2250,7 +2250,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
       var list = new List('resource-list', options);
       var filterButtons = document.querySelectorAll('.filter-buttons button');
-      var filterMessage = document.querySelector('.filter-list__messages');
       var _iteratorNormalCompletion16 = true;
       var _didIteratorError16 = false;
       var _iteratorError16 = undefined;
@@ -2261,6 +2260,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           button.addEventListener('click', function (e) {
             var doctype = e.target.className;
+            var currActiveButton = document.querySelector('.filter-buttons button.active');
+            if (currActiveButton !== null) {
+              currActiveButton.disabled = false;
+              currActiveButton.classList.remove('active');
+            }
+            e.target.classList.add('active');
+            e.target.disabled = true;
             list.filter(function (item) {
               if (item.elm.classList.contains(doctype)) {
                 return true;
