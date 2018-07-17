@@ -36,7 +36,7 @@ if ($query->have_posts() ) :
 									foreach($document as $doc) {
 										if(!in_array($doc['title'], $duplicates )):
 											array_push($duplicates, $doc['title'] );
-											echo '<li class="'.$key.'"><a href="'.$doc['document'].'">';
+											echo '<li class="'.$key.'"><a href="'.$doc['document'].'" target="_blank">';
 											echo '<figure><img src="'.get_template_directory_uri().'/assets/images/raw/pdf-icon.svg"></figure>';
 											echo '<article>'.$doc['title'].'</article>';
 											echo '</a></li>';
