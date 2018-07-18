@@ -14,14 +14,14 @@
 					$background_image = get_field('static_banner', $child->ID);
 				?>
 				<div class="child__wrap" style="background: url('<?php echo $background_image['image']['url'] ;?>'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
-					<div class="tint"></div>
-					<div class="inner-wrap">
-						<h1><?php echo $child->post_title ?></h1>
-						<?php echo wpautop($child->post_content); ?>
-						<a class="button fade-in" href="<?php echo get_permalink($child->ID); ?>" data-text="Learn more">
-							<span>Learn more</span>
-						</a>
-					</div>
+					<a href="<?php echo get_permalink($child->ID); ?>">
+						<div class="tinter"></div>
+						<div class="inner-wrap">
+							<h1><?php echo $child->post_title ?></h1>
+							<?php echo wpautop($child->post_content); ?>
+							<p class="learn-more__button"><span>Learn more</span></p>
+						</div>
+					</a>
                 </div>
 
 			<?php
