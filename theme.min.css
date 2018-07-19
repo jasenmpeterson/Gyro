@@ -477,6 +477,20 @@ th,td{width:15%;font-size:14px}
 .our__culture__video *{color:#fff}
 .our__culture__video .col{padding:35px}
 .our__culture__video .clippy{-webkit-clip-path:polygon(100% 23%,0 100%,100% 100%);clip-path:polygon(100% 23%,0 100%,100% 100%);position:absolute;right:0;bottom:0;width:100%;height:1024px;background-color:#2a3036}
+.core-values__diagram{max-width:990px;margin:0 auto;display:block;opacity:0;-webkit-transform:translateY(50px);-ms-transform:translateY(50px);transform:translateY(50px)}
+.core-values__diagram .circle-one{stroke-width:15;stroke:#5d6770;fill:none;stroke-miterlimit:10;opacity:0}
+.core-values__diagram .circle-two{stroke:#b22029;stroke-width:15;opacity:0;fill:none;stroke-miterlimit:10}
+.core-values__diagram .circle-three{stroke:#fbaa1c;stroke-width:15;fill:none;stroke-miterlimit:10;opacity:0}
+.core-values__diagram .circle-four{stroke:#8a8b8c;stroke-width:15;fill:none;stroke-miterlimit:10;opacity:0}
+.core-values__diagram .circle-five{stroke:#ea1d2d;stroke-width:15;fill:none;stroke-miterlimit:10;opacity:0}
+.core-values__diagram .circle-six{stroke-width:.5;stroke:#fbaa1c;fill:none;stroke-miterlimit:10;opacity:0}
+.core-values__diagram .circle-seven{stroke-width:.44;stroke:#8a8b8c;fill:none;stroke-miterlimit:10;opacity:0}
+.core-values__diagram .circle-eight{opacity:0;stroke-width:3.16;stroke-dasharray:.5 3.17;stroke:#fbaa1c;fill:none;stroke-miterlimit:10}
+.core-values__diagram .cls-6,.core-values__diagram .cls-8{fill:none;stroke-miterlimit:10;stroke:#8a8b8c}
+.core-values__diagram .cls-6{stroke-width:.5px;opacity:0}
+.core-values__diagram .cls-8{stroke-width:6.32px;stroke-dasharray:1.01 6.33;opacity:0}
+.core-values__diagram .cls-11,.core-values__diagram .cls-8{isolation:isolate}
+.core-values__diagram .cls-12{fill:#5b6670}
 #map{height:900px;position:relative;top:-90px}
 .map__wrapper{position:relative;width:100%}
 .location__module__wrapper{position:absolute;top:0;bottom:0;margin:auto;z-index:2;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}

@@ -112,16 +112,119 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   /* harmony export (immutable) */__webpack_exports__["coreValuesAnimation"] = coreValuesAnimation;
   // core values -- about page
+  var tl = new TimelineMax();
+  var played = false;
+  tl.pause();
   function coreValuesAnimation(element) {
     if (element.classList.contains("core__values")) {
-      var coreValuesHeader = document.querySelector(".core__values h2.title");
-      var coreValueContent = document.querySelectorAll(".core__values .content__wrap");
-      TweenMax.to(coreValuesHeader, 0.5, { opacity: 1, y: 0 });
-      TweenMax.staggerTo(coreValueContent, 0.5, {
-        opacity: 1,
-        y: 0,
-        delay: 0.5
-      }, 0.2);
+      if (!played) {
+        var diagram = document.querySelector('.core-values__diagram');
+        var circleOne = document.querySelector('.core-values__diagram .circle-one ');
+        var circleTwo = document.querySelector('.core-values__diagram .circle-two');
+        var circleThree = document.querySelector('.core-values__diagram .circle-three');
+        var circleFour = document.querySelector('.core-values__diagram .circle-four');
+        var circleFive = document.querySelector('.core-values__diagram .circle-five');
+        var circleSix = document.querySelector('.core-values__diagram .circle-six');
+        var circleSeven = document.querySelector('.core-values__diagram .circle-seven');
+        var circleEight = document.querySelector('.core-values__diagram .circle-eight');
+        var clssix = document.querySelectorAll('.core-values__diagram .cls-6');
+        var clseight = document.querySelectorAll('.core-values__diagram .cls-8');
+        tl.add(TweenMax.to(diagram, 1, {
+          y: 0,
+          opacity: 1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.fromTo(circleOne, 1, {
+          drawSVG: 0
+        }, {
+          rotation: -360,
+          opacity: 1,
+          drawSVG: '100%',
+          delay: -0.8,
+          transformOrigin: '55% 55%',
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.fromTo(circleTwo, 1, {
+          drawSVG: 0
+        }, {
+          drawSVG: '100%',
+          opacity: 1,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.fromTo(circleThree, 1, {
+          drawSVG: 0
+        }, {
+          drawSVG: '100%',
+          opacity: 1,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.fromTo(circleFour, 1, {
+          drawSVG: 0
+        }, {
+          drawSVG: '100%',
+          opacity: 1,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.fromTo(circleFive, 1, {
+          drawSVG: 0
+        }, {
+          drawSVG: '100%',
+          opacity: 1,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.fromTo(circleSix, 1, {
+          drawSVG: 0
+        }, {
+          drawSVG: '100%',
+          opacity: 1,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.fromTo(circleSeven, 1, {
+          drawSVG: 0
+        }, {
+          drawSVG: '100%',
+          opacity: 1,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.fromTo(circleThree, 1, {
+          drawSVG: 0
+        }, {
+          drawSVG: '100%',
+          opacity: 1,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.to(circleEight, 1, {
+          transformOrigin: '50% 50%',
+          rotation: 360,
+          opacity: 1,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.fromTo(clssix, 1, {
+          drawSVG: 0
+        }, {
+          drawSVG: '100%',
+          opacity: 1,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.add(TweenMax.to(clseight, 1, {
+          transformOrigin: '50% 50%',
+          rotation: 360,
+          opacity: 0.50,
+          delay: -1,
+          ease: Power2.easeOut
+        }));
+        tl.play();
+        played = true;
+      }
     }
   }
 
