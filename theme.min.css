@@ -81,7 +81,7 @@ http://flickity.metafizzy.co
 .static__banner h2.title,.static__banner p{opacity:0;-webkit-transform:translateY(20px);-ms-transform:translateY(20px);transform:translateY(20px)}
 .static__banner h2.title{margin-bottom:10px}
 .static__banner .background__image{-webkit-transform:translateX(200px);-ms-transform:translateX(200px);transform:translateX(200px);opacity:0}
-.static__banner__background__color .static__banner{background-color:#710014;height:400px}
+.static__banner__background__color .static__banner{background-color:#710014;height:250px}
 .static__banner__background__color .static__banner .row{height:100%}
 .static__banner__background__color .static__banner .row .col:first-child{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
 .static__banner__background__color .static__banner .content__wrap p,.static__banner__background__color .static__banner .content__wrap h2{color:#fff}
@@ -292,8 +292,8 @@ ul,ol{padding:0;margin:35px 0}
 li:not(:last-child){margin-bottom:15px}
 ul.documents{list-style-type:none;font-size:14px}
 ul.documents img{width:25px;height:25px}
-ul.documents li a{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background-color:#f8f8f8;padding:20px;margin-bottom:15px;color:#5d6771;text-decoration:none;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
-ul.documents figure{margin:0 15px 0 0}
+ul.documents li a{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background-color:#f8f8f8;padding:20px 20px 20px 40px;margin-bottom:15px;color:#5d6771;text-decoration:none;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;position:relative}
+ul.documents figure{position:absolute;height:25px;width:25px;top:0;left:10px;bottom:0;margin:auto}
 .text__align__center{text-align:center}
 .text__align__right{text-align:right}
 .span__block{display:block}
@@ -530,7 +530,7 @@ span.region{display:none}
 .location__module .loader{position:absolute;right:0;left:0;bottom:0;top:0;margin:auto;width:44px;height:44px;opacity:1;-webkit-transition:opacity 300ms ease-out;transition:opacity 300ms ease-out}
 .location__module .loader.inactive{opacity:0}
 .locations__button__wrap.cities{height:150px;overflow-y:scroll}
-.content__with__sidebar{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}
+.content__with__sidebar{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;width:100%}
 .content__contain .content__wrap{padding-left:35px;padding-right:35px}
 .content__contain .content__wrap:first-child{padding-top:65px}
 .content__contain .content__wrap:last-child{padding-bottom:65px}
@@ -573,6 +573,7 @@ span.region{display:none}
 .single__page a{color:#eb0029}
 .page-intro{background-color:#2a3036;border-radius:4px}
 .page-intro *{color:#fff}
+.page-intro p:first-child{margin-top:0}
 .page-intro,.parent__page .child__wrap{padding:25px}
 .page-intro .wrap,.parent__page .child__wrap .wrap{width:100%}
 .parent__page .content__wrap{padding:0}
@@ -741,7 +742,8 @@ footer a:not(:last-child){margin-right:15px;margin-bottom:0}
 .rotating__banner .carousel__cell:after,.rotating__banner .carousel__cell .row:before{display:block}
 .rotating__banner .carousel__cell .row:after{background-color:rgba(255,255,255,0.8)}
 }@media screen and (min-width:990px){.grand-parent__page .inner-wrap{max-width:60%}
-}@media screen and (min-width:1024px){.rotating__banner .col{width:650px}
+}@media screen and (min-width:1024px){.static__banner__background__color .static__banner{height:400px}
+.rotating__banner .col{width:650px}
 .content__slider .carousel__cell .row .col:first-child{width:50%}
 .content__slider .carousel__cell .row .col:last-child{width:50%}
 .product__background{top:0}
@@ -761,6 +763,7 @@ li[class^="icon-"]:before,li[class^="icon-"] a:before{opacity:.3}
 h1{font-size:40px}
 h3{font-size:20px}
 .icon__list img{width:50px}
+.content__with__sidebar{width:50%}
 .page-intro .wrap,.parent__page .child__wrap .wrap{width:65%}
 .grand-parent__page .interior__page__content{width:75%}
 }@media screen and (min-width:1200px){.core__values .col:first-child:after{right:60px}

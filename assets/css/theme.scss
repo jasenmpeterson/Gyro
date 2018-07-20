@@ -1468,15 +1468,22 @@ ul.documents img {
 ul.documents li a {
   display: flex;
   background-color: #F8F8F8;
-  padding: 20px;
+  padding: 20px 20px 20px 40px;
   margin-bottom: 15px;
   color: #5d6771;
   text-decoration: none;
   align-items: center;
+  position: relative;
 }
 
 ul.documents figure {
-  margin: 0 15px 0 0;
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: 0;
+  left: 10px;
+  bottom: 0;
+  margin: auto;
 }
 
 // -- helpers
