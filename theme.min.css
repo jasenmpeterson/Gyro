@@ -431,7 +431,7 @@ th,td{width:15%;font-size:14px}
 .core__values .col:first-child:after{position:absolute;top:0;content:'';display:block;width:1px;height:0;opacity:0;background-color:rgba(255,255,255,0.2)}
 .core__values h2{-webkit-align-self:flex-start;-ms-flex-item-align:start;align-self:flex-start;opacity:0;-webkit-transform:translateY(-20px);-ms-transform:translateY(-20px);transform:translateY(-20px)}
 .core__values .content__wrap{opacity:0;-webkit-transform:translateY(20px);-ms-transform:translateY(20px);transform:translateY(20px)}
-.history__chart__intro{padding:70px 0 30px 0;width:900px;max-width:100%;margin:0 auto;color:#fff;text-align:center;-webkit-transition:all 350ms;transition:all 350ms;opacity:0;-webkit-transform:translateY(50px);-ms-transform:translateY(50px);transform:translateY(50px)}
+.history__chart__intro{padding:40px;width:900px;max-width:100%;margin:0 auto;color:#fff;text-align:center;-webkit-transition:all 350ms;transition:all 350ms;opacity:0;-webkit-transform:translateY(50px);-ms-transform:translateY(50px);transform:translateY(50px)}
 .history__chart__intro p{margin-top:0}
 .history__chart__intro.active{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 .history__blocks{background-color:#18191a}
@@ -454,9 +454,9 @@ th,td{width:15%;font-size:14px}
 .history__blocks .wrap.active h3{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 .history__blocks .wrap.active p{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 .history__blocks .wrap:hover .tint__primary{background-color:rgba(0,0,0,0.8)}
-.our__history.about__page{background-color:#18191a;position:relative;min-height:100vh;overflow:hidden;padding-bottom:100px}
+.our__history.about__page{background-color:#18191a;position:relative;padding-bottom:100px;overflow:scroll}
 .our__history .svg__wrap{padding:40px 0;max-width:100%;margin:0 auto;min-height:100vh}
-.our__history .svg__wrap svg{width:100%}
+.our__history .svg__wrap svg{width:80%;display:block;margin:0 auto}
 .our__history svg{padding-top:40px}
 .our__history .cls-1{fill:#fff}
 .our__history .cls-4{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:.181px}
@@ -464,10 +464,10 @@ th,td{width:15%;font-size:14px}
 .our__history circle,.our__history path{opacity:0}
 .our__history svg.arrow{padding:0}
 .our__history svg.arrow path{opacity:1;fill:#FFF}
-.our__history .date{position:absolute;top:550px;left:0;right:0;margin:auto;width:152px;max-width:100%;opacity:0}
+.our__history .date{position:absolute;top:410px;left:0;right:0;margin:auto;width:152px;max-width:100%;opacity:0}
 .our__history h1.title{position:relative;color:#fff;font-size:70px}
 .our__history h1.title:before{position:absolute;bottom:50px;left:0;right:0;margin:auto}
-.our__history .arrow__controls{width:990px;max-width:100%;position:absolute;top:800px;left:0;right:0;margin:auto}
+.our__history .arrow__controls{width:990px;max-width:100%;position:absolute;top:550px;left:0;right:0;margin:auto}
 .history__chart .content__wrap{position:relative;top:30px}
 .history__chart__content{position:absolute;left:0;right:0;margin:auto;width:650px;max-width:100%;text-align:center;opacity:0;visibility:hidden;padding:40px}
 .history__chart__content.active{opacity:1;visibility:visible}
@@ -723,8 +723,11 @@ footer a:not(:last-child){margin-right:15px;margin-bottom:0}
 .core__values .col:first-child{width:20%}
 .core__values .col:first-child:after{right:40px;left:auto}
 .core__values .col:last-child{width:50%}
+.history__chart__intro{padding:70px 0 30px 0}
 .history__blocks .col{width:50%}
 .history__blocks .wrap p{font-size:16px}
+.our__history .date{top:550px}
+.our__history .arrow__controls{top:800px}
 .history__chart__content{top:650px}
 .history__chart__content h2{font-size:33px}
 .our__culture__video .col:first-child{width:40%}
@@ -747,6 +750,7 @@ h3{font-size:18px}
 .technology__and__services .col{width:50%}
 .technology__and__services{font-size:14px}
 .history .col{width:45%}
+.our__history .svg__wrap svg{width:100%}
 }@media screen and (min-width:1076px){li[class^="icon-"]:before,li[class^="icon-"] a:before{font-size:16px;left:-20px}
 }@media screen and (min-width:1100px){.col.sidebar{width:25%}
 .sidebar_row{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row}
