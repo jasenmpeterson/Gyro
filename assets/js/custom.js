@@ -2311,10 +2311,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var mobileMenuParent = document.querySelectorAll(".mobile__menu li span");
 
   hamburgerMenu.addEventListener("click", function () {
-    TweenMax.to(mobileMenu, 0.3, {
+    TweenMax.to(mobileMenu, 0.6, {
       opacity: 1,
       x: 0,
-      ease: Power2.easeIn
+      ease: Power2.easeOut
     });
     mobileMenu.classList.add("open");
   });
@@ -2324,7 +2324,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     TweenMax.to(mobileMenu, 0.3, {
       opacity: 0,
       x: -100,
-      ease: Power2.easeOut
+      ease: Power2.easeIn
     });
   });
 
@@ -2472,59 +2472,38 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   // TODO: NEED TO MAKE THIS A LITTLE LESS SPECIFIC SO IT WORKS WITH ICON LIST IN GENERAL.
 
-  var technologyLinks = document.querySelectorAll(".technology__and__services a");
+  // let technologyLinks = document.querySelectorAll(".technology__and__services a");
 
-  function animateLink(translateX, target, opacity, delay) {
-    TweenMax.to(target.querySelector("article"), 0.5, {
-      x: translateX,
-      delay: delay,
-      overwrite: "all"
-    });
-    TweenMax.to(target.querySelector("span"), 0.5, {
-      opacity: opacity,
-      delay: 0.25,
-      overwrite: "all"
-    });
-  }
+  // function animateLink(translateX, target, opacity, delay) {
+  //     TweenMax.to(target.querySelector("article"), 0.5, {
+  //         x: translateX,
+  //         delay: delay,
+  //         overwrite: "all"
+  //     });
+  //     TweenMax.to(target.querySelector("span"), 0.5, {
+  //         opacity: opacity,
+  //         delay: 0.25,
+  //         overwrite: "all"
+  //     });
+  // }
 
-  function enterLink(target) {
-    animateLink("145", target, 1);
-  }
+  // function enterLink (target) {
+  //     animateLink("145", target, 1);
+  // }
 
-  function leaveLink(target) {
-    animateLink("0", target, 0, 0.5);
-  }
+  // function leaveLink (target) {
+  //     animateLink("0", target, 0, 0.5);
+  // }
 
-  var _iteratorNormalCompletion17 = true;
-  var _didIteratorError17 = false;
-  var _iteratorError17 = undefined;
+  // for(let link of technologyLinks) {
+  //     link.addEventListener("mouseenter", function (e) {
+  //         enterLink(e.target);
+  //     });
+  //     link.addEventListener("mouseleave", function (e) {
+  //         leaveLink(e.target);
+  //     });
+  // }
 
-  try {
-    for (var _iterator17 = technologyLinks[Symbol.iterator](), _step17; !(_iteratorNormalCompletion17 = (_step17 = _iterator17.next()).done); _iteratorNormalCompletion17 = true) {
-      var link = _step17.value;
 
-      link.addEventListener("mouseenter", function (e) {
-        enterLink(e.target);
-      });
-      link.addEventListener("mouseleave", function (e) {
-        leaveLink(e.target);
-      });
-    }
-
-    /***/
-  } catch (err) {
-    _didIteratorError17 = true;
-    _iteratorError17 = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion17 && _iterator17.return) {
-        _iterator17.return();
-      }
-    } finally {
-      if (_didIteratorError17) {
-        throw _iteratorError17;
-      }
-    }
-  }
-}]
+  /***/}]
 /******/);

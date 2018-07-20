@@ -44,6 +44,10 @@
   padding: 20px 0;
   text-decoration: none;
   color: #ffffff;
+  transition: all 350ms ease;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 .technology__and__services,

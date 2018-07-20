@@ -41,6 +41,12 @@ body {
 
 .component {
   padding: 0 40px;
+  @media screen and (max-width: 766px) {
+    &.news__posts {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
 }
 
 img {
@@ -298,7 +304,10 @@ li[class^="icon-"] a:before {
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    opacity: .3;
+    opacity: 1;
+    @media screen and (min-width: 1100px) {
+      opacity: .3;
+    }
     transition: color 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940), opacity 300ms cubic-bezier(0.250, 0.460, 0.450, 0.940) 200ms;
 }
 
@@ -680,7 +689,7 @@ input.search {
   width: 100%;
   transform: translateX(-100px);
   opacity: 0;
-  transition: all 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  // transition: all 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
   z-index: $z-over-all;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
   pointer-events: none;
@@ -935,7 +944,10 @@ input.search {
   opacity: 1;
 }
 .rotating__banner .flickity-page-dots {
-  bottom: 115px;
+  bottom: 100px;
+  @media screen and (min-width: 768px) {
+    bottom: 115px;
+  }
   @media screen and (min-width:767px) {
     left: 80px;
   }
@@ -983,14 +995,26 @@ input.search {
 
 .rotating__banner .carousel__cell {
   height: 100%;
-  background-position: center;
+  background-position: left center;
   background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (min-width: 768px) {
+    background-position: center center;
+  }
 }
+
+.rotating__banner .carousel__cell:after,
+.rotating__banner .carousel__cell .row:before {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
+
 
 .rotating__banner .carousel__cell:after {
   content: "";
   clip-path: polygon(0 0, 100% 65%, 100% 100%, 0% 100%);
-  display: block;
   background-color: rgba(255,255,255,0.4);
   position: absolute;
   top: 0;
@@ -1003,7 +1027,6 @@ input.search {
 .rotating__banner .carousel__cell .row:before {
   content: "";
   clip-path: polygon(0 0, 100% 0, 65% 100%, 0% 100%);
-  display: block;
   background-color: rgba(255,255,255,0.6);
   position: absolute;
   top: 0;
@@ -1014,10 +1037,13 @@ input.search {
 }
 
 .rotating__banner .carousel__cell .row:after {
+  background-color: rgba(255,255,255,0.6);
+  @media screen and (min-width: 768px) {
+    background-color: rgba(255,255,255,0.8);
+  }
+  display: block;
   content: "";
   clip-path: polygon(0 0, 100% 0, 65% 100%, 0% 100%);
-  display: block;
-  background-color: rgba(255,255,255,0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -1092,7 +1118,7 @@ input.search {
 
 .content__slider .carousel__cell .row .col:last-child {
   @media screen and (min-width: 1024px) {
-    width: 40%;
+    width: 50%;
   }
 }
 
@@ -1115,7 +1141,7 @@ input.search {
 
 .content__slider .content__wrap.last:before {
   content: '';
-  display: block;
+  display: none;
   width: 4px;
   height: 0;
   opacity: 0;
@@ -1289,7 +1315,10 @@ input.search {
 
 .product__background {
   position: absolute;
-  top: 0;
+  top: -300px;
+  @media screen and(min-width: 1024px) {
+    top: 0;
+  }
   left: 0;
   bottom: 0;
   right: 0;
@@ -1874,6 +1903,13 @@ td {
 
 .menu-item-type-custom > a {
   cursor: default;
+}
+
+#menu-footer-menu {
+  @media screen and (max-width: 767px) {
+    padding-left: 0;
+    justify-content: flex-start;
+  }
 }
 
 @import "drill-down";
