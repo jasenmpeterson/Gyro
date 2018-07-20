@@ -1,11 +1,11 @@
 .content__with__sidebar {
   flex: 1;
-  @media screen and (min-width: 320px) {
-    width: 100%;
-  }
-  @media screen and (min-width: 767px) {
-    width: 50%;
-  }
+  // @media screen and (min-width: 320px) {
+  //   width: 100%;
+  // }
+  // @media screen and (min-width: 767px) {
+  //   width: 50%;
+  // }
 }
 .content__contain .content__wrap {
   padding-left: 35px;
@@ -164,7 +164,8 @@
 
 .no-right-sidebar {
   flex: 0;
-  flex-basis: 50%;
+  flex-basis: 75%;
+  width: 100%;
 }
 .interior__page__content ul,
 .content__wrapper__generic ul {
@@ -191,9 +192,22 @@
 .page-intro {
   background-color: #2A3036;
   border-radius: 4px;
-  padding: 45px;
   * {
     color: #fff;
+  }
+}
+
+.page-intro,
+.parent__page .child__wrap {
+  padding: 25px;
+  @media screen and (min-width: 767px) {
+    padding: 45px;
+  };
+  .wrap {
+    width: 100%;
+    @media screen and (min-width: 1100px) {
+      width: 65%;
+    };
   }
 }
 
@@ -212,7 +226,6 @@
 }
 
 .parent__page .child__wrap {
-  padding: 45px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.05), 0 3px 12px rgba(0,0,0,0.05);
   margin-bottom: 25px;
   border-radius: 0 0 4px 4px;

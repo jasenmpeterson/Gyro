@@ -564,19 +564,21 @@ span.region{display:none}
 .generic__page *:first-child{margin-top:0}
 .content__wrapper__generic .static__banner{text-align:center}
 .content__wrapper__generic .static__banner h2{display:inline-block}
-.no-right-sidebar{-webkit-box-flex:0;-webkit-flex:0;-ms-flex:0;flex:0;-webkit-flex-basis:50%;-ms-flex-preferred-size:50%;flex-basis:50%}
+.no-right-sidebar{-webkit-box-flex:0;-webkit-flex:0;-ms-flex:0;flex:0;-webkit-flex-basis:75%;-ms-flex-preferred-size:75%;flex-basis:75%;width:100%}
 .interior__page__content ul,.content__wrapper__generic ul{padding-left:20px}
 .child__wrap{padding:45px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
 .child__wrap h3{margin-top:0}
 .content__wrap h3:first-child{margin-top:0}
 .single__page{position:relative;z-index:1}
 .single__page a{color:#eb0029}
-.page-intro{background-color:#2a3036;border-radius:4px;padding:45px}
+.page-intro{background-color:#2a3036;border-radius:4px}
 .page-intro *{color:#fff}
+.page-intro,.parent__page .child__wrap{padding:25px}
+.page-intro .wrap,.parent__page .child__wrap .wrap{width:100%}
 .parent__page .content__wrap{padding:0}
 .parent__page .content__wrap h1{color:#eb002a}
 .parent__page .child__wrap,.page-intro{width:98%;margin:25px auto}
-.parent__page .child__wrap{padding:45px;box-shadow:0 3px 12px rgba(0,0,0,0.05),0 3px 12px rgba(0,0,0,0.05);margin-bottom:25px;border-radius:0 0 4px 4px;position:relative}
+.parent__page .child__wrap{box-shadow:0 3px 12px rgba(0,0,0,0.05),0 3px 12px rgba(0,0,0,0.05);margin-bottom:25px;border-radius:0 0 4px 4px;position:relative}
 .grand-parent__page .content__wrap,.grand-parent__page .content__wrap:first-child{padding:0}
 .grand-parent__page .child__wrap{padding:0;border:0}
 .grand-parent__page .child__wrap p.learn-more__button{display:inline-block;font-size:13px;height:40px;padding:8px 36px;color:#fff;border:1px solid #ffb100;text-decoration:none;display:inline-block;text-align:center;line-height:22px;vertical-align:middle;position:relative;overflow:hidden;background-color:transparent;background:0;font-weight:400}
@@ -700,7 +702,6 @@ footer .col{width:100%;padding:10px 0}
 .our__culture__video .col:first-child{width:100%}
 .our__culture__video .col:last-child{width:100%}
 .location__module__wrapper{min-width:0;width:100%;right:0}
-.content__with__sidebar{width:100%}
 .block__content__animations article{width:100%}
 .search__title{font-size:18px}
 .post__type__name{padding:10px;font-size:14px}
@@ -732,7 +733,7 @@ footer a:not(:last-child){margin-right:15px;margin-bottom:0}
 .our__culture__video .col:first-child{width:40%}
 .our__culture__video .col:last-child{width:60%}
 .location__module__wrapper{width:550px;right:45px}
-.content__with__sidebar{width:50%}
+.page-intro,.parent__page .child__wrap{padding:45px}
 }@media screen and (min-width:768px){.col.logo{width:25%}
 .rotating__banner .flickity-page-dots{bottom:115px}
 .rotating__banner .col{width:500px}
@@ -760,6 +761,7 @@ li[class^="icon-"]:before,li[class^="icon-"] a:before{opacity:.3}
 h1{font-size:40px}
 h3{font-size:20px}
 .icon__list img{width:50px}
+.page-intro .wrap,.parent__page .child__wrap .wrap{width:65%}
 .grand-parent__page .interior__page__content{width:75%}
 }@media screen and (min-width:1200px){.core__values .col:first-child:after{right:60px}
 }@media screen and (min-width:1400px){.sub-menu{min-width:250px}
