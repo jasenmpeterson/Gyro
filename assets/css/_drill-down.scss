@@ -4,9 +4,6 @@
   padding: 0;
   margin: 0;
 }
-.drill__down {
-  padding: 10px;
-}
 .drill__down li .children {
   overflow: hidden;
   height: 0;
@@ -28,18 +25,21 @@
 .drill__down a {
   margin-bottom: 0;
   display: block;
+  display: flex;
+  align-items: center;
+}
+.drill__down a span {
+  display: block;
   padding: 20px;
 }
 .drill__down  a,
 .drill__down a span {
   font-size: 14px;
   text-decoration: none;
-  display: block;
   color: #95989a;
   -webkit-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
   position: relative;
-  overflow: hidden;
 }
 .drill__down li.list__title {
   margin: 10px 0;
@@ -50,16 +50,13 @@
 .drill__down a:before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 100%;
-  margin: -15px 0 0 1px;
-  width: 60px;
-  height: 25px;
+  width: 100%;
+  height: 100%;
   background: $color-yellow;
   transform-origin: 100% 50%;
-  transform: scale3d(1, 2, 1);
-  transition: transform 300ms, opacity 300ms;
-  transition-timing-function: cubic-bezier(0.7,0,0.9,1);
+  transition: left 350ms ease, opacity 100ms ease;
 }
 .drill__down.children > li.toggle > a:after {
   border-bottom-style: solid;
@@ -79,7 +76,7 @@
 }
 .drill__down a:hover:before,
 .drill__down a.active:before {
-  transform: scale3d(9, 9, 1);
+  left: 0;
 }
 .drill__down a.active.current-page:before {
   background: $color-gray;

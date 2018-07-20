@@ -225,7 +225,10 @@
 }
 
 .grand-parent__page .interior__page__content {
-  width: 75%;
+  
+  @media screen and (min-width: 1100px) {
+    width: 75%;
+  }
 }
 
 .grand-parent__page .child__wrap {
@@ -272,8 +275,8 @@
   a {
     display: flex;
     align-items: center;
-    height: 450px;
     padding: 45px;
+    min-height: 450px;
     text-decoration: none;
     position: relative;
     overflow: hidden;
@@ -312,7 +315,9 @@
 }
 
 .grand-parent__page .inner-wrap {
-  max-width: 60%;
+  @media screen and (min-width: 990px) {
+    max-width: 60%;
+  }
   position: relative;
   z-index: 2;
   * {
